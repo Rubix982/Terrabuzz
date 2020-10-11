@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  api:
+    container_name: api
+    image: server
+    build: ./server
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - frontend
+
+  frontend:
+    container_name: frontend
+    image: client
+    build: ./client
+    stdin_open: true
+    restart: always
+    ports:
+      - "3000:3000"
