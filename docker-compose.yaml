@@ -13,7 +13,7 @@ services:
       - mongo
 
   mysql:
-    container_name: mysql
+    container_name: primary
     image: mysql
     restart: always
     environment:
