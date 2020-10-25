@@ -10,18 +10,31 @@ services:
       - "5000:5000"
     depends_on:
       - mysql
+      - mongo
 
   mysql:
     container_name: mysql
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - "./data/mysql:/var/lib/mysql"
     expose:
       - "3306"
+
+  mongo:
+    container_name: secondary
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
+    volumes:
+      - "./data/mongodb:/data/db"
+    expose:
+      - "27017"
 
   frontend:
     container_name: frontend
