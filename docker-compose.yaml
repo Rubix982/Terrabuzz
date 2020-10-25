@@ -9,7 +9,19 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - frontend
+      - mysql
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - "./data/mysql:/var/lib/mysql"
+    expose:
+      - "3306"
 
   frontend:
     container_name: frontend
@@ -19,3 +31,5 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    depends_on:
+      - api
