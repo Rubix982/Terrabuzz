@@ -6,9 +6,9 @@ name: CI
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,10 +23,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Copy server files
-          uses: garygrossgarten/github-action-scp@release
-          with:
-            local: server
-            remote: home/terrabuzz/Terrabuzz/server
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            privateKey: ${{secrets.PRIVATEKEY}}
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: server
+          remote: home/terrabuzz/Terrabuzz/server
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{secrets.PRIVATEKEY}}
