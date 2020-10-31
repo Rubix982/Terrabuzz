@@ -1,3 +1,3 @@
 module.exports.getHomePage = (req, res) => {
-  res.json({ msg: "HELLO WORLD!!" });
+  res.json({ msg: "HELLO WORLD!!!" });
 };
