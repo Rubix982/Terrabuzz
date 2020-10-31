@@ -8,8 +8,8 @@ services:
     volumes:
       - "./server:/Backend"
       - /Backend/node_modules
-    expose:
-      - "5000"
+    ports:
+      - "5000:5000"
 
   web-server:
     container_name: web-server
