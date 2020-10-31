@@ -1,9 +1,15 @@
 FROM node
 
-COPY package*.json ./
+WORKDIR /Backend
+
+COPY ./package.json /Backend/
+
+COPY ./package-lock.json /Backend/
 
 RUN npm install
 
-COPY . .
+COPY ./ /Backend/
 
-CMD ["npm","start"]
+RUN npm install pm2 -g
+
+CMD ["pm2-runtime", "ecosystem.config.js"]

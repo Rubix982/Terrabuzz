@@ -1,14 +1,28 @@
 version: "2"
 
 services:
-  api:
-    container_name: api
-    image: server
+  backend:
+    container_name: backend
     build: ./server
     restart: always
+    volumes:
+      - "./server:/Backend"
+      - /Backend/node_modules
+    expose:
+      - "5000"
+
+  web-server:
+    container_name: web-server
+    build: ./web-server
+    restart: always
+    volumes:
+      - ./web-server/conf.d:/etc/nginx/conf.d
+      - ./web-server/nginx.conf:/etc/nginx/nginx.conf
+      - ./web-server/client/build:/usr/share/nginx/html
     ports:
-      - "5000:5000"
+      - "8080:8080"
     depends_on:
+      - backend
       - mysql
       - mongo
 
@@ -35,14 +49,3 @@ services:
       - "./data/mongodb:/data/db"
     expose:
       - "27017"
-
-  frontend:
-    container_name: frontend
-    image: client
-    build: ./client
-    stdin_open: true
-    restart: always
-    ports:
-      - "3000:3000"
-    depends_on:
-      - api
