@@ -13,7 +13,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  server-build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -27,6 +27,35 @@ jobs:
           with:
             local: server
             remote: home/terrabuzz/Terrabuzz/server
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            privateKey: ${{secrets.PRIVATEKEY}}
+
+    client-build:
+      runs-on: ubuntu-latest
+      
+      env:
+        working-directory: ./web-server/client
+
+      strategy:
+        matrix:
+          node-version: [12.x]
+  
+      steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run build
+      
+      - name: Copy client build files
+          uses: garygrossgarten/github-action-scp@release
+          with:
+            local: ./build
+            remote: home/terrabuzz/Terrabuzz/web-server/client/build
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
             privateKey: ${{secrets.PRIVATEKEY}}
