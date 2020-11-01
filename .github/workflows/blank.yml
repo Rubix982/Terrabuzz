@@ -31,17 +31,17 @@ jobs:
             username: ${{ secrets.USERNAME }}
             privateKey: ${{secrets.PRIVATEKEY}}
 
-    client-build:
-      runs-on: ubuntu-latest
-      
-      env:
-        working-directory: ./web-server/client
+  client-build:
+    runs-on: ubuntu-latest
+    
+    env:
+      working-directory: ./web-server/client
 
-      strategy:
-        matrix:
-          node-version: [12.x]
-  
-      steps:
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
       - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
