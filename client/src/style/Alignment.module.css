@@ -1,0 +1,20 @@
+.rightAlign {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.leftAlign {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.centerAlign {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
