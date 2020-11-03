@@ -1,0 +1,74 @@
+.entry {
+  display: grid;
+  grid-template-rows: 75% 25%;
+  height: 35%;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #242526;
+  border-radius: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.profilePicture {
+  height: 50%;
+  width: 50%;
+  background-color: #3a3b3c;
+  border-radius: 100px;
+}
+
+.postBody {
+  display: grid;
+  grid-template-rows: 40% 60%;
+}
+
+.postTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.postTitle h1,
+.postTitle h2,
+.postText p {
+  color: white;
+  font-weight: lighter;
+}
+
+.postTitle h1 {
+  font-size: 24px;
+}
+
+.postTitle h2 {
+  font-size: 14px;
+}
+
+.postText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.postText p {
+  font-size: 16px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid black;
+}
+
+.stats h1 {
+  color: #9f9f9f;
+  font-size: 24px;
+  font-weight: lighter;
+}
