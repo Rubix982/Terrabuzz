@@ -16,8 +16,10 @@ services:
     build: ./client
     stdin_open: true
     restart: always
-    ports: 
-        - "3000:3000"
+    volumes:
+      - "./client:/App"
+    ports:
+      - "3000:3000"
 
   web-server:
     container_name: web-server
