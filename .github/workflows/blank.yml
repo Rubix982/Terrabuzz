@@ -7,10 +7,12 @@ name: CI
 on:
   push:
     branches: [main]
+    paths:
+      - "server/**"
   pull_request:
     branches: [main]
-  paths:
-    - "server/**"
+    paths:
+      - "server/**"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
