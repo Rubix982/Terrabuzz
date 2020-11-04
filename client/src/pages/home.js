@@ -1,6 +1,6 @@
 import React from "react";
 
-const home = () => {
+const home = ({ children, style }) => {
   return <h1>TERRABUZZ!</h1>;
 };
 
