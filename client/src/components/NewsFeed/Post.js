@@ -2,13 +2,16 @@ import React from "react";
 import ComponentStyling from "../../style/NewsFeed/Post.module.css";
 import { CenterAlign } from "../FlexAlignment.js";
 
+// For images
+import BoyIcon from '../../assets/img/icon/boy(3).svg';
+
 const Post = () => {
   return (
     <div className={ComponentStyling.entry}>
       <div className={ComponentStyling.main}>
         <CenterAlign>
           <div className={ComponentStyling.profilePicture}>
-            <img alt='user icon' src="../../assets/img/icon/boy (3).svg"></img>
+            <img alt='user icon' src={BoyIcon}></img>
           </div>
         </CenterAlign>
         <div className={ComponentStyling.postBody}>
