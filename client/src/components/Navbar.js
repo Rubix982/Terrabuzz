@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import UserProfilePicture from '../../public/assets/img/misc/UserProfilePicture.jpg'
-import NotificationsIcon from '../../public/assets/img/icon/notificationsIcon.svg'
-import SettingsIcon from '../../public/assets/img/icon/settings.svg'
+import UserProfilePicture from '/assets/img/misc/UserProfilePicture.jpg'
+import NotificationsIcon from '/assets/img/icon/notificationsIcon.svg'
+import SettingsIcon from '/assets/img/icon/settings.svg'
 
 import '../style/Navbar.css'
 /* 
