@@ -1,0 +1,6 @@
+.main {
+  width: 90%;
+  height: 90%;
+  display: grid;
+  grid-template-rows: 60% 40%;
+}

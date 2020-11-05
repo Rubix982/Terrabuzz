@@ -1,21 +1,22 @@
-.entry {
+.main {
   display: grid;
-  grid-template-rows: 75% 25%;
-  height: 35%;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: #242526;
+  grid-template-rows: 85% 15%;
+  background-color: #131314;
   border-radius: 20px;
 }
 
-.main {
+.postBody {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-rows: 25% 75%;
+}
+
+.postDescription {
+  display: grid;
+  grid-template-columns: 10% 90%;
 }
 
 .profilePicture {
-  height: 50%;
+  height: 85%;
   width: 50%;
   background-color: #3a3b3c;
   border-radius: 100px;
@@ -24,13 +25,8 @@
 }
 
 .profilePicture img {
-  height: 85%;
+  height: 80%;
   width: 100%;
-}
-
-.postBody {
-  display: grid;
-  grid-template-rows: 40% 60%;
 }
 
 .postTitle {
@@ -38,7 +34,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 1em;
 }
 
 .postTitle h1,
@@ -49,11 +44,7 @@
 }
 
 .postTitle h1 {
-  font-size: 24px;
-}
-
-.postTitle h2 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .postText {
@@ -61,7 +52,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 1em;
+  margin: 1em;
 }
 
 .postText p {
@@ -71,11 +62,13 @@
 .stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid black;
+  background-color: #242526;
+  border-end-start-radius: 20px;
+  border-end-end-radius: 20px;
 }
 
 .stats h1 {
   color: #9f9f9f;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: lighter;
 }
