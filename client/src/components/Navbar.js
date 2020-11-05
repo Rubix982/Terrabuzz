@@ -7,12 +7,12 @@ import '../style/Navbar.css'
    1. Title
    2. First Name Of User
 */
-const Navbar = (props) => {
+const Navbar = ({ title, first_name }) => {
     return (
         <div className="navbar-grid">
             <div className="navbar-items navbar-logo">
                 <h1>
-                    {props.title}
+                    {title}
                 </h1>
             </div>
 
@@ -24,7 +24,7 @@ const Navbar = (props) => {
                 <Link to='/Profile'>
                     <img className="round-img" src='/assets/img/misc/UserProfilePicture.jpg' alt="" />
                 </Link>
-                <h3> {props.first_name} </h3>
+                <h3> {first_name} </h3>
             </div>
 
             <div className="navbar-items navbar-control-2">
