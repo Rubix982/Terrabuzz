@@ -22,20 +22,20 @@ const Navbar = ({ title, first_name }) => {
 
             <div className="navbar-items navbar-control-1">
                 <Link to='/Profile'>
-                    <img className="round-img" src='/assets/img/misc/UserProfilePicture.jpg' alt="" />
+                    <img className="round-img" src='../assets/img/misc/UserProfilePicture.jpeg' alt="" />
                 </Link>
                 <h3> {first_name} </h3>
             </div>
 
             <div className="navbar-items navbar-control-2">
                 <Link to='/Settings'>
-                    <img className="round-img" src='/assets/img/icon/settings.svg' alt="" />
+                    <img className="round-img" src='../assets/img/icon/settings.svg' alt="" />
                 </Link>
             </div>
 
             <div className="navbar-items navbar-control-3">
                 <Link to='/Notifications'>
-                    <img className="round-img" src='/assets/img/icon/notificationsIcon.svg' alt="" />
+                    <img className="round-img" src='../assets/img/icon/notificationsIcon.svg' alt="" />
                 </Link>
             </div>
 

@@ -7,7 +7,7 @@ const NewPost = () => {
     <div className={ComponentStyling.newPost}>
       <CenterAlign>
         <div className={ComponentStyling.profilePicture}>
-          <img src="/assets/img/icon/boy.svg"></img>
+          <img alt='user icon' src="../../assets/img/icon/boy.svg"></img>
         </div>
       </CenterAlign>
       <CenterAlign>
