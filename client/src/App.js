@@ -12,6 +12,9 @@ import profile from "./pages/profile";
 import search from "./pages/search";
 import settings from "./pages/settings"
 
+// Indivdual Components
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <>
