@@ -12,22 +12,28 @@ import profile from "./pages/profile";
 import search from "./pages/search";
 import settings from "./pages/settings"
 
+// Indivdual Components
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={home}></Route>
-          <Route exact path="/feed" component={feed}></Route>
-          <Route exact path="/profile" component={profile}></Route>
-          <Route exact path="/publish" component={publish}></Route>
-          <Route exact path="/search" component={search}></Route>
-          <Route exact path="/settings" component={settings}></Route>
-          <Route exact path="/post" component={post}></Route>
-          <Route component={error404}></Route>
-        </Switch>
-      </Router>
-    </>
+    <div>
+      <>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={home}></Route>
+            <Route exact path="/feed" component={feed}></Route>
+            <Route exact path="/profile" component={profile}></Route>
+            <Route exact path="/publish" component={publish}></Route>
+            <Route exact path="/search" component={search}></Route>
+            <Route exact path="/settings" component={settings}></Route>
+            <Route exact path="/post" component={post}></Route>
+            <Route component={error404}></Route>
+          </Switch>
+        </Router>
+      </>
+    </div>
   );
 }
 
