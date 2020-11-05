@@ -1,10 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import UserProfilePicture from '/assets/img/misc/UserProfilePicture.jpg'
-import NotificationsIcon from '/assets/img/icon/notificationsIcon.svg'
-import SettingsIcon from '/assets/img/icon/settings.svg'
-
 import '../style/Navbar.css'
 /* 
    pass 2 props to navbar component
@@ -26,20 +22,20 @@ const Navbar = (props) => {
 
             <div className="navbar-items navbar-control-1">
                 <Link to='/Profile'>
-                    <img className="round-img" src={UserProfilePicture} alt="" />
+                    <img className="round-img" src='/assets/img/misc/UserProfilePicture.jpg' alt="" />
                 </Link>
                 <h3> {props.first_name} </h3>
             </div>
 
             <div className="navbar-items navbar-control-2">
                 <Link to='/Settings'>
-                    <img className="round-img" src={SettingsIcon} alt="" />
+                    <img className="round-img" src='/assets/img/icon/settings.svg' alt="" />
                 </Link>
             </div>
 
             <div className="navbar-items navbar-control-3">
                 <Link to='/Notifications'>
-                    <img className="round-img" src={NotificationsIcon} alt="" />
+                    <img className="round-img" src='/assets/img/icon/notificationsIcon.svg' alt="" />
                 </Link>
             </div>
 
