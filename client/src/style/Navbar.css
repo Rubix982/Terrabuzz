@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #242526;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+.navbar-grid {
+    display: grid;
+    grid-template-columns: 20% 55% 17% 5% 12%;
+    background-color: #242526;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 2rem;
+    margin: 0px;
+}
+
+.navbar-items {
+    text-align: center;
+    padding: 0.7rem;
+    margin: 0;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.navbar-logo {
+    text-size-adjust: auto;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    color: #fff;
+    display: flex;
+    overflow: hidden
+}
+
+.navbar-search {
+    display: flex;
+    justify-content: start;
+    padding-left: 100px;
+}
+
+input[type=text] {
+    font-size: 20px;
+    color: darkslategrey;
+    background-color: white;
+    background-image: url('../../public/assets/img/icon/Search.svg');
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin: 0;
+    padding-left: 50px;
+    float: left;
+}
+
+input[type="text"]::placeholder {
+    padding-left: 60px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 17px;
+    line-height: 3;
+}
+
+.navbar-control-1 {
+    display: flex;
+    justify-content: start;
+    color: white;
+    overflow: hidden;
+    padding-left: 70px;
+}
+
+h3 {
+    color: whitesmoke;
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+.round-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    justify-content: start;
+}
+
+.navbar-control-2 {
+    display: flex;
+    justify-content: start;
+    color: white;
+    overflow: hidden;
+}
+
+.navbar-control-3 {
+    display: flex;
+    justify-content: start;
+    color: white;
+    overflow: hidden;
+}

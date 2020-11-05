@@ -1,6 +1,6 @@
 import React from "react";
-import Container from "../components/FullViewContainer.js";
-import MainContent from "../components/NewsFeed/MainContent.js";
+import Container from "../Components/FullViewContainer";
+import MainContent from "../Components/NewsFeed/MainContent";
 
 // the div is for navbar
 

@@ -11,6 +11,7 @@ import publish from "./pages/publish";
 import profile from "./pages/profile";
 import search from "./pages/search";
 import settings from "./pages/settings"
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
