@@ -1,12 +1,12 @@
 import React from 'react';
 
 // Styling
-import TitlePlaceholderStying from '../../style//Publish/TitlePlaceholder.module.css'
+import ContentBodyStying from '../../style//Publish/ContentBody.module.css'
 
-const TitlePlaceholder = ({ chilren, style }) => {
+const ContentBody = ({ children, style }) => {
     return (
         <div>
-            <form className={TitlePlaceholderStying}>
+            <form className={ContentBodyStying}>
                 <label>
                     <input type='text' placeholder='Title goes here' />
                 </label>
@@ -15,4 +15,4 @@ const TitlePlaceholder = ({ chilren, style }) => {
     )
 };
 
-export default TitlePlaceholder;
+export default ContentBody;
