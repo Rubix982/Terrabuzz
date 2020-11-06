@@ -11,6 +11,7 @@ import publish from "./pages/publish";
 import profile from "./pages/profile";
 import search from "./pages/search";
 import settings from "./pages/settings"
+import Login from './pages/Login'
 
 // Indivdual Components
 import Navbar from "./components/Navbar";
@@ -20,7 +21,8 @@ function App() {
     <div>
       <>
         <Router>
-          <Navbar first_name="Tashik" title={"Terrabuzz"} />
+          {/* <Navbar first_name="Tashik" title={"Terrabuzz"} /> */}
+
           <Switch>
             <Route exact path="/" component={home}></Route>
             <Route exact path="/feed" component={feed}></Route>
@@ -29,6 +31,7 @@ function App() {
             <Route exact path="/search" component={search}></Route>
             <Route exact path="/settings" component={settings}></Route>
             <Route exact path="/post" component={post}></Route>
+            <Route exact path="/login" component={Login}></Route>
             <Route component={error404}></Route>
           </Switch>
         </Router>
