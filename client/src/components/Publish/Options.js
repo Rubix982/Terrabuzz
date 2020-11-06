@@ -20,4 +20,4 @@ const Options = ({ children, style }) => {
     )
 };
 
-export default Option;
+export default Options;

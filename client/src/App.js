@@ -14,7 +14,7 @@ import Settings from "./pages/settings"
 import Login from './pages/Login'
 
 // Indivdual Components
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -25,15 +25,15 @@ function App() {
 
           <Switch>
 
-            <Route exact path="/" component={home}></Route>
-            <Route exact path="/feed" component={feed}></Route>
-            <Route exact path="/profile" component={profile}></Route>
-            <Route exact path="/publish" component={publish}></Route>
-            <Route exact path="/search" component={search}></Route>
-            <Route exact path="/settings" component={settings}></Route>
-            <Route exact path="/post" component={post}></Route>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/feed" component={Feed}></Route>
+            <Route exact path="/profile" component={Profile}></Route>
+            <Route exact path="/publish" component={Publish}></Route>
+            <Route exact path="/search" component={Search}></Route>
+            <Route exact path="/settings" component={Settings}></Route>
+            <Route exact path="/post" component={Post}></Route>
             <Route exact path="/login" component={Login}></Route>
-            <Route component={error404}></Route>
+            <Route component={Error404}></Route>
           </Switch>
         </Router>
       </>

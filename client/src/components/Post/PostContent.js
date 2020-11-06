@@ -1,6 +1,6 @@
 import React from "react";
 import ComponentStyling from "../../style/Post/PostContent.module.css";
-import { CenterAlign, LeftAlign } from "../FlexAlignment.js";
+import { CenterAlign } from "../FlexAlignment.js";
 
 const PostContent = () => {
   return (
@@ -9,7 +9,7 @@ const PostContent = () => {
         <div className={ComponentStyling.postDescription}>
           <CenterAlign>
             <div className={ComponentStyling.profilePicture}>
-              <img src="/assets/img/profile_pictures/boy.svg"></img>
+              <img src="/assets/img/profile_pictures/boy.svg" alt='user profile'></img>
             </div>
           </CenterAlign>
           <div className={ComponentStyling.postTitle}>

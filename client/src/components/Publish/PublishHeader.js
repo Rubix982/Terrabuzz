@@ -9,7 +9,7 @@ const PublishHeader = ({ children, style }) => {
         <div className={PublishHeaderStying}>
 
             <div id='back-arrow'>   
-                <img />
+                <img  alt='back-arrow'/>
             </div>
 
             <div id='gp-back-text'>

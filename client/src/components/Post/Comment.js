@@ -7,7 +7,7 @@ const Comment = () => {
     <div className={ComponentStyling.entry}>
       <CenterAlign>
         <div className={ComponentStyling.profilePicture}>
-          <img src="/assets/img/profile_pictures/boy(2).svg"></img>
+          <img src="/assets/img/profile_pictures/boy(2).svg" alt='user profile'></img>
         </div>
       </CenterAlign>
       <div className={ComponentStyling.commentBody}>
