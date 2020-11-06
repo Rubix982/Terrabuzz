@@ -1,7 +1,7 @@
 import React from "react";
 
-const home = ({ children, style }) => {
+const Home = ({ children, style }) => {
   return <h1>TERRABUZZ!</h1>;
 };
 
-export default home;
+export default Home;

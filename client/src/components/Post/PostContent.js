@@ -9,7 +9,7 @@ const PostContent = () => {
         <div className={ComponentStyling.postDescription}>
           <CenterAlign>
             <div className={ComponentStyling.profilePicture}>
-              <img src="/assets/img/icon/boy.svg"></img>
+              <img src="/assets/img/profile_pictures/boy.svg"></img>
             </div>
           </CenterAlign>
           <div className={ComponentStyling.postTitle}>

@@ -4,7 +4,7 @@ import React from 'react';
 import MainContent from './../components/Publish/MainContent';
 import PublishHeader from './../components/Publish/PublishHeader';
 
-const publish = ({ children, style }) => {
+const Publish = ({ children, style }) => {
     return (
         <div>
             <MainContent />
@@ -13,4 +13,4 @@ const publish = ({ children, style }) => {
     );
 };
 
-export default publish;
+export default Publish;

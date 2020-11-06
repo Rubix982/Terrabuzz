@@ -1,6 +1,6 @@
 import React from 'react';
 
-const settings = ({ children, style }) => {
+const Settings = ({ children, style }) => {
     return (
         <div>
             SETTINGS HERE
@@ -8,4 +8,4 @@ const settings = ({ children, style }) => {
     )
 };
 
-export default settings;
+export default Settings;
