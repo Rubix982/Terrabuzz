@@ -1,6 +1,6 @@
 import React from 'react';
 
-const publish = ({ children, style }) => {
+const Publish = ({ children, style }) => {
     return (
         <div>
             PUBLISH HERE
@@ -8,4 +8,4 @@ const publish = ({ children, style }) => {
     );
 };
 
-export default publish;
+export default Publish;
