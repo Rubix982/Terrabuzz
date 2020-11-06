@@ -1,6 +1,6 @@
 import React from 'react';
 
-const profile = ({ children, style }) => {
+const Profile = ({ children, style }) => {
     return (
         <div>
             PROFILE HERE
@@ -8,4 +8,4 @@ const profile = ({ children, style }) => {
     );
 };
 
-export default profile;
+export default Profile;

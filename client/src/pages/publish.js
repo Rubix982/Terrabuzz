@@ -5,7 +5,7 @@ import MainContent from './../components/Publish/MainContent';
 import PublishHeader from './../components/Publish/PublishHeader';
 import Navbar from './../components/Navbar';
 
-const publish = ({ children, style }) => {
+const Publish = ({ children, style }) => {
     return (
         <div>
             <Navbar />
@@ -15,4 +15,4 @@ const publish = ({ children, style }) => {
     );
 };
 
-export default publish;
+export default Publish;
