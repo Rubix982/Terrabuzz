@@ -4,7 +4,7 @@ import MainContent from "../components/NewsFeed/MainContent.js";
 
 // the div is for navbar
 
-const feed = ({ children, style }) => {
+const Feed = ({ children, style }) => {
   return (
     <Container
       style={{
@@ -19,4 +19,4 @@ const feed = ({ children, style }) => {
   );
 };
 
-export default feed;
+export default Feed;
