@@ -14,7 +14,7 @@ const Navbar = (props) =>
             </div>
     
             <div className="navbar-items navbar-search">
-                <input type="text" name="search" placeholder="Search At Terrabuzz"></input>
+                <input className="Navbar-Search" type="text" name="search" placeholder="Search At Terrabuzz"></input>
             </div>
     
             <div className="navbar-items navbar-control-1">

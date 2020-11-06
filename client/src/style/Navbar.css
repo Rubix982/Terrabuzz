@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+
+}
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -44,11 +50,11 @@ body {
 
 .navbar-search {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     padding-left: 100px;
 }
 
-input[type=text] {
+.Navbar-Search input[type=text] {
     font-size: 20px;
     color: darkslategrey;
     background-color: white;
@@ -74,7 +80,7 @@ input::-webkit-input-placeholder {
 
 .navbar-control-1 {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: white;
     overflow: hidden;
     padding-left: 70px;
@@ -90,19 +96,19 @@ h3 {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .navbar-control-2 {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: white;
     overflow: hidden;
 }
 
 .navbar-control-3 {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     color: white;
     overflow: hidden;
 }
