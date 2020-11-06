@@ -3,14 +3,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Individual Pages
-import home from "./pages/home";
-import feed from "./pages/feed";
-import error404 from "./pages/error404";
-import post from "./pages/post";
-import publish from "./pages/publish";
-import profile from "./pages/profile";
-import search from "./pages/search";
-import settings from "./pages/settings"
+import Home from "./pages/home";
+import Feed from "./pages/feed";
+import Error404 from "./pages/error404";
+import Post from "./pages/post";
+import Publish from "./pages/publish";
+import Profile from "./pages/profile";
+import Search from "./pages/search";
+import Settings from "./pages/settings"
 import Login from './pages/Login'
 
 // Indivdual Components
@@ -24,6 +24,7 @@ function App() {
           {/* <Navbar first_name="Tashik" title={"Terrabuzz"} /> */}
 
           <Switch>
+
             <Route exact path="/" component={home}></Route>
             <Route exact path="/feed" component={feed}></Route>
             <Route exact path="/profile" component={profile}></Route>

@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-import spinner from '../assets/img/misc/spinner.gif'
+
 const Spinner =  (props) => {
     return (
         <Fragment> 
-            <img src={spinner} alt=" ... Loading ... " style={{ width:'100px', height:'100px' , display: 'block' , margin: 'auto'}}/>
+            <img src='/assets/img/misc/spinner.gif' alt=" ... Loading ... " style={{ width:'100px', height:'100px' , display: 'block' , margin: 'auto'}}/>
         </Fragment>
     )
 }

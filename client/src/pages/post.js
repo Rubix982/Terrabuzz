@@ -3,7 +3,7 @@ import Container from "../components/FullViewContainer.js";
 import MainContent from "../components/Post/MainContent.js";
 import NavBar from "../components/Navbar.js";
 
-const post = ({ children, style }) => {
+const Post = ({ children, style }) => {
   return (
     <Container
       style={{
@@ -18,4 +18,4 @@ const post = ({ children, style }) => {
   );
 };
 
-export default post;
+export default Post;

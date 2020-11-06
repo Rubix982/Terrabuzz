@@ -58,7 +58,7 @@ body {
     font-size: 20px;
     color: darkslategrey;
     background-color: white;
-    background-image: url('../assets/img/icon/search.svg');
+    background-image: url('/assets/img/misc/search.svg');
     background-repeat: no-repeat;
     width: 350px;
     height: 40px;

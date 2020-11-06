@@ -1,11 +1,18 @@
 import React from 'react';
 
-const publish = ({ children, style }) => {
+// Component imports
+import MainContent from './../components/Publish/MainContent';
+import PublishHeader from './../components/Publish/PublishHeader';
+import Navbar from './../components/Navbar';
+
+const Publish = ({ children, style }) => {
     return (
         <div>
-            PUBLISH HERE
+            <Navbar />
+            <MainContent />
+            <PublishHeader />
         </div>
     );
 };
 
-export default publish;
+export default Publish;
