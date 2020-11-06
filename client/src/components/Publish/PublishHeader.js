@@ -7,7 +7,22 @@ import PublishHeaderStying from '../../style//Publish/PublishHeader.module.css'
 const PublishHeader = ({ children, style }) => {
     return (
         <div className={PublishHeaderStying}>
-            <Options />
+
+            <div id='back-arrow'>   
+                <img />
+            </div>
+
+            <div id='gp-back-text'>
+                Go back
+            </div>
+
+            <div id='publish-page'>  
+                Publish Page
+            </div>
+
+            <div id='option-div'>
+                <Options />
+            </div>
         </div>
     )
 };
