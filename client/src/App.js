@@ -20,7 +20,7 @@ function App() {
     <div>
       <>
         <Router>
-          <Navbar />
+          <Navbar first_name="Tashik" title={"Terrabuzz"} />
           <Switch>
             <Route exact path="/" component={home}></Route>
             <Route exact path="/feed" component={feed}></Route>

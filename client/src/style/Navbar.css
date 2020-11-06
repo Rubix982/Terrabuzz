@@ -44,7 +44,7 @@ body {
 
 .navbar-search {
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     padding-left: 100px;
 }
 
@@ -74,7 +74,7 @@ input::-webkit-input-placeholder {
 
 .navbar-control-1 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     color: white;
     overflow: hidden;
     padding-left: 70px;
@@ -90,19 +90,19 @@ h3 {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    justify-content: flex-start;
+    justify-content: start;
 }
 
 .navbar-control-2 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     color: white;
     overflow: hidden;
 }
 
 .navbar-control-3 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     color: white;
     overflow: hidden;
-} 
+}
