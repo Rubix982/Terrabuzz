@@ -1,21 +1,16 @@
 .entry {
   display: grid;
-  grid-template-rows: 75% 25%;
-  height: 35%;
+  grid-template-columns: 20% 80%;
+  height: 65%;
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #242526;
+  background-color: #131314;
   border-radius: 20px;
 }
 
-.main {
-  display: grid;
-  grid-template-columns: 20% 80%;
-}
-
 .profilePicture {
-  height: 50%;
+  height: 85%;
   width: 50%;
   background-color: #3a3b3c;
   border-radius: 100px;
@@ -24,16 +19,16 @@
 }
 
 .profilePicture img {
-  height: 85%;
+  height: 80%;
   width: 100%;
 }
 
-.postBody {
+.commentBody {
   display: grid;
   grid-template-rows: 40% 60%;
 }
 
-.postTitle {
+.commentTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,41 +36,29 @@
   margin-top: 1em;
 }
 
-.postTitle h1,
-.postTitle h2,
-.postText p {
+.commentTitle h1,
+.commentTitle h2,
+.commentText p {
   color: white;
   font-weight: lighter;
 }
 
-.postTitle h1 {
+.commentTitle h1 {
   font-size: 24px;
 }
 
-.postTitle h2 {
+.commentTitle h2 {
   font-size: 14px;
 }
 
-.postText {
+.commentText {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 1em;
+  margin-top: 1.25em;
 }
 
-.postText p {
+.commentText p {
   font-size: 16px;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid black;
-}
-
-.stats h1 {
-  color: #9f9f9f;
-  font-size: 24px;
-  font-weight: lighter;
 }

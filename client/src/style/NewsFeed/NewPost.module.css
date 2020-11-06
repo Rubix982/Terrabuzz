@@ -14,6 +14,13 @@
   width: 50%;
   background-color: #3a3b3c;
   border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.profilePicture img {
+  height: 85%;
+  width: 100%;
 }
 
 .newPost h1 {
