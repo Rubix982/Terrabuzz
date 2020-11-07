@@ -93,21 +93,20 @@
   margin-top: 35px;
   margin-left: 0px;
   height: 55px;
-  width: 145px;
-  border-radius: 10px;
+  width: 234px;
+  border-radius: 5px;
   background-color: black;
   color: white;
-  border-radius: 25px;
 }
 
 .register {
   margin-top: 35px;
-  margin-left: 50px;
+  margin-left: 10px;
   height: 55px;
-  width: 145px;
+  width: 234px;
   background-color: black;
   color: white;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .register:hover,
