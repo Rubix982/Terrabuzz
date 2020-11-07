@@ -3,25 +3,14 @@
 *{
     padding: 0;
     margin:0;
-
-}
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    background-color: #fff;
-    color: #242526;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 2rem;
 }
 
 .navbar-grid {
+    color: #242526;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
     display: grid;
-    grid-template-columns: 20% 55% 17% 5% 12%;
+    grid-template-columns: 20% 52% 15% 5% 5% 12%;
     background-color: #242526;
     max-width: 100%;
     overflow: hidden;
@@ -30,7 +19,6 @@ body {
 }
 
 .navbar-items {
-    text-align: center;
     padding: 0.7rem;
     margin: 0;
     align-items: center;
@@ -54,11 +42,11 @@ body {
     padding-left: 100px;
 }
 
-.Navbar-Search input[type=text] {
+.navbar-search input[type=text] {
     font-size: 20px;
     color: darkslategrey;
     background-color: white;
-    background-image: url('/assets/img/misc/search.svg');
+    background-image: url('../../src/assets/img/icon/Search.svg');
     background-repeat: no-repeat;
     width: 350px;
     height: 40px;
@@ -92,21 +80,21 @@ h3 {
     padding-left: 10px;
 }
 
-.round-img {
+.controls-img {
+    width: 40px;
+    height: 40px;
+    justify-content: flex-start;
+}
+
+.profile-img {
     border-radius: 50%;
     width: 40px;
     height: 40px;
     justify-content: flex-start;
 }
 
-.navbar-control-2 {
-    display: flex;
-    justify-content: flex-start;
-    color: white;
-    overflow: hidden;
-}
-
-.navbar-control-3 {
+.navbar-other-controls
+ {
     display: flex;
     justify-content: flex-start;
     color: white;
