@@ -107,8 +107,8 @@ input[type="password"]::placeholder {
   margin-left: 50px;
   height: 55px;
   width: 145px;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   border-radius: 25px;
 }
 
