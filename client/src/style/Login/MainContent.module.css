@@ -17,16 +17,14 @@
   font-size: 25px;
 }
 
-.form {
+.formlogin {
   padding-left: 63px;
   padding-top: 30px;
 }
-
-input[type="text"] {
+.formlogin input[type="text"] {
   font-size: 20px;
   color: darkslategrey;
   background-color: white;
-  border-left: crimson solid;
   width: 450px;
   height: 60px;
   -webkit-transition: width 0.4s ease-in-out;
@@ -36,16 +34,16 @@ input[type="text"] {
   display: flex;
 }
 
-input[type="text"]::placeholder {
+.formlogin input[type="text"]::placeholder {
   padding-left: 10px;
 }
 
-input::-webkit-input-placeholder {
+.formlogin input::-webkit-input-placeholder {
   font-size: 17px;
   line-height: 3;
 }
 
-input[type="password"] {
+.formlogin input[type="password"] {
   font-size: 20px;
   color: darkslategrey;
   background-color: white;
@@ -59,11 +57,11 @@ input[type="password"] {
   display: flex;
 }
 
-input[type="password"]::placeholder {
+.formlogin input[type="password"]::placeholder {
   padding-left: 10px;
 }
 
-.form input[type="checkbox"] {
+.formlogin input[type="checkbox"] {
   height: 20px;
   width: 20px;
   margin-top: 25px;
@@ -80,7 +78,7 @@ input[type="password"]::placeholder {
   font-weight: 1000;
 }
 
-.form a {
+.formlogin a {
   color: black;
   text-decoration: none;
 }

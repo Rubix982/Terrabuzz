@@ -12,6 +12,7 @@ import Profile from "./pages/profile";
 import Search from "./pages/search";
 import Settings from "./pages/settings"
 import Login from './pages/Login'
+import Register from '../src/pages/Register'
 
 // Indivdual Components
 // import Navbar from "./components/Navbar";
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/settings" component={Settings}></Route>
             <Route exact path="/post" component={Post}></Route>
             <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/register" component={Register}></Route>
             <Route component={Error404}></Route>
           </Switch>
         </Router>

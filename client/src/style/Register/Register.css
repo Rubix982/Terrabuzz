@@ -29,7 +29,7 @@
 
 .inner-half-grid-1-reg{
     display: grid;
-    grid-template-rows: 7%% 90% 3% ;
+    grid-template-rows: 12% 85% 3% ;
 }
 
 .inner-half-grid-1-reg h1{
@@ -78,7 +78,7 @@
     padding-top: 30px;
 }
 
-input[type=text] {
+.form-reg input[type=text] {
     font-size: 20px;
     color: darkslategrey;
     background-color: white;
@@ -90,19 +90,17 @@ input[type=text] {
     padding-left: 20px;
     display: flex;
 }
-
-input[type="text"]::placeholder 
+.form-reg input[type="text"]::placeholder 
 {
     padding-left: 10px;
 }
 
-
-input::-webkit-input-placeholder {
+.form-reg input::-webkit-input-placeholder {
     font-size: 17px;
     line-height: 3;
 }
 
-input[type=password] {
+.form-reg input[type=password] {
     font-size: 20px;
     color: darkslategrey;
     background-color: white;
@@ -115,7 +113,7 @@ input[type=password] {
     display: flex;
 }
 
-input[type="password"]::placeholder {
+.form-reg input[type="password"]::placeholder {
     padding-left: 10px;
 }
 
@@ -187,7 +185,7 @@ input[type="password"]::placeholder {
 {
     color: white;
     background-color: white;
-    background: url('./Background-1.jpg') no-repeat center center;
+    background: url('../../assets/img/background_wallpaper/Register-Background.jpg') no-repeat center center;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -226,5 +224,6 @@ input[type="password"]::placeholder {
 
 .bold{
     font-weight: 2000;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 0;
 }
