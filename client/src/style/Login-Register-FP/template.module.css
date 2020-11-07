@@ -1,0 +1,42 @@
+.leftContent {
+  display: grid;
+  grid-template-rows: 20% 80%;
+}
+
+.logo {
+  height: 150px;
+  width: 150px;
+  padding-left: 30px;
+  padding-top: 0px;
+  margin-top: 0px;
+  border-radius: 2px;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.rightContent {
+  color: white;
+  background: url("../../assets/img/background_wallpaper/Login.jpg") no-repeat
+    center center;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.links {
+  margin: 25px;
+  display: flex;
+  flex-direction: row;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-weight: lighter;
+  margin-left: 20px;
+}
