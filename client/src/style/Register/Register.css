@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+
+*{
+    padding:0;
+    margin:0;
+}
+
+.page-grid-reg
+{
+    display: grid;
+    grid-template-columns: 50% 50% ;
+    font-family: 'cairo';
+    height: 1000px;
+    background-color: white;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 0.5rem;
+    margin: 0px;
+}
+
+.form-container-reg
+{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.inner-half-grid-1-reg{
+    display: grid;
+    grid-template-rows: 12% 85% 3% ;
+}
+
+.inner-half-grid-1-reg h1{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 60px;
+    padding-top: 0px;
+    margin-top: 0px;
+    font-size: 60px;
+}
+
+.inner-half-grid-1-reg h2{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 63px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    font-size: 25px;
+}
+
+
+.logo-reg{
+    height:150px;
+    width:150px;
+    padding-left: 35px;
+    padding-top:0px;
+    margin-top: 0px;
+    border-radius: 2px;
+}
+
+.heading-1-reg
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.heading-2-reg
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-reg{
+    padding-left: 63px;
+    padding-top: 30px;
+}
+
+.form-reg input[type=text] {
+    font-size: 20px;
+    color: darkslategrey;
+    background-color: white;
+    width: 450px;
+    height: 60px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+}
+.form-reg input[type="text"]::placeholder 
+{
+    padding-left: 10px;
+}
+
+.form-reg input::-webkit-input-placeholder {
+    font-size: 17px;
+    line-height: 3;
+}
+
+.form-reg input[type=password] {
+    font-size: 20px;
+    color: darkslategrey;
+    background-color: white;
+    width: 450px;
+    height: 60px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+}
+
+.form-reg input[type="password"]::placeholder {
+    padding-left: 10px;
+}
+
+.form-reg input[type="text"],
+.form-reg input[type="password"]
+{
+    margin-top: 20px;
+}
+
+
+
+.form-reg input[type="checkbox"]
+{
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
+    display: inline-flex;
+}
+
+.current
+{
+    border-left: crimson solid 2px;
+}
+
+.remember-me{
+    margin-left: 5px;
+    display: inline-flex;
+}
+
+.forget{
+    margin-left: 218px;
+    font-weight: 1000;
+}
+
+.form-reg a {
+    color: black;
+    text-decoration: none;
+}
+
+.form-reg a:hover, .form-reg a:focus {
+    color: grey;
+    text-decoration: underline;
+}
+
+
+.register-button
+{
+    font-size: 17px;
+    margin-top: 35px;
+    margin-left: 0px;
+    margin-bottom: 100px;
+    height: 55px;
+    width: 475px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+}
+
+.register-button:hover
+{
+    transition: 0.5s;
+    background-color: crimson;
+    color: white;
+}
+
+
+.content-container-reg
+{
+    color: white;
+    background-color: white;
+    background: url('../../assets/img/background_wallpaper/Register-Background.jpg') no-repeat center center;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    margin:0px;
+    padding: 0px;
+}
+
+
+.inner-half-grid-2-reg{
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+
+.inner-half-grid-2-reg a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: lighter;
+    display: inline;
+    float: right;
+    margin-left: 10px ;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.inner-half-grid-2-reg a:hover,
+.inner-half-grid-2-reg a:focus 
+{
+    color: coral;
+    text-decoration: none;
+}
+
+
+.bold{
+    font-weight: 2000;
+    font-size: 16px;
+    line-height: 0;
+}

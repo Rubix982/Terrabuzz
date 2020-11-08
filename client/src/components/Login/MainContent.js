@@ -8,7 +8,7 @@ const MainContent = ({ children }) => {
 
       <h2>Please Login To Continue.</h2>
 
-      <form className={ComponentStyling.form}>
+      <form className={ComponentStyling.formlogin}>
         <input type="text" name="email" placeholder="Email Address"></input>
         <input type="password" name="password" placeholder="Password"></input>
         <input
