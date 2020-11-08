@@ -29,7 +29,7 @@
 
 .inner-half-grid-1-reg{
     display: grid;
-    grid-template-rows: 12% 85% 3% ;
+    grid-template-rows: 15% 82% 3% ;
 }
 
 .inner-half-grid-1-reg h1{
@@ -53,10 +53,10 @@
 
 
 .logo-reg{
-    height:150px;
-    width:150px;
-    padding-left: 35px;
-    padding-top:0px;
+    height:170px;
+    width:170px;
+    padding-left: 5px;
+    padding-bottom:10px;
     margin-top: 0px;
     border-radius: 2px;
 }

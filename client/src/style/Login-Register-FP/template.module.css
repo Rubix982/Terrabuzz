@@ -4,9 +4,9 @@
 }
 
 .logo {
-  height: 150px;
-  width: 150px;
-  padding-left: 30px;
+  height: 170px;
+  width: 170px;
+  padding-left: 0px;
   padding-top: 0px;
   margin-top: 0px;
   border-radius: 2px;
@@ -39,4 +39,18 @@
   font-size: 25px;
   font-weight: lighter;
   margin-left: 20px;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-weight: lighter;
+  margin-left: 20px;
+}
+
+.links a:hover,
+.links a:focus 
+{
+  color: sandybrown;
 }
