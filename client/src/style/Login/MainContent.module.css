@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
 
 .content h1 {
   display: flex;
@@ -6,7 +6,7 @@
   padding-left: 60px;
   padding-top: 0px;
   margin-top: 0px;
-  font-size: 80px;
+  font-size: 64px;
 }
 
 .content h2 {
@@ -16,22 +16,25 @@
   padding-top: 0px;
   padding-bottom: 0px;
   margin-top: 0px;
-  font-size: 45px;
+  font-size: 24px;
 }
 
 .formlogin {
   padding-left: 63px;
   padding-top: 30px;
 }
+
+.formlogin input {
+  margin-top: 10px;
+}
+
 .formlogin input[type="text"] {
   font-size: 20px;
   color: darkslategrey;
-  background-color: white;
   width: 450px;
   height: 60px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  margin: 0;
   padding-left: 20px;
   display: flex;
 }
@@ -49,12 +52,10 @@
 .formlogin input[type="password"] {
   font-size: 20px;
   color: darkslategrey;
-  background-color: white;
   width: 450px;
   height: 60px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  margin: 0;
   padding-left: 20px;
   display: flex;
 }
@@ -95,7 +96,7 @@
 }
 
 .login {
-  font-family: 'cairo';
+  font-family: "cairo";
   margin-top: 35px;
   /* margin-left: 10px; */
   height: 55px;
@@ -106,27 +107,27 @@
   font-size: 24px;
   line-height: 34px;
   text-align: center;
-  letter-spacing: 0.02em; 
-  border: 1px solid #6D6D6D;
+  letter-spacing: 0.02em;
+  border: 1px solid #6d6d6d;
   box-sizing: border-box;
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
 }
 
 .register {
-  font-family: 'cairo';
+  font-family: "cairo";
   margin-top: 35px;
   margin-left: 10px;
   height: 55px;
   width: 234px;
   background-color: white;
-  color: #8B8B8B;
+  color: #8b8b8b;
   border-radius: 25px;
   font-size: 24px;
   line-height: 34px;
   text-align: center;
-  letter-spacing: 0.02em; 
-  border: 1px solid #6D6D6D;
+  letter-spacing: 0.02em;
+  border: 1px solid #6d6d6d;
   box-sizing: border-box;
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
@@ -140,6 +141,6 @@
 
 .register:hover {
   transition: 0.5s;
-  background-color: rgb(202 , 202  , 202 );
-  color: rgb(0, 0, 0);  
+  background-color: rgb(202, 202, 202);
+  color: rgb(0, 0, 0);
 }
