@@ -2,6 +2,8 @@ import React from "react";
 import Container from "../components/FullViewContainer.js";
 import MainContent from "../components/Post/MainContent.js";
 
+import Navbar from '../components/Navbar'
+
 const Post = ({ children, style }) => {
   return (
     <Container
@@ -11,7 +13,9 @@ const Post = ({ children, style }) => {
         gridTemplateRows: "10% 90%",
       }}
     >
-      <div></div>
+      <div>
+        <Navbar first_name="Tashik" title={"Terrabuzz"} />
+      </div>
       <MainContent />
     </Container>
   );

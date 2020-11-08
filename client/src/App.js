@@ -15,19 +15,12 @@ import Login from './pages/Login'
 import Register from '../src/pages/Register'
 import ForgetPassword from '../src/pages/ForgetPassword'
 
-// Indivdual Components
-import Navbar from "./components/Navbar";
-
 function App() {
   return (
     <div>
       <>
         <Router>
-
-          {/* <Navbar first_name="Tashik" title={"Terrabuzz"} /> */}
-
           <Switch>
-
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/feed" component={Feed}></Route>
             <Route exact path="/profile" component={Profile}></Route>
