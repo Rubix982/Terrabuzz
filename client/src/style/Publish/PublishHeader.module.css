@@ -1,0 +1,73 @@
+
+
+.containerPublishHeader div {
+    display: inline-block;
+    vertical-align: top;
+    /* overflow: auto; */
+}
+
+.backArrow {
+    width: 44px;
+    height: 44px;
+    margin: 8px 8px 0px 8px;
+}
+
+.goBack {
+    width: 110px;
+    height: 44px;
+}
+
+.goBack p {
+    
+    font-family: 'Cairo';
+    margin-bottom: 15px;
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 60px;
+display: flex;
+align-items: center;
+
+color: #4188AF;
+}
+
+.draft {
+    width: 115px;
+    height: 44px;
+    float: right;
+}
+
+.draft p {
+    float: right;
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    
+    color: #60767F;
+}
+
+.publishPage {
+    width: 162px;
+    height: 44px;       
+}
+
+.publishPage p {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #4188AF;
+}
+
+.floatRight {
+    float: right;
+}

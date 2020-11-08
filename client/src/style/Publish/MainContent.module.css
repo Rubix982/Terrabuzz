@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+.main {
+    /* Height and width fallback for older browsers. */
+    height: 100%;
+    /* width: 100%; */
+
+    /* Set the height to match that of the viewport. */
+    height: 90vh;
+
+    /* Set the width to match that of the viewport. */
+    /* width: 90vw; */
+
+    /* Remove any browser-default margins. */
+    margin: 0;    
+}
+
+.main form, .main label, .main div {
+    /* margin-left: 15%;
+    margin-right:15%;
+    width: 70%; */
+    border: 0;
+    border-style: none;
+}
+
+.main {
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.main hr {
+    width: 55%;
+    margin: 50px 20%;
+    background-color: #303C42;
+    border: 1.5px solid #303C42;
+    box-shadow: #303C42;
+}

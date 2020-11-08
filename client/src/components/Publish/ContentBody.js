@@ -1,16 +1,14 @@
 import React from 'react';
 
 // Styling
-import ContentBodyStying from '../../style//Publish/ContentBody.module.css'
+import ContentBodyStyling from '../../style//Publish/ContentBody.module.css'
 
 const ContentBody = ({ children, style }) => {
     return (
         <div>
-            <form className={ContentBodyStying}>
-                <label>
-                    <input type='text' placeholder='Title goes here' />
-                </label>
-            </form>
+            <div className={ContentBodyStyling.contentBody}>
+                <div className={ContentBodyStyling.removeFocus} role="textbox" aria-placeholder="Content goes here..." contentEditable="true" autoFocus='autoFocus'></div>
+            </div>
         </div>
     )
 };

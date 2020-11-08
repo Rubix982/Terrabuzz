@@ -1,5 +1,61 @@
-* {
-    padding: 0;
-    margin: 0;
+.contentBody {
+    margin: 25px 20%;
 }
 
+.contentBody div {
+    border: 0px;
+    border-style: none;
+    font-family: inherit;
+    font-size: 32px;
+    padding: 15px 6px;
+
+    color: white;
+
+    display: block;
+    width: 900px;
+    height: 40px;
+    overflow: initial;
+    resize: both;
+    min-height: 48px;
+    line-height: 60px;  
+}
+
+.contentBody div:active, 
+.contentBody div:hover, 
+.contentBody div:focus {
+    border-style: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.removeFocus:focus {
+    outline: -webkit-focus-ring-color none 0px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: none;
+    outline-width: 0px;
+}
+
+.contentBody[contenteditable]:empty::before {
+    content: "Placeholder still possible";
+    color: gray;
+}
+
+[contenteditable=true]:empty:before{
+    content: attr(aria-placeholder);
+    display: block; /* For Firefox */
+  }
+  
+  /* */
+  
+  .contentBody[contenteditable=true] {
+    /* border: 2px inset rgb(238,238,238); */
+    font-family: inherit;
+    font-size: 11px;
+    padding: 1px;
+    -webkit-appearance: textfield;
+    /* width: 290px; */
+    padding: 5px;
+  }
+  

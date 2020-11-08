@@ -1,27 +1,32 @@
 import React from 'react';
-import Options from './Options'
+// import Options from './Options'
+
+// Assets
+import BackArrow from './../../assets/publish/back.svg'
 
 // Styling
-import PublishHeaderStying from '../../style//Publish/PublishHeader.module.css'
+import PublishHeaderStyling from '../../style//Publish/PublishHeader.module.css'
 
 const PublishHeader = ({ children, style }) => {
     return (
-        <div className={PublishHeaderStying}>
-
-            <div id='back-arrow'>   
-                <img  alt='back-arrow'/>
+        <div className={PublishHeaderStyling.containerPublishHeader}>
+            <div>
+                <div className={PublishHeaderStyling.backArrow}>
+                    <img src={BackArrow} alt='back-arrow' />
+                </div>
+                <div className={PublishHeaderStyling.goBack}>
+                    <p>Go back</p>
+                </div>
             </div>
 
-            <div id='gp-back-text'>
-                Go back
-            </div>
+            <div className={PublishHeaderStyling.floatRight}>
+                <div className={PublishHeaderStyling.publishPage}>
+                    <p>Publish</p>
+                </div>
 
-            <div id='publish-page'>  
-                Publish Page
-            </div>
-
-            <div id='option-div'>
+                {/* <div>
                 <Options />
+            </div> */}
             </div>
         </div>
     )

@@ -4,11 +4,14 @@ import React from 'react';
 import MainContent from './../components/Publish/MainContent';
 import PublishHeader from './../components/Publish/PublishHeader';
 
+// Styling
+import PublishStyling from './../style/Publish/Publish.module.css'
+
 const Publish = ({ children, style }) => {
     return (
-        <div>
-            <MainContent />
+        <div className={PublishStyling.container}>
             <PublishHeader />
+            <MainContent />
         </div>
     );
 };
