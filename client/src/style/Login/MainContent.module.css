@@ -83,8 +83,8 @@
   text-decoration: none;
 }
 
-.form a:hover,
-.form a:focus {
+.formlogin a:hover,
+.formlogin a:focus {
   color: grey;
   text-decoration: underline;
 }

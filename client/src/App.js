@@ -24,7 +24,7 @@ function App() {
       <>
         <Router>
 
-          <Navbar first_name="Tashik" title={"Terrabuzz"} />
+          {/* <Navbar first_name="Tashik" title={"Terrabuzz"} /> */}
 
           <Switch>
 
