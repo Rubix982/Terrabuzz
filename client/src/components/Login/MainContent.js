@@ -6,7 +6,7 @@ const MainContent = ({ children }) => {
     <div className={ComponentStyling.content}>
       <h1>We are Terrabuzz</h1>
 
-      <h2>Please Login To Continue.</h2>
+      <h2>Please login to continue</h2>
 
       <form className={ComponentStyling.formlogin}>
         <input type="text" name="email" placeholder="Email Address"></input>

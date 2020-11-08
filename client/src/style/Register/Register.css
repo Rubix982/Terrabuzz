@@ -8,13 +8,13 @@
 .page-grid-reg
 {
     display: grid;
-    grid-template-columns: 50% 50% ;
+    grid-template-columns: 45% 55% ;
     font-family: 'cairo';
-    height: 1000px;
+    height: 100vh;
     background-color: white;
     max-width: 100%;
     overflow: hidden;
-    padding: 0 0.5rem;
+    padding: 0 0;
     margin: 0px;
 }
 
@@ -38,7 +38,6 @@
     padding-left: 60px;
     padding-top: 0px;
     margin-top: 0px;
-    font-size: 60px;
 }
 
 .inner-half-grid-1-reg h2{
@@ -48,7 +47,6 @@
     padding-top: 0px;
     padding-bottom: 0px;
     margin-top: 0px;
-    font-size: 25px;
 }
 
 
@@ -65,12 +63,14 @@
 {
     margin: 0px;
     padding: 0px;
+    font-size: 80px;
 }
 
 .heading-2-reg
 {
     margin: 0px;
     padding: 0px;
+    font-size: 40px;
 }
 
 .form-reg{
@@ -79,7 +79,7 @@
 }
 
 .form-reg input[type=text] {
-    font-size: 20px;
+    font-size: 24px;
     color: darkslategrey;
     background-color: white;
     width: 450px;
@@ -90,13 +90,19 @@
     padding-left: 20px;
     display: flex;
 }
+
+.form-reg input[type=text].current {
+    padding-left: 17px;
+}
+
 .form-reg input[type="text"]::placeholder 
 {
-    padding-left: 10px;
+    padding-left: 5px;
+    font-size: 24px;
 }
 
 .form-reg input::-webkit-input-placeholder {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 3;
 }
 
@@ -114,29 +120,32 @@
 }
 
 .form-reg input[type="password"]::placeholder {
-    padding-left: 10px;
+    padding-left: 2px;
+    font-size: 24px;
 }
 
 .form-reg input[type="text"],
 .form-reg input[type="password"]
 {
-    margin-top: 20px;
+    border-bottom: 0;
 }
-
-
 
 .form-reg input[type="checkbox"]
 {
     height: 20px;
     width: 20px;
-    margin-top: 10px;
+    margin-top: 20px;   
     margin-left: 0px;
     display: inline-flex;
 }
 
 .current
 {
-    border-left: crimson solid 2px;
+    border-left: crimson solid 5px;
+}
+
+.current[type='text'] {
+    padding-left: 10px;
 }
 
 .remember-me{
@@ -152,6 +161,7 @@
 .form-reg a {
     color: black;
     text-decoration: none;
+    font-size: 20px;
 }
 
 .form-reg a:hover, .form-reg a:focus {
@@ -159,18 +169,23 @@
     text-decoration: underline;
 }
 
-
 .register-button
 {
-    font-size: 17px;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
     margin-top: 35px;
     margin-left: 0px;
     margin-bottom: 100px;
-    height: 55px;
-    width: 475px;
+    height: 56px;
+    width: 216px;
     border-radius: 10px;
     color: white;
-    background-color: black;
+    background: #000000;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
 }
 
 .register-button:hover
@@ -179,7 +194,6 @@
     background-color: crimson;
     color: white;
 }
-
 
 .content-container-reg
 {
@@ -221,9 +235,18 @@
     text-decoration: none;
 }
 
+form.form-reg label {
+    font-size: 20px;
+}
 
 .bold{
     font-weight: 2000;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 0;
+}
+
+form.form-reg input:nth-child(5) {
+    border-bottom-width: 2px;
+    border-bottom-style: inset;
+    border-bottom-color: rgb(118, 118, 118);
 }
