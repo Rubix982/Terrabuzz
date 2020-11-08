@@ -14,6 +14,7 @@ import Settings from "./pages/settings"
 import Login from './pages/Login'
 import Register from '../src/pages/Register'
 import ForgetPassword from '../src/pages/ForgetPassword'
+import NewPassword from '../src/pages/NewPassword'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/forget-password" component={ForgetPassword}></Route> 
+            <Route exact path="/new-password" component={NewPassword}></Route> 
             <Route component={Error404}></Route>
           </Switch>
         </Router>
