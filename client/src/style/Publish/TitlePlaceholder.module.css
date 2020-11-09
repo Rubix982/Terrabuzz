@@ -7,19 +7,16 @@
     background: #263238;
     border: 0px;
     border-style: none;
-    /* border: 1px solid #ccc; */
     font-family: inherit;
-    font-size: 48px;
-    padding: 15px 6px;
-
+    font-size: 52px;
+    color: white;
     display: block;
-    width: 750px;
+    width: 875px;
     height: 40px;
     overflow: hidden;
     resize: both;
     min-height: 48px;
     line-height: 60px;  
-    color: white;
 }
 
 .titleContent input::placeholder {
@@ -46,24 +43,26 @@
     outline-width: 0px;
 }
 
-.titleContent[contenteditable]:empty::before {
+.titleContent input[contentEditable]:empty::before {
     content: "Placeholder still possible";
     color: gray;
 }
 
-[contenteditable=true]:empty:before{
+[contentEditable=true]:empty:before{
     content: attr(aria-placeholder);
     display: block; /* For Firefox */
   }
   
   /* */
   
-  .titleContent[contenteditable=true] {
-    /* border: 2px inset rgb(238,238,238); */
+  .titleContent input[contentEditable=true] {
     font-family: inherit;
-    font-size: 11px;
     -webkit-appearance: textfield;
-    /* width: 290px; */
     padding: 5px;
+    width: 56vw;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    line-break: auto;
   }
   

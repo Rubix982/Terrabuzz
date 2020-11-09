@@ -7,7 +7,11 @@ const ContentBody = ({ children, style }) => {
     return (
         <div>
             <div className={ContentBodyStyling.contentBody}>
-                <div className={ContentBodyStyling.removeFocus} role="textbox" aria-placeholder="Content goes here..." contentEditable="true" autoFocus='autoFocus'></div>
+                {/* TODO: Find a way to limit the numbe of characters inputted into the div */}
+                <div type="text" name="content" role="textbox" className={ContentBodyStyling.removeFocus} aria-placeholder="Enter text here..." contenteditable="true" placeholder='Content goes here...' maxLength='5'>
+                    <div>
+                    </div>
+                </div>
             </div>
         </div>
     )

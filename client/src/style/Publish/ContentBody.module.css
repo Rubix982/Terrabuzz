@@ -1,28 +1,35 @@
 .contentBody {
     margin: 25px 20%;
+    margin-right: 35%;
 }
 
-.contentBody div {
+.contentBody div.removeFocus {
+    background: #263238;
     border: 0px;
     border-style: none;
     font-family: inherit;
     font-size: 32px;
-    padding: 15px 6px;
 
     color: white;
-
+    width: 65vw;
     display: block;
-    width: 900px;
     height: 40px;
-    overflow: initial;
+    overflow: visible;
     resize: both;
     min-height: 48px;
     line-height: 60px;  
 }
 
-.contentBody div:active, 
-.contentBody div:hover, 
-.contentBody div:focus {
+.contentBody div.removeFocus::placeholder {
+    color: white;
+    font-family: inherit;
+    font-size: 32px;  
+    padding: 15px 6px;
+}
+
+.contentBody div.removeFocus:active, 
+.contentBody div.removeFocus:hover, 
+.contentBody div.removeFocus:focus {
     border-style: none;
     border-top-style: hidden;
     border-right-style: hidden;
@@ -37,25 +44,31 @@
     outline-width: 0px;
 }
 
-.contentBody[contenteditable]:empty::before {
-    content: "Placeholder still possible";
-    color: gray;
+.contentBody div.removeFocus[contentEditable]:empty::before {
+    content: "Content goes here...";
+    /* color: gray;
+    background: #263238; */
 }
 
-[contenteditable=true]:empty:before{
+[contentEditable=true]:empty:before{
     content: attr(aria-placeholder);
     display: block; /* For Firefox */
-  }
+    background: #263238;
+}
   
   /* */
   
-  .contentBody[contenteditable=true] {
-    /* border: 2px inset rgb(238,238,238); */
+  .contentBody div.removeFocus[contentEditable=true] {
     font-family: inherit;
-    font-size: 11px;
-    padding: 1px;
     -webkit-appearance: textfield;
-    /* width: 290px; */
-    padding: 5px;
-  }
+    /* padding: 5px; */
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    line-break: auto;
+}
+
+div.contentBody div.removeFocus div {
+    background: #263238;
+}
   
