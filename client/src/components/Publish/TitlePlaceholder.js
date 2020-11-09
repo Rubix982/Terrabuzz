@@ -9,7 +9,7 @@ const TitlePlaceholder = ({ chilren, style }) => {
             <div className={TitlePlaceholderStying.titleContent}>
                 <form>
                     <label>
-                        <input type="text" name="title" className={TitlePlaceholderStying.removeFocus} aria-placeholder="Title goes here..." contenteditable="true" placeholder='Title goes here...' autoFocus='autoFocus' maxLength="45" />
+                        <input type="text" name="title" className={TitlePlaceholderStying.removeFocus} aria-placeholder="Title goes here..." contenteditable="true" placeholder='Title goes here...' autoFocus='autoFocus' maxLength="44" />
                     </label>
                 </form>
             </div>

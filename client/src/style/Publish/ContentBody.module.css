@@ -1,35 +1,48 @@
 .contentBody {
     margin: 25px 20%;
     margin-right: 35%;
+    max-height: 100%;
 }
 
-.contentBody div.removeFocus {
+.contentBody textarea::-webkit-scrollbar {
+    display: none;
+  }  
+
+.contentBody textarea.removeFocus {
     background: #263238;
     border: 0px;
     border-style: none;
     font-family: inherit;
-    font-size: 32px;
+    font-size: 40px;
 
     color: white;
     width: 65vw;
     display: block;
-    height: 40px;
+    height: 500px;
     overflow: visible;
     resize: both;
     min-height: 48px;
     line-height: 60px;  
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
 }
 
-.contentBody div.removeFocus::placeholder {
+.contentBody textarea.removeFocus::placeholder {
     color: white;
     font-family: inherit;
-    font-size: 32px;  
+    font-size: 40px;  
     padding: 15px 6px;
+    justify-content: center;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
 }
 
-.contentBody div.removeFocus:active, 
-.contentBody div.removeFocus:hover, 
-.contentBody div.removeFocus:focus {
+.contentBody textarea.removeFocus:active, 
+.contentBody textarea.removeFocus:hover, 
+.contentBody textarea.removeFocus:focus {
     border-style: none;
     border-top-style: hidden;
     border-right-style: hidden;
@@ -44,7 +57,7 @@
     outline-width: 0px;
 }
 
-.contentBody div.removeFocus[contentEditable]:empty::before {
+.contentBody textarea.removeFocus[contentEditable]:empty::before {
     content: "Content goes here...";
     /* color: gray;
     background: #263238; */
@@ -58,7 +71,7 @@
   
   /* */
   
-  .contentBody div.removeFocus[contentEditable=true] {
+  .contentBody textarea.removeFocus[contentEditable=true] {
     font-family: inherit;
     -webkit-appearance: textfield;
     /* padding: 5px; */
@@ -68,7 +81,7 @@
     line-break: auto;
 }
 
-div.contentBody div.removeFocus div {
+textarea.contentBody textarea.removeFocus textarea {
     background: #263238;
 }
   
