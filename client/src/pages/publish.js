@@ -1,14 +1,15 @@
 import React from 'react';
 
 // Component imports
-import MainContent from './../components/Publish/MainContent';
-import PublishHeader from './../components/Publish/PublishHeader';
+import MainContent from './../components/Publish/MainContent'
+import PublishHeader from './../components/Publish/PublishHeader'
 
-import OverrideStyles from './../style/OverrideStyles.module.css'
+// Styling
+import PublishStyling from '../style/Publish/Publish.module.css'
 
 const Publish = ({ children, style }) => {
     return (
-        <div className={OverrideStyles.style}>
+        <div className={PublishStyling.container}>
             <PublishHeader />
             <MainContent />
         </div>
