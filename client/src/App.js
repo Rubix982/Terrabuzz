@@ -18,26 +18,25 @@ import NewPassword from '../src/pages/NewPassword'
 
 function App() {
   return (
-    <div>
-      <>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/feed" component={Feed}></Route>
-            <Route exact path="/profile" component={Profile}></Route>
-            <Route exact path="/publish" component={Publish}></Route>
-            <Route exact path="/search" component={Search}></Route>
-            <Route exact path="/settings" component={Settings}></Route>
-            <Route exact path="/post" component={Post}></Route>
-            <Route exact path="/login" component={Login}></Route>
-            <Route exact path="/register" component={Register}></Route>
-            <Route exact path="/forget-password" component={ForgetPassword}></Route> 
-            <Route exact path="/new-password" component={NewPassword}></Route> 
-            <Route component={Error404}></Route>
-          </Switch>
-        </Router>
-      </>
-    </div>
+
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/feed" component={Feed}></Route>
+          <Route exact path="/profile" component={Profile}></Route>
+          <Route exact path="/publish" component={Publish}></Route>
+          <Route exact path="/search" component={Search}></Route>
+          <Route exact path="/settings" component={Settings}></Route>
+          <Route exact path="/post" component={Post}></Route>
+          <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/register" component={Register}></Route>
+          <Route exact path="/forget-password" component={ForgetPassword}></Route>
+          <Route exact path="/new-password" component={NewPassword}></Route>
+          <Route component={Error404}></Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

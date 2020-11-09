@@ -1,0 +1,6 @@
+.layoutGridContent {
+    display: grid;
+    grid-template-rows: 30% 70%;
+    background-color: #18191A;
+    grid-column-gap: 1px;
+}

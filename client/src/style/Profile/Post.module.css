@@ -1,0 +1,117 @@
+.PostLayout {
+    margin: 35px;
+    padding: 15px;
+
+    background: rgba(36, 37, 38, 0.01);
+    border: 1px solid #444444;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    height: 100%;
+}
+
+.PostTop {
+    display: flex;
+    position: absolute;
+}
+
+.ImageStyling {
+    height: 60px;
+    width: 60px;
+    margin: 0;
+
+}
+
+.ProfilePicture {
+    width: 100%;
+    height: 100%;
+    display: inline;
+    background: #444444;
+    box-shadow: 7px 7px 20px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+.WordHeader {
+    display: inline;
+}
+
+.NameTag {
+    display: inline;
+    text-align: left;
+    justify-content: left;
+    
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+
+    margin-left: 8px;
+}
+
+.UserHandle {
+    display: block;
+    text-align: left;
+    justify-content: left;
+
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #B0B0B0;
+
+    margin-left: 8px;
+}
+
+.PostContent {
+
+    padding-top: 65px;
+
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.BottomPart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: stretch;
+    padding: 15px;
+}
+
+.LikeButton {
+    display: inline;
+
+    background: #242526;
+    border: 1px solid #454545;
+    box-sizing: border-box;
+    border-radius: 0px 0px 0px 20px;
+
+    width: 50%;
+}
+
+.CommentButton {
+    display: inline;
+
+    background: #242526;
+    border: 1px solid #454545;
+    box-sizing: border-box;
+    border-radius: 0px 0px 20px 0px;
+
+    width: 50%;
+}

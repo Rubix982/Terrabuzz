@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+.flexLayout {
+    display: flex;
+}
+
+.layoutClass {
+    display: grid;
+    background-color: #18191A;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+
+    align-items: center;
+    text-align: center;
+}
+
+.UserName {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 50px;
+    align-items: center;
+    text-align: center;
+        
+    color: #FFFFFF;
+}
+
+.UserHandle {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 40px;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+ 
+.Location {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 50;
+    font-size: 24px;
+    line-height: 30px;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+
+    padding-top: 10px;
+}
+
+.Connections {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 2px;
+    align-items: center;
+    text-align: right;
+    
+    color: #FFFFFF;
+    padding-right: 10px;
+}
+
+.Posts {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 2px;
+    align-items: center;
+    text-align: left;
+    
+    color: #FFFFFF;
+    
+    padding-left: 10px;
+    border-left: solid #fff 1px;
+}
+
+.Biography {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    /* display: grid; */
+    text-align: left;
+    align-items: center;
+    
+    color: #FFFFFF;
+    margin: 10px;
+}
+
+.Activities {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: left;
+    align-items: left;
+    
+    color: #FFFFFF;
+}
+
+.Interest {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: left;
+    align-items: left;
+
+    color: #FFFFFF;
+}
+
+.borderRadius {
+    margin: auto 15px;
+    border-bottom: 0.25px solid #FFFFFF;
+}
+
+.ActivityHeader {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    align-items: left;
+    text-align: left;
+}
+
+.InterestHeader {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 37px;
+    align-items: left;
+    text-align: left;
+}
+
+.ConnectionPostBreaker {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+}
+
+.FixSpacingIssue {
+    margin: auto 18px;
+}
