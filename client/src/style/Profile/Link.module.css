@@ -1,0 +1,26 @@
+.Layout {
+    padding: auto 20px;
+}
+
+.Layout, .Layout img, .Layout a {
+    display: inline-block;
+    float: left;
+    padding-left: 10px;
+}
+
+.Layout img {
+    width: 25px;
+    height: 25px;
+}
+
+.Layout a {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #5D6FCE;
+}

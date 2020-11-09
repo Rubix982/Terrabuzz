@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Styling
-import ContentBodyStying from '../../style//Publish/ContentBody.module.css'
-import OverrideStyles from '../../style/OverrideStyles.module.css'
+import ContentBodyStyling from '../../style/Publish/ContentBody.module.css'
+// import OverrideStyles from '../../style/OverrideStyles.module.css'
 
 const ContentBody = ({ children, style }) => {
     return (
