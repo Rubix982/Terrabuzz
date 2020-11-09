@@ -6,11 +6,13 @@ import TitlePlaceholderStying from '../../style//Publish/TitlePlaceholder.module
 const TitlePlaceholder = ({ chilren, style }) => {
     return (
         <div>
-            <form className={TitlePlaceholderStying}>
-                <label>
-                    <input type='text' placeholder='Title goes here' />
-                </label>
-            </form>
+            <div className={TitlePlaceholderStying.titleContent}>
+                <form>
+                    <label>
+                        <input type="text" name="title" className={TitlePlaceholderStying.removeFocus} aria-placeholder="Title goes here..." contenteditable="true" placeholder='Title goes here...' autoFocus='autoFocus' maxLength="44" />
+                    </label>
+                </form>
+            </div>
         </div>
     )
 };

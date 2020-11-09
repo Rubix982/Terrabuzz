@@ -1,16 +1,15 @@
 import React from 'react';
 
 // Styling
-import ContentBodyStying from '../../style//Publish/ContentBody.module.css'
+import ContentBodyStyling from '../../style//Publish/ContentBody.module.css'
 
 const ContentBody = ({ children, style }) => {
     return (
         <div>
-            <form className={ContentBodyStying}>
-                <label>
-                    <input type='text' placeholder='Title goes here' />
-                </label>
-            </form>
+            <div className={ContentBodyStyling.contentBody}>
+                {/* TODO: Find a way to limit the numbe of characters inputted into the div */}
+                <textarea type="text" name="content" className={ContentBodyStyling.removeFocus} aria-placeholder="Enter text here..." contenteditable="true" placeholder='Content goes here...' maxlength="500" />
+            </div>
         </div>
     )
 };

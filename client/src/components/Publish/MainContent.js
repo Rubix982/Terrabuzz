@@ -3,13 +3,20 @@ import TitlePlaceholder from './TitlePlaceholder'
 import ContentBody from './ContentBody'
 
 // Styling
-import MainContentStying from '../../style//Publish/MainContent.module.css'
+import MainContentStyling from '../../style/Publish/MainContent.module.css'
 
 const MainContent = ({ children, style }) => {
     return (
-        <div className={MainContentStying}>
-            <TitlePlaceholder />
-            <ContentBody />
+        <div className={MainContentStyling.main}>
+            <div>
+                <TitlePlaceholder />
+            </div>
+
+            <hr />
+
+            <div>
+                <ContentBody />
+            </div>
         </div>
     )
 };
