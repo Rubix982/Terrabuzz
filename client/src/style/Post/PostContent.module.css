@@ -3,6 +3,7 @@
   grid-template-rows: 85% 15%;
   background-color: #131314;
   border-radius: 20px;
+  margin-bottom: 16px;
 }
 
 .postBody {
@@ -48,11 +49,13 @@
 }
 
 .postText {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+  grid-template-rows: 20% 80%;
   margin: 1em;
+}
+
+.postText h1 {
+  color: white;
 }
 
 .postText p {

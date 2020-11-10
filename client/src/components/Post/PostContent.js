@@ -9,7 +9,10 @@ const PostContent = () => {
         <div className={ComponentStyling.postDescription}>
           <CenterAlign>
             <div className={ComponentStyling.profilePicture}>
-              <img src="/assets/img/profile_pictures/boy.svg" alt='user profile'></img>
+              <img
+                src="/assets/img/profile_pictures/boy.svg"
+                alt="user profile"
+              ></img>
             </div>
           </CenterAlign>
           <div className={ComponentStyling.postTitle}>
@@ -18,29 +21,30 @@ const PostContent = () => {
           </div>
         </div>
         <div className={ComponentStyling.postText}>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
-            of Good and Evil) by Cicero, written in 45 BC. This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.
-          </p>
+          <div>
+            <h1>
+              Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+              consectetur, adipisci{" "}
+            </h1>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+              porttitor turpis vitae risus lobortis, id blandit velit tristique.
+              Cras feugiat aliquam elit, sed scelerisque nulla efficitur vel.
+              Nulla gravida maximus dui, sed consectetur metus porta a. Sed
+              finibus ante ut lorem mattis, et congue augue iaculis. In at quam
+              sit amet erat tincidunt semper in sed purus. Praesent ipsum urna,
+              scelerisque nec consequat placerat, luctus id felis. Mauris nec
+              fringilla turpis. Etiam a dignissim dia mauris. n at quam sit amet
+              erat tincidunt semper in sed purus. Praesent ipsum urna,
+              scelerisque nec consequat placerat, luctus id felis. Mauris nec
+              fringilla turpis. Etiam a dignissim dia mauris. n at quam sit amet
+              erat tincidunt semper in sed purus. Praesent ipsum urna,
+              scelerisque nec consequat placerat, luctus id felis. Mauris nec
+              fringilla turpis. Etiam a dignissim dia mauriss opo.
+            </p>
+          </div>
         </div>
       </div>
       <div className={ComponentStyling.stats}>
