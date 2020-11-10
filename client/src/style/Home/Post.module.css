@@ -1,96 +1,94 @@
 .entry {
-    display: grid;
-    grid-template-rows: 75% 25%;
-    grid-row-gap: 1em;
+  display: grid;
+  grid-template-rows: 75% 25%;
 
-    height: 35%;
-    width: 100%;
+  height: 40%;
+  width: 100%;
 
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
-    
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
 
-    background: #242526;
-    box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-  }
-  
-  .main {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    padding: 5px;
-  }
-  
-  .profilePicture {
-    margin: auto;
-    height: 80px;
-    width: 80px;
-    background-color: #3a3b3c;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .profilePicture img {
-    height: 80px;
-    width: 80px;;
-  }
-  
-  .postBody {
-    display: grid;
-    grid-template-rows: 40% 60%;
-    grid-template-columns: 70% 30%;
-  }
-  
-  .postTitle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 1em;
-  }
-  
-  .postTitle h1,
-  .postTitle h2,
-  .postText p {
-    color: white;
-    font-weight: lighter;
-  }
-  
-  .postTitle h1 {
-    font-size: 24px;
-  }
-  
-  .postTitle h2 {
-    font-size: 14px;
-  }
-  
-  .postText {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 1em;
-  }
-  
-  .postText p {
-    font-size: 16px;
-  }
-  
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid black;
-  }
-  
-  .stats h1 {
-    color: #9f9f9f;
-    font-size: 24px;
-    font-weight: lighter;
-  }
-  
+  background: #242526;
+  box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  padding: 5px;
+}
+
+.profilePicture {
+  margin: auto;
+  height: 70%;
+  width: 50%;
+  background-color: #3a3b3c;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.profilePicture img {
+  height: 85%;
+  width: 100%;
+}
+
+.postBody {
+  display: grid;
+  grid-template-rows: 40% 60%;
+  grid-template-columns: 70% 30%;
+}
+
+.postTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.postTitle h1,
+.postTitle h2,
+.postText p {
+  color: white;
+  font-weight: lighter;
+}
+
+.postTitle h1 {
+  font-size: 24px;
+}
+
+.postTitle h2 {
+  font-size: 14px;
+}
+
+.postText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.postText p {
+  font-size: 16px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid black;
+}
+
+.stats h1 {
+  color: #9f9f9f;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
 .PostedIn {
   font-family: Cairo;
   font-style: normal;
@@ -100,6 +98,6 @@
   display: flex;
   align-items: center;
   text-align: center;
-  
+
   color: rgba(255, 255, 255, 0.5);
 }
