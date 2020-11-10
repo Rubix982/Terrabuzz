@@ -4,8 +4,8 @@ import '../style/NavbarLoggedOut.css'
 
 const NavbarLoggedOut = (props) => {
     return (
-        <div className="navbar-grid-NavBarLoggedOut">
-            <div className="navbar-items-NavBarLoggedOut navbar-logo-NavBarLoggedOut">
+        <div className="navbar-grid">
+            <div className="navbar-items navbar-logo-NavBarLoggedOut">
                 <h1>
                     {props.title}
                 </h1>
