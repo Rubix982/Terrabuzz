@@ -1,0 +1,55 @@
+.container {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  height: 40%;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.logo {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.heading h1 {
+  font-size: 40px;
+}
+
+.heading h1:hover {
+  color: crimson;
+}
+
+.description {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.description p {
+  font-size: 20px;
+}

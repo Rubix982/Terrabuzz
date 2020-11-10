@@ -1,7 +1,8 @@
 import React from "react";
+import MainContent from "../components/Error/MainContent.js";
 
 const Error404 = ({ children, style }) => {
-  return <h1>ERROR 404!</h1>;
+  return <MainContent />;
 };
 
 export default Error404;
