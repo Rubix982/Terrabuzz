@@ -6,7 +6,7 @@ import Logo from "../../assets/img/icon/Logo.svg";
 
 const Template = ({ children }) => {
   return (
-    <Container style={{ display: "grid", gridTemplateColumns: "45% 55%" }}>
+    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
       <div className={ComponentStyling.leftContent}>
         <LeftAlign>
           <div className={ComponentStyling.logo}>
