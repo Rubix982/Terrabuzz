@@ -1,0 +1,48 @@
+.header {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  margin: 20px;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title h1 {
+  color: #60767f;
+}
+
+.buttons {
+  width: 20%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: white;
+  border-radius: 25px;
+}
+
+.leftButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid black;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+}
+
+.rightButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid black;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: gray;
+}
