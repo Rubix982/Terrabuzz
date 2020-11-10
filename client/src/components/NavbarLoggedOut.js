@@ -5,7 +5,7 @@ import '../style/NavbarLoggedOut.css'
 const NavbarLoggedOut = (props) => {
     return (
         <div className="navbar-grid">
-            <div className="navbar-items navbar-logo">
+            <div className="navbar-items navbar-logo-NavBarLoggedOut">
                 <h1>
                     {props.title}
                 </h1>
@@ -13,11 +13,11 @@ const NavbarLoggedOut = (props) => {
 
             <div></div>
 
-            <div className='LoginButton'>
+            <div className='LoginButton-NavBarLoggedOut'>
                 Log In
             </div>
 
-            <div className='RegisterButton'>
+            <div className='RegisterButton-NavBarLoggedOut'>
                 Register
             </div>
         </div>
