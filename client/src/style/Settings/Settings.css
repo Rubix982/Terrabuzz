@@ -9,6 +9,7 @@
     grid-template-columns: 20% 80%;
     height: 664px;
     overflow: hidden;
+    border-top: solid grey 1px ;
 }
 
 .settings-sidebar
