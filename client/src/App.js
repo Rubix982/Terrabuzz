@@ -10,7 +10,7 @@ import Post from "./pages/post";
 import Publish from "./pages/publish";
 import Profile from "./pages/profile";
 import Search from "./pages/search";
-import Settings from "./pages/settings"
+import Settings from "./pages/Settings"
 import Login from './pages/Login'
 import Register from '../src/pages/Register'
 import ForgetPassword from '../src/pages/ForgetPassword'
