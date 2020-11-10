@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+}
+
+.navbar-grid {
+    color: #242526;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 30% auto;
+    background-color: #242526;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 2rem;
+    margin: 0px;
+    height: 60px;
+}
+
+.navbar-items {
+    padding: 0.7rem;
+    margin: 0;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.navbar-logo {
+    text-size-adjust: auto;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    color: #fff;
+    display: flex;
+    overflow: hidden
+}
+
+.LoginButton {
+    background: #3A3B3C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+
+    text-align: center;
+    justify-content: center;
+
+    margin-left: 5px;
+    
+    width: 225px;
+    height: 40px;
+
+    margin-top: 8px;
+
+    vertical-align: middle;
+
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.RegisterButton {
+    background: rgba(58, 59, 60, 0.4);
+    box-shadow: 4px 4px 15px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+
+    text-align: center;
+    justify-content: center;
+
+    margin-left: 5px;
+    
+    width: 225px;
+    height: 40px;
+
+    margin-top: 8px;
+
+    vertical-align: middle;
+
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
