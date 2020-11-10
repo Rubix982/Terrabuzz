@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../style/Settings/Settings.css'
 import Navbar from '../components/Navbar'
 
 const Settings = ({ children, style }) => {

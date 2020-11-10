@@ -1,0 +1,195 @@
+*{
+    padding: 0;
+    margin:0;
+}
+
+.settings-page-grid
+{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 664px;
+    overflow: hidden;
+}
+
+.settings-sidebar
+{
+    background-color: #18191A;
+    border-right: solid 1px grey;
+}
+
+.previous-button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 220px;
+    margin-top: 20px;
+    margin-left: 23px;
+    color: white;
+    border: grey solid 2px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: transparent;
+    background: url('../../assets/img/icon/Previous.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: 50px;
+}
+
+.options-button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 220px;
+    margin-top: 0px;
+    margin-left: 23px;
+    color: white;
+    background-color: transparent;
+    border: 0px;
+}
+
+.current
+{
+    border-left: 5px crimson solid;
+}
+
+.account-preferences
+{
+    background: url('../../assets/img/icon/Account-Preferences.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: 50px;
+}
+
+.security
+{
+    background: url('../../assets/img/icon/Security.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: 50px;
+}
+
+.visibility
+{
+    background: url('../../assets/img/icon/Visibility.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: 50px;
+}
+
+.communication
+{
+    background: url('../../assets/img/icon/Communication.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: 50px;
+}
+
+.data-privacy
+{
+    background: url('../../assets/img/icon/Data-Privacy.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-size: 50px;
+}
+
+.settings-sidebar-controls-grid
+{
+    display: grid;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    margin-top: 80px;
+}
+
+.settings-fields
+{
+    background-color: #242526;
+}
+
+.settings-fields-input
+{
+    height: 480px;
+    margin-top: 55px;
+    display: grid;
+    grid-template-rows: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+}
+
+.align-input-field-1
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.align-input-field-2
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-fields
+{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+}
+
+.search-box
+{
+    margin:20px;
+    width: 450px;
+    height: 40px;
+    border: 2px;
+    border-radius: 10px;
+}
+
+.update-button
+{
+    margin-top: 50px;
+    margin-left: 380px;
+    width: 350px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black solid 2px;
+    border-radius: 10px;
+    color: whitesmoke;
+    background: url('../../assets/img/icon/Update.svg') no-repeat;
+    background-position: left;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: 50px;
+    background-color: grey;
+}
+
+.update-button:hover
+{
+    background-color: crimson;
+    color: whitesmoke;
+}
