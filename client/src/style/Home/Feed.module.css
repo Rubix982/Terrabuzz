@@ -1,0 +1,6 @@
+.HomepageLayout {
+    background: #18191A;
+    display: grid;
+    grid-template-columns: 70% auto;
+    margin: 40px;       
+}

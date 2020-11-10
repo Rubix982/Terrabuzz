@@ -1,13 +1,12 @@
 import React from "react";
 
-import Navbar from '../components/Navbar';
+// React components
+import MainContent from '../components/Home/MainContent';
 
 const Home = ({ children, style }) => {
   return (
-    <div>
-      <Navbar first_name="Tashik" title={"Terrabuzz"} />
-      <h1>TERRABUZZ!</h1>
-    </div>);
+    <MainContent />
+  )
 };
 
 export default Home;
