@@ -1,11 +1,12 @@
 .content {
-    overflow-y: auto;
-    overflow-x: hidden;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .content::-webkit-scrollbar {
-    display: none;
-  }
-  
+  height: 100%;
+  width: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}

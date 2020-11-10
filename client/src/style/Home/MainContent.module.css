@@ -1,5 +1,4 @@
 .MainContentContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: #18191a;
+  display: grid;
+  grid-template-rows: 15% 85%;
 }

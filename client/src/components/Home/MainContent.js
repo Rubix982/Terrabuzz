@@ -1,21 +1,24 @@
-import React from 'react'
+import React from "react";
 
 // React componenets
-import NavbarLoggedOut from '../NavbarLoggedOut';
-import Feed from './Feed';
-import ContentHead from './ContentHead';
+import Content from "./Content";
+import ContentHead from "./ContentHead";
+import { CenterAlign } from "../FlexAlignment";
 
 // Styling
-import MainContentStyling from '../../style/Home/MainContent.module.css';
+import MainContentStyling from "../../style/Home/MainContent.module.css";
 
 const MainContent = ({ children, style, props }) => {
-    return (
-        <div className={MainContentStyling.MainContentContainer}>
-            <NavbarLoggedOut first_name="Tashik" title={"Terrabuzz"} />
-            <ContentHead />
-            <Feed />
-        </div >
-    )
+  return (
+    <div className={MainContentStyling.MainContentContainer}>
+      <CenterAlign>
+        <ContentHead />
+      </CenterAlign>
+      <CenterAlign>
+        <Content />
+      </CenterAlign>
+    </div>
+  );
 };
 
 export default MainContent;
