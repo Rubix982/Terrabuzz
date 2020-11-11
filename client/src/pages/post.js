@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../components/FullViewContainer.js";
 import MainContent from "../components/Post/MainContent.js";
 
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
 
 const Post = ({ children, style }) => {
   return (
@@ -13,9 +13,7 @@ const Post = ({ children, style }) => {
         gridTemplateRows: "10% 90%",
       }}
     >
-      <div>
-        <Navbar first_name="Tashik" title={"Terrabuzz"} />
-      </div>
+      <Navbar first_name="Tashik" title={"Terrabuzz"} />
       <MainContent />
     </Container>
   );

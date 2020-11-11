@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+
+.navbarGrid {
+  font-family: "Cairo", sans-serif;
+  display: grid;
+  grid-template-columns: 35% 30% 35%;
+  background-color: #18191a;
+}
+
+.leftContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-right: 2em;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo img {
+  height: 100%;
+  width: 30%;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.title h1 {
+  color: white;
+}
+
+.search {
+  height: 60%;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
+
+.searchBox {
+  width: 100%;
+  height: 100%;
+}
+
+.searchBox input {
+  width: 100%;
+  height: 90%;
+  background-image: url("../../src/assets/img/icon/Search.svg");
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 24px;
+}
+
+.hashtag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  cursor: pointer;
+}
+
+.hashtag img {
+  height: 70%;
+  width: 70%;
+}
+
+.users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+}
+
+.users img {
+  height: 70%;
+  width: 70%;
+}
+
+.rightContent {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  margin-left: 2em;
+}
+
+.profileDetails {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.profilePicture {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profilePicture img {
+  height: 100%;
+  width: 60%;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.username h1 {
+  color: white;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.controlIcon {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.controlIcon img {
+  height: 80%;
+  width: 80%;
+}
