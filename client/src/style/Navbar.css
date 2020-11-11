@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 
 *{
     padding: 0;
@@ -7,10 +7,10 @@
 
 .navbar-grid {
     color: #242526;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Cairo', sans-serif;
     font-size: 1rem;
     display: grid;
-    grid-template-columns: 20% 12% 26% 12% 15% 5% 5% 14%;
+    grid-template-columns: 12% 12% 10% 26% 10% 15% 5% 5% 14%;
     background-color: #242526;
     max-width: 100%;
     overflow: hidden;
@@ -24,6 +24,19 @@
     align-items: center;
     overflow: hidden;
     text-align: center;
+}
+
+.navbar-logo
+{
+    align-items: flex-end;
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.navbar-logo img
+{
+    width: 70px;
+    height: 70px;
 }
 
 
@@ -40,8 +53,8 @@
 {
     height: 43.5px;
     width: 50px;
-    margin-top: 12px;
-    margin-left: 125px;
+    margin-top: 18px;
+    margin-left: 100px;
     padding: 0px;
     background-color: grey;
     border-top-left-radius: 12px;
@@ -61,7 +74,7 @@
 {
     height: 43.5px;
     width: 50px;
-    margin-top: 12px;
+    margin-top: 18px;
     margin-right: 125px;
     padding: 0px;
     background-color: grey;
@@ -71,7 +84,7 @@
 
 
 
-.navbar-logo {
+.navbar-title {
     text-size-adjust: auto;
     margin: 0px;
     padding: 0px;
@@ -95,7 +108,7 @@
     background-image: url('../../src/assets/img/icon/Search.svg');
     background-repeat: no-repeat;
     width: 350px;
-    height: 40px;
+    height: 41px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     margin: 0;
