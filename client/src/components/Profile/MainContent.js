@@ -10,7 +10,7 @@ import MainContentStyling from '../../style/Profile/MainContent.module.css';
 
 const MainContent = ({ children, style }) => {
 
-    const ProfileSectionInformation  = {
+    const ProfileSectionInformation = {
         'UserName': 'Tashik Moin Sheikh',
         'UserHandle': '@mspCheetah',
         'Location': 'Silicon Valley, San Francisco',
@@ -19,11 +19,11 @@ const MainContent = ({ children, style }) => {
         'Biography': 'A Computer Scientist, have skills in Linux, Docker, React, Git, OpenMP, GitHub, C, C++, C#, JavaScript, Python, HTML, CSS, Databases, .NET Framework, .NET Core, Blazor, Azure, AWS',
         'Activities': 'Coding, gaming, computer scientist, MCT, MCP, MLSA, MSP, MOS, Microsoft',
         'Interest': '#football, #microsoft, #webdev, #cloud, #libra'
-    } 
+    }
 
     return (
         <div className={MainContentStyling.container}>
-            <NavBar />
+            <NavBar first_name="Tashik" title={"Terrabuzz"} />
             <ImageHeader />
             <div className={MainContentStyling.detailsAndPostsLinks}>
                 <ProfileSection children={ProfileSectionInformation} />
