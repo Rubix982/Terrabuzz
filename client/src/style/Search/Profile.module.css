@@ -1,29 +1,13 @@
 .entry {
   display: grid;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 70% 30%;
   background-color: #242526;
   border-radius: 25px;
   margin: 10px;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid black;
-}
-
-.header h1 {
-  color: white;
-}
-
-.main {
-  display: grid;
-  grid-template-columns: 40% 60%;
-}
-
 .profilePicture {
-  height: 50%;
+  height: 70%;
   width: 60%;
   background-color: #3a3b3c;
   border-radius: 100px;
@@ -36,45 +20,21 @@
   width: 100%;
 }
 
-.profileBody {
-  display: grid;
-  grid-template-rows: 30% 70%;
-}
-
-.profileTitle {
+.details {
+  height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  margin-top: 1em;
+  align-items: center;
 }
 
-.profileTitle h1,
-.profileTitle h2,
-.profileText h1,
-.profileText p {
+.details h1,
+.details h2 {
   color: white;
   font-weight: lighter;
 }
 
-.profileTitle h1 {
-  font-size: 14px;
-}
-
-.profileTitle h2 {
-  font-size: 14px;
-}
-
-.profileText {
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-top: 0.5em;
-  border-radius: 25px;
-}
-
-.profileText p {
-  font-size: 14px;
+.details h1,
+.details h2 {
+  font-size: 20px;
 }

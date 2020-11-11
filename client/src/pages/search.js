@@ -1,7 +1,8 @@
 import React from "react";
 import Container from "../components/FullViewContainer.js";
 import Navbar from "../components/Navbar";
-import MainContent from "../components/Search/MainContent.js";
+import MainContentInterest from "../components/Search/MainContentInterest.js";
+import MainContentProfile from "../components/Search/MainContentProfile.js";
 
 const Search = ({ children, style }) => {
   return (
@@ -13,7 +14,9 @@ const Search = ({ children, style }) => {
       }}
     >
       <Navbar first_name="Tashik" title={"Terrabuzz"} />
-      <MainContent></MainContent>
+
+      <MainContentInterest></MainContentInterest>
+      {/* <MainContentProfile></MainContentProfile> */}
     </Container>
   );
 };

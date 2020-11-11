@@ -1,11 +1,11 @@
 import React from "react";
 import ComponentStyling from "../../style/Search/Content.module.css";
 import Post from "./Post.js";
-import Profile from "./Profile.js";
+import Profile from "./InterestProfile.js";
 import { useContext } from "react";
 import { searchTypeContext } from "./SearchTypeContext.js";
 
-const Content = () => {
+const InterestContent = () => {
   const [buttonActive] = useContext(searchTypeContext);
 
   if (buttonActive == "Posted on") {
@@ -57,4 +57,4 @@ const Content = () => {
   }
 };
 
-export default Content;
+export default InterestContent;
