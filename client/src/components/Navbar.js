@@ -1,67 +1,73 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Settings from '../assets/img/icon/Settings.svg'
-import Menu from '../assets/img/icon/HamburgerMenu.svg'
-import Notifications from '../assets/img/icon/Notifications.svg'
-import ProfilePicture from '../assets/profile/Profile_Picture.jpg'
-import SearchUsers from '../assets/img/icon/Search-User.svg'
-import HashSearch from '../assets/img/icon/Hash-Search.svg'
-import Logo from '../assets/img/icon/Logo.svg'
+import React from "react";
+import Settings from "../assets/img/icon/Settings.svg";
+import Menu from "../assets/img/icon/HamburgerMenu.svg";
+import Notifications from "../assets/img/icon/Notifications.svg";
+import SearchUsers from "../assets/img/icon/Search-User.svg";
+import HashSearch from "../assets/img/icon/Hash-Search.svg";
+import Logo from "../assets/img/icon/Logo.svg";
+import { RightAlign, CenterAlign } from "./FlexAlignment.js";
 
-import '../style/Navbar.css'
+import ComponentStyling from "../style/Navbar.module.css";
 
 const Navbar = (props) => {
-    return (
-        <div className="navbar-grid">
-            <div class="navbar-logo">
-                <img src={Logo} alt="" />
-            </div>
-
-            <div className="navbar-items navbar-title">
-                <h1>
-                    {props.title}
-                </h1>
-            </div>
-
-            <div className="navbar-items search-hashtag">
-                <img src={HashSearch} alt="" />
-            </div>
-
-            <div className="navbar-items navbar-search">
-                <input type="text" name="search" placeholder="Search At Terrabuzz"></input>
-            </div>
-
-            <div className="navbar-items search-users">
-                <img src={SearchUsers} alt="" />
-            </div>
-
-            <div className="navbar-items navbar-control-1">
-                <Link to='/Profile'>
-                    <img className="profile-img" src={ProfilePicture} alt="" />
-                </Link>
-                <h3> {props.first_name} </h3>
-            </div>
-
-            <div className="navbar-items navbar-other-controls">
-                <Link to='/Notifications'>
-                    <img className="controls-img" src={Notifications} alt="" />
-                </Link>
-            </div>
-
-            <div className="navbar-items navbar-other-controls">
-                <Link to='/Settings'>
-                    <img className="controls-img" src={Settings} alt="" />
-                </Link>
-            </div>
-
-            <div className="navbar-items navbar-other-controls">
-                <Link to='/Menu'>
-                    <img className="controls-img" src={Menu} alt="" />
-                </Link>
-            </div>
-
+  return (
+    <div className={ComponentStyling.navbarGrid}>
+      <div className={ComponentStyling.leftContent}>
+        <RightAlign>
+          <div className={ComponentStyling.logo}>
+            <img src={Logo} alt="" />
+          </div>
+        </RightAlign>
+        <div className={ComponentStyling.title}>
+          <h1>Terrabuzz</h1>
         </div>
-    )
-}
-export default Navbar
-
+      </div>
+      <CenterAlign>
+        <div className={ComponentStyling.search}>
+          <div className={ComponentStyling.hashtag}>
+            <img src={HashSearch} alt="" />
+          </div>
+          <CenterAlign>
+            <div className={ComponentStyling.searchBox}>
+              <input
+                type="text"
+                name="search"
+                placeholder="Search At Terrabuzz"
+              ></input>
+            </div>
+          </CenterAlign>
+          <div className={ComponentStyling.users}>
+            <img src={SearchUsers} alt="" />
+          </div>
+        </div>
+      </CenterAlign>
+      <RightAlign>
+        <div className={ComponentStyling.rightContent}>
+          <div className={ComponentStyling.profileDetails}>
+            <div className={ComponentStyling.profilePicture}>
+              <img
+                alt="user icon"
+                src="/assets/img/profile_pictures/boy(3).svg"
+              ></img>
+            </div>
+            <div className={ComponentStyling.username}>
+              <h1>John Doe</h1>
+            </div>
+          </div>
+          <div className={ComponentStyling.controls}>
+            <div className={ComponentStyling.controlIcon}>
+              <img src={Notifications} alt="" />
+            </div>
+            <div className={ComponentStyling.controlIcon}>
+              <img src={Settings} alt="" />
+            </div>
+            <div className={ComponentStyling.controlIcon}>
+              <img src={Menu} alt="" />
+            </div>
+          </div>
+        </div>
+      </RightAlign>
+    </div>
+  );
+};
+export default Navbar;
