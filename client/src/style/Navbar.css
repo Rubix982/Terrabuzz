@@ -10,7 +10,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     display: grid;
-    grid-template-columns: 20% 52% 15% 5% 5% 12%;
+    grid-template-columns: 20% 12% 26% 12% 15% 5% 5% 14%;
     background-color: #242526;
     max-width: 100%;
     overflow: hidden;
@@ -26,6 +26,51 @@
     text-align: center;
 }
 
+
+.search-hashtag
+{
+    margin: 0;
+    padding: 0;
+    align-items: flex-end;
+    overflow: hidden;
+    text-align: center;
+}
+
+.search-hashtag img
+{
+    height: 43.5px;
+    width: 50px;
+    margin-top: 12px;
+    margin-left: 125px;
+    padding: 0px;
+    background-color: grey;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.search-users
+{
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+    overflow: hidden;
+    text-align: center;
+}
+
+.search-users img
+{
+    height: 43.5px;
+    width: 50px;
+    margin-top: 12px;
+    margin-right: 125px;
+    padding: 0px;
+    background-color: grey;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+
 .navbar-logo {
     text-size-adjust: auto;
     margin: 0px;
@@ -38,8 +83,9 @@
 
 .navbar-search {
     display: flex;
-    justify-content: flex-start;
-    padding-left: 100px;
+    justify-content: center;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .navbar-search input[type=text] {
