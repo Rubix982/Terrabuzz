@@ -23,7 +23,7 @@ const MainContent = ({ children, style }) => {
 
     return (
         <div className={MainContentStyling.container}>
-            <Navbar first_name="Tashik" title={"Terrabuzz"} />
+            <NavBar first_name="Tashik" title={"Terrabuzz"} />
             <ImageHeader />
             <div className={MainContentStyling.detailsAndPostsLinks}>
                 <ProfileSection children={ProfileSectionInformation} />
