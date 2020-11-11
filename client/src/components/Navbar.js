@@ -4,20 +4,35 @@ import Settings from '../assets/img/icon/Settings.svg'
 import Menu from '../assets/img/icon/HamburgerMenu.svg'
 import Notifications from '../assets/img/icon/Notifications.svg'
 import ProfilePicture from '../assets/profile/Profile_Picture.jpg'
+import SearchUsers from '../assets/img/icon/Search-User.svg'
+import HashSearch from '../assets/img/icon/Hash-Search.svg'
+import Logo from '../assets/img/icon/Logo.svg'
 
 import '../style/Navbar.css'
 
 const Navbar = (props) => {
     return (
         <div className="navbar-grid">
-            <div className="navbar-items navbar-logo">
+            <div class="navbar-logo">
+                <img src={Logo} alt="" />
+            </div>
+
+            <div className="navbar-items navbar-title">
                 <h1>
                     {props.title}
                 </h1>
             </div>
 
+            <div className="navbar-items search-hashtag">
+                <img src={HashSearch} alt="" />
+            </div>
+
             <div className="navbar-items navbar-search">
                 <input type="text" name="search" placeholder="Search At Terrabuzz"></input>
+            </div>
+
+            <div className="navbar-items search-users">
+                <img src={SearchUsers} alt="" />
             </div>
 
             <div className="navbar-items navbar-control-1">
