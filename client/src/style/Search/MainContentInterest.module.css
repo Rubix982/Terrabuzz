@@ -1,0 +1,4 @@
+.content {
+  display: grid;
+  grid-template-rows: 25% 75%;
+}

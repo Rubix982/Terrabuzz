@@ -1,14 +1,24 @@
-import React from 'react';
-
-import Navbar from '../components/Navbar'
+import React from "react";
+import Container from "../components/FullViewContainer.js";
+import Navbar from "../components/Navbar";
+import MainContentInterest from "../components/Search/MainContentInterest.js";
+import MainContentProfile from "../components/Search/MainContentProfile.js";
 
 const Search = ({ children, style }) => {
-    return (
-        <div>
-            <Navbar first_name="Tashik" title={"Terrabuzz"} />
-            SEARCH HERE
-        </div>
-    );
+  return (
+    <Container
+      style={{
+        display: "grid",
+        gridTemplateRows: "10% 90%",
+        backgroundColor: "#18191a",
+      }}
+    >
+      <Navbar first_name="Tashik" title={"Terrabuzz"} />
+
+      <MainContentInterest></MainContentInterest>
+      {/* <MainContentProfile></MainContentProfile> */}
+    </Container>
+  );
 };
 
 export default Search;

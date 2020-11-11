@@ -1,0 +1,40 @@
+.entry {
+  display: grid;
+  grid-template-rows: 70% 30%;
+  background-color: #242526;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.profilePicture {
+  height: 70%;
+  width: 60%;
+  background-color: #3a3b3c;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.profilePicture img {
+  height: 85%;
+  width: 100%;
+}
+
+.details {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.details h1,
+.details h2 {
+  color: white;
+  font-weight: lighter;
+}
+
+.details h1,
+.details h2 {
+  font-size: 20px;
+}
