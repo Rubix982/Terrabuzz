@@ -27,9 +27,11 @@ function App() {
           <Route exact path="/feed" component={Feed}></Route>
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/publish" component={Publish}></Route>
-          <SearchTypeProvider>
-            <Route exact path="/search" component={Search}></Route>
-          </SearchTypeProvider>
+          <Route exact path="/search">
+            <SearchTypeProvider>
+              <Search />
+            </SearchTypeProvider>
+          </Route>
           <Route exact path="/settings" component={Settings}></Route>
           <Route exact path="/post" component={Post}></Route>
           <Route exact path="/login" component={Login}></Route>
