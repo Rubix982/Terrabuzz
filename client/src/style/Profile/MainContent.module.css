@@ -1,12 +1,5 @@
-.container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 10% 30% 60%;
-}
-
 .detailsAndPostsLinks {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    background: #18191A;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background: #18191a;
 }
