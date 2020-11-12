@@ -1,48 +1,49 @@
 .cover {
-    background: url('../../assets/profile/wallpaper_1.jpg') no-repeat center center;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: url("../../assets/profile/wallpaper_1.jpg") no-repeat center
+    center;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profilePicture {
-    background: #3A3B3C;
-    border: 5px solid #18191A;
-    box-sizing: border-box;
-    box-shadow: 8px 8px 65px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 300px;
-    width: 265px;
-    height: 265px;
+  background: #3a3b3c;
+  border: 5px solid #18191a;
+  box-sizing: border-box;
+  box-shadow: 8px 8px 65px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 300px;
+  width: 14.5%;
+  height: 100%;
 }
 
 .picture {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin: auto;   
-    z-index: -1;
-    border-radius: 300px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: auto;
+  z-index: -1;
+  border-radius: 300px;
 }
 
 .plusSymbolPicture {
-    width: 55px;
-    height: 55px;
-    position: relative;
+  width: 55px;
+  height: 55px;
+  position: relative;
 }
 
-.plusSymbol {   
-    width: 100%;
-    height: 100%;
+.plusSymbol {
+  width: 100%;
+  height: 100%;
 
-    position: absolute;
-    right: 100%;
-    top: 100%;
+  position: absolute;
+  right: 100%;
+  top: 100%;
 
-    background: rgba(76, 175, 80, 0.15);
-    border: 5px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
+  background: rgba(76, 175, 80, 0.15);
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
 }

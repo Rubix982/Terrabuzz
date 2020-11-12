@@ -1,162 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
 
 .flexLayout {
-    display: flex;
+  display: flex;
 }
 
 .layoutClass {
-    display: grid;
-    background-color: #18191A;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-
-    align-items: center;
-    text-align: center;
+  display: grid;
+  grid-template-rows: 38% 22% 40%;
+  background-color: #18191a;
+  font-family: Cairo;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
 }
 
-.UserName {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 48px;
-    line-height: 50px;
-    align-items: center;
-    text-align: center;
-        
-    color: #FFFFFF;
+.top {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
 }
 
-.UserHandle {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    line-height: 40px;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-}
- 
-.Location {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 50;
-    font-size: 24px;
-    line-height: 30px;
-    align-items: center;
-    text-align: center;
-    
-    color: #FFFFFF;
-
-    padding-top: 10px;
+.topRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.Connections {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    padding: 2px;
-    align-items: center;
-    text-align: right;
-    
-    color: #FFFFFF;
-    padding-right: 10px;
+.topRow h1 {
+  font-size: 1.5em;
+  color: #ffffff;
 }
 
-.Posts {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    padding: 2px;
-    align-items: center;
-    text-align: left;
-    
-    color: #FFFFFF;
-    
-    padding-left: 10px;
-    border-left: solid #fff 1px;
+.topRow p {
+  font-size: 1.25em;
+  color: #ffffff;
 }
 
-.Biography {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 26px;
-    /* display: grid; */
-    text-align: left;
-    align-items: center;
-    
-    color: #FFFFFF;
-    margin: 10px;
+.middle {
+  margin: 10px;
+  border-bottom: 0.25px solid #ffffff;
 }
 
-.Activities {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: left;
-    align-items: left;
-    
-    color: #FFFFFF;
+.middle p {
+  font-size: 14px;
+  line-height: 26px;
+  color: #ffffff;
 }
 
-.Interest {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: left;
-    align-items: left;
-
-    color: #FFFFFF;
+.bottom {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
 }
 
-.borderRadius {
-    margin: auto 15px;
-    border-bottom: 0.25px solid #FFFFFF;
+.activities {
+  margin-left: 10px;
 }
 
-.ActivityHeader {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    align-items: left;
-    text-align: left;
+.activities p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
 }
 
-.InterestHeader {
-    font-family: Cairo;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 37px;
-    align-items: left;
-    text-align: left;
+.interests {
+  margin-left: 10px;
 }
 
-.ConnectionPostBreaker {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: auto;
-}
-
-.FixSpacingIssue {
-    margin: auto 18px;
+.interests p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
 }
