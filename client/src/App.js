@@ -15,6 +15,8 @@ import Login from "./pages/Login";
 import Register from "../src/pages/Register";
 import ForgetPassword from "../src/pages/ForgetPassword";
 import NewPassword from "../src/pages/NewPassword";
+import AboutUs from '../src/pages/AboutUs';
+import Contact from '../src/pages/Contact';
 
 import SearchTypeProvider from "./components/Search/SearchTypeContext.js";
 
@@ -27,6 +29,8 @@ function App() {
           <Route exact path="/feed" component={Feed}></Route>
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/publish" component={Publish}></Route>
+          <Route exact path="/aboutUs" component={AboutUs}></Route>
+          <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/search">
             <SearchTypeProvider>
               <Search />
@@ -38,10 +42,10 @@ function App() {
           <Route exact path="/register" component={Register}></Route>
           <Route
             exact
-            path="/forget-password"
+            path="/forgetPassword"
             component={ForgetPassword}
           ></Route>
-          <Route exact path="/new-password" component={NewPassword}></Route>
+          <Route exact path="/newPassword" component={NewPassword}></Route>
           <Route component={Error404}></Route>
         </Switch>
       </Router>
