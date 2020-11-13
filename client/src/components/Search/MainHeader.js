@@ -13,7 +13,7 @@ export const MainHeader = () => {
       <div className={ComponentStyling.buttons}>
         <div
           className={
-            buttonActive == "Interested in"
+            buttonActive === "Interested in"
               ? `${ComponentStyling.leftButton} ${ComponentStyling.active}`
               : ComponentStyling.leftButton
           }
@@ -25,7 +25,7 @@ export const MainHeader = () => {
         </div>
         <div
           className={
-            buttonActive == "Posted on"
+            buttonActive === "Posted on"
               ? `${ComponentStyling.rightButton} ${ComponentStyling.active}`
               : ComponentStyling.rightButton
           }

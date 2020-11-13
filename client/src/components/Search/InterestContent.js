@@ -8,7 +8,7 @@ import { searchTypeContext } from "./SearchTypeContext.js";
 const InterestContent = () => {
   const [buttonActive] = useContext(searchTypeContext);
 
-  if (buttonActive == "Posted on") {
+  if (buttonActive === "Posted on") {
     return (
       <div className={ComponentStyling.content}>
         <div className={ComponentStyling.postRow}>

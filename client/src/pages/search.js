@@ -2,7 +2,6 @@ import React from "react";
 import Container from "../components/FullViewContainer.js";
 import Navbar from "../components/Navbar";
 import MainContentInterest from "../components/Search/MainContentInterest.js";
-import MainContentProfile from "../components/Search/MainContentProfile.js";
 
 const Search = ({ children, style }) => {
   return (

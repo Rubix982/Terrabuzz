@@ -11,7 +11,7 @@ const Post = () => {
       <div className={ComponentStyling.main}>
         <CenterAlign>
           <div className={ComponentStyling.profilePicture}>
-            <img src="/assets/img/profile_pictures/boy(3).svg" />
+            <img src="/assets/img/profile_pictures/boy(3).svg" alt="" />
           </div>
         </CenterAlign>
         <div className={ComponentStyling.postBody}>
