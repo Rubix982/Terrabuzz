@@ -4,6 +4,14 @@ import Logo from "../../assets/img/icon/Logo.svg";
 import ComponentStyling from "../../style/Error/MainContent.module.css";
 
 const MainContent = () => {
+  
+  const textStyling = {
+    marginRight: '100px',
+    textDecoration: 'none',
+    color: '#000',
+    fontWeight: 800
+  };
+
   return (
     <div className={ComponentStyling.container}>
       <div className={ComponentStyling.content}>
@@ -20,8 +28,8 @@ const MainContent = () => {
             <p>
               Just a project from university students about a social media application.
             <br />
-            <a style={{marginRight: '100px'}} href='/login'>Login</a>
-              <a href='/register'>Register</a>
+              <a style={textStyling} href='/login'>Login</a>
+              <a style={textStyling} href='/register'>Register</a>
             </p>
           </div>
         </div>
