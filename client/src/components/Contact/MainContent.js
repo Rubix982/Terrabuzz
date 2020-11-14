@@ -20,11 +20,11 @@ const MainContent = () => {
             <p>
               <ul>
                 <li>Tashik Moin Sheikh ( tashikmoinsheikh@gmail.com )</li>
-                <li>Hassan Zahid ( hassanzhd2000@gmail.com )</li>
+                <li>Muhammad Hassan Zahid ( hassanzhd2000@gmail.com )</li>
                 <li>Saif Ul Islam ( saifulislam84210@gmail.com )</li>
               </ul>
               <br />
-              <a style={{marginRight: '100px'}} href='/login'>Login</a>
+              <a style={{marginRight: '100px', textDecoration: none, color: #000}} href='/login'>Login</a>
               <a href='/register'>Register</a>
             </p>
           </div>
