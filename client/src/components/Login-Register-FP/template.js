@@ -19,8 +19,8 @@ const Template = ({ children }) => {
       <div className={ComponentStyling.rightContent}>
         <RightAlign>
           <div className={ComponentStyling.links}>
-            <a href="/About">About Us</a>
-            <a href="/Contact Us">Contact</a>
+            <a href="/aboutUs">About Us</a>
+            <a href="/contact">Contact</a>
           </div>
         </RightAlign>
       </div>
