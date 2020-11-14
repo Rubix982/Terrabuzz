@@ -1,5 +1,4 @@
 import React from "react";
-import { CenterAlign } from "../FlexAlignment.js";
 import ProfileSectionStyling from "../../style/Profile/ProfileSection.module.css";
 
 const ProfileSection = ({ children, style }) => {

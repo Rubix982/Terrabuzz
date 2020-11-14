@@ -1,8 +1,6 @@
 import React from "react";
 
 // React components
-import NavBar from "../Navbar";
-import ImageHeader from "./ImageHeader";
 import ProfileSection from "./ProfileSection";
 import PostsAndLinks from "./PostsAndLinks";
 
