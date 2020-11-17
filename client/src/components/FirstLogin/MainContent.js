@@ -2,6 +2,16 @@ import React from 'react';
 import ComponentStyling from '../../style/FirstLogin/MainContent.module.css';
 
 const MainContent = ({ children, style }) => {
+
+    // let buttonList = document.getElementsByClassName('toggleButton');
+
+    // document.addEventListener(buttonList, () => { 
+    //     for ( button in buttonList ) 
+    //     {
+    //         /* If button was seletcted */
+    //     }
+    // });
+
     return (
         <div className={ComponentStyling.content}>
             <h1>Welcome!</h1>
@@ -44,18 +54,15 @@ const MainContent = ({ children, style }) => {
 
                 <div className={`${ComponentStyling.FieldBox}`}>
                     <label>Interests</label>
-                    <br />
-                    <textarea
-                        type="text"
-                        name="activities"
-                        placeholder="#football, #cricket, #hockey, #foodie, #music"
-                        aria-placeholder='#football, #cricket, #hockey, #foodie, #music'
-                        className={ComponentStyling.ForInterests}
-                        contentEditable="true"
-                        maxLength="50"
-                    />
+                    <button classname={ComponentStyling.toggleButton} id='philosophy'>philosophy</button>
+                    <button classname={ComponentStyling.toggleButton} id='food'>food</button>
+                    <button classname={ComponentStyling.toggleButton} id='cricket'>cricket</button>
+                    <button classname={ComponentStyling.toggleButton} id='football'>football</button>
+                    <button classname={ComponentStyling.toggleButton} id='webdev'>webdev</button>
+                    <button classname={ComponentStyling.toggleButton} id='microsoft'>microsoft</button>
+                    <button classname={ComponentStyling.toggleButton} id='fast'>fast</button>
+                    <button classname={ComponentStyling.toggleButton} id='technology'>technology</button>
                 </div>
-
                 <input
                     className={ComponentStyling.login}
                     type="button"

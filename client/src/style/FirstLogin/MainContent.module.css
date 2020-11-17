@@ -267,3 +267,14 @@
     color: #000000;
     font-size: 14px;
 }
+
+.toogleButton {
+    background: #1a1b1c;
+    font-size: 16px;
+    font-weight: 400;
+    font: Cairo;
+}
+
+.buttonSelected {
+    background: whitesmoke;
+}
