@@ -8,3 +8,7 @@
 body {
   font-family: "cairo";
 }
+
+a {
+  text-decoration: none;
+}
