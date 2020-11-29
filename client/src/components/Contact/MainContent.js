@@ -27,8 +27,29 @@ const MainContent = () => {
           </div>
           <div className={ComponentStyling.description}>
             <p>
-              Just a project from university students about a social media
-              application.
+              <ul>
+                <li>
+                  Tashik Moin Sheikh ({" "}
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=tashikmoinsheikh@gmail.com">
+                    tashikmoinsheikh@gmail.com
+                  </a>{" "}
+                  )
+                </li>
+                <li>
+                  Muhammad Hassan Zahid ({" "}
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hassanzhd2000@gmail.com">
+                    hassanzhd2000@gmail.com
+                  </a>{" "}
+                  )
+                </li>
+                <li>
+                  Saif Ul Islam ({" "}
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=saifulislam84210@gmail.com">
+                    saifulislam84210@gmail.com
+                  </a>{" "}
+                  )
+                </li>
+              </ul>
               <br />
               <a style={textStyling} href="/login">
                 Login
