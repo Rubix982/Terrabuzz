@@ -40,7 +40,11 @@
   font-size: 40px;
 }
 
-.heading h1:hover {
+.heading h1 > a {
+  color: black;
+}
+
+.heading h1 > a:hover {
   color: crimson;
 }
 
@@ -52,4 +56,9 @@
 
 .description p {
   font-size: 20px;
+}
+
+.description a {
+  text-decoration: underline;
+  color: black;
 }

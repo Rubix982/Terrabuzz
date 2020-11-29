@@ -15,8 +15,8 @@ import Login from "./pages/Login";
 import Register from "../src/pages/Register";
 import ForgetPassword from "../src/pages/ForgetPassword";
 import NewPassword from "../src/pages/NewPassword";
-import AboutUs from '../src/pages/AboutUs';
-import Contact from '../src/pages/Contact';
+import AboutUs from "../src/pages/AboutUs";
+import Contact from "../src/pages/Contact";
 
 import SearchTypeProvider from "./components/Search/SearchTypeContext.js";
 
@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/feed" component={Feed}></Route>
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/publish" component={Publish}></Route>
-          <Route exact path="/aboutUs" component={AboutUs}></Route>
+          <Route exact path="/about" component={AboutUs}></Route>
           <Route exact path="/contact" component={Contact}></Route>
           <Route exact path="/search">
             <SearchTypeProvider>
