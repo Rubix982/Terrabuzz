@@ -6,6 +6,7 @@ import SearchUsers from "../assets/img/icon/Search-User.svg";
 import HashSearch from "../assets/img/icon/Hash-Search.svg";
 import Logo from "../assets/img/icon/Logo.svg";
 import { RightAlign, CenterAlign } from "./FlexAlignment.js";
+import { Link } from "react-router-dom";
 
 import ComponentStyling from "../style/Navbar.module.css";
 
@@ -19,7 +20,9 @@ const Navbar = (props) => {
           </div>
         </RightAlign>
         <div className={ComponentStyling.title}>
-          <h1>Terrabuzz</h1>
+          <Link to="/">
+            <h1>Terrabuzz</h1>
+          </Link>
         </div>
       </div>
       <CenterAlign>

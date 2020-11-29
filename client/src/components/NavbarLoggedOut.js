@@ -15,7 +15,9 @@ const NavbarLoggedOut = (props) => {
           </div>
         </RightAlign>
         <div className={ComponentStyling.title}>
-          <h1>Terrabuzz</h1>
+          <Link to="/">
+            <h1>Terrabuzz</h1>
+          </Link>
         </div>
       </div>
       <div className={ComponentStyling.rightContent}>
