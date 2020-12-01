@@ -25,22 +25,22 @@ const Template = ({ children, bgUrl, style }) => {
     LeftAlignStyle = style.LeftAlignStyle;
 
   return (
-    <Container style={{display: 'grid', gridTemplateColumns: '50% 50%'}}>
-      <div className={ComponentStyling.HideScrollBar}>
-        <div className={ComponentStyling.leftContent} style={LeftAlignStyle}>
-          <LeftAlign>
+    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%", overflow: "hidden" }}>
+      <div className={ComponentStyling.leftContent}>
+        <LeftAlign>
+          <Link to="/">
             <div className={ComponentStyling.logo}>
               <img className="logo" src={Logo} alt="" />
             </div>
-          </LeftAlign>
-          <div>{children}</div>
-        </div>
+          </Link>
+        </LeftAlign>
+        <div>{children}</div>
       </div>
 
       <div className={ComponentStyling.rightContent} style={backgroundImageStyling}>
         <RightAlign>
           <div className={ComponentStyling.links}>
-            <a href="/aboutUs">About Us</a>
+            <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </div>
         </RightAlign>

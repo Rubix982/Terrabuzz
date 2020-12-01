@@ -1,6 +1,12 @@
 .leftContent {
   display: grid;
   grid-template-rows: 20% 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.leftContent::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
