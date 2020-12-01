@@ -1,13 +1,13 @@
-import React from "react";
-import { CenterAlign } from "../FlexAlignment.js";
-import Logo from "../../assets/img/icon/Logo.svg";
-import ComponentStyling from "../../style/Error/MainContent.module.css";
+import React from 'react';
+import { CenterAlign } from '../FlexAlignment';
+import Logo from '../../assets/img/icon/Logo.svg';
+import ComponentStyling from '../../style/Error/MainContent.module.css';
 
 const MainContent = () => {
   const textStyling = {
-    marginRight: "100px",
-    textDecoration: "none",
-    color: "#000",
+    marginRight: '100px',
+    textDecoration: 'none',
+    color: '#000',
     fontWeight: 800,
   };
 
