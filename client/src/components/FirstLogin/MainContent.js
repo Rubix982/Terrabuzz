@@ -3,19 +3,9 @@ import ComponentStyling from '../../style/FirstLogin/MainContent.module.css';
 
 const MainContent = ({ children, style }) => {
 
-    const changeColor = (e) => {
-        console.log(e.target.className);
-        var classNames = String(e.target.className).split(' '), classNameToAdd= '';
-        if (classNames[1].includes("AddColorToClickedButton"))
-            classNameToAdd = classNames[1].replace("AddColorToClickedButton", "RemoveColorToClickedButton");
-        else if (classNames[1].includes("RemoveColorToClickedButton"))
-            classNameToAdd = classNames[1].replace("RemoveColorToClickedButton", "AddColorToClickedButton");
-        e.target.classList.remove(classNames[1]);
-        e.target.classList.add(classNameToAdd);
-        console.log(e.target.className);
-    }
-
-    const ActivatedButton = `${ComponentStyling.ToggleInterest} ${ComponentStyling.AddColorToClickedButton}`;
+    let activationArr = [];
+    for (let i = 0; i < 8; ++i)
+        activationArr[i] = false;
 
     return (
         <div className={ComponentStyling.content}>
@@ -53,28 +43,46 @@ const MainContent = ({ children, style }) => {
                     <label>Interests</label>
                     <div className={ComponentStyling.GridSystemForInterests}>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#philosophy</button>
+                            <button type='button' className={activationArr[0] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                console.log(activationArr[0]);
+                                activationArr[0] = !activationArr[0];
+                                console.log(activationArr[0]);
+                            }}>#philosophy</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#food</button>
+                            <button type='button' className={activationArr[1] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[1] = !activationArr[1];
+                            }}>#food</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#cricket</button>
+                            <button type='button' className={activationArr[2] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[2] = !activationArr[2];
+                            }}>#fast</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#football</button>
+                            <button type='button' className={activationArr[3] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[3] = !activationArr[3];
+                            }}>#web</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#webdev</button>
+                            <button type='button' className={activationArr[4] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[4] = !activationArr[4];
+                            }}>#cloud</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#microsoft</button>
+                            <button type='button' className={activationArr[5] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[5] = !activationArr[5];
+                            }}>#humor</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#fast</button>
+                            <button type='button' className={activationArr[6] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[6] = !activationArr[6];
+                            }}>#football</button>
                         </div>
                         <div className={ComponentStyling.OuterToggleInterest}>
-                            <button type='button' className={ActivatedButton} onClick={changeColor}>#technology</button>
+                            <button type='button' className={activationArr[7] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`} onClick={() => {
+                                activationArr[7] = !activationArr[7];
+                            }}>#karachi</button>
                         </div>
                     </div>
                 </div>

@@ -17,6 +17,7 @@ import ForgetPassword from './pages/ForgetPassword';
 import NewPassword from './pages/NewPassword';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
+import FirstLogin from './pages/FirstLogin';
 
 import SearchTypeProvider from './components/Search/SearchTypeContext';
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/publish" component={Publish} />
           <Route exact path="/about" component={AboutUs} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/first" component={FirstLogin} />          
           <Route exact path="/search">
             <SearchTypeProvider>
               <Search />

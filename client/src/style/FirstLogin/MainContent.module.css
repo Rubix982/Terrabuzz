@@ -1,15 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
 
-/* .ScrollBarEffect {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-} */
-
-/* .content {
-    overflow: scroll;
-} */
-
 .content h1 {
     display: flex;
     align-items: flex-start;
@@ -263,7 +253,15 @@
     margin-left: 10px;
 }
 
-.ToggleInterest {
+
+.OuterToggleInterest {
+    width: 85%;
+    height: 60%;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.OuterToggleInterest button {
     color: rgba(255,255,255,1);
     text-decoration: none;
     background-color: #1a1b1c;
@@ -286,14 +284,7 @@
     height: 100%;
 }
 
-.OuterToggleInterest {
-    width: 85%;
-    height: 60%;
-    display: inline-block;
-    border-radius: 10px;
-}
-
-.ToggleInterest:active, .ToggleInterest:hover {
+.OuterToggleInterest button:active, .OuterToggleInterest button:hover {
     -webkit-box-shadow: 0px 3px 0px #242526, 0px 3px 6px rgba(0,0,0,.9);
     -moz-box-shadow: 0px 3px 0px #242526, 0px 3px 6px rgba(0,0,0,.9);
     box-shadow: 0px 3px 0px #242526, 0px 3px 6px rgba(0,0,0,.9);
@@ -320,15 +311,13 @@
 }
 
 .RemoveColorToClickedButton {
-    background-color: green;
     box-shadow: 0px 9px 0px green, 0px 9px 25px rgba(0,0,0,.7);
     -webkit-box-shadow: 0px 9px 0px green, 0px 9px 25px rgba(0,0,0,.7);
     -moz-box-shadow: 0px 9px 0px green, 0px 9px 25px rgba(0,0,0,.7);
 }
 
 .RemoveColorToClickedButton:active, .RemoveColorToClickedButton:hover {
-    background-color: green;
+    box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
     -webkit-box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
     -moz-box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
 }
