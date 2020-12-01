@@ -1,8 +1,9 @@
-import React from "react";
-import Container from "../FullViewContainer.js";
-import ComponentStyling from "../../style/Login-Register-FP/template.module.css";
-import { LeftAlign, RightAlign } from "../FlexAlignment.js";
-import Logo from "../../assets/img/icon/Logo.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Container from '../FullViewContainer';
+import ComponentStyling from '../../style/Login-Register-FP/template.module.css';
+import { LeftAlign, RightAlign } from '../FlexAlignment';
+import Logo from '../../assets/img/icon/Logo.svg';
 
 const Template = ({ children, bgUrl, style }) => {
 

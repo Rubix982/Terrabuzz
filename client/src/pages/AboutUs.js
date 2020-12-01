@@ -1,8 +1,6 @@
 import React from 'react';
-import MainContent from '../components/Contact/MainContent';
+import MainContent from '../components/AboutUs/MainContent';
 
-const AboutUs = ({ childen, style }) => {
-    return <MainContent />
-};
+const AboutUs = () => <MainContent />;
 
 export default AboutUs;

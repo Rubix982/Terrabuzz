@@ -46,12 +46,15 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   font-size: 20px;
-  color: #3f3f3f;
 }
 
 .loginButton:hover {
   background-color: #ffffff;
   transition: 0.5s;
+}
+
+.loginButton a {
+  color: #3f3f3f;
 }
 
 .registerButton {
@@ -63,6 +66,9 @@
   background: rgba(215, 215, 215, 0.2);
   border-radius: 25px;
   font-size: 20px;
+}
+
+.registerButton a {
   color: #ffffff;
 }
 
