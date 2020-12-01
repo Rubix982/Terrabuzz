@@ -4,21 +4,15 @@ import ComponentStyling from '../../style/FirstLogin/MainContent.module.css';
 const MainContent = ({ children, style }) => {
 
     const changeColor = (e) => {
-        var classNames = String(e.target.className)
-        if (classNames.includes("AddColorToClickedButton")) {
-            classNames = classNames.split(' ');
-
-            const classNameToReplace = classNames[1].replace("AddColorToClickedButton", "RemoveColorToClickedButton");
-            console.log(classNameToReplace);
-            // e.target.classList.remove(classNames[1]);
-            // e.target.classList.add('RemoveColorToClickedButton');
-        }
-        // else if (classNames.includes("RemoveColorToClickedButton")) {
-        //     // console.log("here 2");
-            
-        //     e.target.classList.add('AddColorToClickedButton');
-        //     e.target.classList.remvoe('RemoveColorToClickedButton');
-        // }
+        console.log(e.target.className);
+        var classNames = String(e.target.className).split(' '), classNameToAdd= '';
+        if (classNames[1].includes("AddColorToClickedButton"))
+            classNameToAdd = classNames[1].replace("AddColorToClickedButton", "RemoveColorToClickedButton");
+        else if (classNames[1].includes("RemoveColorToClickedButton"))
+            classNameToAdd = classNames[1].replace("RemoveColorToClickedButton", "AddColorToClickedButton");
+        e.target.classList.remove(classNames[1]);
+        e.target.classList.add(classNameToAdd);
+        console.log(e.target.className);
     }
 
     const ActivatedButton = `${ComponentStyling.ToggleInterest} ${ComponentStyling.AddColorToClickedButton}`;
