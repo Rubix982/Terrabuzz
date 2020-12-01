@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
+
+.content h1 {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 60px;
+    padding-top: 0px;
+    margin-top: 0px;
+    font-size: 64px;
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 46px;
+    line-height: 86px;
+    color: #100C0C;
+}
+
+.content h2 {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 63px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    font-size: 24px;
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 60px;
+    color: rgba(16, 12, 12, 0.7);
+}
+
+.content h4 {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 63px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    font-size: 24px;
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 45px;
+    color: rgba(16, 12, 12, 0.7);
+}
+
+.formlogin {
+    padding-left: 63px;
+    padding-top: 30px;
+}
+
+.formlogin input {
+    margin-top: 10px;
+}
+
+.formlogin input[type="text"] {
+    font-size: 20px;
+    color: darkslategrey;
+    width: 100%;
+    height: 60px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    /* padding-left: 20px; */
+    display: flex;
+}
+
+.formlogin input[type="text"]::placeholder {
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+.formlogin input::-webkit-input-placeholder {
+    font-size: 17px;
+    line-height: 3;
+}
+
+.formlogin input[type="password"] {
+    font-size: 20px;
+    color: darkslategrey;
+    width: 450px;
+    height: 60px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding-left: 20px;
+    display: flex;
+}
+
+.formlogin input[type="password"]::placeholder {
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+.formlogin input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    margin-top: 30px;
+    margin-left: 0px;
+    display: inline-flex;
+}
+
+.rememberMe {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.forget {
+    margin-left: 170px;
+    font-weight: 1000;
+    font-size: 20px;
+}
+
+.formlogin a {
+    color: black;
+    text-decoration: none;
+}
+
+.formlogin a:hover,
+.formlogin a:focus {
+    color: grey;
+    text-decoration: underline;
+}
+
+.login {
+    font-family: "cairo";
+    margin-top: 35px;
+    /* margin-left: 10px; */
+    height: 55px;
+    width: 234px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    border: 1px solid #6d6d6d;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+.register {
+    font-family: "cairo";
+    margin-top: 35px;
+    margin-left: 10px;
+    height: 55px;
+    width: 234px;
+    background-color: white;
+    color: #8b8b8b;
+    border-radius: 25px;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    border: 1px solid #6d6d6d;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.login:hover {
+    transition: 0.25s;
+    background-color: rgb(49, 49, 49);
+    color: rgb(255, 255, 255);
+}
+
+.register:hover {
+    transition: 0.5s;
+    background-color: rgb(202, 202, 202);
+    color: rgb(0, 0, 0);
+}
+
+.FieldBox {
+    background: rgba(253, 253, 253, 0.7);
+    border: 1px solid #242526;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
+    margin-bottom: 24px; 
+
+    width: 90%;     
+    display: grid;
+    grid-template-rows: 20% auto 80%;
+}
+
+.FieldBox textarea {
+    font-size: 24px;
+    padding: inherit 500px;
+    border: none;
+    height: 85%;
+    width: 100%;
+    resize: none;
+}
+
+.FieldBox textarea.ForActivities, .FieldBox textarea.ForInterests {
+    height: 78%;
+}
+
+.FieldBox textarea::placeholder {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 32px;
+    padding: 15px 6px;
+    
+    color: rgba(0, 0, 0, 0.3);
+    justify-content: left;
+    text-align: left;
+    float: left;
+    
+    height: 100%;
+}
+
+.FieldBox textarea:active, 
+.FieldBox textarea:hover, 
+.FieldBox textarea:focus {
+    border-style: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.FieldBox textarea:focus {
+    outline: -webkit-focus-ring-color none 0px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: none;
+    outline-width: 0px;
+}
+
+/* .FieldBox textarea::-webkit-input-placeholder {
+    color:red;
+} */
+
+.FieldBox textarea[contentEditable=true] {
+    font-family: inherit;
+    -webkit-appearance: textfield;
+    /* padding: 5px; */
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    line-break: auto;
+}
+
+.FieldBox label {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 45px;
+    
+    color: #000000;    
+    margin-left: 10px;
+}
+
+.FieldBox label > span {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 45px;
+    
+    color: #000000;
+    font-size: 14px;
+}
