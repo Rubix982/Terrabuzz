@@ -36,6 +36,7 @@ const MainContent = ({ children, style }) => {
                         placeholder="swimming, hiking, writing"
                         aria-placeholder='swimming, hiking, writing'
                         className={ComponentStyling.ForActivities}
+
                         maxLength="50"
                     ></textarea>
                 </div>
