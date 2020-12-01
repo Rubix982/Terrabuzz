@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
 
-.content {
+/* .ScrollBarEffect {
+    overflow: hidden;
     height: 100%;
     width: 100%;
-    overflow: hidden;
-}
+} */
+
+/* .content {
+    overflow: scroll;
+} */
 
 .content h1 {
     display: flex;
@@ -265,9 +269,9 @@
     text-decoration: none;
     background-color: #1a1b1c;
     font-family: Cairo;
-    font-weight: 200;
-    font-size: 14px;
-    border-radius: 8px;
+    font-weight: 400;
+    font-size: 24px;
+    border-radius: 30px;
     box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
     margin: 10px;
     padding: 10px;
@@ -287,9 +291,10 @@
 }
 
 .OuterToggleInterest {
-    width: 80%;
+    width: 85%;
     height: 60%;
     display: inline-block;
+    border-radius: 10px;
 }
 
 .ToggleInterest:active, .ToggleInterest:hover {
@@ -302,6 +307,6 @@
 
 .GridSystemForInterests {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 4px;
 }

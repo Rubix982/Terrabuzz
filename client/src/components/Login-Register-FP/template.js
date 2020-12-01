@@ -50,7 +50,7 @@ const Template = ({ children, bgUrl, style }) => {
     LeftAlignStyle = style.LeftAlignStyle;
 
   return (
-    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
+    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%",overflow: "hidden" }}>
       <div className={ComponentStyling.leftContent}>
         <LeftAlign>
           <Link to="/">
