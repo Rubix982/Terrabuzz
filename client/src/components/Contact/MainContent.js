@@ -1,13 +1,13 @@
-import React from "react";
-import { CenterAlign } from "../FlexAlignment.js";
-import Logo from "../../assets/img/icon/Logo.svg";
-import ComponentStyling from "../../style/Error/MainContent.module.css";
+import React from 'react';
+import { CenterAlign } from '../FlexAlignment';
+import Logo from '../../assets/img/icon/Logo.svg';
+import ComponentStyling from '../../style/Error/MainContent.module.css';
 
 const MainContent = () => {
   const textStyling = {
-    marginRight: "100px",
-    textDecoration: "none",
-    color: "#000",
+    marginRight: '100px',
+    textDecoration: 'none',
+    color: '#000',
     fontWeight: 800,
   };
 
@@ -29,24 +29,30 @@ const MainContent = () => {
             <p>
               <ul>
                 <li>
-                  Tashik Moin Sheikh ({" "}
+                  Tashik Moin Sheikh (
+                  {' '}
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=tashikmoinsheikh@gmail.com">
                     tashikmoinsheikh@gmail.com
-                  </a>{" "}
+                  </a>
+                  {' '}
                   )
                 </li>
                 <li>
-                  Muhammad Hassan Zahid ({" "}
+                  Muhammad Hassan Zahid (
+                  {' '}
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hassanzhd2000@gmail.com">
                     hassanzhd2000@gmail.com
-                  </a>{" "}
+                  </a>
+                  {' '}
                   )
                 </li>
                 <li>
-                  Saif Ul Islam ({" "}
+                  Saif Ul Islam (
+                  {' '}
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=saifulislam84210@gmail.com">
                     saifulislam84210@gmail.com
-                  </a>{" "}
+                  </a>
+                  {' '}
                   )
                 </li>
               </ul>

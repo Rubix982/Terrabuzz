@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Alert = (props) => {
-    return (
-        props.alert !== null && (
-          <div className={`alert alert-${props.alert.boxColor}`}>
-            <i className='fas fa-info-circle' /> {props.alert.Message}
-          </div>
-        )
-      );
-}
+const Alert = ({ alert }) => (
+  alert !== null && (
+  <div className={`alert alert-${alert.boxColor}`}>
+    <i className="fas fa-info-circle" />
+    {' '}
+    {alert.Message}
+  </div>
+  )
+);
 
-export default Alert
+export default Alert;
