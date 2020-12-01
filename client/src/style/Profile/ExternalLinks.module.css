@@ -1,7 +1,13 @@
 .externalLinkLayout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1/3fr 1/3fr 1/3fr;
+    grid-row-gap: 5px;
+}
+
+.GridSystem {
+    display: grid;
+    grid-template-columns: 90% 10%;
     background: #242526;
     box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
