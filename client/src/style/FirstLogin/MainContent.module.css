@@ -247,7 +247,6 @@
 .FieldBox textarea[contentEditable=true] {
     font-family: inherit;
     -webkit-appearance: textfield;
-    /* padding: 5px; */
     -webkit-user-modify: read-write;
     overflow-wrap: break-word;
     -webkit-line-break: after-white-space;
@@ -272,15 +271,12 @@
     font-weight: 400;
     font-size: 24px;
     border-radius: 30px;
-    box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
     margin: 10px;
     padding: 10px;
     transition: all .1s ease;
 	
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
-    -webkit-box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
-    -moz-box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
 	-webkit-transition: all .1s ease;
 	-moz-transition: all .1s ease;
 	-ms-transition: all .1s ease;
@@ -309,4 +305,30 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 4px;
+}
+
+.AddColorToClickedButton {
+    box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
+    -webkit-box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px #111213, 0px 9px 25px rgba(0,0,0,.7);
+}
+
+.AddColorToClickedButton:active, .AddColorToClickedButton:hover {
+    -webkit-box-shadow: 0px 3px 0px #242526, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px #242526, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px #242526, 0px 3px 6px rgba(0,0,0,.9);
+}
+
+.RemoveColorToClickedButton {
+    background-color: green;
+    box-shadow: 0px 9px 0px green, 0px 9px 25px rgba(0,0,0,.7);
+    -webkit-box-shadow: 0px 9px 0px green, 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px green, 0px 9px 25px rgba(0,0,0,.7);
+}
+
+.RemoveColorToClickedButton:active, .RemoveColorToClickedButton:hover {
+    background-color: green;
+    -webkit-box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px green, 0px 3px 6px rgba(0,0,0,.9);
 }
