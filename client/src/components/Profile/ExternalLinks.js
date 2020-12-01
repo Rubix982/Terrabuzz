@@ -8,12 +8,12 @@ import LinkedInLogo from "../../assets/profile/linkedin.svg"
 import WebsiteLogo from "../../assets/profile/web.svg"
 import YoutubeLogo from "../../assets/profile/youtube.svg"
 import TwitterLogo from "../../assets/profile/twitter.svg"
-import EditLogo from '../../assets/profile/edit.svg';
 
 // React Component
 import SocialMediaFeedLink from './SocialMediaFeedLink'
+import EditInfoComponent from './EditInfoComponent';
 
-const ExternalLinks = ({ children, style }) => {
+const ExternalLinks = ( children, style ) => {
 
     return (
         <div className={ExternalLinksStyling.GridSystem}>
@@ -25,12 +25,9 @@ const ExternalLinks = ({ children, style }) => {
                 <SocialMediaFeedLink logo={YoutubeLogo} link="youtube.com/channel/UC_bxQjn16KukkyWqTY_MZvg" />
                 <SocialMediaFeedLink logo={TwitterLogo} link="twitter.com/TashikMSheikh" />
             </div>
-            <div className={ExternalLinksStyling.EditOption}>
-                <img src={EditLogo} alt="" />
-                <p>Edit?</p>
-            </div>
+            <EditInfoComponent />
         </div>
-    );
+    );      
 };
 
 export default ExternalLinks;
