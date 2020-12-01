@@ -65,7 +65,7 @@ const Template = ({ children, bgUrl, style }) => {
       <div className={ComponentStyling.rightContent} style={backgroundImageStyling}>
         <RightAlign>
           <div className={ComponentStyling.links}>
-            <a href="/aboutUs">About Us</a>
+            <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </div>
         </RightAlign>
