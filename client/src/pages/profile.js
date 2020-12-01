@@ -1,18 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Container from "../components/FullViewContainer.js";
-import Navbar from "../components/Navbar.js";
-import ImageHeader from "../components/Profile/ImageHeader.js";
-import MainContent from "../components/Profile/MainContent";
+import Container from '../components/FullViewContainer';
+import Navbar from '../components/Navbar';
+import ImageHeader from '../components/Profile/ImageHeader';
+import MainContent from '../components/Profile/MainContent';
 
-const Profile = ({ children, style }) => {
-  return (
-    <Container style={{ display: "grid", gridTemplateRows: "10% 30% 60%" }}>
-      <Navbar />
-      <ImageHeader />
-      <MainContent />
-    </Container>
-  );
-};
+const Profile = () => (
+  <Container style={{ display: 'grid', gridTemplateRows: '10% 30% 60%' }}>
+    <Navbar />
+    <ImageHeader />
+    <MainContent />
+  </Container>
+);
 
 export default Profile;

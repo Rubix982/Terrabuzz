@@ -1,6 +1,12 @@
 .leftContent {
   display: grid;
   grid-template-rows: 20% 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.leftContent::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
@@ -53,4 +59,20 @@
 .links a:focus 
 {
   color: sandybrown;
+}
+
+.GridPartitioning {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.HideScrollBar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.HideScrollBar::-webkit-scrollbar {
+  display: none;
 }

@@ -1,13 +1,31 @@
-import React from "react";
-import Container from "../FullViewContainer.js";
-import ComponentStyling from "../../style/Login-Register-FP/template.module.css";
-import { LeftAlign, RightAlign } from "../FlexAlignment.js";
-import Logo from "../../assets/img/icon/Logo.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Container from '../FullViewContainer';
+import ComponentStyling from '../../style/Login-Register-FP/template.module.css';
+import { LeftAlign, RightAlign } from '../FlexAlignment';
+import Logo from '../../assets/img/icon/Logo.svg';
 
-const Template = ({ children }) => {
+const Template = ({ children, bgUrl, style }) => {
+
+  let backgroundImageStyling = {
+    backgroundRepeat: `no-repeat`,
+    MozBackgroundSize: 'cover',
+    WebkitBackgroundSize: 'cover',
+    OBackgroundSize: 'cover',
+    backgroundSize: 'cover',
+    width: 'cover',
+    height: 'cover'
+  }
+
+  if (bgUrl)
+    backgroundImageStyling.backgroundImage = `url(${bgUrl})`;
+
+  let LeftAlignStyle = {}
+  if (style)
+    LeftAlignStyle = style.LeftAlignStyle;
+
   return (
-    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
+    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%", overflow: "hidden" }}>
       <div className={ComponentStyling.leftContent}>
         <LeftAlign>
           <Link to="/">
@@ -19,15 +37,15 @@ const Template = ({ children }) => {
         <div>{children}</div>
       </div>
 
-      <div className={ComponentStyling.rightContent}>
+      <div className={ComponentStyling.rightContent} style={backgroundImageStyling}>
         <RightAlign>
           <div className={ComponentStyling.links}>
-            <a href="/aboutUs">About Us</a>
+            <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </div>
         </RightAlign>
       </div>
-    </Container>
+    </Container >
   );
 };
 

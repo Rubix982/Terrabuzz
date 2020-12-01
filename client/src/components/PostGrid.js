@@ -1,29 +1,25 @@
-import React from 'react'
-import Posts from './Posts.js'
-import Spinner from './Spinner.js';
+import React from 'react';
+import Posts from './Posts';
+import Spinner from './LoadingSpinner';
 
-const GridUsersDisplay = (props) =>  
-{
-    if(props.loading)
-    {
-        return <Spinner/> ;
-    }
-    else
-    {
-        return (
-            <div style={GridStyle} >
-                {props.users.map( user => ( 
-                    <Posts key={user.id} user_number={user}/>
-                ))}
-            </div>
-        );
-    }
-
-}
-const GridStyle =
-{
+const GridStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3,1fr)',
-  gridGap: '1rem'
-}
-export default GridUsersDisplay
+  gridGap: '1rem',
+};
+
+const GridUsersDisplay = ({ loading, users }) => {
+  if (loading) {
+    return <Spinner />;
+  }
+
+  return (
+    <div style={GridStyle}>
+      {users.map((user) => (
+        <Posts key={user.id} user_number={user} />
+      ))}
+    </div>
+  );
+};
+
+export default GridUsersDisplay;

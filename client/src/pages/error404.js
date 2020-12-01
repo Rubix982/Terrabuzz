@@ -1,8 +1,6 @@
-import React from "react";
-import MainContent from "../components/Error/MainContent.js";
+import React from 'react';
+import MainContent from '../components/Error/MainContent';
 
-const Error404 = ({ children, style }) => {
-  return <MainContent />;
-};
+const Error404 = () => <MainContent />;
 
 export default Error404;

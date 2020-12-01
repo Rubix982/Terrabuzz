@@ -1,9 +1,9 @@
-import React from "react";
-import ComponentStyling from "../../style/Search/MainHeader.module.css";
-import { useContext } from "react";
-import { searchTypeContext } from "./SearchTypeContext.js";
+import React, { useContext } from 'react';
+import ComponentStyling from '../../style/Search/MainHeader.module.css';
 
-export const MainHeader = () => {
+import { searchTypeContext } from './SearchTypeContext';
+
+const MainHeader = () => {
   const [buttonActive, setButtonActive] = useContext(searchTypeContext);
   return (
     <div className={ComponentStyling.header}>
@@ -12,25 +12,32 @@ export const MainHeader = () => {
       </div>
       <div className={ComponentStyling.buttons}>
         <div
+          role="button"
           className={
-            buttonActive === "Interested in"
+            buttonActive === 'Interested in'
               ? `${ComponentStyling.leftButton} ${ComponentStyling.active}`
               : ComponentStyling.leftButton
           }
-          onClick={(event) => {
-            setButtonActive("Interested in");
+          onClick={() => {
+            setButtonActive('Interested in');
           }}
         >
           Interested in
         </div>
         <div
+          role="button"
           className={
-            buttonActive === "Posted on"
+            buttonActive === 'Posted on'
               ? `${ComponentStyling.rightButton} ${ComponentStyling.active}`
               : ComponentStyling.rightButton
           }
-          onClick={(event) => {
-            setButtonActive("Posted on");
+          onClick={() => {
+            setButtonActive('Posted on');
+          }}
+          handleKeyDown={(event) => {
+            if (event.keyCode === 13) {
+              setButtonActive('Posted on');
+            }
           }}
         >
           Posted on

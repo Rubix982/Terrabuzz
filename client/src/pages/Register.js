@@ -1,13 +1,11 @@
-import React from "react";
-import Template from "../components/Login-Register-FP/template.js";
-import MainContent from "../components/Register/MainContent.js";
+import React from 'react';
+import Template from '../components/Login-Register-FP/template';
+import MainContent from '../components/Register/MainContent';
 
-const Register = (props) => {
-  return (
-    <Template>
-      <MainContent></MainContent>
-    </Template>
-  );
-};
+const Register = () => (
+  <Template>
+    <MainContent />
+  </Template>
+);
 
 export default Register;

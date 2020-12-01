@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Styling
-import ExternalLinksStyling from '../../style/Profile/ExternalLinks.module.css'
-import InstagramLogo from '../../assets/profile/instagram.svg'
-import FacebookLogo from "../../assets/profile/facebook.svg"
-import LinkedInLogo from "../../assets/profile/linkedin.svg"
-import WebsiteLogo from "../../assets/profile/web.svg"
-import YoutubeLogo from "../../assets/profile/youtube.svg"
-import TwitterLogo from "../../assets/profile/twitter.svg"
+import ExternalLinksStyling from '../../style/Profile/ExternalLinks.module.css';
+import InstagramLogo from '../../assets/profile/instagram.svg';
+import FacebookLogo from '../../assets/profile/facebook.svg';
+import LinkedInLogo from '../../assets/profile/linkedin.svg';
+import WebsiteLogo from '../../assets/profile/web.svg';
+import YoutubeLogo from '../../assets/profile/youtube.svg';
+import TwitterLogo from '../../assets/profile/twitter.svg';
 
 // React Component
 import SocialMediaFeedLink from './SocialMediaFeedLink'
