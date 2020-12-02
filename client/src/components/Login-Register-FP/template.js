@@ -5,27 +5,21 @@ import ComponentStyling from '../../style/Login-Register-FP/template.module.css'
 import { LeftAlign, RightAlign } from '../FlexAlignment';
 import Logo from '../../assets/img/icon/Logo.svg';
 
-const Template = ({ children, bgUrl, style }) => {
-
-  let backgroundImageStyling = {
-    backgroundRepeat: `no-repeat`,
+const Template = ({ children, bgUrl }) => {
+  const backgroundImageStyling = {
+    backgroundRepeat: 'no-repeat',
     MozBackgroundSize: 'cover',
     WebkitBackgroundSize: 'cover',
     OBackgroundSize: 'cover',
     backgroundSize: 'cover',
     width: 'cover',
-    height: 'cover'
-  }
+    height: 'cover',
+  };
 
-  if (bgUrl)
-    backgroundImageStyling.backgroundImage = `url(${bgUrl})`;
-
-  let LeftAlignStyle = {}
-  if (style)
-    LeftAlignStyle = style.LeftAlignStyle;
+  if (bgUrl) backgroundImageStyling.backgroundImage = `url(${bgUrl})`;
 
   return (
-    <Container style={{ display: "grid", gridTemplateColumns: "50% 50%", overflow: "hidden" }}>
+    <Container style={{ display: 'grid', gridTemplateColumns: '50% 50%', overflow: 'hidden' }}>
       <div className={ComponentStyling.leftContent}>
         <LeftAlign>
           <Link to="/">
@@ -45,7 +39,7 @@ const Template = ({ children, bgUrl, style }) => {
           </div>
         </RightAlign>
       </div>
-    </Container >
+    </Container>
   );
 };
 

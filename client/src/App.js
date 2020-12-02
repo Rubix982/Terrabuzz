@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/first" component={FirstLogin} />
           <Route exact path="/about" component={AboutUs} />
           <Route exact path="/contact" component={Contact} />
-          <Route exact path="/first" component={FirstLogin} />          
+          <Route exact path="/first" component={FirstLogin} />
           <Route exact path="/search">
             <SearchTypeProvider>
               <Search />

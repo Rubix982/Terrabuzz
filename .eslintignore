@@ -1,3 +1,6 @@
 data/
 node_modules/*
 serviceWorker.js
+client/src/serviceWorker.js
+client/build/*
+client/node_modules/*
