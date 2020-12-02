@@ -1,6 +1,13 @@
 .EditOption {
+    margin: auto;
+    padding: 0;
     display: block;
     font: Cairo;
     font-weight: 400;
     color: white;
+    background: inherit;
+    border-style: none;
+    font-size: 14px;
+    justify-content: center;
+    text-align: center;
 }

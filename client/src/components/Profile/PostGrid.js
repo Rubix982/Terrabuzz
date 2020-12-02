@@ -20,18 +20,18 @@ const PostGrid = () => {
   return (
     <div className={PostGridStyling.HidingOverflow}>
       <div className={PostGridStyling.PostGridLayout}>
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
-        <Post prop={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
+        <Post contentInformation={ExamplePostContent} />
       </div>
     </div>
   );
