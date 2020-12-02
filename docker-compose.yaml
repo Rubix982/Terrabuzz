@@ -49,3 +49,19 @@ services:
       - "./data/mongodb:/data/db"
     expose:
       - "27017"
+  
+  neo4j:
+    container_name: graphdb
+    image: neo4j
+    restart: always
+    environment:
+      NEO4J_AUTH: neo4j/${PASSWORD}
+    volumes:
+      - "./data/neo4j/data:/data"
+      - "./data/neo4j/logs:/logs"
+      - "./data/neo4j/import:/var/lib/neo4j/import"
+      - "./data/neo4j/plugins:/plugins"
+    ports:
+      - "7474"
+      - "7473"
+      - "7687"
