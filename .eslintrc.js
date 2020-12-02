@@ -1,18 +1,29 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
     commonjs: true,
     es2021: true,
   },
+  settings: {
+    react: {
+      version: '16.13.1',
+    },
+  },
   extends: [
-    'airbnb-base',
+    'plugin:react/recommended',
+    'airbnb',
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 12,
   },
+  plugins: [
+    'react',
+  ],
   rules: {
-    'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
-    'no-console': 'off',
+    'import/no-cycle': [2, { maxDepth: 1 }],
+    'no-console': 0,
   },
 };

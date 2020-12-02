@@ -4,7 +4,7 @@ module.exports.notFound = (req, res, next) => {
   next(error);
 };
 
-module.exports.onError = (error, req, res, next) => {
+module.exports.onError = (error, req, res) => {
   console.log(`Error: ${error.message}`);
   if (error.message) {
     res.json({ message: error.message });
