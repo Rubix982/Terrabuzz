@@ -34,6 +34,7 @@ services:
       - backend
       - mysql
       - mongo
+      - neo4j
 
   mysql:
     container_name: primary
@@ -58,3 +59,26 @@ services:
       - "./data/mongodb:/data/db"
     expose:
       - "27017"
+  
+  neo4j:
+    container_name: graphdb
+    image: neo4j
+    restart: always
+    environment:
+      NEO4J_AUTH: neo4j/${PASSWORD}
+    volumes:
+      - "./data/neo4j/data:/data"
+      - "./data/neo4j/logs:/logs"
+      - "./data/neo4j/import:/var/lib/neo4j/import"
+      - "./data/neo4j/plugins:/plugins"
+    ports:
+      - "7474:7474"
+      - "7473:7473"
+      - "7687:7687"
+  
+  cache-store:
+    container_name: cache-store
+    image: redis
+    restart: always
+    ports: 
+      - "6379"
