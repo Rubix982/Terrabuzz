@@ -1,0 +1,3 @@
+*.vcproj    eol=crlf
+*.sh        eol=lf
+*.js        eol=lf
