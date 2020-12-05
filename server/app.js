@@ -1,10 +1,12 @@
 const express = require('express');
 const indexRouter = require('./routes/index.js');
 const middleware = require('./middleware/index.js');
-const MySQLConnection = require("./MySQL-Connection.js");
+const MYSQL_CONNECTOR = (require('./db/mysql/connection.js'));
+const MONGOOSE_CONNECTOR = require('./db/mongo/connection.js');
 require('dotenv').config();
 
-MySQLConnection();
+MYSQL_CONNECTOR.connect();
+MONGOOSE_CONNECTOR.connect();
 
 const app = express();
 
