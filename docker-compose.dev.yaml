@@ -45,8 +45,8 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - "./data/mysql:/var/lib/mysql"
-    expose:
-      - "3306"
+    ports:
+      - "3306:3306"
 
   mongo:
     container_name: secondary
@@ -57,8 +57,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
     volumes:
       - "./data/mongodb:/data/db"
-    expose:
-      - "27017"
+    ports:
+      - "27017:27017"
   
   neo4j:
     container_name: graphdb
