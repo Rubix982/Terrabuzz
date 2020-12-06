@@ -1,8 +1,7 @@
-sudo docker exec -it e323b5d mysql -uroot -pSHTBUZZ
-create database Terrabuzz_MySQL;
-use Terrabuzz_MySQL;
+create database TERRABUZZ;
+use TERRABUZZ;
 
-CREATE TABLE `Terrabuzz_MySQL`.`User_Information` (
+CREATE TABLE `TERRABUZZ`.`User_Information` (
   `Handler` VARCHAR(40) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
   `Password` VARCHAR(45) NOT NULL,
@@ -20,23 +19,23 @@ CREATE TABLE `Terrabuzz_MySQL`.`User_Information` (
 
 
 
-CREATE TABLE `Terrabuzz_MySQL`.`Connection` (
+CREATE TABLE `TERRABUZZ`.`Connection` (
   `Followers` VARCHAR(40) NOT NULL,
   `Following` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`Followers`, `Following`),
   CONSTRAINT `Handler_Followers_Connections`
     FOREIGN KEY (`Followers`)
-    REFERENCES `Terrabuzz_MySQL`.`User_Information` (`Handler`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `Handler_Following_Connections`
     FOREIGN KEY (`Following`)
-    REFERENCES `Terrabuzz_MySQL`.`User_Information` (`Handler`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
 
-CREATE TABLE `Terrabuzz_MySQL`.`Academics` (
+CREATE TABLE `TERRABUZZ`.`Academics` (
    `Name` varchar(40) NOT NULL,
    `Handler` varchar(40) NOT NULL,
    `From` date DEFAULT NULL,
@@ -44,19 +43,19 @@ CREATE TABLE `Terrabuzz_MySQL`.`Academics` (
    `Type` varchar(45) DEFAULT NULL,
    PRIMARY KEY (`Name`,`Handler`),
    CONSTRAINT `Handler_Academics` FOREIGN KEY (`Handler`) REFERENCES `User_Information` (`Handler`) ON DELETE CASCADE ON UPDATE CASCADE
- ) 
+ );
 
 
 
 
-CREATE TABLE `Terrabuzz_MySQL`.`Organization` (
+CREATE TABLE `TERRABUZZ`.`Organization` (
   `Name` VARCHAR(40) NOT NULL,
   `Handler` VARCHAR(40) NOT NULL,
   `Type` VARCHAR(45) NULL,
   PRIMARY KEY (`Name`, `Handler`),
   CONSTRAINT `Handler_Organization`
     FOREIGN KEY (`Handler`)
-    REFERENCES `Terrabuzz_MySQL`.`User_Information` (`Handler`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
@@ -64,14 +63,14 @@ CREATE TABLE `Terrabuzz_MySQL`.`Organization` (
 
 
 
-CREATE TABLE `Terrabuzz_MySQL`.`Interest` (
+CREATE TABLE `TERRABUZZ`.`Interest` (
   `Topic` VARCHAR(40) NOT NULL,
   `Handler` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`Topic`, `Handler`),
   INDEX `Handler_idx` (`Handler` ASC),
   CONSTRAINT `Handler_Interest`
     FOREIGN KEY (`Handler`)
-    REFERENCES `Terrabuzz_MySQL`.`User_Information` (`Handler`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
