@@ -7,7 +7,6 @@ const CreateSQL = (require('./db/mysql/create-sql.js'));
 const InsertSQL = (require('./db/mysql/insert-sql.js'));
 const MONGOOSE_CONNECTOR = require('./db/mongo/connection.js');
 require('dotenv').config();
-
 MYSQL_CONNECTOR.connect();
 CreateSQL.create();
 InsertSQL.insert();
