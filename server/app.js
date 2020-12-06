@@ -1,13 +1,11 @@
 const express = require('express');
+// const { Console } = require('console');
 const indexRouter = require('./routes/index.js');
 const middleware = require('./middleware/index.js');
 const MYSQL_CONNECTOR = (require('./db/mysql/connection.js'));
 const CreateSQL = (require('./db/mysql/create-sql.js'));
 const MONGOOSE_CONNECTOR = require('./db/mongo/connection.js');
-const { Console } = require('console');
 require('dotenv').config();
-
-
 
 MYSQL_CONNECTOR.connect();
 CreateSQL.create();
