@@ -1,0 +1,13 @@
+AUTHENTICATION -> LOGIN (POST REQUEST) -> [EMAIL, PASSWORD] : 
+EMAIL -> 
+    CORRECT: 
+    PASSWORD -> 
+        CORRECT: (JWT ISSUED inside cookie) 
+        INCORRECT: (error 401)
+    INCORRECT: (error 401)
+
+AUTHORIZATION -> MIDDLEWARE -> [JWT] :
+JWT ->
+    VERIFIED: (status 200 with requested resource payload)
+    UNVERIFIED: (status 403 with redirect to login)
+    EXPIRED: (status 403 with redirect to login)
