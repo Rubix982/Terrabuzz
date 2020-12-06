@@ -13,6 +13,14 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
   ],
+  overrides: [
+    {
+      files: ['server/tests/**/*.test.js'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

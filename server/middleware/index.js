@@ -1,3 +1,5 @@
+const { verifyAccessToken } = require('../services/auth.js');
+
 module.exports.notFound = (req, res, next) => {
   const error = new Error('ERROR 404');
   res.status(404);
@@ -12,5 +14,16 @@ module.exports.onError = (error, req, res) => {
     res.json({
       message: 'Some error occurred while processing you request.',
     });
+  }
+};
+
+module.exports.authorizeUser = (req, res, next) => {
+  try {
+    const token = req.cookies['access-token'];
+    const { handle } = verifyAccessToken(token);
+    req.userHandle = handle;
+    return next();
+  } catch (error) {
+    return res.status(403).json({ msg: error.message });
   }
 };
