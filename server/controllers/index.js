@@ -1,9 +1,11 @@
+const { generateAccessToken } = require('../services/auth.js');
+
 module.exports.getHomePage = (req, res) => {
   res.json({ msg: 'HELLO WORLD!!' });
 };
 
 module.exports.getUserFeed = (req, res) => {
-  res.json({ msg: 'User feed!!' });
+  res.json({ msg: `@${req.userHandle} feed!!` });
 };
 
 module.exports.getUserProfile = (req, res) => {
@@ -39,7 +41,13 @@ module.exports.updateSettings = (req, res) => {
 };
 
 module.exports.loginUser = (req, res) => {
-  res.json({ msg: 'User logged in!!' });
+  try {
+    const token = generateAccessToken(req.body);
+    res.cookie('access-token', token, { httpOnly: true, sameSite: true });
+    return res.status(200).json({ msg: 'User logged in!!' });
+  } catch (error) {
+    return res.status(401).json({ msg: error.message });
+  }
 };
 
 module.exports.registerUser = (req, res) => {
