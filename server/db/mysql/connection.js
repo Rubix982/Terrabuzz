@@ -5,7 +5,6 @@ const connection = MYSQL.createConnection({
   host: 'mysql',
   user: 'root',
   password: `${process.env.PASSWORD}`,
-  database: `${process.env.MYSQL_DATABASE}`,
   multipleStatements: true,
 });
 

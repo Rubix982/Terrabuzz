@@ -58,7 +58,6 @@ CREATE TABLE `TERRABUZZ`.`Interest` (
     REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
-SHOW TABLES;
 
 
 

@@ -10,18 +10,14 @@ require('dotenv').config();
 
 const Declare_Schema = () => {
     {
-        const queries = fs.readFileSync(path.join(__dirname, './db/mysql/script.sql')).toString();
-        console.log("_________________________________________________");
-        console.log(queries);
-        const query = db.query(queries,  (err, result) => {
+        const queries = fs.readFileSync(path.join(__dirname, './db/mysql/ddl.sql')).toString();
+        const query = MYSQL_CONNECTOR.connection.query(queries,  (err, result) => {
         if(err){
-            console.log(`Query Not Executed Successfully`);
+            console.log(`Query Not Executed Successfully Because --> ${err}`);
         }
         else{
-            console.log(`Query Executed`);
+            console.log(`Database Created Successfully`);
         }
-        console(`After conditions`);
-        console(`Query result = ${query}`);
         });
     }
 }
