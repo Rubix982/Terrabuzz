@@ -1,6 +1,5 @@
 create database TERRABUZZ;
 use TERRABUZZ;
-
 CREATE TABLE `TERRABUZZ`.`User_Information` (
   `Handler` VARCHAR(40) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
@@ -16,9 +15,6 @@ CREATE TABLE `TERRABUZZ`.`User_Information` (
   `Joined_Website` DATETIME NULL,
   PRIMARY KEY (`Handler`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) );
-
-
-
 CREATE TABLE `TERRABUZZ`.`Connection` (
   `Followers` VARCHAR(40) NOT NULL,
   `Following` VARCHAR(40) NOT NULL,
@@ -33,8 +29,6 @@ CREATE TABLE `TERRABUZZ`.`Connection` (
     REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
-
-
 CREATE TABLE `TERRABUZZ`.`Academics` (
    `Name` varchar(40) NOT NULL,
    `Handler` varchar(40) NOT NULL,
@@ -44,10 +38,6 @@ CREATE TABLE `TERRABUZZ`.`Academics` (
    PRIMARY KEY (`Name`,`Handler`),
    CONSTRAINT `Handler_Academics` FOREIGN KEY (`Handler`) REFERENCES `User_Information` (`Handler`) ON DELETE CASCADE ON UPDATE CASCADE
  );
-
-
-
-
 CREATE TABLE `TERRABUZZ`.`Organization` (
   `Name` VARCHAR(40) NOT NULL,
   `Handler` VARCHAR(40) NOT NULL,
@@ -58,11 +48,6 @@ CREATE TABLE `TERRABUZZ`.`Organization` (
     REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
-
-
-
-
-
 CREATE TABLE `TERRABUZZ`.`Interest` (
   `Topic` VARCHAR(40) NOT NULL,
   `Handler` VARCHAR(40) NOT NULL,
@@ -73,6 +58,7 @@ CREATE TABLE `TERRABUZZ`.`Interest` (
     REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
+SHOW TABLES;
 
 
 
