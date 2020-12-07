@@ -1,7 +1,7 @@
 class Connection {
-  constructor(followers, following) {
-    this.followers = followers;
-    this.following = following;
+  constructor(Followers, Following) {
+    this.Followers = Followers;
+    this.Following = Following;
   }
 }
 

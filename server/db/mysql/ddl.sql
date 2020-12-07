@@ -1,52 +1,81 @@
 create database TERRABUZZ;
-use TERRABUZZ;  
-CREATE TABLE `userInformation` (
-  `handler` VARCHAR(40) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `activities` VARCHAR(45) NULL,
-  `location` VARCHAR(45) NULL,
-  `instagram` VARCHAR(45) NULL,
-  `facebook` VARCHAR(45) NULL,
-  `linkedIn` VARCHAR(45) NULL,
-  `twitter` VARCHAR(45) NULL,
-  `website` VARCHAR(45) NULL,
-  `biography` VARCHAR(45) NULL,
-  `joinedWebsite` DATETIME NULL,
-  PRIMARY KEY (`handler`),
-  UNIQUE INDEX `Email_UNIQUE` (`email` ASC)
-);
+use TERRABUZZ;
+CREATE TABLE `TERRABUZZ`.`User_Information` (
+  `Handler` VARCHAR(40) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `Activities` VARCHAR(45) NULL,
+  `Location` VARCHAR(45) NULL,
+  `Instagram` VARCHAR(45) NULL,
+  `Facebook` VARCHAR(45) NULL,
+  `LinkedIn` VARCHAR(45) NULL,
+  `Twitter` VARCHAR(45) NULL,
+  `Website` VARCHAR(45) NULL,
+  `Biography` VARCHAR(45) NULL,
+  `Joined_Website` DATETIME NULL,
+  PRIMARY KEY (`Handler`),
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) );
+CREATE TABLE `TERRABUZZ`.`Connection` (
+  `Followers` VARCHAR(40) NOT NULL,
+  `Following` VARCHAR(40) NOT NULL,
+  PRIMARY KEY (`Followers`, `Following`),
+  CONSTRAINT `Handler_Followers_Connections`
+    FOREIGN KEY (`Followers`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `Handler_Following_Connections`
+    FOREIGN KEY (`Following`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+CREATE TABLE `TERRABUZZ`.`Academics` (
+   `Name` varchar(40) NOT NULL,
+   `Handler` varchar(40) NOT NULL,
+   `From` date DEFAULT NULL,
+   `In` date DEFAULT NULL,
+   `Type` varchar(45) DEFAULT NULL,
+   PRIMARY KEY (`Name`,`Handler`),
+   CONSTRAINT `Handler_Academics` FOREIGN KEY (`Handler`) REFERENCES `User_Information` (`Handler`) ON DELETE CASCADE ON UPDATE CASCADE
+ );
+CREATE TABLE `TERRABUZZ`.`Organization` (
+  `Name` VARCHAR(40) NOT NULL,
+  `Handler` VARCHAR(40) NOT NULL,
+  `Type` VARCHAR(45) NULL,
+  PRIMARY KEY (`Name`, `Handler`),
+  CONSTRAINT `Handler_Organization`
+    FOREIGN KEY (`Handler`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+CREATE TABLE `TERRABUZZ`.`Interest` (
+  `Topic` VARCHAR(40) NOT NULL,
+  `Handler` VARCHAR(40) NOT NULL,
+  PRIMARY KEY (`Topic`, `Handler`),
+  INDEX `Handler_idx` (`Handler` ASC),
+  CONSTRAINT `Handler_Interest`
+    FOREIGN KEY (`Handler`)
+    REFERENCES `TERRABUZZ`.`User_Information` (`Handler`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 
-CREATE TABLE `connection` (
-  `followers` VARCHAR(40) NOT NULL,
-  `following` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`followers`, `following`),
-  CONSTRAINT `handlerFollowersConnections` FOREIGN KEY (`followers`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `HandlerFollowingConnections` FOREIGN KEY (`following`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
-CREATE TABLE `academics` (
-  `name` varchar(40) NOT NULL,
-  `handler` varchar(40) NOT NULL,
-  `from` date DEFAULT NULL,
-  `in` date DEFAULT NULL,
-  `type` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`name`, `handler`),
-  CONSTRAINT `handlerAcademics` FOREIGN KEY (`handler`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
-CREATE TABLE `organization` (
-  `name` VARCHAR(40) NOT NULL,
-  `handler` VARCHAR(40) NOT NULL,
-  `type` VARCHAR(45) NULL,
-  PRIMARY KEY (`name`, `handler`),
-  CONSTRAINT `handlerOrganization` FOREIGN KEY (`Handler`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
-CREATE TABLE `interest` (
-  `topic` VARCHAR(40) NOT NULL,
-  `handler` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`topic`, `handler`),
-  INDEX `Handler_idx` (`handler` ASC),
-  CONSTRAINT `handlerInterest` FOREIGN KEY (`handler`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
-);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
