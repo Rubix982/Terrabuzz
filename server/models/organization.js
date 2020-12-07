@@ -1,8 +1,8 @@
 class Organization {
-  constructor(name, handler, type) {
-    this.name = name;
-    this.handler = handler;
-    this.type = type;
+  constructor(Name, Handler, Type) {
+    this.Name = Name;
+    this.Handler = Handler;
+    this.Type = Type;
   }
 }
 

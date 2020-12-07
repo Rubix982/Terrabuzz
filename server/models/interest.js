@@ -1,7 +1,7 @@
 class Interest {
-  constructor(topic, handler) {
-    this.topic = topic;
-    this.handler = handler;
+  constructor(Topic, Handler) {
+    this.Topic = Topic;
+    this.Handler = Handler;
   }
 }
 
