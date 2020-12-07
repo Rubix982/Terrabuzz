@@ -1,6 +1,6 @@
 create database TERRABUZZ;
-use TERRABUZZ;
-CREATE TABLE `TERRABUZZ`.`userInformation` (
+use TERRABUZZ;  
+CREATE TABLE `userInformation` (
   `handler` VARCHAR(40) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -17,15 +17,15 @@ CREATE TABLE `TERRABUZZ`.`userInformation` (
   UNIQUE INDEX `Email_UNIQUE` (`email` ASC)
 );
 
-CREATE TABLE `TERRABUZZ`.`connection` (
+CREATE TABLE `connection` (
   `followers` VARCHAR(40) NOT NULL,
   `following` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`followers`, `following`),
-  CONSTRAINT `handlerFollowersConnections` FOREIGN KEY (`followers`) REFERENCES `TERRABUZZ`.`userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `HandlerFollowingConnections` FOREIGN KEY (`following`) REFERENCES `TERRABUZZ`.`userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `handlerFollowersConnections` FOREIGN KEY (`followers`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `HandlerFollowingConnections` FOREIGN KEY (`following`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE `TERRABUZZ`.`academics` (
+CREATE TABLE `academics` (
   `name` varchar(40) NOT NULL,
   `handler` varchar(40) NOT NULL,
   `from` date DEFAULT NULL,
@@ -35,18 +35,18 @@ CREATE TABLE `TERRABUZZ`.`academics` (
   CONSTRAINT `handlerAcademics` FOREIGN KEY (`handler`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE `TERRABUZZ`.`organization` (
+CREATE TABLE `organization` (
   `name` VARCHAR(40) NOT NULL,
   `handler` VARCHAR(40) NOT NULL,
   `type` VARCHAR(45) NULL,
   PRIMARY KEY (`name`, `handler`),
-  CONSTRAINT `handlerOrganization` FOREIGN KEY (`Handler`) REFERENCES `TERRABUZZ`.`userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `handlerOrganization` FOREIGN KEY (`Handler`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE `TERRABUZZ`.`interest` (
+CREATE TABLE `interest` (
   `topic` VARCHAR(40) NOT NULL,
   `handler` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`topic`, `handler`),
   INDEX `Handler_idx` (`handler` ASC),
-  CONSTRAINT `handlerInterest` FOREIGN KEY (`handler`) REFERENCES `TERRABUZZ`.`userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `handlerInterest` FOREIGN KEY (`handler`) REFERENCES `userInformation` (`handler`) ON DELETE CASCADE ON UPDATE CASCADE
 );
