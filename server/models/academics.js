@@ -1,10 +1,10 @@
 class Academics {
-  constructor(Name, Handler, From, In, Type) {
-    this.Name = Name;
-    this.Handler = Handler;
-    this.From = From;
-    this.In = In;
-    this.Type = Type;
+  constructor(name, handler, from, inParam, type) {
+    this.name = name;
+    this.handler = handler;
+    this.from = from;
+    this.in = inParam;
+    this.type = type;
   }
 }
 
