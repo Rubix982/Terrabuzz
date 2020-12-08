@@ -1,4 +1,5 @@
 const { generateAccessToken } = require('../services/auth.js');
+const { createAndPushPost } = require('../services/publishPost.js');
 
 module.exports.getHomePage = (req, res) => {
   res.json({ msg: 'HELLO WORLD!!' });
@@ -13,8 +14,13 @@ module.exports.getUserProfile = (req, res) => {
   res.json({ msg: `UserID to be queried: ${userID}` });
 };
 
-module.exports.publishPost = (req, res) => {
-  res.json({ msg: 'Post published!!' });
+module.exports.publishPost = async (req, res) => {
+  try {
+    createAndPushPost(req.body, req.userHandle);
+    return res.json({ msg: 'Post posted successfully!' });
+  } catch (error) {
+    return res.status(400).json({ msg: error.message });
+  }
 };
 
 module.exports.getPost = (req, res) => {
