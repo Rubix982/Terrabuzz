@@ -1,20 +1,14 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const Post = new Schema({
-  /**
-     * This is for the User Handler of the person that creates the post
-     * @property title: Meant to be the title for the post
-     * @property: datePublished: The date that the post was published on
-     * @property: content: Contains the hash for the compressed content
-     */
-  title: {
+const commentSchema = new Schema({
+  handle: {
     type: String,
     max: 40,
     required: true,
   },
-  dataPublished: {
+  datePosted: {
     type: Date,
     required: true,
   },
@@ -23,25 +17,60 @@ const Post = new Schema({
     max: 100,
     required: true,
   },
-  like: {
-    type: [Schema.ObjectID],
-  },
-  comment: {
-    type: [Schema.ObjectID],
-  },
 });
 
-const PostList = new Schema({
+const likeSchema = new Schema({
   _id: {
     type: String,
     max: 40,
     required: true,
+    unique: true,
   },
-  payload: {
-    type: Schema.Types.ObjectId,
-    ref: 'Post',
+  isLiked: {
+    type: Boolean,
+    default: false,
   },
 });
 
-module.exports = mongoose.model('Post', Post);
-module.exports = mongoose.model('PostList', PostList);
+const postSchema = new Schema({
+  title: {
+    type: String,
+    max: 40,
+    required: true,
+  },
+  datePublished: {
+    type: Date,
+    required: true,
+  },
+  content: {
+    type: String,
+    max: 100,
+    required: true,
+  },
+  likes: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Like',
+  }],
+  comments: [{
+    type: Schema.Types.ObjectID,
+    ref: 'Comment',
+  }],
+});
+
+const postListSchema = new Schema({
+  _id: {
+    type: String,
+    max: 40,
+    required: true,
+    unique: true,
+  },
+  payload: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Post',
+  }],
+});
+
+module.exports.Comment = mongoose.model('Comment', commentSchema);
+module.exports.Like = mongoose.model('Like', likeSchema);
+module.exports.Post = mongoose.model('Post', postSchema);
+module.exports.PostList = mongoose.model('PostList', postListSchema);
