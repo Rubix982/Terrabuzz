@@ -38,7 +38,7 @@ const MainContent = () => {
       body: JSON.stringify(Form_Data)
     };
         
-    fetch('http://web-server:8080/api/register', Options)
+    fetch('http://localhost:8080/api/register', Options)
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.log(error)) ;
