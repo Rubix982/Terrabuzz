@@ -7,7 +7,7 @@ const indexContoller = require('../controllers/index.js');
 Router.get('/', indexContoller.getHomePage);
 Router.get('/feed', authorizeUser, indexContoller.getUserFeed);
 Router.get('/profile/:id', authorizeUser, indexContoller.getUserProfile);
-Router.post('publish', authorizeUser, indexContoller.publishPost);
+Router.post('/publish', authorizeUser, indexContoller.publishPost);
 Router.get('/post/:id', indexContoller.getPost);
 Router.get('/search-post', authorizeUser, indexContoller.searchPost);
 Router.get('/search-user', authorizeUser, indexContoller.searchUser);
