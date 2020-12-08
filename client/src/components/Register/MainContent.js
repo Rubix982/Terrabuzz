@@ -10,13 +10,21 @@ const MainContent = () => {
   const _cpassword = useRef('');
   const _username = useRef('');
   const _userhandler = useRef('');
+
+  const insertUser = (Options) => 
+  {
+    fetch('http://localhost:8080/api/register', Options)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error)) ;
+  }
     
     
   const Register = (event) =>
   {
     event.preventDefault();
     	
-    let Form_Data = 
+    let formData = 
     {
       email: _email.current.value,
       password: _password.current.value,
@@ -35,14 +43,10 @@ const MainContent = () => {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': '*'
       },
-      body: JSON.stringify(Form_Data)
+      body: JSON.stringify(formData)
     };
-        
-    fetch('http://localhost:8080/api/register', Options)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error)) ;
-    console.log("Fetch Executed");
+
+    insertUser(Options) ;
   }
 
 
