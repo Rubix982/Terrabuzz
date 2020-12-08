@@ -5,13 +5,13 @@ const indexRouter = require('./routes/index.js');
 const middleware = require('./middleware/index.js');
 const MYSQL_CONNECTOR = (require('./db/mysql/connection.js'));
 const CreateSQL = (require('./db/mysql/create-sql.js'));
-const InsertSQL = (require('./db/mysql/insert-sql.js'));
+const InitializeSQL = (require('./db/mysql/insert-sql.js'));
 const MONGOOSE_CONNECTOR = require('./db/mongo/connection.js');
 require('dotenv').config();
 
 MYSQL_CONNECTOR.connect();
 CreateSQL.create();
-InsertSQL.insert();
+InitializeSQL.insert();
 MONGOOSE_CONNECTOR.connect();
 
 const app = express();
@@ -25,4 +25,5 @@ app.use('/', indexRouter);
 app.use(middleware.notFound);
 app.use(middleware.onError);
 
+app.listen(3000);
 module.exports = app;
