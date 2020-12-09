@@ -13,7 +13,7 @@ CREATE TABLE `TERRABUZZ`.`User_Information` (
   `Twitter` VARCHAR(150) NULL,
   `Website` VARCHAR(150) NULL,
   `Biography` VARCHAR(45) NULL,
-  `Joined_Website` DATETIME NULL,
+  `Joined_Website` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (`Handler`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) );
 CREATE TABLE `TERRABUZZ`.`Connection` (
