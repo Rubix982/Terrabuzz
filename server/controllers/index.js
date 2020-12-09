@@ -58,19 +58,25 @@ module.exports.loginUser = (req, res) => {
 };
 
 module.exports.registerUser = (req, res) => {
-  console.log(req.body);
-  let _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
-  VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${req.body.password}' );` ;
-  mysql.connection.query(_query , (error,output) => {
-    if(!error){
-      console.log(output);
-      return res.status(200).json( { msg: 'User Registered' } ) ;
-    }
-    else{
-      return res.status(401).json({ msg: error.message });
-    }
-
-  });
+  if( req.body.password == req.body.cpassword )
+  {
+    let _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
+    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${req.body.password}' );` ;
+    mysql.connection.query(_query , (error,output) => {
+      if(!error){
+        console.log(output);
+        return res.status(200).json( { msg: 'User Registered' } ) ;
+      }
+      else{
+        return res.status(401).json({ msg: error.message });
+      }
+  
+    });
+  }
+  else
+  {
+    return res.status(401).json({ msg: 'Password not matched' });
+  }
 };
 
 module.exports.newPassword = (req, res) => {
