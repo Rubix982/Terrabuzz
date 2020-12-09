@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" height="512" width="512" viewBox="0 0 512 512">
-  <g>
-    <path id="path1" transform="rotate(0,256,256) translate(105,126.57412737608) scale(9.4375,9.4375)  " fill="#EFEFEF" d="M0,22.856963L32,22.856963 32,27.428 0,27.428z M0,11.428023L32,11.428023 32,15.999 0,15.999z M0,0L32,0 32,4.5709775 0,4.5709775z" />
-  </g>
-</svg>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><g><path id="path1" fill="#EFEFEF" d="M0,22.856963L32,22.856963 32,27.428 0,27.428z M0,11.428023L32,11.428023 32,15.999 0,15.999z M0,0L32,0 32,4.5709775 0,4.5709775z" transform="rotate(0,256,256) translate(105,126.57412737608) scale(9.4375,9.4375)"/></g></svg>
