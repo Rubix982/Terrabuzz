@@ -1,5 +1,6 @@
 const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
+const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = (req, res) => {
   res.json({ msg: 'HELLO WORLD!!' });
@@ -57,7 +58,8 @@ module.exports.loginUser = (req, res) => {
 };
 
 module.exports.registerUser = (req, res) => {
-  res.json({ msg: 'User registered!!' });
+  console.log(req.body);
+  // mysql.connection.query()
 };
 
 module.exports.newPassword = (req, res) => {

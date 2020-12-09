@@ -41,7 +41,7 @@ const MainContent = () => {
         'Accept': 'application/json', 
         'Content-Type': 'application/json', 
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': '*'
+        'Access-Control-Allow-Headers': '*',
       },
       body: JSON.stringify(formData)
     };
