@@ -58,10 +58,14 @@ const Navbar = () => (
         </div>
         <div className={ComponentStyling.controls}>
           <div className={ComponentStyling.controlIcon}>
-            <img src={Notifications} alt="" />
+            <a href='/notification'>
+              <img src={Notifications} alt="" />
+            </a>
           </div>
           <div className={ComponentStyling.controlIcon}>
-            <img src={Settings} alt="" />
+            <a href='/settings'>
+              <img src={Settings} alt="" />
+            </a>
           </div>
           <div className={ComponentStyling.controlIcon}>
             <img src={Menu} alt="" />

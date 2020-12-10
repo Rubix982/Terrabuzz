@@ -1,0 +1,25 @@
+.LatestPostHead {
+  color: white;
+  width: 100%;
+  margin: 80px;
+}
+
+.LatestPostHead p {
+  margin: 10px auto;
+  font-family: Cairo;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  text-align: center;
+}
+
+.LatestPostHead hr {
+  background: #303c42;
+  height: 2px;
+  border: none;
+}

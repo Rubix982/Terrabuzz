@@ -1,0 +1,14 @@
+.MainContentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: scroll;
+}
+
+.MainContentContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.ColumnContentContainer {
+  display: grid;
+  grid-template-rows: 15% 85%;
+}
