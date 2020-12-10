@@ -5,14 +5,14 @@ const { Schema } = mongoose;
 const notificationSchmea = new Schema({
   action: {
     type: String,
-    max: 60,
+    maxLength: 60,
   },
 });
 
 const notificationListSchema = new Schema({
   _id: {
     type: String,
-    max: 40,
+    maxLength: 40,
     required: true,
     unique: true,
   },

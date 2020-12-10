@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const commentSchema = new Schema({
   handle: {
     type: String,
-    max: 40,
+    maxLength: 40,
     required: true,
   },
   datePosted: {
@@ -14,7 +14,7 @@ const commentSchema = new Schema({
   },
   content: {
     type: String,
-    max: 100,
+    maxLength: 100,
     required: true,
   },
 });
@@ -22,7 +22,7 @@ const commentSchema = new Schema({
 const likeSchema = new Schema({
   _id: {
     type: String,
-    max: 40,
+    maxLength: 40,
     required: true,
     unique: true,
   },
@@ -33,9 +33,14 @@ const likeSchema = new Schema({
 });
 
 const postSchema = new Schema({
+  handle: {
+    type: String,
+    maxLength: 40,
+    required: true,
+  },
   title: {
     type: String,
-    max: 40,
+    maxLength: 40,
     required: true,
   },
   datePublished: {
@@ -44,7 +49,7 @@ const postSchema = new Schema({
   },
   content: {
     type: String,
-    max: 100,
+    maxLength: 100,
     required: true,
   },
   likes: [{
@@ -60,7 +65,7 @@ const postSchema = new Schema({
 const postListSchema = new Schema({
   _id: {
     type: String,
-    max: 40,
+    maxLength: 40,
     required: true,
     unique: true,
   },
