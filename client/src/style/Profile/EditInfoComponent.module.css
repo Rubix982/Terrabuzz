@@ -10,6 +10,7 @@
     font-size: 14px;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 
 .modalCenter {
@@ -81,7 +82,11 @@
     font-size: 42px;
 }
 
-.modalFooter {}
+.modalFooter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
 
 .modalForm {
     color: #fff;
@@ -186,6 +191,10 @@
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
     transition: 1.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalExitButton {
+    
 }
 
 .modalSubmitButton {

@@ -66,8 +66,11 @@ const EditProfileInformation = () => {
                             </li>
                             <li>
                                 <div className={EditProfileInformationStyling.modalFooter} >
-                                    <button className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="submit" value="Send This" >
+                                    <button href='#' className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="button" value="Send This" >
                                         <span>Save Changes</span>
+                                    </button>
+                                    <button href='#' className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="button" value="Send This" >
+                                        <span>Leave Without Saving</span>
                                     </button>
                                 </div>
                             </li>
