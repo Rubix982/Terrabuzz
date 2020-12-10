@@ -22,6 +22,9 @@ import FirstLogin from './pages/FirstLogin';
 import SearchTypeProvider from './components/Search/SearchTypeContext';
 
 function App() {
+  let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
+  console.log(loggedIn);
+
   return (
     <>
       <Router>
@@ -29,7 +32,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/feed" component={Feed} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/publish" component={Publish} />
+          <Route exact path="/publish">
+            { loggedIn ? <Publish/> : <Home/> }
+          </Route>
           <Route exact path="/first" component={FirstLogin} />
           <Route exact path="/about" component={AboutUs} />
           <Route exact path="/contact" component={Contact} />
@@ -41,7 +46,9 @@ function App() {
           </Route>
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/post" component={Post} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login">
+            { loggedIn ? <Feed/> : <Login/> }
+          </Route>
           <Route exact path="/register" component={Register} />
           <Route
             exact
