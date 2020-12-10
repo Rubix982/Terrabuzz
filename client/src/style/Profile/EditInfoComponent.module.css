@@ -13,6 +13,11 @@
     cursor: pointer;
 }
 
+.ResizingModalFix {
+    width: 100%;
+    height: 100%;
+}
+
 .modalCenter {
     position: fixed;
     width: 100vw;
@@ -38,7 +43,6 @@
 }
 
 .modalMain {
-    
     font: Cario;
     font-weight: 400;
     font-size: 20px;
@@ -74,29 +78,30 @@
     font-family: Cairo;
     font-style: normal;
     font-weight: 300;
-    line-height: 30px;
+    line-height: 20px;
     align-items: center;
     text-align: center;
     color: #B0B0B0;
     padding: 20px;
-    font-size: 42px;
+    padding-bottom: 10px;
+    font-size: 30px;
 }
 
 .modalFooter {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 5px;
+    grid-gap: 15px;
 }
 
 .modalForm {
     color: #fff;
     font-size: 30px;
     max-width: 400px;
-    margin: 10px auto;
+    margin: auto;
     background: rgba(36, 37, 38);
     border-radius: 2px;
-    padding: 20px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    padding: 5px;
+    font-family: Cairo;
 }
 
 .modalForm h1 {
@@ -116,8 +121,8 @@
 
 .modalForm li {
     display: block;
-    padding: 9px;
-    margin-bottom: 20px;
+    padding: 3px;
+    margin-bottom: 15px;
     border-radius: 3px;
 }
 
@@ -132,13 +137,12 @@
     float: left;
     margin-top: -19px;
     background: rgba(36, 37, 38);
-    height: 14px;
-    padding: 2px 5px 2px 5px;
+    padding: 0px 5px 5px 0px;
     padding-bottom: 5px;
     color: #B9B9B9;
     font-size: 14px;
     overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Cairo;
     justify-content: center;
     text-align: center;
 }
@@ -172,7 +176,7 @@
     margin: 0 -9px -9px -9px;
     text-align: center;
     color: #C0C0C0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Cairo;
     font-size: 11px;
 }
 
@@ -193,8 +197,32 @@
     transition: 1.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.modalExitButtonSize {
+    width: 200px;
+    height: 50px;
+}
+
 .modalExitButton {
-    
+    width: 100%;
+    height: 100%;
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #000;
+    background: #FFFFFF;
+    border: 1px solid #6D6D6D;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.modalSubmitButton {
+    width: 200px;
+    height: 50px;
 }
 
 .modalSubmitButton {
@@ -203,12 +231,12 @@
     border-radius: 25px;
     border: 10px;
     border-color: rgba(0, 0, 0, 1);
-    width: 200px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     font-family: Cairo;
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 34px;
     text-align: center;
     letter-spacing: 0.02em;

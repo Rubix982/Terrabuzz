@@ -29,53 +29,59 @@ const EditProfileInformation = () => {
             </div>
             <div className={`${modalFinalStyling}`}>
                 <div className={`${EditProfileInformationStyling.modalMain}`}>
-                    <div className={EditProfileInformationStyling.modalTitle}>
-                        <h1>Edit Profile Section</h1>
+                    <div className={EditProfileInformationStyling.ResizingModalFix}>
+                        <div className={EditProfileInformationStyling.modalTitle}>
+                            <h1>Edit Profile Section</h1>
+                        </div>
+                        <form className={EditProfileInformationStyling.modalForm}>
+                            <ul>
+                                <li>
+                                    <label htmlFor="username">Username</label>
+                                    <input type="url" name="usernameInput" maxLength="100" />
+                                    <span>Your Username</span>
+                                </li>
+                                <li>
+                                    <label htmlFor="userhandle">Userhandle</label>
+                                    <input type="url" name="userhandleInput" maxLength="100" />
+                                    <span>Your Userhandle</span>
+                                </li>
+                                <li>
+                                    <label htmlFor="location">Location</label>
+                                    <input type="url" name="locationInput" maxLength="100" />
+                                    <span>Your Location</span>
+                                </li>
+                                <li>
+                                    <label htmlFor="biography">Biography</label>
+                                    <textarea type="url" name="BiographyInput" maxLength="200" />
+                                    <span>Your Biography</span>
+                                </li>
+                                <li>
+                                    <label htmlFor="Activity">Activity</label>
+                                    <textarea type="url" name="ActivityInput" maxLength="100" />
+                                    <span>Your Activity</span>
+                                </li>
+                                <li>
+                                    <label htmlFor="Interest">Interest</label>
+                                    <textarea type="url" name="InterestInput" maxLength="100" />
+                                    <span>Your Interest</span>
+                                </li>
+                                <li>
+                                    <div className={EditProfileInformationStyling.modalFooter} >
+                                        <div className={EditProfileInformationStyling.modalSubmitButtonSize}>
+                                            <button href='#' className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="button" value="Send This" >
+                                                <span>Save Changes</span>
+                                            </button>
+                                        </div>
+                                        <div className={EditProfileInformationStyling.modalExitButtonSize}>
+                                            <button href='#' className={EditProfileInformationStyling.modalExitButton} onClick={handleClose} type="button" value="Send This" >
+                                                <span>Leave Without Saving</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
                     </div>
-                    <form className={EditProfileInformationStyling.modalForm}>
-                        <ul>
-                            <li>
-                                <label htmlFor="username">Username</label>
-                                <input type="url" name="usernameInput" maxLength="100" />
-                                <span>Your Username</span>
-                            </li>
-                            <li>
-                                <label htmlFor="userhandle">Userhandle</label>
-                                <input type="url" name="userhandleInput" maxLength="100" />
-                                <span>Your Userhandle</span>
-                            </li>
-                            <li>
-                                <label htmlFor="location">Location</label>
-                                <input type="url" name="locationInput" maxLength="100" />
-                                <span>Your Location</span>
-                            </li>
-                            <li>
-                                <label htmlFor="biography">Biography</label>
-                                <textarea type="url" name="BiographyInput" maxLength="200" />
-                                <span>Your Biography</span>
-                            </li>
-                            <li>
-                                <label htmlFor="Activity">Activity</label>
-                                <textarea type="url" name="ActivityInput" maxLength="100" />
-                                <span>Your Activity</span>
-                            </li>
-                            <li>
-                                <label htmlFor="Interest">Interest</label>
-                                <textarea type="url" name="InterestInput" maxLength="100" />
-                                <span>Your Interest</span>
-                            </li>
-                            <li>
-                                <div className={EditProfileInformationStyling.modalFooter} >
-                                    <button href='#' className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="button" value="Send This" >
-                                        <span>Save Changes</span>
-                                    </button>
-                                    <button href='#' className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="button" value="Send This" >
-                                        <span>Leave Without Saving</span>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </form>
                 </div>
             </div>
         </div>
