@@ -70,3 +70,19 @@
   line-height: 30px;
   color: #ffffff;
 }
+
+.userNameStyling {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  padding: auto;
+  margin: 0;
+}
+
+.editOptionButton {
+  display: flex;
+  float: right;
+  /* padding-right: 20px; */
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
