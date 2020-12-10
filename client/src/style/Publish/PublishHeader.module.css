@@ -71,3 +71,7 @@ color: #4188AF;
 .floatRight {
     float: right;
 }
+
+.publishButton {
+    cursor: pointer;
+}
