@@ -20,10 +20,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(cookieParser());
-app.use(cors({ credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use('/', indexRouter);
 app.use(middleware.notFound);
 app.use(middleware.onError);
 
-app.listen(3000);
 module.exports = app;
