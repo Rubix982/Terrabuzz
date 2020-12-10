@@ -18,6 +18,7 @@ import NewPassword from './pages/NewPassword';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import FirstLogin from './pages/FirstLogin';
+import PrivacyPolicy from './pages/privacyPolicy'
 
 import SearchTypeProvider from './components/Search/SearchTypeContext';
 
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/feed" component={Feed} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/privacy" component={PrivacyPolicy} />
           <Route exact path="/publish">
             { loggedIn ? <Publish/> : <Home/> }
           </Route>
