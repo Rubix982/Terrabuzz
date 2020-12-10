@@ -16,12 +16,6 @@ const EditInformation = () => {
     setShow(true)
   };
 
-  //auto expand textarea
-  const adjust_textarea = (h) => {
-    h.style.height = "20px";
-    h.style.height = (h.scrollHeight) + "px";
-  }
-
   let modalFinalStyling = `${EditInfoComponentStyling.modalCenter}`;
   show ? modalFinalStyling += ` ${EditInfoComponentStyling.showModal}` : modalFinalStyling += ` ${EditInfoComponentStyling.hideModal}`;
 
