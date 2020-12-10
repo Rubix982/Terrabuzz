@@ -29,6 +29,7 @@ const EditInformation = () => {
       </div>
       <div className={`${modalFinalStyling}`}>
         <div className={`${EditInfoComponentStyling.modalMain}`}>
+<<<<<<< HEAD
           <div className={EditInfoComponentStyling.ResizingModalFix}>
             <div className={EditInfoComponentStyling.modalTitle}>
               <h1>Link Section</h1>
@@ -82,6 +83,52 @@ const EditInformation = () => {
               </ul>
             </form>
           </div>
+=======
+          <div className={EditInfoComponentStyling.modalTitle}>
+            <h1>Link Section</h1>
+          </div>
+          <form className={EditInfoComponentStyling.modalForm}>
+            <ul>
+              <li>
+                <label htmlFor="facebook">Facebook</label>
+                <input type="url" name="facebookInput" maxLength="100" />
+                <span>Your Facebook Profile</span>
+              </li>
+              <li>
+                <label htmlFor="twitter">Twitter</label>
+                <input type="url" name="twitterInput" maxLength="100" />
+                <span>Your Twitter Profile</span>
+              </li>
+              <li>
+                <label htmlFor="website">Website</label>
+                <input type="url" name="websiteInput" maxLength="100" />
+                <span>Your website address (eg: http://www.google.com)</span>
+              </li>
+              <li>
+                <label htmlFor="instagram">Instagram</label>
+                <input type="url" name='instagramInput' maxLength='100' />
+                <span>Your Instragram Profile</span>
+              </li>
+              <li>
+                <label htmlFor="linkedin">LinkedIn</label>
+                <input type="url" name="linkedInInput" maxLength="100" />
+                <span>Your LinkedIn Profile</span>
+              </li>
+              <li>
+                <label htmlFor="youtue">Youtube</label>
+                <input type="url" name="youtubeInput" maxLength="100" />
+                <span>Your Youtube Profile</span>
+              </li>
+              <li>
+                <div className={EditInfoComponentStyling.modalFooter} >
+                  <button className={EditInfoComponentStyling.modalSubmitButton} onClick={handleClose} type="submit" value="Send This" >
+                    <span>Save Changes</span>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </form>
+>>>>>>> 644b86f7f97cc9eda2f2ef1686551b50d631ce69
         </div>
       </div>
     </div>
