@@ -1,7 +1,7 @@
 .EditOption {
     margin: auto;
-    padding: 0;
     display: block;
+    padding: 0;
     font: Cairo;
     font-weight: 400;
     color: white;
@@ -10,4 +10,205 @@
     font-size: 14px;
     justify-content: center;
     text-align: center;
+}
+
+.modalCenter {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    padding: auto;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.showModal {
+    display: block;
+}
+
+.hideModal {
+    display: none;
+}
+
+.modalMain {
+    font: Cario;
+    font-weight: 400;
+    font-size: 20px;
+    background: rgba(36, 37, 38);
+    background: #242526;
+    box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border-radius: 20px;
+    padding: auto;
+    text-align: center;
+    justify-content: center;
+    margin: 5% auto;
+    width: 30%;
+    height: 80%;
+    transition: 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transition-property: width height background-color font-size left top transform -webkit-transform color;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-property: width height background-color font-size left top transform -webkit-transform color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.modalBody {}
+
+.modalTitle {
+    background: #242526;
+    box-sizing: border-box;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.modalTitle * {
+    font-family: Cairo;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px;
+    align-items: center;
+    text-align: center;
+    color: #B0B0B0;
+    padding: 20px;
+    font-size: 42px;
+}
+
+.modalFooter {}
+
+.modalForm {
+    color: #fff;
+    font-size: 30px;
+    max-width: 400px;
+    margin: 10px auto;
+    background: rgba(36, 37, 38);
+    border-radius: 2px;
+    padding: 20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.modalForm h1 {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5C5C5C;
+    font-size: x-large;
+}
+
+.modalForm ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modalForm li {
+    display: block;
+    padding: 9px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.modalForm li:last-child {
+    border: none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.modalForm li>label {
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: rgba(36, 37, 38);
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    padding-bottom: 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+}
+
+.modalForm input[type="text"], .modalForm input[type="date"], .modalForm input[type="datetime"], .modalForm input[type="email"], .modalForm input[type="number"], .modalForm input[type="search"], .modalForm input[type="time"], .modalForm input[type="url"], .modalForm input[type="password"], .modalForm textarea, .modalForm select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Cairo;
+    justify-content: center;
+    text-align: center;
+    background: #B0B0B0;
+    border: 1px solid #868686;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.modalForm input[type="text"]:focus, .modalForm input[type="date"]:focus, .modalForm input[type="datetime"]:focus, .modalForm input[type="email"]:focus, .modalForm input[type="number"]:focus, .modalForm input[type="search"]:focus, .modalForm input[type="time"]:focus, .modalForm input[type="url"]:focus, .modalForm input[type="password"]:focus, .modalForm textarea:focus, .modalForm select:focus {}
+
+.modalForm li>span {
+    background: rgba(36, 37, 38);
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.modalForm textarea {
+    resize: none;
+}
+
+.modalForm input[type="submit"], .modalForm input[type="button"] {
+    background: rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.modalForm input[type="submit"]:hover, .modalForm input[type="button"]:hover {
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    transition: 1.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalSubmitButton {
+    background: rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.modalSubmitButton button:hover {
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    transition: 1.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalSubmitButton button {
+    font-family: Coda;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
 }
