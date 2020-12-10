@@ -1,0 +1,70 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 30% 60%;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.heading h1 {
+  font-size: 70px;
+}
+
+.heading h1 > a {
+  color: black;
+}
+
+.heading h1 > a:hover {
+  color: crimson;
+}
+
+.description {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 50px;
+}
+
+.description h1 {
+  font-size: 52px;
+}
+
+.description h2 {
+  font-size: 42px;  
+}
+
+.description p {
+  font-size: 20px;
+}
+
+.description a {
+  text-decoration: underline;
+  color: black;
+}
