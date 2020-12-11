@@ -3,6 +3,7 @@ const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
 const mysql = (require('../db/mysql/connection.js'));
+const bcrypt = require('bcrypt');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -71,8 +72,10 @@ module.exports.loginUser = (req, res) => {
 
 module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
+    const salt = await bcrypt.genSalt(10);
+    const hashed_password = await bcrypt.hash(req.body.password , salt);
     const _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
-    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${req.body.password}' );`;
+    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashed_password}' );`;
     try {
       const output = await mysql.connection.query(_query);
       console.log(output);
