@@ -9,7 +9,7 @@ const commentSchema = new Schema({
     required: true,
   },
   datePosted: {
-    type: Date,
+    type: String,
     required: true,
   },
   content: {
@@ -44,7 +44,7 @@ const postSchema = new Schema({
     required: true,
   },
   datePublished: {
-    type: Date,
+    type: String,
     required: true,
   },
   content: {
