@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from '../components/FullViewContainer';
 import MainContent from '../components/Post/MainContent';
+import PostProvider from '../components/Post/PostContext';
+
 
 import Navbar from '../components/Navbar';
 
@@ -13,7 +15,9 @@ const Post = () => (
     }}
   >
     <Navbar first_name="Tashik" title="Terrabuzz" />
-    <MainContent />
+    <PostProvider>
+      <MainContent />    
+    </PostProvider>
   </Container>
 );
 
