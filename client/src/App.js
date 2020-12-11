@@ -22,46 +22,48 @@ import PrivacyPolicy from './pages/privacyPolicy';
 import Notification from './pages/Notification';
 
 import SearchTypeProvider from './components/Search/SearchTypeContext';
+import LoginUserProvider from './components/LoginUserContext'
 
 function App() {
   let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
-  console.log(loggedIn);
 
   return (
     <>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/feed" component={Feed} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path='/notification' component={Notification} />
-          <Route exact path="/privacy" component={PrivacyPolicy} />
-          <Route exact path="/publish">
-            { loggedIn ? <Publish/> : <Home/> }
-          </Route>
-          <Route exact path="/first" component={FirstLogin} />
-          <Route exact path="/about" component={AboutUs} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/search">
-            <SearchTypeProvider>
-              <Search />
-            </SearchTypeProvider>
-          </Route>
-          <Route exact path="/settings" component={Settings} />
-          <Route exact path="/post/:id" component={Post} />
-          <Route exact path="/login">
-            { loggedIn ? <Feed/> : <Login/> }
-          </Route>
-          <Route exact path="/register" component={Register} />
-          <Route
-            exact
-            path="/forgetPassword"
-            component={ForgetPassword}
-          />
-          <Route exact path="/newPassword" component={NewPassword} />
-          <Route component={Error404} />
-        </Switch>
-      </Router>
+      <LoginUserProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/feed" component={Feed} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path='/notification' component={Notification} />
+            <Route exact path="/privacy" component={PrivacyPolicy} />
+            <Route exact path="/publish">
+              { loggedIn ? <Publish/> : <Home/> }
+            </Route>
+            <Route exact path="/first" component={FirstLogin} />
+            <Route exact path="/about" component={AboutUs} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/search">
+              <SearchTypeProvider>
+                <Search />
+              </SearchTypeProvider>
+            </Route>
+            <Route exact path="/settings" component={Settings} />
+            <Route exact path="/post/:id" component={Post} />
+            <Route exact path="/login">
+              { loggedIn ? <Feed/> : <Login/> }
+            </Route>
+            <Route exact path="/register" component={Register} />
+            <Route
+              exact
+              path="/forgetPassword"
+              component={ForgetPassword}
+            />
+            <Route exact path="/newPassword" component={NewPassword} />
+            <Route component={Error404} />
+          </Switch>
+        </Router>
+      </LoginUserProvider>
     </>
   );
 }
