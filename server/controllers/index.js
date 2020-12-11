@@ -69,17 +69,17 @@ module.exports.loginUser = (req, res) => {
   }
 };
 
-module.exports.registerUser = (req, res) => {
+module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
     const _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
     VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${req.body.password}' );`;
-    mysql.connection.query(_query, (error, output) => {
-      if (!error) {
-        console.log(output);
-        return res.status(200).json({ msg: 'User Registered' });
-      }
+    try {
+      const output = await mysql.connection.query(_query);
+      console.log(output);
+      return res.status(200).json({ msg: 'User Registered' });
+    } catch (error) {
       return res.status(401).json({ msg: error.message });
-    });
+    }
   }
   return res.status(401).json({ msg: 'Password not matched' });
 };
