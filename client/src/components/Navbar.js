@@ -1,6 +1,8 @@
+// React itself
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Settings from '../assets/img/icon/Settings.svg';
+
+// Components
 import Menu from '../assets/img/icon/HamburgerMenu.svg';
 import Notifications from '../assets/img/icon/Notifications.svg';
 import SearchUsers from '../assets/img/icon/Search-User.svg';
@@ -8,6 +10,7 @@ import HashSearch from '../assets/img/icon/Hash-Search.svg';
 import Logo from '../assets/img/icon/Logo.svg';
 import { RightAlign, CenterAlign } from './FlexAlignment';
 
+// Styling
 import ComponentStyling from '../style/Navbar.module.css';
 
 const Navbar = () => (
@@ -45,26 +48,117 @@ const Navbar = () => (
     </CenterAlign>
     <RightAlign>
       <div className={ComponentStyling.rightContent}>
-        <div className={ComponentStyling.profileDetails}>
-          <div className={ComponentStyling.profilePicture}>
-            <img
-              alt="user icon"
-              src="/assets/img/profile_pictures/boy(3).svg"
-            />
-          </div>
-          <div className={ComponentStyling.username}>
-            <h1>John Doe</h1>
-          </div>
+        <div>
+          <a className={ComponentStyling.profileDetails} href='/profile'>
+            <div className={ComponentStyling.profilePicture}>
+              <img
+                alt="user icon"
+                src={'/assets/img/profile_pictures/boy(3).svg'}
+              />
+            </div>
+            <div className={ComponentStyling.username}>
+              <h1>John Doe</h1>
+            </div>
+          </a>
         </div>
         <div className={ComponentStyling.controls}>
           <div className={ComponentStyling.controlIcon}>
-            <img src={Notifications} alt="" />
+            <a href='/notification'>
+              <img src={Notifications} alt="" />
+            </a>
           </div>
           <div className={ComponentStyling.controlIcon}>
-            <img src={Settings} alt="" />
-          </div>
-          <div className={ComponentStyling.controlIcon}>
-            <img src={Menu} alt="" />
+            <div className={ComponentStyling.dropdownButton}>
+              <img src={Menu} alt="" />
+              <div className={ComponentStyling.dropdownContent}>
+
+                {/* Dropdown content starts here */}
+
+                {/* Profile Information */}
+                <div className={ComponentStyling.tilingStyleForGrid}>
+                  <a href='/profile' className={ComponentStyling.gridStylingForDropdown}>
+                    <div className={ComponentStyling.profilePicture}>
+                      <img
+                        alt="userIcon"
+                        src={'/assets/img/profile_pictures/boy(3).svg'}
+                        className={ComponentStyling.narbarImageStyling}
+                      />
+                    </div>
+                    <div className={ComponentStyling.navbarTextStyling}>
+                      <h1>John Doe | @johndoe</h1>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Give Feedback */}
+                <div className={ComponentStyling.tilingStyleForGrid}>
+                  <a href='#' className={ComponentStyling.gridStylingForDropdown}>
+                    <div className={ComponentStyling.gridStylingForDropdownIcons}>
+                      <img
+                        alt='feedback'
+                        src={'/assets/img/navbar/message.svg'}
+                        className={ComponentStyling.narbarImageStyling}
+                      />
+                    </div>
+                    <div className={ComponentStyling.navbarTextStyling}>
+                      <h1>Give Feedback&nbsp;</h1>
+                      <p className={ComponentStyling.h2Styling}> - Help us improve Terrabuzz</p>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Settings And Privacy */}
+                <div className={ComponentStyling.tilingStyleForGrid}>
+                  <a href='/settings' className={ComponentStyling.gridStylingForDropdown}>
+                    <div className={ComponentStyling.gridStylingForDropdownIcons}>
+                      <img
+                        alt='settings'
+                        src={'/assets/img/navbar/settings.svg'}
+                        className={ComponentStyling.narbarImageStyling}
+                      />
+                    </div>
+                    <div className={ComponentStyling.navbarTextStyling}>
+                      <h1>Settings And Privacy</h1>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Help And Support */}
+                <div className={ComponentStyling.tilingStyleForGrid}>
+                  <a href='#' className={ComponentStyling.gridStylingForDropdown}>
+                    <div className={ComponentStyling.gridStylingForDropdownIcons}>
+                      <img
+                        alt='helpSupport'
+                        src={'/assets/img/navbar/support.svg'}
+                        className={ComponentStyling.narbarImageStyling}
+                      />
+                    </div>
+                    <div className={ComponentStyling.navbarTextStyling}>
+                      <h1>Help &amp; Support</h1>
+                    </div>
+                  </a>
+                </div>
+
+
+                {/* Logout */}
+                <div className={ComponentStyling.tilingStyleForGrid}>
+                  <a href='/login' className={ComponentStyling.gridStylingForDropdown}>
+                    <div className={ComponentStyling.gridStylingForDropdownIcons}>
+                      <img
+                        alt='logOut'
+                        src={'/assets/img/navbar/logout.svg'}
+                        className={ComponentStyling.narbarImageStyling}
+                      />
+                    </div>
+                    <div className={ComponentStyling.navbarTextStyling}>
+                      <h1>Logout</h1>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Dropdown content ends here */}
+              </div>
+            </div>
           </div>
         </div>
       </div>

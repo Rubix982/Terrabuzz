@@ -1,0 +1,15 @@
+.content {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0px 80px;
+  overflow: auto;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: 0;
+}

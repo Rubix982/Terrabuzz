@@ -1,0 +1,91 @@
+.entry {
+  display: grid;
+  grid-template-rows: 75% 25%;
+  height: 40%;
+  width: 100%;
+  margin: 15px auto;
+  padding: 10px 0px 10px 0px;
+  background: #242526;
+  box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  padding: 5px;
+}
+
+.profilePicture {
+  margin: auto;
+  height: 100%;
+  width: 80%;
+  background-color: #3a3b3c;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.profilePicture img {
+  height: 100%;
+  width: 100%;
+}
+
+.postBody {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.postTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1em auto;
+}
+
+.postTitle h1, .postTitle h2, .postText p {
+  color: white;
+  font-weight: lighter;
+}
+
+.postTitle h1 {
+  font-size: 24px;
+}
+
+.postTitle h2 {
+  font-size: 14px;
+}
+
+.postText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px auto;
+  float: left;
+}
+
+.postText p {
+  font-size: 20px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid black;
+}
+
+.stats h1 {
+  color: #9f9f9f;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+.timeStampInfo {
+  color: white;
+  font-weight: lighter;
+  justify-content: center;
+  text-align: center;
+  float: left;
+}
