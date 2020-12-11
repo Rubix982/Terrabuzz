@@ -1,8 +1,15 @@
 const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
+const { getHomePagePosts } = require('../services/homePage.js');
+const { getSinglePost } = require('../services/getSinglePost.js');
 
-module.exports.getHomePage = (req, res) => {
-  res.json({ msg: 'HELLO WORLD!!' });
+module.exports.getHomePage = async (req, res) => {
+  try {
+    const posts = await getHomePagePosts();
+    return res.json(posts);
+  } catch (error) {
+    return res.status(404).json({ msg: error.message });
+  }
 };
 
 module.exports.getUserFeed = (req, res) => {
@@ -23,9 +30,14 @@ module.exports.publishPost = async (req, res) => {
   }
 };
 
-module.exports.getPost = (req, res) => {
-  const postID = req.params.id;
-  res.json({ msg: `postID to be queried: ${postID}` });
+module.exports.getPost = async (req, res) => {
+  try {
+    const postID = req.params.id;
+    const data = await getSinglePost(postID);
+    res.json({ msg: `postID to be queried: ${postID}`, data });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
 };
 
 module.exports.searchPost = (req, res) => {
