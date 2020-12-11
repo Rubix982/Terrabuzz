@@ -7,6 +7,14 @@ const notificationSchmea = new Schema({
     type: String,
     maxLength: 60,
   },
+  timestamp: {
+    type: Date,
+    required: true,
+  },
+  postID: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 const notificationListSchema = new Schema({

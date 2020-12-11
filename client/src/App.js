@@ -48,7 +48,7 @@ function App() {
             </SearchTypeProvider>
           </Route>
           <Route exact path="/settings" component={Settings} />
-          <Route exact path="/post" component={Post} />
+          <Route exact path="/post/:id" component={Post} />
           <Route exact path="/login">
             { loggedIn ? <Feed/> : <Login/> }
           </Route>

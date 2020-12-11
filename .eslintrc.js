@@ -31,6 +31,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-underscore-dangle': 0,
     'import/no-cycle': [2, { maxDepth: 1 }],
     'no-console': 0,
   },
