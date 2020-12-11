@@ -2,17 +2,18 @@ create database TERRABUZZ;
 use TERRABUZZ;
 CREATE TABLE `TERRABUZZ`.`User_Information` (
   `Handler` VARCHAR(40) NOT NULL,
+  `Username` VARCHAR(40) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
   `Password` VARCHAR(45) NOT NULL,
   `Activities` VARCHAR(45) NULL,
   `Location` VARCHAR(45) NULL,
-  `Instagram` VARCHAR(45) NULL,
-  `Facebook` VARCHAR(45) NULL,
-  `LinkedIn` VARCHAR(45) NULL,
-  `Twitter` VARCHAR(45) NULL,
-  `Website` VARCHAR(45) NULL,
+  `Instagram` VARCHAR(150) NULL,
+  `Facebook` VARCHAR(150) NULL,
+  `LinkedIn` VARCHAR(150) NULL,
+  `Twitter` VARCHAR(150) NULL,
+  `Website` VARCHAR(150) NULL,
   `Biography` VARCHAR(45) NULL,
-  `Joined_Website` DATETIME NULL,
+  `Joined_Website` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (`Handler`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) );
 CREATE TABLE `TERRABUZZ`.`Connection` (

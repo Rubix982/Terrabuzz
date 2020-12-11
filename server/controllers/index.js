@@ -2,6 +2,7 @@ const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
+const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -69,7 +70,18 @@ module.exports.loginUser = (req, res) => {
 };
 
 module.exports.registerUser = (req, res) => {
-  res.json({ msg: 'User registered!!' });
+  if (req.body.password === req.body.cpassword) {
+    const _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
+    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${req.body.password}' );`;
+    mysql.connection.query(_query, (error, output) => {
+      if (!error) {
+        console.log(output);
+        return res.status(200).json({ msg: 'User Registered' });
+      }
+      return res.status(401).json({ msg: error.message });
+    });
+  }
+  return res.status(401).json({ msg: 'Password not matched' });
 };
 
 module.exports.newPassword = (req, res) => {

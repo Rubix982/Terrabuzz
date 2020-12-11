@@ -10,6 +10,7 @@
     font-size: 14px;
     justify-content: center;
     text-align: center;
+    width: 50px;
     cursor: pointer;
 }
 
@@ -78,11 +79,9 @@
     font-family: Cairo;
     font-style: normal;
     font-weight: 300;
-    line-height: 20px;
     align-items: center;
     text-align: center;
     color: #B0B0B0;
-    padding: 20px;
     padding-bottom: 10px;
     font-size: 30px;
 }
@@ -145,6 +144,7 @@
     font-family: Cairo;
     justify-content: center;
     text-align: center;
+    margin-bottom: 2px;
 }
 
 .modalForm input[type="text"], .modalForm input[type="date"], .modalForm input[type="datetime"], .modalForm input[type="email"], .modalForm input[type="number"], .modalForm input[type="search"], .modalForm input[type="time"], .modalForm input[type="url"], .modalForm input[type="password"], .modalForm textarea, .modalForm select {
@@ -156,7 +156,6 @@
     outline: none;
     border: none;
     height: 35px;
-    line-height: 35px;
     font-size: 16px;
     padding: 0;
     font-family: Cairo;
@@ -178,6 +177,27 @@
     color: #C0C0C0;
     font-family: Cairo;
     font-size: 11px;
+}
+
+.modalForm textarea[name='BiographyInput'] {
+    padding: 1px 3px;
+    border: 0;
+    outline: 0;
+    height: 50px;
+    overflow: scroll;
+}
+
+.modalForm textarea[name='ActivityInput'] {
+    border: 0;
+    outline: 0;
+    overflow: scroll;
+    padding: 1px 3px;
+    height: 50px;
+}
+
+.modalForm textarea[name='BiographyInput']::-webkit-scrollbar, .modalForm textarea[name='ActivityInput']::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
 .modalForm textarea {
@@ -209,7 +229,6 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 34px;
     text-align: center;
     letter-spacing: 0.02em;
     color: #000;
@@ -237,7 +256,6 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 34px;
     text-align: center;
     letter-spacing: 0.02em;
     color: #FFFFFF;
