@@ -3,13 +3,11 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const indexRouter = require('./routes/index.js');
 const middleware = require('./middleware/index.js');
-const MYSQL_CONNECTOR = (require('./db/mysql/connection.js'));
 const CreateSQL = (require('./db/mysql/create-sql.js'));
 const InitializeSQL = (require('./db/mysql/insert-sql.js'));
 const MONGOOSE_CONNECTOR = require('./db/mongo/connection.js');
 require('dotenv').config();
 
-MYSQL_CONNECTOR.connect();
 CreateSQL.create();
 InitializeSQL.insert();
 MONGOOSE_CONNECTOR.connect();
