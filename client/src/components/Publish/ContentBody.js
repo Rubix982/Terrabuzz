@@ -13,7 +13,7 @@ const ContentBody = () => {
       <div className={ContentBodyStyling.contentBody}>
         <textarea onChange={(event)=>{
           setContent(event.target.value);
-        }} suppressContentEditableWarning value={content} type="text" name="content" className={ContentBodyStyling.removeFocus} aria-placeholder="Enter text here..." contentEditable="true" placeholder="Content goes here..." maxLength="880" />
+        }} suppressContentEditableWarning value={content} type="text" name="content" className={ContentBodyStyling.removeFocus} aria-placeholder="Enter text here..." contentEditable="true" placeholder="Content goes here ..." maxLength="880" />
       </div>
     </div>
 )};

@@ -5,16 +5,16 @@ import { publishContext } from './PublishContext'
 import TitlePlaceholderStying from '../../style/Publish/TitlePlaceholder.module.css';
 
 const TitlePlaceholder = () => {
-  const [[title, setTitle]] = useContext(publishContext);  
+  const [[title, setTitle]] = useContext(publishContext);
 
   return (
     <div>
       <div className={TitlePlaceholderStying.titleContent}>
         <form>
           <label htmlFor="title">
-            <input onChange={(event)=>{
+            <input onChange={(event) => {
               setTitle(event.target.value);
-            }} suppressContentEditableWarning value={title} type="text" name="title" className={TitlePlaceholderStying.removeFocus} aria-placeholder="Title goes here..." contentEditable="true" placeholder="Title goes here..." maxLength="40" />
+            }} suppressContentEditableWarning value={title} type="text" name="title" className={TitlePlaceholderStying.removeFocus} aria-placeholder="Title Goes Here ..." contentEditable="true" placeholder="Title goes here ... " maxLength="40" />
           </label>
         </form>
       </div>

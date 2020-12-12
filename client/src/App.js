@@ -38,7 +38,7 @@ function App() {
             <Route exact path='/notification' component={Notification} />
             <Route exact path="/privacy" component={PrivacyPolicy} />
             <Route exact path="/publish">
-              { loggedIn ? <Publish/> : <Home/> }
+              {loggedIn ? <Publish /> : <Home />}
             </Route>
             <Route exact path="/first" component={FirstLogin} />
             <Route exact path="/about" component={AboutUs} />
@@ -51,7 +51,7 @@ function App() {
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/post/:id" component={Post} />
             <Route exact path="/login">
-              { loggedIn ? <Feed/> : <Login/> }
+              {loggedIn ? <Feed /> : <Login />}
             </Route>
             <Route exact path="/register" component={Register} />
             <Route
