@@ -1,9 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ComponentStyling from '../../style/FirstLogin/MainContent.module.css';
+
+const FemaleProfilePictureGrid = () => {
+  return (
+    <div className={ComponentStyling.gridStylingForPictures}>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/boy.svg' alt='' />
+      </div>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/boy(1).svg' alt='' />
+      </div>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/boy(2).svg' alt='' />
+      </div>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/boy(3).svg' alt='' />
+      </div>
+    </div>
+  );
+};
+
+const MaleProfilePictureGrid = () => {
+  return (
+    <div className={ComponentStyling.gridStylingForPictures}>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/girl.svg' alt='' />
+      </div>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/girl(1).svg' alt='' />
+      </div>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/girl(2).svg' alt='' />
+      </div>
+      <div className={ComponentStyling.pictureElement}>
+        <img src='/assets/img/profile_pictures/girl(3).svg' alt='' />
+      </div>
+    </div>
+  );
+};
+
 
 const MainContent = () => {
   const activationArr = [];
   for (let i = 0; i < 8; i += 1) activationArr[i] = false;
+
+  const [isMale, setIsMale] = useState(false);
+
+  const setToMale = () => {
+    setIsMale(true);
+  }
+
+  const setToFemale = () => {
+    setIsMale(false);
+  }
 
   return (
     <div className={ComponentStyling.content}>
@@ -11,6 +60,27 @@ const MainContent = () => {
       <h2>This looks like your first login!</h2>
       <h4>To get your started with your profile, let&apos;s go to some basic information</h4>
       <form className={ComponentStyling.formlogin}>
+        <h2 style={{ paddingLeft: '0px' }}>Gender?</h2>
+
+        <div>
+          <input onClick={setToMale} type="radio" name="gender" value="male" />
+          <label style={{ paddingLeft: "10px" }} htmlFor="male">Male</label>
+        </div>
+
+        <br />
+        <div>
+          <input onClick={setToFemale} type="radio" name="gender" value="female" />
+          <label style={{ paddingLeft: "10px" }} htmlFor="female">Female</label>
+        </div>
+
+        <div className={ComponentStyling.Spacing}></div>
+
+        <div className={ComponentStyling.PhotoGrid}>
+          {isMale ? <FemaleProfilePictureGrid /> : <MaleProfilePictureGrid />}
+        </div>
+
+        <div className={ComponentStyling.Spacing}></div>
+
         <div className={`${ComponentStyling.FieldBox} ${ComponentStyling.Bio}`}>
           <label>
             What should your biography look like?
@@ -41,97 +111,71 @@ const MainContent = () => {
           />
         </div>
         <div className={`${ComponentStyling.FieldBox}`}>
-          <label>Interests</label>
+          <label style={{paddingBottom: "10px"}}>Interests</label>
           <div className={ComponentStyling.GridSystemForInterests}>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[0] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  // console.log(activationArr[0]);
-                  activationArr[0] = !activationArr[0];
-                  // console.log(activationArr[0]);
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #philosophy
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[1] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[1] = !activationArr[1];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #food
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[2] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[2] = !activationArr[2];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #fast
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[3] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[3] = !activationArr[3];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #web
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[4] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[4] = !activationArr[4];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #cloud
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[5] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[5] = !activationArr[5];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #humor
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[6] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[6] = !activationArr[6];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #football
-              </button>
+                </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
-              <button
-                type="button"
-                className={activationArr[7] ? `${ComponentStyling.AddColorToClickedButton}` : `${ComponentStyling.RemoveColorToClickedButton}`}
-                onClick={() => {
-                  activationArr[7] = !activationArr[7];
-                }}
-              >
+              <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+              <label type="button"
+                className={`${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox' >
                 #karachi
-              </button>
+                </label>
             </div>
           </div>
         </div>
@@ -146,4 +190,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export { MainContent };
