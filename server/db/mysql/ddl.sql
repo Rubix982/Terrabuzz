@@ -4,7 +4,7 @@ CREATE TABLE `TERRABUZZ`.`UserInformation` (
   `Handler` VARCHAR(40) NOT NULL,
   `Username` VARCHAR(40) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
-  `Password` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(100) NOT NULL,
   `Activities` VARCHAR(45) NULL,
   `Location` VARCHAR(45) NULL,
   `Instagram` VARCHAR(150) NULL,
