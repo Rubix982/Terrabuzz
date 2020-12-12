@@ -1,6 +1,5 @@
 .cover {
-  background: url("../../assets/profile/wallpaper_1.jpg") no-repeat center
-    center;
+  background: #18191a;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
