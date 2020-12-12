@@ -100,9 +100,19 @@
   background-size: 50px;
 }
 
+.change-password {
+  background: url("../../assets/img/icon/change-password.svg") no-repeat;
+  background-position: left;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 50px;
+}
+
 .settings-sidebar-controls-grid {
   display: grid;
-  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-rows: 16.67% 16.66% 16.66% 16.66% 16.66% 16.67%;
   margin-top: 80px;
 }
 

@@ -17,6 +17,14 @@ const MainContent = () => (
         <div>
           <input
             type="button"
+            className="options-button change-password"
+            value="Change Password"
+          />
+        </div>
+
+        <div>
+          <input
+            type="button"
             className="options-button security"
             value="Security"
           />
@@ -45,6 +53,7 @@ const MainContent = () => (
             value="Data Privacy"
           />
         </div>
+
       </div>
     </div>
 
