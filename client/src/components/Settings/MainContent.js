@@ -62,64 +62,66 @@ const MainContent = () => (
     </div>
 
     <div className="settings-fields">
-      <div className="settings-fields-input">
-        <div className="input-fields">
-          <div className="align-input-field-1">
-            <h3> Email Address </h3>
+
+      <div className="settings-fields-input-pref">
+
+          <div className="input-fields">
+            <div className="align-input-field-1">
+              <h3> Email Address </h3>
+            </div>
+
+            <div className="align-input-field-2">
+              <input className="search-box" type="text" />
+            </div>
           </div>
 
-          <div className="align-input-field-2">
-            <input className="search-box" type="text" />
-          </div>
-        </div>
+          <div className="input-fields">
+            <div className="align-input-field-1">
+              <h3> Username </h3>
+            </div>
 
-        <div className="input-fields">
-          <div className="align-input-field-1">
-            <h3> Username </h3>
-          </div>
-
-          <div className="align-input-field-2">
-            <input className="search-box" type="text" />
-          </div>
-        </div>
-
-        <div className="input-fields">
-          <div className="align-input-field-1">
-            <h3> User handler </h3>
+            <div className="align-input-field-2">
+              <input className="search-box" type="text" />
+            </div>
           </div>
 
-          <div className="align-input-field-2">
-            <input className="search-box" type="text" />
-          </div>
-        </div>
+          <div className="input-fields">
+            <div className="align-input-field-1">
+              <h3> User handler </h3>
+            </div>
 
-        <div className="input-fields">
-          <div className="align-input-field-1">
-            <h3> Password </h3>
-          </div>
-
-          <div className="align-input-field-2">
-            <input className="search-box" type="password" />
-          </div>
-        </div>
-
-        <div className="input-fields">
-          <div className="align-input-field-1">
-            <h3> Confirm Password </h3>
+            <div className="align-input-field-2">
+              <input className="search-box" type="text" />
+            </div>
           </div>
 
-          <div className="align-input-field-2">
-            <input className="search-box" type="password" />
-          </div>
-        </div>
+          <div className="input-fields">
+            <div className="align-input-field-1">
+              <h3> Password </h3>
+            </div>
 
-        <div className="input-fields">
-          <input
-            className="update-button"
-            type="button"
-            value="Save Changes"
-          />
-        </div>
+            <div className="align-input-field-2">
+              <input className="search-box" type="password" />
+            </div>
+          </div>
+
+          <div className="input-fields">
+            <div className="align-input-field-1">
+              <h3> Confirm Password </h3>
+            </div>
+
+            <div className="align-input-field-2">
+              <input className="search-box" type="password" />
+            </div>
+          </div>
+
+          <div className="input-fields">
+            <input
+              className="update-button"
+              type="button"
+              value="Save Changes"
+            />
+          </div>
       </div>
     </div>
   </div>
