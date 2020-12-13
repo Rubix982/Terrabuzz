@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { publishContext } from './PublishContext'
 import { publishPost } from '../../services/publish'
-import Select from 'react-select';
 
 // Assets
 import BackArrow from '../../assets/publish/back.svg';
