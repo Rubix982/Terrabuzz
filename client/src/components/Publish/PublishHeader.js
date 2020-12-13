@@ -35,7 +35,8 @@ const PublishHeader = () => {
         <div className={PublishHeaderStyling.interestContent}>
           <form>
             <label htmlFor='interest'>
-              <select onChange={(event) => {
+              
+              {/* <select onChange={(event) => {
                 setInterest(event.target.value);
               }} suppressContentEditableWarning value={interest} name='interest' >
                   <option value='0'>#philosophy</option>
@@ -46,7 +47,7 @@ const PublishHeader = () => {
                   <option value='5'>#football</option>
                   <option value='6'>#web</option>
                   <option value='7'>#karachi</option>
-                </select>
+                </select> */}
             </label>
           </form>
         </div>
