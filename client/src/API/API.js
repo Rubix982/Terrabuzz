@@ -1,7 +1,17 @@
 class API {
   static async getRequest(__URL) {
     try {
-      const response = await fetch(__URL);
+      const response = await fetch(__URL, {
+        headers: {
+          'Content-type': 'application/json',
+        },
+        'credentials': 'include',
+      });
+      if(response.status===403) {
+        localStorage.removeItem('loggedIn');
+        const data = await response.json();
+        throw new Error(data.msg);
+      }
       if(!response.ok) {
         const data = await response.json();
         throw new Error(data.msg);

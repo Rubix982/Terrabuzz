@@ -5,7 +5,7 @@ import NewComment from './NewComment'
 import { loginUserContext } from '../LoginUserContext';
 
 const CommentContent = () => {
-  const [ loggedIn, setLoggedIn ] = useContext(loginUserContext);
+  const [loggedIn]  = useContext(loginUserContext);
   
   return (
     <div className={ComponentStyling.content}>

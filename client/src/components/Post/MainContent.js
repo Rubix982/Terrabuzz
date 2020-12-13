@@ -6,9 +6,9 @@ import PostContent from './PostContent';
 import CommentContent from './CommentContent';
 
 const MainContent = () => {
-  const [,, [loading, setLoading]] = useContext(postContext) 
+  const { loading } = useContext(postContext) 
 
-  if (loading) {
+  if (loading.state) {
     return (
       <>
       </>

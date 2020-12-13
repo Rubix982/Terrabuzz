@@ -20,11 +20,10 @@ const commentSchema = new Schema({
 });
 
 const likeSchema = new Schema({
-  _id: {
+  handle: {
     type: String,
     maxLength: 40,
     required: true,
-    unique: true,
   },
   isLiked: {
     type: Boolean,
