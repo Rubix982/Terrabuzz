@@ -51,8 +51,15 @@ module.exports.searchUser = (req, res) => {
   res.json({ msg: `Username to be queried: ${username}` });
 };
 
-module.exports.getSettings = (req, res) => {
-  res.json({ msg: 'User settings!!' });
+module.exports.getSettings = async (req, res) => {
+    const _query = `select Username, Email from TERRABUZZ.User_Information where Handler=${req.userHandle} ;`;
+    try {
+      const output = await mysql.connection.query(_query);
+      console.log(output);
+      return res.status(200).json({ msg: 'Fetched User Information' });
+    } catch (error) {
+      return res.status(401).json({ msg: error.message });
+    }
 };
 
 module.exports.updateSettings = (req, res) => {

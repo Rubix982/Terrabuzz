@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 import '../../style/Settings/Settings.css';
 
-const MainContent = () => (
+const MainContent = () => {
+  const [email, setEmail] = useState('');
+  const [Username, setUsername] = useState('');
+  const [Handler, setHandler] = useState('');
+
+  useEffect( async () => {
+    const response = await fetch('http://localhost:8080/api/settings') ;
+    const data = await response.json() ;
+    setEmail(data.email) ;
+    setUsername(data.Username) ;
+    setHandler(data.Handler) ;
+  });
+
+  return (
   <div className="settings-page-grid">
     <div className="settings-sidebar">
       <input type="button" className="previous-button" value="Previous" />
@@ -71,7 +84,7 @@ const MainContent = () => (
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" />
+              <input className="search-box" type="text"  />
             </div>
           </div>
 
@@ -81,7 +94,7 @@ const MainContent = () => (
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" />
+              <input className="search-box" type="text"  />
             </div>
           </div>
 
@@ -126,5 +139,6 @@ const MainContent = () => (
     </div>
   </div>
 );
+}
 
 export default MainContent;

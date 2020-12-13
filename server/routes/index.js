@@ -17,5 +17,5 @@ Router.post('/login', indexContoller.loginUser);
 Router.post('/register', indexContoller.registerUser);
 Router.post('/new-password', indexContoller.newPassword);
 Router.post('/reset-password', indexContoller.resetPassword);
-
+Router.put('/changepassword', indexContoller.resetPassword);
 module.exports = Router;
