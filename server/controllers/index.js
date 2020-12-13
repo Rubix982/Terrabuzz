@@ -2,6 +2,7 @@ const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
+const { getLikeStatus, updateLike } = require('../services/like.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -36,6 +37,26 @@ module.exports.getPost = async (req, res) => {
     const postID = req.params.id;
     const data = await getSinglePost(postID);
     res.json({ msg: `postID to be queried: ${postID}`, data });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports.getLike = async (req, res) => {
+  try {
+    const postID = req.params.id;
+    const status = await getLikeStatus(postID, req.userHandle);
+    res.json({ msg: `Get like status of postID ${postID}`, status });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports.addLike = async (req, res) => {
+  try {
+    const postID = req.params.id;
+    const status = await updateLike(postID, req.userHandle);
+    res.json({ msg: 'Like updated successfully', status });
   } catch (error) {
     res.status(404).json({ msg: error.message });
   }

@@ -9,6 +9,8 @@ Router.get('/feed', authorizeUser, indexContoller.getUserFeed);
 Router.get('/profile/:id', authorizeUser, indexContoller.getUserProfile);
 Router.post('/publish', authorizeUser, indexContoller.publishPost);
 Router.get('/post/:id', indexContoller.getPost);
+Router.get('/like/:id', authorizeUser, indexContoller.getLike);
+Router.post('/like/:id', authorizeUser, indexContoller.addLike);
 Router.get('/search-post', authorizeUser, indexContoller.searchPost);
 Router.get('/search-user', authorizeUser, indexContoller.searchUser);
 Router.get('/settings', authorizeUser, indexContoller.getSettings);
