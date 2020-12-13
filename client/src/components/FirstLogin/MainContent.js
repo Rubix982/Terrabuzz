@@ -1,50 +1,99 @@
 import React, { useState } from 'react';
 import ComponentStyling from '../../style/FirstLogin/MainContent.module.css';
 
-const FemaleProfilePictureGrid = () => {
+const booleanList = [false, false, false, false, false, false, false, false, false]
+const pictureSelection = [false, false, false, false]
+
+const MaleProfilePictureGrid = () => {
+
+  const [selectPicture, setSelectPicture] = useState(pictureSelection);
+
+  console.log(selectPicture);
+
   return (
     <div className={ComponentStyling.gridStylingForPictures}>
-      <div className={ComponentStyling.pictureElement}>
+
+      <div className={selectPicture[0] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [true, false, false, false] })}
+      >
         <img src='/assets/img/profile_pictures/boy.svg' alt='' />
       </div>
-      <div className={ComponentStyling.pictureElement}>
+
+      <div className={selectPicture[1] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [false, true, false, false] })}
+      >
         <img src='/assets/img/profile_pictures/boy(1).svg' alt='' />
       </div>
-      <div className={ComponentStyling.pictureElement}>
+
+      <div className={selectPicture[2] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [false, false, true, false] })}
+      >
         <img src='/assets/img/profile_pictures/boy(2).svg' alt='' />
       </div>
-      <div className={ComponentStyling.pictureElement}>
+
+      <div className={selectPicture[3] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [false, false, false, true] })}
+      >
         <img src='/assets/img/profile_pictures/boy(3).svg' alt='' />
       </div>
+
     </div>
   );
 };
 
-const MaleProfilePictureGrid = () => {
+const FemaleProfilePictureGrid = () => {
+
+  const [selectPicture, setSelectPicture] = useState(pictureSelection);
+
+  console.log(selectPicture);
+
   return (
     <div className={ComponentStyling.gridStylingForPictures}>
-      <div className={ComponentStyling.pictureElement}>
+      <div className={selectPicture[0] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [true, false, false, false] })}
+      >
         <img src='/assets/img/profile_pictures/girl.svg' alt='' />
       </div>
-      <div className={ComponentStyling.pictureElement}>
+      <div className={selectPicture[1] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [false, true, false, false] })}
+      >
         <img src='/assets/img/profile_pictures/girl(1).svg' alt='' />
       </div>
-      <div className={ComponentStyling.pictureElement}>
+      <div className={selectPicture[2] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [false, false, true, false] })}
+      >
         <img src='/assets/img/profile_pictures/girl(2).svg' alt='' />
       </div>
-      <div className={ComponentStyling.pictureElement}>
+      <div className={selectPicture[3] ?
+        `${ComponentStyling.pictureToggle} ${ComponentStyling.pictureElement}`
+        : `${ComponentStyling.pictureElement}`}
+        onClick={() => setSelectPicture(() => { return [false, false, false, true] })}
+      >
         <img src='/assets/img/profile_pictures/girl(3).svg' alt='' />
       </div>
     </div>
   );
 };
 
-
 const MainContent = () => {
-  const activationArr = [];
-  for (let i = 0; i < 8; i += 1) activationArr[i] = false;
 
-  const [isMale, setIsMale] = useState(false);
+  const [activationArray, setActivationArray] = useState(booleanList);
+
+  const [isMale, setIsMale] = useState(true);
 
   const setToMale = () => {
     setIsMale(true);
@@ -52,6 +101,10 @@ const MainContent = () => {
 
   const setToFemale = () => {
     setIsMale(false);
+  }
+
+  const ClickedButton = (event) => {
+    console.log(event)
   }
 
   return (
@@ -76,7 +129,7 @@ const MainContent = () => {
         <div className={ComponentStyling.Spacing}></div>
 
         <div className={ComponentStyling.PhotoGrid}>
-          {isMale ? <FemaleProfilePictureGrid /> : <MaleProfilePictureGrid />}
+          {isMale ? <MaleProfilePictureGrid /> : <FemaleProfilePictureGrid />}
         </div>
 
         <div className={ComponentStyling.Spacing}></div>
@@ -111,69 +164,142 @@ const MainContent = () => {
           />
         </div>
         <div className={`${ComponentStyling.FieldBox}`}>
-          <label style={{paddingBottom: "10px"}}>Interests</label>
+          <label style={{ paddingBottom: "10px" }}>Interests</label>
           <div className={ComponentStyling.GridSystemForInterests}>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[0] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [!activationArray[0], activationArray[1], activationArray[2],
+                    activationArray[3], activationArray[4], activationArray[5],
+                    activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #philosophy
                 </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[1] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], !activationArray[1], activationArray[2],
+                    activationArray[3], activationArray[4], activationArray[5],
+                    activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #food
                 </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[2] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], activationArray[1], !activationArray[2],
+                    activationArray[3], activationArray[4], activationArray[5],
+                    activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #fast
                 </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[3] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], activationArray[1], activationArray[2],
+                    !activationArray[3], activationArray[4], activationArray[5],
+                    activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #web
                 </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[4] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], activationArray[1], activationArray[2],
+                    activationArray[3], !activationArray[4], activationArray[5],
+                    activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #cloud
                 </label>
             </div>
-            <div className={ComponentStyling.OuterToggleInterest}>
+            <div onClick={ClickedButton} className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
-              <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+              <label
+                type="button"
+                className={activationArray[5] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], activationArray[1], activationArray[2],
+                    activationArray[3], activationArray[4], !activationArray[5],
+                    activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #humor
                 </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[6] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], activationArray[1], activationArray[2],
+                    activationArray[3], activationArray[4], activationArray[5],
+                    !activationArray[6], activationArray[7]]
+                  )
+                })}
+              >
                 #football
                 </label>
             </div>
             <div className={ComponentStyling.OuterToggleInterest}>
               <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
               <label type="button"
-                className={`${ComponentStyling.inputLabel}`}
-                htmlFor='checkbox' >
+                className={activationArray[7] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                htmlFor='checkbox'
+                onClick={() => setActivationArray(() => {
+                  return (
+                    [activationArray[0], activationArray[1], activationArray[2],
+                    activationArray[3], activationArray[4], activationArray[5],
+                    activationArray[6], !activationArray[7]]
+                  )
+                })}
+              >
                 #karachi
                 </label>
             </div>
@@ -186,7 +312,6 @@ const MainContent = () => {
         />
       </form>
     </div>
-    // </div>
   );
 };
 

@@ -247,7 +247,6 @@
     font-weight: normal;
     font-size: 24px;
     line-height: 68px;
-    color: #000000;
     margin-left: 10px;
 }
 
@@ -263,7 +262,6 @@
 }
 
 .OuterToggleInterest label {
-    color: rgba(0, 0, 0, 1);
     text-decoration: none;
     padding: auto 10px;
     font-family: Cairo;
@@ -343,6 +341,7 @@
     align-items: center;
     width: 75%;
     height: 75%;
+    cursor: pointer;
 }
 
 .pictureElement img {
@@ -352,7 +351,7 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    background: rgb(49, 49, 49);
+    background: rgb(65, 65, 65);    
     border-radius: 10px;
     border: 5px solid #242526;
 }
@@ -384,18 +383,24 @@
     box-shadow: 0 3px 0 0 #000;
 }
 
-.inputLabel::after {
+.inputLabel::active {
     background-color: radial-gradient(circle at center, #fff 24%, #000 25%, #000 100%);
     width: 100%;
     height: 100%;
-    /* top: 0;
-    left: 0; */
-    /* transform: scale(0);
-    transition: transform 0.3s ease-in;
-    mix-blend-mode: difference; */
 }
 
 .inputLabel::active {
     top: 3px;
     box-shadow: none;
+}
+
+.toggleButton {
+    transition: cubic-bezier(0.19, 1, 0.22, 1);
+    background: #242526;
+    color: rgb(255, 255, 255);
+}
+
+.pictureToggle img {
+    transition: background-color 0.25s ease-in;
+    background-color: rgb(128, 128, 128);
 }
