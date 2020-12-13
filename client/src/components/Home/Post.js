@@ -19,7 +19,7 @@ const Post = ({ handle, date, content, likeCount, commentCount }) => (
         <div className={ComponentStyling.PostedIn}>in #philosophy</div>
         <div className={ComponentStyling.postText}>
           <p>
-            {content}
+            {content} ......
           </p>
         </div>
       </div>
