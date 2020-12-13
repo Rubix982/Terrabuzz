@@ -1,34 +1,34 @@
-
-
-.containerPublishHeader div {
-    display: inline-block;
-    vertical-align: top;
-    /* overflow: auto; */
+.containerPublishHeader {
+    display: grid;
+    grid-template-columns: 20% auto 30%;
+    grid-template-rows: auto;
 }
 
 .backArrow {
+    padding: 10px;
     width: 44px;
     height: 44px;
-    margin: 8px 8px 0px 8px;
+    display: inline-block;
 }
 
 .goBack {
-    width: 110px;
-    height: 44px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    padding: auto;
+    margin: auto;
 }
 
 .goBack p {
-    
     font-family: 'Cairo';
     margin-bottom: 15px;
-font-style: normal;
-font-weight: 600;
-font-size: 32px;
-line-height: 60px;
-display: flex;
-align-items: center;
-
-color: #4188AF;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    color: #4188AF;
 }
 
 .draft {
@@ -46,13 +46,12 @@ color: #4188AF;
     line-height: 60px;
     display: flex;
     align-items: center;
-    
     color: #60767F;
 }
 
 .publishPage {
     width: 162px;
-    height: 44px;       
+    height: 44px;
 }
 
 .publishPage p {
@@ -64,14 +63,69 @@ color: #4188AF;
     display: flex;
     align-items: center;
     text-align: center;
-    
     color: #4188AF;
-}
-
-.floatRight {
-    float: right;
 }
 
 .publishButton {
     cursor: pointer;
+}
+
+.rightSideGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    /* grid-column-gap: 5px; */
+    /* justify-content: right; */
+    /* align-items: right; */
+}
+
+.goBackGridStyling {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 20% 30% auto;
+}
+
+.interestContent select {
+    background: #263238;
+    border: 0px;
+    border-style: none;
+    font-family: inherit;
+    font-size: 32px;
+    color: rgba(172, 172, 172, 1);
+    display: block;
+    overflow: hidden;
+    resize: both;
+}
+
+.interestContent select::placeholder {
+    color: rgba(172, 172, 172, 1);
+    font-family: Cairo;
+}
+
+.interestContent select:active, .interestContent select:hover, .interestContent select:focus {
+    border-style: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.removeFocus:focus {
+    outline: -webkit-focus-ring-color none 0px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: none;
+    outline-width: 0px;
+}
+
+.interestContent input[contentEditable]:empty::before {
+    content: "Placeholder still possible";
+    color: gray;
+    content: attr(aria-placeholder);
+    display: block;
+}
+
+.interestContent input[contentEditable=true] {
+    font-family: Cairo;
+    -webkit-appearance: textfield;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
 }

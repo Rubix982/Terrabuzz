@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
@@ -72,8 +73,15 @@ module.exports.searchUser = (req, res) => {
   res.json({ msg: `Username to be queried: ${username}` });
 };
 
-module.exports.getSettings = (req, res) => {
-  res.json({ msg: 'User settings!!' });
+module.exports.getSettings = async (req, res) => {
+    const _query = `select Username, Email from TERRABUZZ.User_Information where Handler=${req.userHandle} ;`;
+    try {
+      const output = await mysql.connection.query(_query);
+      console.log(output);
+      return res.status(200).json({ msg: 'Fetched User Information' });
+    } catch (error) {
+      return res.status(401).json({ msg: error.message });
+    }
 };
 
 module.exports.updateSettings = (req, res) => {
@@ -92,8 +100,10 @@ module.exports.loginUser = (req, res) => {
 
 module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
     const _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
-    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${req.body.password}' );`;
+    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
     try {
       const output = await mysql.connection.query(_query);
       console.log(output);

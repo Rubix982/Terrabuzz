@@ -1,12 +1,12 @@
 import React from 'react';
-import '../style/Settings/Settings.css';
+import '../style/Settings-changePassword/Settings-changePassword.css';
 import Container from '../components/FullViewContainer';
 import Navbar from '../components/Navbar';
-import MainContent from '../components/Settings/MainContent';
+import MainContent from '../components/Settings-changePassword/MainContent';
 
 const Settings = () => (
   <Container style={{ display: 'grid', gridTemplateRows: '10% 90%' }}>
-    <Navbar first_name="Tashik" title="Terrabuzz" />
+    <Navbar title="Terrabuzz" />
     <MainContent />
   </Container>
 );

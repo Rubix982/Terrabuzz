@@ -59,6 +59,11 @@ const postSchema = new Schema({
     type: Schema.Types.ObjectID,
     ref: 'Comment',
   }],
+  interest: {
+    type: String,
+    maxlength: 20,
+    required: true,
+  },
 });
 
 const postListSchema = new Schema({

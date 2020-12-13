@@ -11,6 +11,7 @@ import Publish from './pages/publish';
 import Profile from './pages/profile';
 import Search from './pages/search';
 import Settings from './pages/Settings';
+import SettingsCP from './pages/Settings-changePassword.js';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgetPassword from './pages/ForgetPassword';
@@ -38,7 +39,7 @@ function App() {
             <Route exact path='/notification' component={Notification} />
             <Route exact path="/privacy" component={PrivacyPolicy} />
             <Route exact path="/publish">
-              { loggedIn ? <Publish/> : <Home/> }
+              {loggedIn ? <Publish /> : <Home />}
             </Route>
             <Route exact path="/first" component={FirstLogin} />
             <Route exact path="/about" component={AboutUs} />
@@ -49,16 +50,13 @@ function App() {
               </SearchTypeProvider>
             </Route>
             <Route exact path="/settings" component={Settings} />
+            <Route exact path="/changepassword" component={SettingsCP} />
             <Route exact path="/post/:id" component={Post} />
             <Route exact path="/login">
-              { loggedIn ? <Feed/> : <Login/> }
+              {loggedIn ? <Feed /> : <Login />}
             </Route>
             <Route exact path="/register" component={Register} />
-            <Route
-              exact
-              path="/forgetPassword"
-              component={ForgetPassword}
-            />
+            <Route exact path="/forgetPassword" component={ForgetPassword} />
             <Route exact path="/newPassword" component={NewPassword} />
             <Route component={Error404} />
           </Switch>

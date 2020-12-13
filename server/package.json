@@ -12,15 +12,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "googleapis": "^66.0.0",
     "http": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.4",
     "mysql2": "^2.2.5",
     "neo4j-driver": "^4.2.1",
+    "nodemailer": "^6.4.17",
     "path": "^0.12.7"
   },
   "devDependencies": {
