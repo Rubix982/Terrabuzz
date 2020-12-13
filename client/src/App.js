@@ -11,6 +11,7 @@ import Publish from './pages/publish';
 import Profile from './pages/profile';
 import Search from './pages/search';
 import Settings from './pages/Settings';
+import SettingsCP from './pages/Settings-changePassword.js';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ForgetPassword from './pages/ForgetPassword';
@@ -49,6 +50,7 @@ function App() {
               </SearchTypeProvider>
             </Route>
             <Route exact path="/settings" component={Settings} />
+            <Route exact path="/settings/changepassword" component={SettingsCP} />
             <Route exact path="/post/:id" component={Post} />
             <Route exact path="/login">
               {loggedIn ? <Feed /> : <Login />}
