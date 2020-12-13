@@ -1,18 +1,21 @@
 import React, { useState , useEffect } from 'react';
+import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
 
 const MainContent = () => {
-  const [email, setEmail] = useState('');
+  const [Email, setEmail] = useState('');
   const [Username, setUsername] = useState('');
   const [Handler, setHandler] = useState('');
 
   useEffect( async () => {
-    const response = await fetch('http://localhost:8080/api/settings') ;
-    const data = await response.json() ;
-    setEmail(data.email) ;
-    setUsername(data.Username) ;
-    setHandler(data.Handler) ;
-  });
+    const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`)
+    const [data] = response[0];
+    setEmail(data.Email) ;
+    setUsername(data.Username) ; 
+    setHandler(data.Handler) ; 
+    console.log(data.Username); 
+  }); 
+
 
   return (
   <div className="settings-page-grid">
@@ -84,7 +87,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text"  />
+              <input className="search-box" type="text" value={Email} onChange={event => setEmail(event.target.value)}/>
             </div>
           </div>
 
@@ -94,7 +97,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text"  />
+              <input className="search-box" type="text" value={Username} onChange={event => setUsername(event.target.value)} />
             </div>
           </div>
 
@@ -104,7 +107,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" />
+              <input className="search-box" type="text" value={Handler} onChange={event => setHandler(event.target.value)}/>
             </div>
           </div>
 
