@@ -74,7 +74,7 @@ module.exports.searchUser = (req, res) => {
 };
 
 module.exports.getSettings = async (req, res) => {
-  const _query = `select Username, Email from TERRABUZZ.User_Information where Handler=${req.userHandle} ;`;
+  const _query = `select Username, Email from TERRABUZZ.UserInformation where Handler=${req.userHandle} ;`;
   try {
     const output = await mysql.connection.query(_query);
     console.log(output);
@@ -102,7 +102,7 @@ module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const _query = `INSERT INTO TERRABUZZ.User_Information (Handler, Username, Email, Password ) 
+    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handler, Username, Email, Password ) 
     VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
     try {
       const output = await mysql.connection.query(_query);
