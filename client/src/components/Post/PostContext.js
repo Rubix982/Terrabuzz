@@ -1,23 +1,40 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import API from '../../API/API';
+import { loginUserContext } from '../LoginUserContext';
 
 export const postContext = createContext();
 
 const PostProvider = ({ children }) => {
   const postState = useState({});
-  const commentState = useState([{}]);
+  const likeState = useState(false);
   const loadingState = useState(true);
   const { id } = useParams();
+  const [loggedIn] = useContext(loginUserContext);
 
   useEffect(async () => {
-    const { data } = await API.getRequest(`${process.env.REACT_APP_API_URL}/post/${id}`);
-    (postState[1])(data);
-    (loadingState[1])(false);
-  }, []);
+    try {
+      const { data } = await API.getRequest(`${process.env.REACT_APP_API_URL}/post/${id}`);
+      (postState[1])(data); 
+      
+      if (loggedIn) {
+        const { status } = await API.getRequest(`${process.env.REACT_APP_API_URL}/like/${id}`);
+        (likeState[1])(status);
+        return (loadingState[1])(false);
+      }
+
+      return (loadingState[1])(false);
+    } catch (error) {
+      alert(error.message);
+    }
+  }, [likeState[0]]);
 
   return (
-    <postContext.Provider value={[postState, commentState, loadingState]}>
+    <postContext.Provider value={{
+      post: { state: postState[0], setter: postState[1] },
+      like: { state: likeState[0], setter: likeState[1] },
+      loading: { state: loadingState[0], setter: loadingState[1] }
+    }}>
       {children}
     </postContext.Provider>
   );
