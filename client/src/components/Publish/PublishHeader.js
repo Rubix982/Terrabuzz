@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { publishContext } from './PublishContext'
 import { publishPost } from '../../services/publish'
-// import Options from './Options'
+import Select from 'react-select';
 
 // Assets
 import BackArrow from '../../assets/publish/back.svg';
@@ -33,21 +33,14 @@ const PublishHeader = () => {
 
       <div className={PublishHeaderStyling.rightSideGrid}>
         <div className={PublishHeaderStyling.interestContent}>
-          <form>
-            <label htmlFor='interest'>
-              
-              {/* <select onChange={(event) => {
+          <form className={PublishHeaderStyling.interestContent}>
+            <label className={PublishHeaderStyling.staticName} htmlFor='interest'>
+              <input onChange={(event) => {
                 setInterest(event.target.value);
-              }} suppressContentEditableWarning value={interest} name='interest' >
-                  <option value='0'>#philosophy</option>
-                  <option value='1'>#food</option>
-                  <option value='2'>#fast</option>
-                  <option value='3'>#cloud</option>
-                  <option value='4'>#humor</option>
-                  <option value='5'>#football</option>
-                  <option value='6'>#web</option>
-                  <option value='7'>#karachi</option>
-                </select> */}
+              }} suppressContentEditableWarning value={interest}
+                type="text" name="title" className={PublishHeaderStyling.removeFocus}
+                aria-placeholder="Interest goes here ..." contentEditable="true"
+                placeholder="#Interest goes here ... " maxLength="40" />
             </label>
           </form>
         </div>
@@ -66,7 +59,7 @@ const PublishHeader = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 };
 
