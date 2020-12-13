@@ -3,7 +3,7 @@ import ComponentStyling from '../../style/Home/Post.module.css';
 import { CenterAlign } from '../FlexAlignment';
 import ContentHead from './ContentHead';
 
-const Post = ({ handle, date, content, likeCount, commentCount }) => (
+const Post = ({ handle, date, content, likeCount, commentCount, interest }) => (
   <div className={ComponentStyling.entry}>
     <div className={ComponentStyling.main}>
       <CenterAlign>
@@ -16,10 +16,10 @@ const Post = ({ handle, date, content, likeCount, commentCount }) => (
           <h1>@{handle}</h1>
           <h2>{date}</h2>
         </div>
-        <div className={ComponentStyling.PostedIn}>in #philosophy</div>
+        <div className={ComponentStyling.PostedIn}>in #{interest}</div>
         <div className={ComponentStyling.postText}>
           <p>
-            {content} ......
+            {content}
           </p>
         </div>
       </div>
