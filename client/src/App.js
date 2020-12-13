@@ -50,7 +50,7 @@ function App() {
               </SearchTypeProvider>
             </Route>
             <Route exact path="/settings" component={Settings} />
-            <Route exact path="/settings/changepassword" component={SettingsCP} />
+            <Route exact path="/changepassword" component={SettingsCP} />
             <Route exact path="/post/:id" component={Post} />
             <Route exact path="/login">
               {loggedIn ? <Feed /> : <Login />}

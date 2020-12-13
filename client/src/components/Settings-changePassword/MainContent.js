@@ -6,20 +6,23 @@ const MainContent = () => {
   <div className="settings-page-grid">
     <div className="settings-sidebar">
       <input type="button" className="previous-button" value="Previous" />
+
       <div className="settings-sidebar-controls-grid">
         <div>
+          <a href="/settings">
           <input
             type="button"
-            className="current options-button account-preferences"
+            className="options-button account-preferences"
             value="Account Preferences"
           />
+          </a>
         </div>
 
         <div>
-          <a href="/settings/changepassword" >
+          <a href="/changepassword" >
           <input
             type="button"
-            className="options-button change-password"
+            className="current options-button change-password"
             value="Change Password"
           />
           </a>
@@ -60,9 +63,10 @@ const MainContent = () => {
       </div>
     </div>
 
+
     <div className="settings-fields">
+
       <div className="settings-fields-input">
-        <div className="input-fields">
 
         <div className="input-fields">
           <div className="align-input-field-1">
@@ -86,7 +90,7 @@ const MainContent = () => {
 
         <div className="input-fields">
           <div className="align-input-field-1">
-            <h3> Confirm Password </h3>
+            <h3> Confirm New Password </h3>
           </div>
 
           <div className="align-input-field-2">
@@ -101,6 +105,7 @@ const MainContent = () => {
             value="Save Changes"
           />
         </div>
+
       </div>
     </div>
   </div>

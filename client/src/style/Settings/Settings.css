@@ -100,16 +100,6 @@
   background-size: 50px;
 }
 
-.change-password {
-  background: url("../../assets/img/icon/change-password.svg") no-repeat;
-  background-position: left;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-size: 50px;
-}
-
 .settings-sidebar-controls-grid {
   display: grid;
   grid-template-rows: 16.67% 16.66% 16.66% 16.66% 16.66% 16.67%;
@@ -147,7 +137,7 @@
   color: whitesmoke;
 }
 
-.text-box {
+.search-box {
   margin: 20px;
   width: 450px;
   height: 40px;

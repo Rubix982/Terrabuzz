@@ -6,7 +6,7 @@ import MainContent from '../components/Settings/MainContent';
 
 const Settings = () => (
   <Container style={{ display: 'grid', gridTemplateRows: '10% 90%' }}>
-    <Navbar title="Terrabuzz" />
+    <Navbar first_name="Tashik" title="Terrabuzz" />
     <MainContent />
   </Container>
 );

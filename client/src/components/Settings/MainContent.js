@@ -1,22 +1,24 @@
 import React from 'react';
 import '../../style/Settings/Settings.css';
 
-const MainContent = () => {
-  return (
+const MainContent = () => (
   <div className="settings-page-grid">
     <div className="settings-sidebar">
       <input type="button" className="previous-button" value="Previous" />
       <div className="settings-sidebar-controls-grid">
+
         <div>
+          <a href="/settings">
           <input
             type="button"
             className="current options-button account-preferences"
             value="Account Preferences"
           />
+          </a>
         </div>
 
         <div>
-          <a href="/settings/changepassword" >
+          <a href="/changepassword" >
           <input
             type="button"
             className="options-button change-password"
@@ -56,7 +58,6 @@ const MainContent = () => {
             value="Data Privacy"
           />
         </div>
-
       </div>
     </div>
 
@@ -68,7 +69,7 @@ const MainContent = () => {
           </div>
 
           <div className="align-input-field-2">
-            <input className="text-box" type="text" />
+            <input className="search-box" type="text" />
           </div>
         </div>
 
@@ -78,7 +79,7 @@ const MainContent = () => {
           </div>
 
           <div className="align-input-field-2">
-            <input className="text-box" type="text" />
+            <input className="search-box" type="text" />
           </div>
         </div>
 
@@ -88,7 +89,7 @@ const MainContent = () => {
           </div>
 
           <div className="align-input-field-2">
-            <input className="text-box" type="text" />
+            <input className="search-box" type="text" />
           </div>
         </div>
 
@@ -98,7 +99,7 @@ const MainContent = () => {
           </div>
 
           <div className="align-input-field-2">
-            <input className="text-box" type="password" />
+            <input className="search-box" type="password" />
           </div>
         </div>
 
@@ -108,7 +109,7 @@ const MainContent = () => {
           </div>
 
           <div className="align-input-field-2">
-            <input className="text-box" type="password" />
+            <input className="search-box" type="password" />
           </div>
         </div>
 
@@ -123,6 +124,5 @@ const MainContent = () => {
     </div>
   </div>
 );
-}
 
 export default MainContent;
