@@ -9,7 +9,7 @@ const insert = async () => {
     console.log('Insertions Done Successfully');
     console.log(result);
   } catch (error) {
-    console.log(`Query Not Executed Successfully Because --> ${error.message}`);
+    console.log(`Insertion query Not Executed Successfully Because --> ${error.message}`);
   }
 };
 
