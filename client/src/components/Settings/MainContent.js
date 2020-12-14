@@ -3,18 +3,37 @@ import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
 
 const MainContent = () => {
-  const [Email, setEmail] = useState('');
-  const [Username, setUsername] = useState('');
-  const [Handler, setHandler] = useState('');
+  const [_Email, setEmail] = useState('');
+  const [_Username, setUsername] = useState('');
+  const [_Handler, setHandler] = useState('');
+  const [_Password, setPassword] = useState('');
+  const [_CPassword, setCPassword] = useState('');
 
-  useEffect( async () => {
-    const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`)
-    const [data] = response[0];
-    setEmail(data.Email) ;
-    setUsername(data.Username) ; 
-    setHandler(data.Handler) ; 
-    console.log(data.Username); 
-  }); 
+  // useEffect( async () => {
+  //   const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`)
+  //   const [data] = response[0];
+  //   setEmail(data._Email) ;
+  //   setUsername(data._Username) ; 
+  //   setHandler(data._Handler) ; 
+  //   console.log(data._Username); 
+  // }); 
+  // uncomment above code only when login is completed and when there's no hard coded data with protected routes.
+
+  const saveChanges = async event => {
+
+    event.preventDefault();
+    	
+    let formData = 
+    {
+      Email: _Email,
+      Username: _Username,
+      Handler: _Handler,
+      Password: _Password,
+      CPassword: _CPassword
+    } ;
+
+    const response = await API.postRequest(`${process.env.REACT_APP_API_URL}/settings`, formData ) ;
+  }
 
 
   return (
@@ -87,7 +106,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={Email} onChange={event => setEmail(event.target.value)}/>
+              <input className="search-box" type="text" value={_Email} onChange={event => setEmail(event.target.value)}/>
             </div>
           </div>
 
@@ -97,17 +116,17 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={Username} onChange={event => setUsername(event.target.value)} />
+              <input className="search-box" type="text" value={_Username} onChange={event => setUsername(event.target.value)} />
             </div>
           </div>
 
           <div className="input-fields">
             <div className="align-input-field-1">
-              <h3> User handler </h3>
+              <h3> User Handler </h3>
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={Handler} onChange={event => setHandler(event.target.value)}/>
+              <input className="search-box" type="text" value={_Handler} onChange={event => setHandler(event.target.value)}/>
             </div>
           </div>
 
@@ -117,7 +136,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="password" />
+              <input className="search-box" type="password" value={_Password} onChange={event => setPassword(event.target.value)}/>
             </div>
           </div>
 
@@ -127,7 +146,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="password" />
+              <input className="search-box" type="password" value={_CPassword} onChange={event => setCPassword(event.target.value)}/>
             </div>
           </div>
 
@@ -136,6 +155,7 @@ const MainContent = () => {
               className="update-button"
               type="button"
               value="Save Changes"
+              onClick={saveChanges}
             />
           </div>
       </div>

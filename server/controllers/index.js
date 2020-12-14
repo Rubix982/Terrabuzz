@@ -74,20 +74,42 @@ module.exports.searchUser = (req, res) => {
 };
 
 module.exports.getSettings = async (req, res) => {
-  const _query = `select Username, Email, Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
-  try {
-    const output = await mysql.connection.query(_query);
-    console.log(output);
-    res.send(output);
-    return res.status(200).json({ msg: 'Fetched User Information' });
-  } catch (error) {
-    return res.status(401).json({ msg: error.message });
+  // try {
+  //   const _query = `select Username, Email, Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
+  //   const output = await mysql.connection.query(_query);
+  //   console.log(output);
+  //   res.send(output);
+  //   return res.status(200).json({ msg: 'Fetched User Information' });
+  // } catch (error) {
+  //   return res.status(401).json({ msg: error.message });
+  // }
+  // uncomment above code only when login is completed and when there's no hard coded data with protected routes.
+
+};
+
+module.exports.updateSettings = async (req, res) => {
+  if( req.body.Password == req.body.CPassword ){
+    const query_password = `select Password from TERRABUZZ.UserInformation where Handler='${req.body.Handler}';`;
+    const [res] = await mysql.connection.query(query_password);
+    const [data] = res;
+    if( data.Password == req.body.Password ) // should be compared with hashed password
+    {
+      const update_query = `UPDATE TERRABUZZ.UserInformation 
+                    SET Email = '${req.body.Email}', Username = '${req.body.Username}'
+                    WHERE Handler='${req.body.Handler}';` ;
+      // note: req.body.Handler should be replace with --> req.handle
+      const result = await mysql.connection.query(update_query) ;
+      return res.status(200).json({ msg: 'Updated' });
+    }
+    else{
+      return res.status(401).json({ msg: 'Bad Request'});
+    }
   }
 };
 
-module.exports.updateSettings = (req, res) => {
-  res.json({ msg: 'Settings updated!!' });
+module.exports.changePassword = (req, res) => {
 };
+
 
 module.exports.loginUser = (req, res) => {
   try {
