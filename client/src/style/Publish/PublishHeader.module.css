@@ -84,7 +84,7 @@
     grid-template-columns: 20% 30% auto;
 }
 
-.interestContent select {
+.interestContent input {
     background: #263238;
     border: 0px;
     border-style: none;
@@ -96,12 +96,12 @@
     resize: both;
 }
 
-.interestContent select::placeholder {
+.interestContent input::placeholder {
     color: rgba(172, 172, 172, 1);
     font-family: Cairo;
 }
 
-.interestContent select:active, .interestContent select:hover, .interestContent select:focus {
+.interestContent input:active, .interestContent input:hover, .interestContent input:focus {
     border-style: none;
     border-top-style: hidden;
     border-right-style: hidden;
@@ -118,7 +118,6 @@
 
 .interestContent input[contentEditable]:empty::before {
     content: "Placeholder still possible";
-    color: gray;
     content: attr(aria-placeholder);
     display: block;
 }

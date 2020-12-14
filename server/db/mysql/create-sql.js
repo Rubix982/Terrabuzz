@@ -9,7 +9,7 @@ const create = async () => {
     console.log('Database Created Successfully');
     console.log(result);
   } catch (error) {
-    console.log(`Query Not Executed Successfully Because --> ${error.message}`);
+    console.log(`DDL Creation query Not Executed Successfully Because --> ${error.message}`);
   }
 };
 
