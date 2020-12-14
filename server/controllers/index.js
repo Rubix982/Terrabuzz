@@ -106,9 +106,34 @@ module.exports.updateSettings = async (req, res) => {
       return res.status(401).json({ msg: 'Bad Request'});
     }
   }
+  else{
+    return res.status(401).json({ msg: 'Bad Request'});
+  }
 };
 
-module.exports.changePassword = (req, res) => {
+module.exports.changePassword = async (req, res) => {
+  if( req.body.newPassword == req.body.confirmPassword ){
+    const query_password = `select Password from TERRABUZZ.UserInformation where Handler='TashikMoin';`;
+    const [res] = await mysql.connection.query(query_password);
+    const [data] = res;
+    if( data.Password == req.body.oldPassword ) // should be compared with hashed password
+    {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
+      const update_query = `UPDATE TERRABUZZ.UserInformation 
+                    SET Password = '${hashedPassword}'
+                    WHERE Handler='TashikMoin';` ;
+      // note: Handler should be replace with --> req.handle
+      const result = await mysql.connection.query(update_query) ;
+      return res.status(200).json({ msg: 'Updated' });
+    }
+    else{
+      return res.status(401).json({ msg: 'Bad Request'});
+    }
+  }
+  else{
+    return res.status(401).json({ msg: 'Bad Request'});
+  }
 };
 
 
