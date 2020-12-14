@@ -17,6 +17,7 @@ const MainContent = () => {
       newPassword: _newPassword,
       confirmPassword: _confirmPassword
     } ;
+
     try{
       await API.postRequest(`${process.env.REACT_APP_API_URL}/changepassword`, formData ) ;
     }
@@ -24,6 +25,7 @@ const MainContent = () => {
     {
       throw new Error(err.message);
     }
+
   }
 
   return (
