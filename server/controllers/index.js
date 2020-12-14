@@ -87,6 +87,7 @@ module.exports.getSettings = async (req, res) => {
 
 };
 
+// Note: to test this, remove authorizeUser attribute inside setting routes from routes>index.js
 module.exports.updateSettings = async (req, res) => {
   if( req.body.Password == req.body.CPassword ){
     const query_password = `select Password from TERRABUZZ.UserInformation where Handler='${req.body.Handler}';`;
