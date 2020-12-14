@@ -18,7 +18,14 @@ const MainContent = () => {
       confirmPassword: _confirmPassword
     } ;
 
-    const response = await API.postRequest(`${process.env.REACT_APP_API_URL}/changepassword`, formData ) ;
+    try{
+      await API.postRequest(`${process.env.REACT_APP_API_URL}/changepassword`, formData ) ;
+    }
+    catch(err)
+    {
+      throw new Error(err.message);
+    }
+
   }
 
   return (

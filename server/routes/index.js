@@ -13,7 +13,7 @@ Router.get('/like/:id', authorizeUser, indexContoller.getLike);
 Router.post('/like/:id', authorizeUser, indexContoller.addLike);
 Router.get('/search-post', authorizeUser, indexContoller.searchPost);
 Router.get('/search-user', authorizeUser, indexContoller.searchUser);
-Router.get('/settings',  authorizeUser, indexContoller.getSettings);
+Router.get('/settings', authorizeUser, indexContoller.getSettings);
 Router.post('/settings', authorizeUser, indexContoller.updateSettings);
 Router.post('/login', indexContoller.loginUser);
 Router.post('/register', indexContoller.registerUser);
