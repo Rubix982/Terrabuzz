@@ -73,9 +73,10 @@ module.exports.searchUser = (req, res) => {
   res.json({ msg: `Username to be queried: ${username}` });
 };
 
-module.exports.getSettings = async (req, res) => {
+module.exports.getSettings = async () => {
   // try {
-  //   const _query = `select Username, Email, Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
+  //   const _query = `select Username, Email,
+  // Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
   //   const output = await mysql.connection.query(_query);
   //   console.log(output);
   //   res.send(output);
@@ -83,34 +84,77 @@ module.exports.getSettings = async (req, res) => {
   // } catch (error) {
   //   return res.status(401).json({ msg: error.message });
   // }
-  // uncomment above code only when login is completed and when there's no hard coded data with protected routes.
+  // uncomment above code only when login is completed and when there's
+  // no hard coded data with protected routes.
 
 };
 
 // Note: to test this, remove authorizeUser attribute inside setting routes from routes>index.js
 module.exports.updateSettings = async (req, res) => {
-  if( req.body.Password == req.body.CPassword ){
-    const query_password = `select Password from TERRABUZZ.UserInformation where Handler='${req.body.Handler}';`;
-    const [res] = await mysql.connection.query(query_password);
-    const [data] = res;
-    if( data.Password == req.body.Password ) // should be compared with hashed password
-    {
-      const update_query = `UPDATE TERRABUZZ.UserInformation 
+  if (req.body.Password === req.body.CPassword) {
+    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handler='${req.body.Handler}';`;
+    const [queryResult] = await mysql.connection.query(queryPassword);
+    const [data] = queryResult;
+
+    // should be compared with hashed password
+    if (data.Password === req.body.Password) {
+      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
                     SET Email = '${req.body.Email}', Username = '${req.body.Username}'
-                    WHERE Handler='${req.body.Handler}';` ;
+                    WHERE Handler='${req.body.Handler}';`;
       // note: req.body.Handler should be replace with --> req.handle
-      const result = await mysql.connection.query(update_query) ;
+      await mysql.connection.query(updateQuery);
       return res.status(200).json({ msg: 'Updated' });
     }
-    else{
-      return res.status(401).json({ msg: 'Bad Request'});
-    }
+
+    return res.status(401).json({ msg: 'Bad Request' });
   }
+
+  return res.status(401).json({ msg: 'Bad Request' });
 };
 
-module.exports.changePassword = (req, res) => {
-};
+module.exports.changePassword = async (req, res) => {
+  if (req.body.newPassword === req.body.confirmPassword) {
+    const queryPassword = 'select Password from TERRABUZZ.UserInformation where Handler=\'Johndoe\';';
+    let queryResult;
+    try {
+      [queryResult] = await mysql.connection.query(queryPassword);
+    } catch (err) {
+      throw new Error(err.message);
+    }
+    const [data] = queryResult;
 
+    // should be compared with hashed password
+    if (data.Password === req.body.oldPassword) {
+      let salt;
+      let hashedPassword;
+      try {
+        salt = await bcrypt.genSalt(10);
+      } catch (err) {
+        throw new Error(err.message);
+      }
+
+      try {
+        hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
+      } catch (err) {
+        throw new Error(err.message);
+      }
+      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
+                    SET Password = '${hashedPassword}'
+                    WHERE Handler='Johndoe';`;
+      // note: Handler should be replace with --> req.handle
+      try {
+        await mysql.connection.query(updateQuery);
+      } catch (err) {
+        throw new Error(err.message);
+      }
+      return res.status(200).json({ msg: 'Updated' });
+    }
+
+    return res.status(401).json({ msg: 'Bad Request' });
+  }
+
+  return res.status(401).json({ msg: 'Bad Request' });
+};
 
 module.exports.loginUser = (req, res) => {
   try {
