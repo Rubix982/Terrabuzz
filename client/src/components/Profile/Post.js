@@ -1,36 +1,37 @@
 import React from 'react';
+import { countTotalLikes } from '../../services/post';
 
 import PostStyling from '../../style/Profile/Post.module.css';
 
 const Post = ({
-  contentInformation,
+  Username,
+  Handle,
+  ProfilePicture,
+  postInformation,
 }) => {
-  const {
-    ProfilePicture, NameTag, UserHandle, PostContent, Likes, Comments,
-  } = contentInformation;
   return (
     <div className={PostStyling.PostLayout}>
       <div className={PostStyling.SizingProperties}>
         <div className={PostStyling.PostTop}>
           <div className={PostStyling.ImageStyling}>
-            <img className={PostStyling.ProfilePicture} src={ProfilePicture} alt="" />
+            <img className={PostStyling.ProfilePicture} src={`/assets/img/profile_pictures/${ProfilePicture}`} alt="" />
           </div>
           <div className={PostStyling.WordHeader}>
-            <p className={PostStyling.NameTag}>{NameTag}</p>
-            <p className={PostStyling.UserHandle}>{UserHandle}</p>
+            <p className={PostStyling.NameTag}>{Username}</p>
+            <p className={PostStyling.UserHandle}>@{Handle}</p>
           </div>
         </div>
         <div className={PostStyling.PostContent}>
-          <p>{PostContent}</p>
+          <p>{postInformation.content}</p>
         </div>
         <div className={PostStyling.BottomPart}>
           <div className={PostStyling.LikeButton}>
-            {Likes}
+            {countTotalLikes(postInformation.likes)}
             {' '}
             Likes
           </div>
           <div className={PostStyling.CommentButton}>
-            {Comments}
+            {postInformation.comments.length}
             {' '}
             Comments
           </div>

@@ -4,12 +4,15 @@ import Container from '../components/FullViewContainer';
 import Navbar from '../components/Navbar';
 import ImageHeader from '../components/Profile/ImageHeader';
 import MainContent from '../components/Profile/MainContent';
+import ProfileProvider from '../components/Profile/ProfileContext';
 
 const Profile = () => (
   <Container style={{ display: 'grid', gridTemplateRows: '10% 30% 60%' }}>
     <Navbar />
-    <ImageHeader />
-    <MainContent />
+    <ProfileProvider>
+      <ImageHeader />
+      <MainContent />
+    </ProfileProvider>
   </Container>
 );
 

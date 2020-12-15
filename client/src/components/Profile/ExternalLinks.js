@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 // Styling
 import ExternalLinksStyling from '../../style/Profile/ExternalLinks.module.css';
@@ -12,19 +12,24 @@ import TwitterLogo from '../../assets/profile/twitter.svg';
 // React Component
 import SocialMediaFeedLink from './SocialMediaFeedLink';
 import EditInfoComponent from './EditInfoComponent';
+import { profileContext } from './ProfileContext';
+ 
+const ExternalLinks = () => {
+  const { profile: { state: { userInformation } } } = useContext(profileContext);
 
-const ExternalLinks = () => (
-  <div className={ExternalLinksStyling.GridSystem}>
-    <div className={ExternalLinksStyling.externalLinkLayout}>
-      <SocialMediaFeedLink logo={InstagramLogo} link="instagram.com/tashikmoinshaikh/" />
-      <SocialMediaFeedLink logo={LinkedInLogo} link="linkedin.com/in/tashik-moin-sheikh-08872116b/" />
-      <SocialMediaFeedLink logo={FacebookLogo} link="facebook.com/TashikMoinSheikh" />
-      <SocialMediaFeedLink logo={WebsiteLogo} link="dev-hearted.software" />
-      <SocialMediaFeedLink logo={YoutubeLogo} link="youtube.com/channel/UC_bxQjn16KukkyWqTY_MZvg" />
-      <SocialMediaFeedLink logo={TwitterLogo} link="twitter.com/TashikMSheikh" />
+  return (
+    <div className={ExternalLinksStyling.GridSystem}>
+      <div className={ExternalLinksStyling.externalLinkLayout}>
+        <SocialMediaFeedLink logo={InstagramLogo} link={userInformation.Instagram} />
+        <SocialMediaFeedLink logo={LinkedInLogo} link={userInformation.LinkedIn} />
+        <SocialMediaFeedLink logo={FacebookLogo} link={userInformation.Facebook} />
+        <SocialMediaFeedLink logo={WebsiteLogo} link={userInformation.Website} />
+        <SocialMediaFeedLink logo={TwitterLogo} link={userInformation.Twitter} />
+        <SocialMediaFeedLink logo={YoutubeLogo} link={userInformation.Youtube} />
+      </div>
+      <EditInfoComponent />
     </div>
-    <EditInfoComponent />
-  </div>
-);
+  );
+};
 
 export default ExternalLinks;
