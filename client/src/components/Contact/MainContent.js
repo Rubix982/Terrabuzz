@@ -26,7 +26,7 @@ const MainContent = () => {
             </h1>
           </div>
           <div className={ComponentStyling.description}>
-            <p>
+            <div>
               <ul>
                 <li>
                   Tashik Moin Sheikh (
@@ -63,7 +63,7 @@ const MainContent = () => {
               <a style={textStyling} href="/register">
                 Register
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>

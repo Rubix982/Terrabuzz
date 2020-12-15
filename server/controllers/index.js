@@ -73,20 +73,24 @@ module.exports.searchUser = (req, res) => {
   res.json({ msg: `Username to be queried: ${username}` });
 };
 
-module.exports.getSettings = async () => {
-  // try {
-  //   const _query = `select Username, Email,
-  // Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
-  //   const output = await mysql.connection.query(_query);
-  //   console.log(output);
-  //   res.send(output);
-  //   return res.status(200).json({ msg: 'Fetched User Information' });
-  // } catch (error) {
-  //   return res.status(401).json({ msg: error.message });
-  // }
-  // uncomment above code only when login is completed and when there's
-  // no hard coded data with protected routes.
-
+module.exports.getSettings = async (req, res) => {
+  try {
+    const _query = `select Username, Email,
+  Handler from TERRABUZZ.UserInformation where Handler='${req.query.Handle}';`;
+    let output;
+    try {
+      output = await mysql.connection.query(_query);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+    res.send(output);
+    return res.status(200).json({ msg: 'Fetched User Information' });
+  } catch (error) {
+    // Uncommenting this give Error
+    // [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    // return res.status(401).json({ msg: error.message });
+    throw new Error(error.message);
+  }
 };
 
 // Note: to test this, remove authorizeUser attribute inside setting routes from routes>index.js
@@ -121,6 +125,7 @@ module.exports.changePassword = async (req, res) => {
     } catch (err) {
       throw new Error(err.message);
     }
+
     const [data] = queryResult;
 
     // should be compared with hashed password
@@ -173,8 +178,7 @@ module.exports.registerUser = async (req, res) => {
     const _query = `INSERT INTO TERRABUZZ.UserInformation (Handler, Username, Email, Password ) 
     VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
     try {
-      const output = await mysql.connection.query(_query);
-      console.log(output);
+      await mysql.connection.query(_query);
       return res.status(200).json({ msg: 'User Registered' });
     } catch (error) {
       return res.status(401).json({ msg: error.message });

@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
 
@@ -9,96 +9,110 @@ const MainContent = () => {
   const [_Password, setPassword] = useState('');
   const [_CPassword, setCPassword] = useState('');
 
-  // useEffect( async () => {
-  //   const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`)
-  //   const [data] = response[0];
-  //   setEmail(data._Email) ;
-  //   setUsername(data._Username) ; 
-  //   setHandler(data._Handler) ; 
-  //   console.log(data._Username); 
-  // }); 
-  // uncomment above code only when login is completed and when there's no hard coded data with protected routes.
+  useEffect(async () => {
+    let response;
+    try {
+      response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings?Handle=@Johndoe`)
+    } catch (error) {
+      throw new Error(error.message);
+    }
+    let data = response[0][0];
+    setEmail(data.Email);
+    setUsername(data.Username);
+    setHandler(data.Handler);
+  });
+  // The above needs to have dynamic user handle called from somewhere to be provided to be provided as argument
+  // to the getRequest URL
 
   const saveChanges = async event => {
 
     event.preventDefault();
-    	
-    let formData = 
-    {
-      Email: _Email,
-      Username: _Username,
-      Handler: _Handler,
-      Password: _Password,
-      CPassword: _CPassword
-    } ;
 
-    const response = await API.postRequest(`${process.env.REACT_APP_API_URL}/settings`, formData ) ;
+    if (!_Email || !_Username || !_Handler || !_Password || !_CPassword) {
+      alert('Fields cannot be empty!')
+    } else {
+
+      let formData =
+      {
+        Email: _Email,
+        Username: _Username,
+        Handler: _Handler,
+        Password: _Password,
+        CPassword: _CPassword
+      };
+
+      try {
+        await API.postRequest(`${process.env.REACT_APP_API_URL}/settings`, formData);
+      } catch (error) {
+        throw new Error(error.message);
+      }
+    }
   }
 
 
   return (
-  <div className="settings-page-grid">
-    <div className="settings-sidebar">
-      <input type="button" className="previous-button" value="Previous" />
-      <div className="settings-sidebar-controls-grid">
+    <div className="settings-page-grid">
+      <div className="settings-sidebar">
+        <input type="button" className="previous-button" value="Previous" />
+        <div className="settings-sidebar-controls-grid">
 
-        <div>
-          <a href="/settings">
-          <input
-            type="button"
-            className="current options-button account-preferences"
-            value="Account Preferences"
-          />
-          </a>
-        </div>
+          <div>
+            <a href="/settings">
+              <input
+                type="button"
+                className="current options-button account-preferences"
+                value="Account Preferences"
+              />
+            </a>
+          </div>
 
-        <div>
-          <a href="/changepassword" >
-          <input
-            type="button"
-            className="options-button change-password"
-            value="Change Password"
-          />
-          </a>
-        </div>
+          <div>
+            <a href="/changepassword" >
+              <input
+                type="button"
+                className="options-button change-password"
+                value="Change Password"
+              />
+            </a>
+          </div>
 
-        <div>
-          <input
-            type="button"
-            className="options-button security"
-            value="Security"
-          />
-        </div>
+          <div>
+            <input
+              type="button"
+              className="options-button security"
+              value="Security"
+            />
+          </div>
 
-        <div>
-          <input
-            type="button"
-            className="options-button visibility"
-            value="Visibility"
-          />
-        </div>
+          <div>
+            <input
+              type="button"
+              className="options-button visibility"
+              value="Visibility"
+            />
+          </div>
 
-        <div>
-          <input
-            type="button"
-            className="options-button communication"
-            value="Communication"
-          />
-        </div>
+          <div>
+            <input
+              type="button"
+              className="options-button communication"
+              value="Communication"
+            />
+          </div>
 
-        <div>
-          <input
-            type="button"
-            className="options-button data-privacy"
-            value="Data Privacy"
-          />
+          <div>
+            <input
+              type="button"
+              className="options-button data-privacy"
+              value="Data Privacy"
+            />
+          </div>
         </div>
       </div>
-    </div>
 
-    <div className="settings-fields">
+      <div className="settings-fields">
 
-      <div className="settings-fields-input-pref">
+        <div className="settings-fields-input-pref">
 
           <div className="input-fields">
             <div className="align-input-field-1">
@@ -106,7 +120,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={_Email} onChange={event => setEmail(event.target.value)}/>
+              <input className="search-box" type="text" value={_Email} onChange={event => setEmail(event.target.value)} />
             </div>
           </div>
 
@@ -126,7 +140,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={_Handler} onChange={event => setHandler(event.target.value)}/>
+              <input className="search-box" type="text" value={_Handler} onChange={event => setHandler(event.target.value)} />
             </div>
           </div>
 
@@ -136,7 +150,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="password" value={_Password} onChange={event => setPassword(event.target.value)}/>
+              <input className="search-box" type="password" value={_Password} onChange={event => setPassword(event.target.value)} />
             </div>
           </div>
 
@@ -146,7 +160,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="password" value={_CPassword} onChange={event => setCPassword(event.target.value)}/>
+              <input className="search-box" type="password" value={_CPassword} onChange={event => setCPassword(event.target.value)} />
             </div>
           </div>
 
@@ -158,10 +172,10 @@ const MainContent = () => {
               onClick={saveChanges}
             />
           </div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default MainContent;

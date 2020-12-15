@@ -143,6 +143,7 @@
   height: 40px;
   border: 2px;
   border-radius: 10px;
+  padding-left: 8px;
 }
 
 .update-button {
