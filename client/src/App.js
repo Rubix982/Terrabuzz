@@ -35,7 +35,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/feed" component={Feed} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:handle" component={Profile} />
             <Route exact path='/notification' component={Notification} />
             <Route exact path="/privacy" component={PrivacyPolicy} />
             <Route exact path="/publish">
