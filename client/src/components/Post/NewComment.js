@@ -2,7 +2,9 @@ import React from 'react';
 import ComponentStyling from '../../style/Post/NewComment.module.css';
 import { CenterAlign } from '../FlexAlignment';
 
-const NewComment = () => (
+const NewComment = () => 
+{
+  return (
   <div className={ComponentStyling.entry}>
     <CenterAlign>
       <div className={ComponentStyling.profilePicture}>
@@ -19,5 +21,6 @@ const NewComment = () => (
     </CenterAlign>
   </div>
 );
+}
 
 export default NewComment;
