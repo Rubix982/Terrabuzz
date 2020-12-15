@@ -4,6 +4,7 @@ const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
+const { getProfileData } = require('../services/profile.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -19,9 +20,14 @@ module.exports.getUserFeed = (req, res) => {
   res.json({ msg: `@${req.userHandle} feed!!` });
 };
 
-module.exports.getUserProfile = (req, res) => {
-  const userID = req.params.id;
-  res.json({ msg: `UserID to be queried: ${userID}` });
+module.exports.getUserProfile = async (req, res) => {
+  try {
+    const userID = req.params.handle;
+    const data = await getProfileData(userID);
+    res.json({ msg: `UserID to be queried: ${userID}`, data });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
 };
 
 module.exports.publishPost = async (req, res) => {
