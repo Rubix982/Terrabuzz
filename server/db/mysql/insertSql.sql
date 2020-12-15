@@ -1,5 +1,5 @@
 INSERT INTO `TERRABUZZ`.`UserInformation` (
-        `Handler`,
+        `Handle`,
         `Username`,
         `Email`,
         `Password`,
@@ -14,7 +14,7 @@ INSERT INTO `TERRABUZZ`.`UserInformation` (
         `JoinedWebsite`
     )
 VALUES (
-        '@TashikMoin',
+        'TashikMoin',
         'Tashik Moin',
         'Tashik.Moin@Terrabuzz.Com',
         '12345',
@@ -29,7 +29,7 @@ VALUES (
         '1000-01-01 00:00:00'
     );
 INSERT INTO `TERRABUZZ`.`UserInformation` (
-        `Handler`,
+        `Handle`,
         `Username`,
         `Email`,
         `Password`,
@@ -44,8 +44,8 @@ INSERT INTO `TERRABUZZ`.`UserInformation` (
         `JoinedWebsite`
     )
 VALUES (
-        '@Hassan',
-        'Hassan Zahid',
+        'hassanzhd',
+        'Muhammad Hassan Zahid',
         'Hassan@Terrabuzz.Com',
         '12345',
         'Gaming,Football',
@@ -59,7 +59,7 @@ VALUES (
         '1000-02-01 00:00:00'
     );
 INSERT INTO `TERRABUZZ`.`UserInformation` (
-        `Handler`,
+        `Handle`,
         `Username`,
         `Email`,
         `Password`,
@@ -74,7 +74,7 @@ INSERT INTO `TERRABUZZ`.`UserInformation` (
         `JoinedWebsite`
     )
 VALUES (
-        '@Saif',
+        'Saif',
         'Saif Ul Islam',
         'Saif@Terrabuzz.Com',
         '12345',
@@ -89,7 +89,7 @@ VALUES (
         '1000-01-03 00:00:00'
     );
 INSERT INTO `TERRABUZZ`.`UserInformation` (
-        `Handler`,
+        `Handle`,
         `Username`,
         `Email`,
         `Password`,
@@ -104,7 +104,7 @@ INSERT INTO `TERRABUZZ`.`UserInformation` (
         `JoinedWebsite`
     )
 VALUES (
-        '@Johndoe',
+        'Johndoe',
         'John Doe',
         'john@Terrabuzz.Com',
         '12345',
@@ -119,76 +119,76 @@ VALUES (
         '1000-04-01 00:00:00'
     );
 INSERT INTO `TERRABUZZ`.`Connection` (`Followers`, `Following`)
-VALUES ('@Saif', '@TashikMoin');
+VALUES ('Saif', 'TashikMoin');
 INSERT INTO `TERRABUZZ`.`Connection` (`Followers`, `Following`)
-VALUES ('@Hassan', '@TashikMoin');
+VALUES ('hassanzhd', 'TashikMoin');
 INSERT INTO `TERRABUZZ`.`Connection` (`Followers`, `Following`)
-VALUES ('@Johndoe', '@TashikMoin');
+VALUES ('Johndoe', 'TashikMoin');
 INSERT INTO `TERRABUZZ`.`Connection` (`Followers`, `Following`)
-VALUES ('@TashikMoin', '@Hassan');
+VALUES ('TashikMoin', 'hassanzhd');
 INSERT INTO `TERRABUZZ`.`Connection` (`Followers`, `Following`)
-VALUES ('@Saif', '@Hassan');
+VALUES ('@Saif', 'hassanzhd');
 INSERT INTO `TERRABUZZ`.`Connection` (`Followers`, `Following`)
-VALUES ('@Hassan', '@Saif');
-INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handler`, `From`, `In`, `Type`)
+VALUES ('hassanzhd', 'Saif');
+INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handle`, `From`, `In`, `Type`)
 VALUES (
         'Tezz University',
-        '@TashikMoin',
+        'TashikMoin',
         '1000-01-03',
         '2000-01-03',
         'Undergraduate'
     );
-INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handler`, `From`, `In`, `Type`)
+INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handle`, `From`, `In`, `Type`)
 VALUES (
         'Tezz University',
-        '@Saif',
+        'Saif',
         '1100-01-03',
         '2200-01-03',
         'Undergraduate'
     );
-INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handler`, `From`, `In`, `Type`)
+INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handle`, `From`, `In`, `Type`)
 VALUES (
         'Tezz University',
-        '@Hassan',
+        'hassanzhd',
         '3000-01-03',
         '4000-01-03',
         'Undergraduate'
     );
-INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handler`, `From`, `In`, `Type`)
+INSERT INTO `TERRABUZZ`.`Academics` (`Name`, `Handle`, `From`, `In`, `Type`)
 VALUES (
         'MIT',
-        '@Johndoe',
+        'Johndoe',
         '4000-01-03',
         '5000-01-03',
         'Undergraduate'
     );
-INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handler`, `Type`)
-VALUES ('Microsoft', '@TashikMoin', 'CEO');
-INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handler`, `Type`)
-VALUES ('Amazon', '@Hassan', 'CEO');
-INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handler`, `Type`)
-VALUES ('Google', '@Saif', 'Founder');
-INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handler`, `Type`)
-VALUES ('Microsoft', '@Johndoe', 'Manager');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('C#', '@TashikMoin');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('.NET', '@TashikMoin');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('Azure', '@TashikMoin');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('AWS', '@TashikMoin');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('Tensorflow', '@Saif');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('JavaScript', '@Hassan');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('Node', '@Hassan');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('AWS', '@Hassan');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('AWS', '@Saif');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('Tensorflow', '@TashikMoin');
-INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handler`)
-VALUES ('.NET', '@Hassan');
+INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handle`, `Type`)
+VALUES ('Microsoft', 'TashikMoin', 'CEO');
+INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handle`, `Type`)
+VALUES ('Amazon', 'hassanzhd', 'CEO');
+INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handle`, `Type`)
+VALUES ('Google', 'Saif', 'Founder');
+INSERT INTO `TERRABUZZ`.`Organization` (`Name`, `Handle`, `Type`)
+VALUES ('Microsoft', 'Johndoe', 'Manager');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('C#', 'TashikMoin');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('.NET', 'TashikMoin');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('Azure', 'TashikMoin');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('AWS', 'TashikMoin');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('Tensorflow', 'Saif');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('JavaScript', 'hassanzhd');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('Node', 'hassanzhd');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('AWS', 'hassanzhd');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('AWS', 'Saif');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('Tensorflow', 'TashikMoin');
+INSERT INTO `TERRABUZZ`.`Interest` (`Topic`, `Handle`)
+VALUES ('.NET', 'hassanzhd');
