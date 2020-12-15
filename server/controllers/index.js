@@ -49,6 +49,16 @@ module.exports.getPost = async (req, res) => {
   }
 };
 
+module.exports.addComment = async (req, res) => {
+  try {
+    const postID = req.params.id;
+    const data = await getSinglePost(postID);
+    res.json({ msg: `postID to be queried: ${postID}`, data });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
 module.exports.getLike = async (req, res) => {
   try {
     const postID = req.params.id;
