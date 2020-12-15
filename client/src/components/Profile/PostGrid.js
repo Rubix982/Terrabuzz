@@ -1,37 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 // Styling
 import PostGridStyling from '../../style/Profile/PostGrid.module.css';
-import TashikProfilePicture from '../../assets/profile/Profile_Picture.jpg';
 
 // React components
 import Post from './Post';
+import { profileContext } from './ProfileContext';
+import { Link } from 'react-router-dom'
+
 
 const PostGrid = () => {
-  const ExamplePostContent = {
-    ProfilePicture: TashikProfilePicture,
-    NameTag: 'Tashik Moin Sheikh',
-    UserHandle: '@mspCheetah',
-    PostContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer est ex, sagittis sed felis a, elementum auctor erat. Suspendisse potenti. Suspendisse ornare ex vitae euismod auctor. Integer pharetra felis at sapien tempor tincidunt. Nulla facilisi. Pellentesque elementum vel justo et tristique. Quisque rhoncus molestie nulla vel dictum. Aenean id accumsan justo, in condimentum arcu. ',
-    Likes: '15',
-    Comments: '13',
-  };
+  const { profile: { state: { userInformation: { Username, Handle, ProfilePicture }, posts } } } = useContext(profileContext);
 
   return (
     <div className={PostGridStyling.HidingOverflow}>
       <div className={PostGridStyling.PostGridLayout}>
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
-        <Post contentInformation={ExamplePostContent} />
+        
+        {posts.map((element) => {
+          return (
+          <Link key={element._id} to={`/post/${element._id}`}>
+            <Post key={element._id} Username={Username} Handle={Handle} postInformation={element} ProfilePicture={ProfilePicture} />            
+          </Link>
+          );
+        })}
       </div>
     </div>
   );
