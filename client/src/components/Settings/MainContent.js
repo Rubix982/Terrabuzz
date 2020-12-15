@@ -21,8 +21,6 @@ const MainContent = () => {
     setUsername(data.Username);
     setHandler(data.Handler);
   });
-  // The above needs to have dynamic user handle called from somewhere to be provided to be provided as argument
-  // to the getRequest URL
 
   const saveChanges = async event => {
 
