@@ -49,11 +49,11 @@ module.exports.getPost = async (req, res) => {
   }
 };
 
-module.exports.addComment = async (req, res) => {
+module.exports.addComment = (req, res) => {
   try {
-    const postID = req.params.id;
-    const data = await getSinglePost(postID);
-    res.json({ msg: `postID to be queried: ${postID}`, data });
+    console.log('Comment Added');
+    // const postID = req.params.id;
+    res.json({ msg: 'Comment Added' });
   } catch (error) {
     res.status(404).json({ msg: error.message });
   }

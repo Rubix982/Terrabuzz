@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import ComponentStyling from '../../style/Post/NewComment.module.css';
+import { useParams } from 'react-router-dom'
 import { CenterAlign } from '../FlexAlignment';
+import API from '../../API/API.js';
+
 
 const NewComment = () => 
 {
-  const [Comment, setComment] = useState('');
+  const [_Comment, setComment] = useState('');
+  const { id } = useParams();
 
   const newComment = async event => {
 
     event.preventDefault();
+    let Data = { Comment : _Comment } ;
 
-    if (!Comment) {
+    if (!_Comment) {
       alert('Field cannot be empty!')
     } else {
       try {
-        await API.postRequest(`${process.env.REACT_APP_API_URL}/post/:id`, Comment);
+        await API.postRequest(`${process.env.REACT_APP_API_URL}/post/${id}`, Data );
       } catch (error) {
         throw new Error(error.message);
       }
@@ -31,9 +36,9 @@ const NewComment = () =>
     <div className={ComponentStyling.commentBody}>
       <input 
       type="text" 
-      name="comment" 
-      placeholder="Add a new comment ..."
-      value={Comment}
+      name="_Comment" 
+      placeholder="Add a new _Comment ..."
+      value={_Comment}
       onChange={event => setComment(event.target.value)}/>
 
     </div>
