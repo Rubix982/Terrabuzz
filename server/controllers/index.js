@@ -4,6 +4,7 @@ const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
+const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
 const mysql = (require('../db/mysql/connection.js'));
 
@@ -49,11 +50,11 @@ module.exports.getPost = async (req, res) => {
   }
 };
 
-module.exports.addComment = (req, res) => {
+module.exports.newComment = async (req, res) => {
   try {
-    console.log('Comment Added');
-    // const postID = req.params.id;
-    res.json({ msg: 'Comment Added' });
+    const postID = req.params.id;
+    const status = await addComment(postID, req.userHandle, req.body.Comment);
+    res.json({ msg: `Comment status of postID ${postID}`, status });
   } catch (error) {
     res.status(404).json({ msg: error.message });
   }
