@@ -21,7 +21,7 @@ const NewComment = () =>
       try {
         await API.postRequest(`${process.env.REACT_APP_API_URL}/post/${id}`, Data );
       } catch (error) {
-        throw new Error(error.message);
+        alert(`Unable to comment, sorry! Error is ${error.message}`)
       }
     }
   }

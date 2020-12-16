@@ -23,7 +23,7 @@ const PostContent = () => {
             </div>
           </CenterAlign>
           <div className={ComponentStyling.postTitle}>
-            <h1>Richard Miles | @{post.state.handle}</h1>
+            <h1>@{post.state.handle}</h1>
             <h1>{post.state.datePublished}</h1>
           </div>
         </div>
