@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
-import getSettings from '../../services/settings';
+import { getSettings } from '../../services/settings';
 
 const MainContent = () => {
   const [_Email, setEmail] = useState('');
