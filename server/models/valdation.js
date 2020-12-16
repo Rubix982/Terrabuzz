@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const validationSet = new Schema({
+  handler: {
+    type: String,
+    maxlength: 40,
+    required: true,
+    unique: true,
+  },
   verificationHash: {
     type: String,
     maxlength: 40,
