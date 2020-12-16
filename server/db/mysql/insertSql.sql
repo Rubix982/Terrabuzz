@@ -128,7 +128,7 @@ VALUES ('Johndoe', 'TashikMoin');
 INSERT INTO `Connection` (`Followers`, `Following`)
 VALUES ('TashikMoin', 'hassanzhd');
 INSERT INTO `Connection` (`Followers`, `Following`)
-VALUES ('@Saif', 'hassanzhd');
+VALUES ('Saif', 'hassanzhd');
 INSERT INTO `Connection` (`Followers`, `Following`)
 VALUES ('hassanzhd', 'Saif');
 INSERT INTO `Academics` (`Name`, `Handle`, `From`, `In`, `Type`)

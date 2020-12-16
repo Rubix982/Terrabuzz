@@ -6,10 +6,10 @@ const create = async () => {
   const script = fs.readFileSync(path.join(__dirname, './ddl.sql')).toString();
   try {
     const result = await MYSQL_CONNECTOR.connection.query(script);
-    console.log('Database Created Successfully');
+    console.log('DDL Created Successfully for MySQL');
     console.log(result);
   } catch (error) {
-    console.log(`DDL Creation query Not Executed Successfully Because --> ${error.message}`);
+    console.log(`DDL Creation query Not Executed Successfully For MySQL Because --> ${error.message}`);
   }
 };
 
