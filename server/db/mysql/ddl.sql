@@ -1,5 +1,5 @@
-create database TERRABUZZ;
-use TERRABUZZ;
+CREATE DATABASE TERRABUZZ;
+USE TERRABUZZ;
 CREATE TABLE `UserInformation` (
   `Handle` VARCHAR(40) NOT NULL,
   `Username` VARCHAR(40) NOT NULL,
