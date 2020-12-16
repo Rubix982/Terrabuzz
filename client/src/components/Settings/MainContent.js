@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
+import { getSettings } from '../../services/settings';
 
 const MainContent = () => {
   const [_Email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const MainContent = () => {
   useEffect(async () => {
     let response;
     try {
-      response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings?Handle=@Johndoe`)
+      response = getSettings(req.Handler);
     } catch (error) {
       throw new Error(error.message);
     }
