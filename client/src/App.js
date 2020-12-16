@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+
 // Individual Pages
 import Home from './pages/home';
 import Feed from './pages/feed';
