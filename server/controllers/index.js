@@ -7,6 +7,7 @@ const { getLikeStatus, updateLike } = require('../services/like.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
 const { GmailMailer } = require('../services/gmailAuth.js');
+const { HTMLResetPasswordForm } = require('../services/template.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -217,8 +218,7 @@ module.exports.resetPassword = (req, res) => {
 
 module.exports.forgetPassword = async (req, res) => {
   try {
-    console.log(req.body.email);
-    const mail = new GmailMailer(req.body.email, '<h1>Testing</h1>');
+    const mail = new GmailMailer(req.body.email, HTMLResetPasswordForm);
     mail.send();
     return res.status(200).json({ msg: 'Recovery email sent!' });
   } catch (error) {
