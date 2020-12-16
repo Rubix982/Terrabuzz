@@ -217,6 +217,16 @@ module.exports.resetPassword = (req, res) => {
 };
 
 module.exports.forgetPassword = async (req, res) => {
+  const __query = `SELECT Handle FROM TERRABUZZ.UserInformation WHERE Email='${req.body.email}'`;
+
+  try {
+    const [result] = await mysql.connection.query(__query);
+    // console.log()
+    if ([result[0]][0] === undefined) throw new Error('Invalid email!');
+  } catch (error) {
+    return res.status(404).json({ msg: 'Request email to send reset password cannot be found' });
+  }
+
   try {
     const mail = new GmailMailer(req.body.email, HTMLResetPasswordForm);
     mail.send();
