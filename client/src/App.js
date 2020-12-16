@@ -56,8 +56,8 @@ function App() {
               {loggedIn ? <Feed /> : <Login />}
             </Route>
             <Route exact path="/register" component={Register} />
-            <Route exact path="/forget" component={ForgetPassword} />
-            <Route exact path="/new" component={NewPassword} />
+            <Route exact path="/forgetPassword" component={ForgetPassword} />
+            <Route exact path="/newPassword" component={NewPassword} />
             <Route component={Error404} />
           </Switch>
         </Router>

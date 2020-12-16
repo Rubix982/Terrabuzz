@@ -23,7 +23,7 @@ const MainContent = () => {
         _userhandler.current.value
       );
     } catch (error) {
-      throw new Error(error.message);
+      alert(`Register wasn't able to be completed because of the erro ${error.message}`);
     }
   }
 
