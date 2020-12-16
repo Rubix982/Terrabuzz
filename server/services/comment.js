@@ -6,9 +6,23 @@ const addComment = async (postID, userHandle, comment) => {
     let _Date = new Date();
     _Date = `${_Date.getMonth()}/${_Date.getDate()}/${_Date.getFullYear()}`;
     const newComment = new Comment({ handle: userHandle, datePosted: _Date, content: comment });
-    await newComment.save();
+
+    try {
+      await newComment.save();
+    } catch (error) {
+      console.log('Unable to save new comment');
+      throw new Error(error.message);
+    }
+
     post.comments.push(newComment);
-    await post.save();
+
+    try {
+      await post.save();
+    } catch (error) {
+      console.log(newComment, postID, userHandle, comment, _Date);
+      console.log(`Unable to update comments list in the post, ${error.message}`);
+      throw new Error(error.message);
+    }
   } catch (error) {
     throw new Error(error.message);
   }

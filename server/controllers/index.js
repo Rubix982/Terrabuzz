@@ -6,6 +6,7 @@ const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
+const { GmailMailer } = require('../services/gmailAuth.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -53,6 +54,8 @@ module.exports.getPost = async (req, res) => {
 module.exports.newComment = async (req, res) => {
   try {
     const postID = req.params.id;
+    console.log('here');
+    console.log(postID, req.userHandle, req.body.Comment);
     const status = await addComment(postID, req.userHandle, req.body.Comment);
     res.json({ msg: `Comment status of postID ${postID}`, status });
   } catch (error) {
@@ -212,8 +215,14 @@ module.exports.resetPassword = (req, res) => {
   res.json({ msg: 'Password reset!!' });
 };
 
-// module.exports.forgetPassword = (req, res) => {
-//   try {
-
-//   }
-// }
+module.exports.forgetPassword = async (req, res) => {
+  try {
+    console.log(req.body.email);
+    const mail = new GmailMailer(req.body.email, '<h1>Testing</h1>');
+    mail.send();
+    return res.status(200).json({ msg: 'Recovery email sent!' });
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ msg: 'Unable to send a reset email!' });
+  }
+};

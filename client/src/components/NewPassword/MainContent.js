@@ -34,8 +34,8 @@ const MainContent = () => (
     <div className={ComponentStyling.contentContainerNp}>
       <div className={ComponentStyling.innerHalfGrid2Fp}>
         <div>
-          <a href="/Contact Us">  Contact </a>
-          <a href="/About"> About Us </a>
+          <a href="/contact">  Contact </a>
+          <a href="/about"> About Us </a>
         </div>
       </div>
     </div>
