@@ -3,9 +3,9 @@ require('dotenv').config();
 
 const verifyUserCredentials = ({ email: __email, password: __password }) => {
   const user = {
-    handle: 'hassanzhd',
-    email: 'h@gmail.com',
-    password: '123',
+    handle: 'Saif',
+    email: 'Saif@Terrabuzz.Com',
+    password: '12345',
   };
 
   if (user.email === __email) {

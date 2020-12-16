@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
-
 * {
   padding: 0;
   margin: 0;
 }
 
-.page-grid-fp {
+.pageGridFp {
   display: grid;
   grid-template-columns: 40% 60%;
   font-family: "cairo";
@@ -17,7 +16,7 @@
   margin: 0px;
 }
 
-.form-container-fp {
+.formContainerFp {
   display: flex;
   padding: 0px;
   margin: 0px;
@@ -25,12 +24,12 @@
   background-color: white;
 }
 
-.inner-half-grid-1-fp {
+.innerHalfGrid1Fp {
   display: grid;
   grid-template-rows: 27% 70% 3%;
 }
 
-.inner-half-grid-1-fp h1 {
+.innerHalfGrid1Fp h1 {
   display: flex;
   align-items: flex-start;
   padding-left: 60px;
@@ -39,7 +38,7 @@
   font-size: 60px;
 }
 
-.inner-half-grid-1-fp h2 {
+.innerHalfGrid1Fp h2 {
   display: flex;
   align-items: flex-start;
   padding-left: 63px;
@@ -49,7 +48,7 @@
   font-size: 25px;
 }
 
-.logo-fp {
+.logoFp {
   height: 170px;
   width: 170px;
   padding-left: 0px;
@@ -58,25 +57,23 @@
   border-radius: 2px;
 }
 
-.heading-1-fp {
+.heading1Fp {
   margin: 0px;
   padding: 0px;
 }
 
-.heading-2-fp {
+.heading2Fp {
   margin: 0px;
   padding: 0px;
 }
 
-.form-fp {
+.formFp {
   padding-left: 63px;
   padding-top: 30px;
 }
 
-.form-fp input[type="text"] {
+.formFp input[type="text"] {
   font-size: 20px;
-  /* color: darkslategrey; */
-  /* background-color: white; */
   width: 450px;
   height: 60px;
   -webkit-transition: width 0.4s ease-in-out;
@@ -86,16 +83,16 @@
   display: block;
 }
 
-.form-fp input[type="text"]::placeholder {
+.formFp input[type="text"]::placeholder {
   padding-left: 10px;
 }
 
-.form-fp input::-webkit-input-placeholder {
+.formFp input::-webkit-input-placeholder {
   font-size: 17px;
   line-height: 3;
 }
 
-.form-fp input[type="password"] {
+.formFp input[type="password"] {
   font-size: 20px;
   color: darkslategrey;
   width: 450px;
@@ -107,16 +104,15 @@
   display: flex;
 }
 
-.form-fp input[type="password"]::placeholder {
+.formFp input[type="password"]::placeholder {
   padding-left: 10px;
 }
 
-.form-fp input[type="text"],
-.form-fp input[type="password"] {
+.formFp input[type="text"], .formFp input[type="password"] {
   margin-top: 20px;
 }
 
-.form-fp input[type="checkbox"] {
+.formFp input[type="checkbox"] {
   height: 20px;
   width: 20px;
   margin-top: 10px;
@@ -128,7 +124,7 @@
   border-left: crimson solid 5px;
 }
 
-.remember-me {
+.rememberMe {
   margin-left: 5px;
   display: inline-flex;
 }
@@ -138,19 +134,17 @@
   font-weight: 1000;
 }
 
-.form-fp a {
+.formFp a {
   color: black;
   text-decoration: none;
 }
 
-.form-fp a:hover,
-.form-fp a:focus {
+.formFp a:hover, .formFp a:focus {
   color: grey;
   text-decoration: underline;
 }
 
-.set-new-password-button,
-.reset-password-button {
+.setNewPasswordButton, .resetPasswordButton {
   font-size: 24px;
   line-height: 34px;
   text-align: center;
@@ -168,18 +162,16 @@
   border-radius: 25px;
 }
 
-.set-new-password-button:hover,
-.reset-password-button:hover {
+.setNewPasswordButton:hover, .resetPasswordButton:hover {
   transition: 0.5s;
   background-color: crimson;
   color: white;
 }
 
-.content-container-fp {
+.contentContainerFp {
   color: white;
   background-color: white;
-  background: url("../../assets/img/background_wallpaper/ForgetPassword-Background.jpg")
-    no-repeat center center;
+  background: url("../../assets/img/background_wallpaper/ForgetPassword-Background.jpg") no-repeat center center;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -192,11 +184,10 @@
   width: 100%;
 }
 
-.content-container-np {
+.contentContainerNp {
   color: white;
   background-color: white;
-  background: url("../../assets/img/background_wallpaper/NewPassword-Background.jpg")
-    no-repeat center center;
+  background: url("../../assets/img/background_wallpaper/NewPassword-Background.jpg") no-repeat center center;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -206,12 +197,12 @@
   padding: 0px;
 }
 
-.inner-half-grid-2-fp {
+.innerHalfGrid2Fp {
   display: grid;
   grid-template-rows: 10% 90%;
 }
 
-.inner-half-grid-2-fp a {
+.innerHalfGrid2Fp a {
   text-decoration: none;
   color: white;
   font-size: 25px;
@@ -223,8 +214,7 @@
   margin-top: 20px;
 }
 
-.inner-half-grid-2-fp a:hover,
-.inner-half-grid-2-fp a:focus {
+.innerHalfGrid2Fp a:hover, .innerHalfGrid2Fp a:focus {
   color: coral;
   text-decoration: none;
 }

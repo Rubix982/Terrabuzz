@@ -20,7 +20,12 @@ export const publishPost = async (__title, __content, __interest) => {
   }
 
   try {
-    const data = await API.postRequest(`${process.env.REACT_APP_API_URL}/publish`, { title: __title, content: __content, interest: __interest });
+    const data = await API.postRequest(`${process.env.REACT_APP_API_URL}/publish`,
+      {
+        title: __title,
+        content: __content,
+        interest: __interest
+      });
     console.log(data.msg);
   } catch (error) {
     throw new Error(error.message);
