@@ -6,7 +6,7 @@ const commentSchema = new Schema({
   handle: {
     type: String,
     maxLength: 40,
-    required: true,
+    // required: true
   },
   datePosted: {
     type: String,
