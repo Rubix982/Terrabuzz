@@ -200,3 +200,9 @@ module.exports.newPassword = (req, res) => {
 module.exports.resetPassword = (req, res) => {
   res.json({ msg: 'Password reset!!' });
 };
+
+// module.exports.forgetPassword = (req, res) => {
+//   try {
+
+//   }
+// }
