@@ -7,7 +7,7 @@ require('dotenv').config();
 const OAuth2Client = new OAuth2(
   process.env.EMAIL_CLIENT_ID,
   process.env.EMAIL_CLIENT_SECRET,
-  'https://developers.google.com/oauthplayground', // redirect url
+  process.env.GMAIL_URL, // redirect url
 );
 
 class GmailMailer {
@@ -23,17 +23,17 @@ class GmailMailer {
 
   async send() {
     OAuth2Client.setCredentials({
-      refresh_token: process.env.EMAIL_REFERESH_TOKEN,
+      refresh_token: process.env.EMAIL_REFRESH_TOKEN,
     });
     const accessToken = await OAuth2Client.getAccessToken();
     const smtpTransport = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         type: 'OAuth2',
-        user: process.env.EMAIL_CLIENT_EMAIL,
+        user: process.env.EMAIL_CLIENT_MAIL,
         clientId: process.env.EMAIL_CLIENT_ID,
         clientSecret: process.env.EMAIL_CLIENT_SECRET,
-        refreshToken: process.env.EMAIL_REFERESH_TOKEN,
+        refreshToken: process.env.EMAIL_REFRESH_TOKEN,
         accessToken: accessToken.token,
       },
     });
@@ -42,11 +42,4 @@ class GmailMailer {
   }
 }
 
-// How to use
-// let mail = new Mail(
-//       'saifulislam84210@gmail.com',
-//       `<h1>Email</h1>`
-//     );
-// mail.send();
-
-export default GmailMailer;
+module.exports.GmailMailer = GmailMailer;
