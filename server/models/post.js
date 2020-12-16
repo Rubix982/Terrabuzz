@@ -10,12 +10,12 @@ const commentSchema = new Schema({
   },
   datePosted: {
     type: String,
-    required: true
+    required: true,
   },
   content: {
     type: String,
     maxLength: 100,
-    required: true
+    required: true,
   },
 });
 
