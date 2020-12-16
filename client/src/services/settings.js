@@ -1,5 +1,5 @@
 import API from '../API/API';
-require('dotenv').confg()
+require('dotenv').config()
 
 export const getSettings = async(__handler) => {
 
