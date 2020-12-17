@@ -10,6 +10,7 @@ const { GmailMailer } = require('../services/gmailAuth.js');
 const { HTMLResetPasswordForm } = require('../services/template.js');
 const { InsertValidationDocument } = require('../services/resetHash.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
+const { changePasswordForUser } = require('../services/changePassword.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -213,16 +214,26 @@ module.exports.registerUser = async (req, res) => {
 module.exports.newPassword = async (req, res) => {
   const receivedQueryVerificationHash = req.url.split('/')[2];
   try {
-    await VerifyResetPasswordHash(receivedQueryVerificationHash);
-    return res.status(200).json({ msg: 'Reset password hash verified!' });
+    const handle = await VerifyResetPasswordHash(receivedQueryVerificationHash);
+    return res.status(200).json(handle);
+    // return res.status(200).json({ msg: 'Reset password hash verified!' });
   } catch (error) {
-    console.error(`Verification for reset hash not approved, see error, ${error.message}`);
-    return res.status(404).json({ msg: 'Reset hash verificatio not approved' });
+    console.log(`Verification for reset hash not approved, see error, ${error.message}`);
+    return res.status(404).json({ msg: 'Reset hash verification not approved' });
   }
 };
 
-module.exports.resetPassword = (req, res) => {
-  res.json({ msg: 'Password reset!!' });
+module.exports.resetPassword = async (req, res) => {
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  try {
+    await changePasswordForUser(hashedPassword, req.body.handle);
+    console.log('Hello, from resetPassword!');
+    return res.status(200).json({ msg: 'Password reset!' });
+  } catch (error) {
+    console.log(`Error while running changePasswordForUser, with error ${error.message} `);
+    return res.status(500).json({ msg: 'Some error occured?' });
+  }
 };
 
 module.exports.forgetPassword = async (req, res) => {
@@ -238,7 +249,9 @@ module.exports.forgetPassword = async (req, res) => {
 
   try {
     const salt = await bcrypt.genSalt(10);
-    const hashedResetLink = await bcrypt.hash(req.body.email, salt);
+    let hashedResetLink = await bcrypt.hash(req.body.email, salt);
+    hashedResetLink = hashedResetLink.replaceAll('/', '');
+    hashedResetLink = hashedResetLink.replaceAll('.', '');
     try {
       await InsertValidationDocument(req.body.email, hashedResetLink);
     } catch (error) {
