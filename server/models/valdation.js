@@ -3,9 +3,15 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const validationSet = new Schema({
-  verificationHash: {
+  _id: {
     type: String,
     maxlength: 40,
+    required: true,
+    unique: true,
+  },
+  verificationHash: {
+    type: String,
+    maxlength: 100,
     unique: true,
   },
   isVerified: {
@@ -14,7 +20,7 @@ const validationSet = new Schema({
   },
   resetHash: {
     type: String,
-    maxlength: 40,
+    maxlength: 100,
     unique: true,
   },
   isFirstLogin: {

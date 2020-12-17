@@ -1,4 +1,4 @@
-AUTHENTICATION -> LOGIN (POST REQUEST) -> [EMAIL, PASSWORD] : 
+7AUTHENTICATION -> LOGIN (POST REQUEST) -> [EMAIL, PASSWORD] : 
 EMAIL -> 
     CORRECT: 
     PASSWORD -> 
@@ -11,3 +11,9 @@ JWT ->
     VERIFIED: (status 200 with requested resource payload)
     UNVERIFIED: (status 403 with redirect to login)
     EXPIRED: (status 403 with redirect to login)
+
+/RESET-PASSWORD:
+SEND PASSWORD WITH /new-password/format_here
+/NEW-PASSWORD ->
+    VERIFIED: FIND THE FORMAT EMBEDDED IN THE LINK
+    SUBMIT: NEW PASSWORD CHANGED! 
