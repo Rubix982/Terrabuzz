@@ -8,6 +8,8 @@ const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
 const { GmailMailer } = require('../services/gmailAuth.js');
 const { HTMLResetPasswordForm } = require('../services/template.js');
+const { InsertValidationDocument } = require('../services/resetHash.js');
+const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -208,8 +210,15 @@ module.exports.registerUser = async (req, res) => {
   return res.status(401).json({ msg: 'Password not matched' });
 };
 
-module.exports.newPassword = (req, res) => {
-  res.json({ msg: 'New password generation link issued!!' });
+module.exports.newPassword = async (req, res) => {
+  const receivedQueryVerificationHash = req.url.split('/')[2];
+  try {
+    await VerifyResetPasswordHash(receivedQueryVerificationHash);
+    return res.status(200).json({ msg: 'Reset password hash verified!' });
+  } catch (error) {
+    console.error(`Verification for reset hash not approved, see error, ${error.message}`);
+    return res.status(404).json({ msg: 'Reset hash verificatio not approved' });
+  }
 };
 
 module.exports.resetPassword = (req, res) => {
@@ -219,16 +228,23 @@ module.exports.resetPassword = (req, res) => {
 module.exports.forgetPassword = async (req, res) => {
   const __query = `SELECT Handle FROM TERRABUZZ.UserInformation WHERE Email='${req.body.email}'`;
 
+  // If the user exists in the database
   try {
     const [result] = await mysql.connection.query(__query);
-    // console.log()
     if ([result[0]][0] === undefined) throw new Error('Invalid email!');
   } catch (error) {
     return res.status(404).json({ msg: 'Request email to send reset password cannot be found' });
   }
 
   try {
-    const mail = new GmailMailer(req.body.email, HTMLResetPasswordForm);
+    const salt = await bcrypt.genSalt(10);
+    const hashedResetLink = await bcrypt.hash(req.body.email, salt);
+    try {
+      await InsertValidationDocument(req.body.email, hashedResetLink);
+    } catch (error) {
+      console.error('InsertValidationDocument failed');
+    }
+    const mail = new GmailMailer(req.body.email, HTMLResetPasswordForm(hashedResetLink));
     mail.send();
     return res.status(200).json({ msg: 'Recovery email sent!' });
   } catch (error) {
