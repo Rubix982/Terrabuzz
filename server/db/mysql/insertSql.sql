@@ -77,7 +77,7 @@ INSERT INTO `UserInformation` (
 VALUES (
         'Saif',
         'Saif Ul Islam',
-        'Saif@Terrabuzz.Com',
+        'saifulislam84210@gmail.com',
         '12345',
         'Cricket , Gaming, Football',
         'Karachi',
