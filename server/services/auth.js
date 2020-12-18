@@ -44,9 +44,15 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
     // Store handle
     const handle = result[0].Handle;
 
-    // If user not in cache, then insert in cache
-    if (!redis.get(handle)) {
-      redis.set(handle, __email);
+    // If user is already logged in ...
+    if (redis.get(`blacklist_${handle}`) !== '') {
+      return ({ status: false, handle: undefined });
+    } // Else if user not in cache and is new, then insert in cache
+    if (!redis.get(`blacklist_${handle}`)) {
+      redis.set(`blacklist_${handle}`, __email);
+    } else if (redis.get(`blacklist_${handle}`) === '') {
+      // Else if user is not new, and wants to login
+      redis.set(`blacklist_${handle}`, __email);
     }
 
     // Return true
