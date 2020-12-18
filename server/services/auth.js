@@ -18,7 +18,6 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
 
   // Extract the DB obtained password
   const passwordFromDatabase = result[0].Password;
-
   let compare;
 
   // Compare both with bcrypt
