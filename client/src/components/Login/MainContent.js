@@ -15,10 +15,10 @@ const MainContent = () => {
       <h2>Please login to continue</h2>
 
       <form className={ComponentStyling.formlogin}>
-        <input onChange={(event)=>{
+        <input onChange={(event) => {
           setEmail(event.target.value);
         }} value={email} type="text" name="email" placeholder="Email Address" />
-        <input onChange={(event)=>{
+        <input onChange={(event) => {
           setPassword(event.target.value);
         }} value={password} type="password" name="password" placeholder="Password" />
         <input
@@ -28,27 +28,27 @@ const MainContent = () => {
           value="remember-me"
         />
         <label className={ComponentStyling.rememberMe}> Remember Me </label>
-        <a href="/forget" className={ComponentStyling.forget}>
+        <a href="/forgetPassword" className={ComponentStyling.forget}>
           Forgot Password?
         </a>
         <br />
-        <input onClick={ async()=>{
+        <input onClick={async () => {
           try {
-            await loginUser(email,password);
-            localStorage.setItem('loggedIn', true);
-            setTimeout(()=>{
-              history.push('/feed');
-            },3000);
+            await loginUser(email, password);
           } catch (error) {
             alert(error.message);
           }
+          localStorage.setItem('loggedIn', true);
+          setTimeout(() => {
+            history.push('/feed');
+          }, 3000);
         }} className={ComponentStyling.login} type="button" value="Login" />
         <Link to='/register'>
-         <input
-          className={ComponentStyling.register}
-          type="button"
-          value="Register"
-         />
+          <input
+            className={ComponentStyling.register}
+            type="button"
+            value="Register"
+          />
         </Link>
       </form>
     </div>

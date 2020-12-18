@@ -11,6 +11,7 @@ const { HTMLResetPasswordForm } = require('../services/template.js');
 const { InsertValidationDocument } = require('../services/resetHash.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
+const { checkForFirstLogin } = require('../services/firstLogin.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -22,8 +23,12 @@ module.exports.getHomePage = async (req, res) => {
   }
 };
 
-module.exports.getUserFeed = (req, res) => {
-  res.json({ msg: `@${req.userHandle} feed!!` });
+module.exports.getUserFeed = async (req, res) => {
+  try {
+    await checkForFirstLogin(req.userHandle);
+  } catch {
+    res.json({ msg: `@${req.userHandle} feed!!` });
+  }
 };
 
 module.exports.getUserProfile = async (req, res) => {
@@ -185,9 +190,9 @@ module.exports.changePassword = async (req, res) => {
   return res.status(401).json({ msg: 'Bad Request' });
 };
 
-module.exports.loginUser = (req, res) => {
+module.exports.loginUser = async (req, res) => {
   try {
-    const token = generateAccessToken(req.body);
+    const token = await generateAccessToken(req.body);
     res.cookie('access-token', token, { httpOnly: true, sameSite: true });
     return res.status(200).json({ msg: 'User logged in!!' });
   } catch (error) {

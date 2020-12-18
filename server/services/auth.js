@@ -47,7 +47,7 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
   }
 
   // The passwords are not the same
-  return new Error('Invalid credentials');
+  return ({ status: false, handle: undefined });
 };
 
 const generateAccessToken = async (__data) => {
@@ -63,7 +63,6 @@ const generateAccessToken = async (__data) => {
 const verifyAccessToken = (__token) => {
   try {
     const decodedPayload = jwt.verify(__token, `${process.env.JWT_SECRET}`);
-    console.log(decodedPayload);
     return decodedPayload;
   } catch (error) {
     throw new Error(error.message);
