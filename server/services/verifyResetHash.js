@@ -9,7 +9,7 @@ const VerifyResetPasswordHash = async (__hash) => {
   try {
     response = await ValidationSet.find({ resetHash: __hash });
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.wmessage);
   }
 
   const receivedHash = response[0].resetHash;
