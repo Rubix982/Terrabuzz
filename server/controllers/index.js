@@ -265,3 +265,13 @@ module.exports.forgetPassword = async (req, res) => {
     return res.status(500).json({ msg: 'Unable to send a reset email!' });
   }
 };
+
+module.exports.controllerLogOut = async (req, res) => {
+  try {
+    req.cookie['access-token'] = '';
+    console.log('Successfully removed access token from the cookie');
+    return res.status(200).json({ msg: 'Access Token Removed' });
+  } catch (error) {
+    return res.status(403).json({ msg: 'Unable to remove access token' });
+  }
+};

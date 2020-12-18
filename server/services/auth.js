@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const mysql = require('../db/mysql/connection.js');
-const redis = require('../db/redis/connection.js');
 require('dotenv').config();
 
 const verifyUserCredentials = async ({ email: __email, password: __password }) => {
@@ -44,16 +43,16 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
     // Store handle
     const handle = result[0].Handle;
 
-    // If user is already logged in ...
-    if (redis.get(`blacklist_${handle}`) !== '') {
-      return ({ status: false, handle: undefined });
-    } // Else if user not in cache and is new, then insert in cache
-    if (!redis.get(`blacklist_${handle}`)) {
-      redis.set(`blacklist_${handle}`, __email);
-    } else if (redis.get(`blacklist_${handle}`) === '') {
-      // Else if user is not new, and wants to login
-      redis.set(`blacklist_${handle}`, __email);
-    }
+    // // If user is already logged in ...
+    // if (redis.get(`blacklist_${handle}`) !== '') {
+    //   return ({ status: false, handle: undefined });
+    // } else if (!redis.get(`blacklist_${handle}`)) {
+    //   // Else if user not in cache and is new, then insert in cache
+    //   redis.set(`blacklist_${handle}`, __email);
+    // } else if (redis.get(`blacklist_${handle}`) === '') {
+    //   // Else if user is not new, and wants to login
+    //   redis.set(`blacklist_${handle}`, __email);
+    // }
 
     // Return true
     return ({ status: true, handle });
@@ -73,9 +72,6 @@ const generateAccessToken = (__data) => {
   throw new Error('Please login with valid credentials!');
 };
 
-module.exports.generateAccessToken = generateAccessToken;
-module.exports.verifyUserCredentials = verifyUserCredentials;
-
 const verifyAccessToken = (__token) => {
   try {
     const decodedPayload = jwt.verify(__token, `${process.env.JWT_SECRET}`);
@@ -86,4 +82,6 @@ const verifyAccessToken = (__token) => {
   }
 };
 
+module.exports.generateAccessToken = generateAccessToken;
+module.exports.verifyUserCredentials = verifyUserCredentials;
 module.exports.verifyAccessToken = verifyAccessToken;
