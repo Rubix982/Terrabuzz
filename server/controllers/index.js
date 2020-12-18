@@ -11,6 +11,7 @@ const { HTMLResetPasswordForm } = require('../services/template.js');
 const { InsertValidationDocument } = require('../services/resetHash.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
+// const {  }/
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -23,6 +24,7 @@ module.exports.getHomePage = async (req, res) => {
 };
 
 module.exports.getUserFeed = (req, res) => {
+  console.log('In User Feed!');
   res.json({ msg: `@${req.userHandle} feed!!` });
 };
 
