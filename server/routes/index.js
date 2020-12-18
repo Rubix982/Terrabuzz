@@ -19,6 +19,7 @@ Router.post('/post/:id', authorizeUser, indexContoller.newComment);
 Router.post('/publish', authorizeUser, indexContoller.publishPost);
 Router.post('/like/:id', authorizeUser, indexContoller.addLike);
 Router.post('/settings', authorizeUser, indexContoller.updateSettings);
+Router.post('/logout', authorizeUser, indexContoller.controllerLogOut);
 Router.post('/login', indexContoller.loginUser);
 Router.post('/register', indexContoller.registerUser);
 Router.post('/changepassword', indexContoller.changePassword);

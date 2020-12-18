@@ -199,7 +199,7 @@ module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handler, Username, Email, Password ) 
+    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handle, Username, Email, Password ) 
     VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
     try {
       await mysql.connection.query(_query);
@@ -263,5 +263,15 @@ module.exports.forgetPassword = async (req, res) => {
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ msg: 'Unable to send a reset email!' });
+  }
+};
+
+module.exports.controllerLogOut = async (req, res) => {
+  try {
+    req.cookie['access-token'] = '';
+    console.log('Successfully removed access token from the cookie');
+    return res.status(200).json({ msg: 'Access Token Removed' });
+  } catch (error) {
+    return res.status(403).json({ msg: 'Unable to remove access token' });
   }
 };
