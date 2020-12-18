@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import { Redirect, Route } from 'react-router-dom';
 import Container from '../components/FullViewContainer';
 import MainContent from '../components/NewsFeed/MainContent';
 
@@ -6,21 +7,32 @@ import MainContent from '../components/NewsFeed/MainContent';
 import Navbar from '../components/Navbar';
 
 // The API servicea
-import API from '../API/API';
-require('dotenv').config();
+// import { firstLoginCheck } from '../service/checkForFirstLogin.js';
 
 const Feed = () => {
 
   let [isFirstLogin, setIsFirstLogin] = useState(false);
-  console.log(`In Feed ${process.env.REACT_APP_API_URL}`);
 
-  useEffect(async() => {
-    try {
-      await API.getRequest(`${process.env.REACT_APP_API_URL}/feed`);
-    } catch(error) {
-      alert(`Unable to check for first login, because of error ${error.message}`);
-    }
-  });
+  // useEffect(async () => {
+  //   try {
+  //     const { status } = await firstLoginCheck();
+
+  //     // The page to be rendered should not be the first login page
+  //     if (status === false) {
+  //       setIsFirstLogin(false);
+  //     } // the first login page should be rendered
+  //     else {
+  //       setIsFirstLogin(true);
+  //     }
+  //   } catch (error) {
+  //     alert(`Unable to check for first login, because of error ${error.message}`);
+  //   }
+  // });
+
+  // <Router>
+  //   {isFirstLogin ? <Redirect to='/firstLogin' /> : 
+  //   }
+  // </Router>
 
   if (isFirstLogin) {
     return (
