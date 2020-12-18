@@ -29,12 +29,13 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
   }
 
   // If compare returns true, ie, both are the same
-  if (compare) {
+  if (compare === true) {
     // Query handle
     __query = `SELECT Handle FROM TERRABUZZ.UserInformation WHERE Email='${__email}'`;
     try {
       // Get handle
       [result] = await mysql.connection.query(__query);
+      // return ({ status: false, handle: handle })
     } catch (error) {
       console.log('MySQL querying for userHandle failed in auth');
       return ({ status: false, handle: undefined });
@@ -42,18 +43,6 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
 
     // Store handle
     const handle = result[0].Handle;
-
-    // // If user is already logged in ...
-    // if (redis.get(`blacklist_${handle}`) !== '') {
-    //   return ({ status: false, handle: undefined });
-    // } else if (!redis.get(`blacklist_${handle}`)) {
-    //   // Else if user not in cache and is new, then insert in cache
-    //   redis.set(`blacklist_${handle}`, __email);
-    // } else if (redis.get(`blacklist_${handle}`) === '') {
-    //   // Else if user is not new, and wants to login
-    //   redis.set(`blacklist_${handle}`, __email);
-    // }
-
     // Return true
     return ({ status: true, handle });
   }
@@ -62,8 +51,8 @@ const verifyUserCredentials = async ({ email: __email, password: __password }) =
   return new Error('Invalid credentials');
 };
 
-const generateAccessToken = (__data) => {
-  const { status, handle } = verifyUserCredentials(__data);
+const generateAccessToken = async (__data) => {
+  const { status, handle } = await verifyUserCredentials(__data);
   if (status) {
     const token = jwt.sign({ handle }, `${process.env.JWT_SECRET}`, { expiresIn: '3d' });
     console.log(token);

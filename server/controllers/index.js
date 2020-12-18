@@ -199,7 +199,7 @@ module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handler, Username, Email, Password ) 
+    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handle, Username, Email, Password ) 
     VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
     try {
       await mysql.connection.query(_query);
