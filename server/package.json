@@ -24,7 +24,8 @@
     "mysql2": "^2.2.5",
     "neo4j-driver": "^4.2.1",
     "nodemailer": "^6.4.17",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "redis": "^3.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
