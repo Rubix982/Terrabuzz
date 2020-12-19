@@ -12,6 +12,7 @@ const { InsertValidationDocument } = require('../services/resetHash.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
 const { checkForFirstLogin } = require('../services/firstLogin.js');
+const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -25,9 +26,10 @@ module.exports.getHomePage = async (req, res) => {
 
 module.exports.getUserFeed = async (req, res) => {
   try {
-    await checkForFirstLogin(req.userHandle);
+    const status = await checkForFirstLogin(req.userHandle);
+    return res.json(status);
   } catch {
-    res.json({ msg: `@${req.userHandle} feed!!` });
+    return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
   }
 };
 
@@ -63,8 +65,6 @@ module.exports.getPost = async (req, res) => {
 module.exports.newComment = async (req, res) => {
   try {
     const postID = req.params.id;
-    console.log('here');
-    console.log(postID, req.userHandle, req.body.Comment);
     const status = await addComment(postID, req.userHandle, req.body.Comment);
     res.json({ msg: `Comment status of postID ${postID}`, status });
   } catch (error) {
@@ -221,7 +221,6 @@ module.exports.newPassword = async (req, res) => {
   try {
     const handle = await VerifyResetPasswordHash(receivedQueryVerificationHash);
     return res.status(200).json(handle);
-    // return res.status(200).json({ msg: 'Reset password hash verified!' });
   } catch (error) {
     console.log(`Verification for reset hash not approved, see error, ${error.message}`);
     return res.status(404).json({ msg: 'Reset hash verification not approved' });
@@ -274,9 +273,17 @@ module.exports.forgetPassword = async (req, res) => {
 module.exports.controllerLogOut = async (req, res) => {
   try {
     req.cookie['access-token'] = '';
-    console.log('Successfully removed access token from the cookie');
     return res.status(200).json({ msg: 'Access Token Removed' });
   } catch (error) {
     return res.status(403).json({ msg: 'Unable to remove access token' });
+  }
+};
+
+module.exports.postFirstLoginInformation = async (req, res) => {
+  try {
+    await postUserInformationForBio(req.userHandle, req.body.userInformation);
+    return res.status(200).json({ msg: 'Succesfully posted first login information' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to perform insertion, due to error "${error.message}"` });
   }
 };
