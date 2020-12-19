@@ -23,4 +23,5 @@ Router.post('/logout', authorizeUser, indexContoller.controllerLogOut);
 Router.post('/login', indexContoller.loginUser);
 Router.post('/register', indexContoller.registerUser);
 Router.post('/changepassword', indexContoller.changePassword);
+Router.post('/firstLogin', authorizeUser, indexContoller.postFirstLoginInformation);
 module.exports = Router;
