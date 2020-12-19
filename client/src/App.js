@@ -44,10 +44,8 @@ function App() {
             <Route exact path="/first" component={FirstLogin} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/search">
-              <SearchTypeProvider>
-                <Search />
-              </SearchTypeProvider>
+            <Route exact path="/search/:searchType">
+              <Search />
             </Route>
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/changepassword" component={SettingsCP} />
