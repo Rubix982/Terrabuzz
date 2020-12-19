@@ -42,14 +42,14 @@
   grid-template-columns: 10% 80% 10%;
 }
 
-.searchBox {
-  width: 100%;
+.searchBox form {
   height: 100%;
+  width: 100%;
 }
 
 .searchBox input {
-  width: 100%;
   height: 90%;
+  width: 100%;
   background-image: url("../../src/assets/img/icon/Search.svg");
   background-repeat: no-repeat;
   text-align: center;
@@ -84,6 +84,11 @@
 .users img {
   height: 70%;
   width: 70%;
+}
+
+.active {
+  background-color: black;
+  transition: 0.3s;
 }
 
 .rightContent {
