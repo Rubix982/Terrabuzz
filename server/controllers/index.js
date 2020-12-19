@@ -6,6 +6,7 @@ const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
+const { searchUserProfiles } = require('../services/search.js');
 const { GmailMailer } = require('../services/gmailAuth.js');
 const { HTMLResetPasswordForm } = require('../services/template.js');
 const { InsertValidationDocument } = require('../services/resetHash.js');
@@ -97,9 +98,10 @@ module.exports.searchPost = (req, res) => {
   res.json({ msg: `Post topic to be queried: ${topic}` });
 };
 
-module.exports.searchUser = (req, res) => {
-  const { username } = req.query;
-  res.json({ msg: `Username to be queried: ${username}` });
+module.exports.searchUser = async (req, res) => {
+  const { handle } = req.query;
+  const users = await searchUserProfiles(handle);
+  res.json({ msg: `Handle to be queried: ${handle}`, users });
 };
 
 module.exports.getSettings = async (req, res) => {

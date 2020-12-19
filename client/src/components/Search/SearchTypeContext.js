@@ -1,15 +1,21 @@
 import React, { createContext, useState } from 'react';
 
-export const searchTypeContext = createContext();
+export const searchContext = createContext();
 
-const SearchTypeProvider = ({ children }) => {
-  const [buttonActive, setButtonActive] = useState('Interested in');
-
+const SearchProvider = ({ children }) => {
+  const buttonActiveState = useState('Interested in');
+  const loadingState = useState(true);
+  
   return (
-    <searchTypeContext.Provider value={[buttonActive, setButtonActive]}>
+    <searchContext.Provider value={{
+      buttonActive: {
+        state: buttonActiveState[0],
+        setter: buttonActiveState[1],
+      }
+    }}>
       {children}
-    </searchTypeContext.Provider>
+    </searchContext.Provider>
   );
 };
 
-export default SearchTypeProvider;
+export default SearchProvider;
