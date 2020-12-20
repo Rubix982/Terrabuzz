@@ -1,14 +1,12 @@
 import API from '../API/API';
 require('dotenv').config()
 
-export const getSettings = async(__handler) => {
-
-    if ( !__handler ) {
-        throw new Error('Handler cannot be empty!');
-    }
+export const getSettings = async() => {
 
     try {
-        const data = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings?Handle=${__handler}`)
+        const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`);
+        const [data] = response[0];
+        return data;
     } catch (error) {
         throw new Error(error.message);
     }

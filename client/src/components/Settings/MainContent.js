@@ -13,10 +13,10 @@ const MainContent = () => {
   useEffect( async () => {
     const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`);
     const [data] = response[0];
-    setEmail(data._Email) ;
-    setUsername(data._Username) ;
-    setHandler(data._Handler) ;
-    console.log(data._Username);
+    console.log(data);
+    setEmail(data.Email) ;
+    setUsername(data.Username) ;
+    setHandler(data.Handler) ;
   },[]); 
 
   const saveChanges = async event => {

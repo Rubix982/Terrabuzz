@@ -64,7 +64,6 @@ module.exports.getPost = async (req, res) => {
 module.exports.newComment = async (req, res) => {
   try {
     const postID = req.params.id;
-    console.log('here');
     console.log(postID, req.userHandle, req.body.Comment);
     const status = await addComment(postID, req.userHandle, req.body.Comment);
     res.json({ msg: `Comment status of postID ${postID}`, status });
@@ -107,10 +106,9 @@ module.exports.searchUser = async (req, res) => {
 module.exports.getSettings = async (req, res) => {
   try {
     const _query = `select Username, Email,
-    Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
+    Handle from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
     const output = await mysql.connection.query(_query);
     res.send(output);
-    return res.status(200).json({ msg: 'Fetched User Information' });
   } catch (error) {
     throw new Error(error.message);
   }
@@ -118,15 +116,14 @@ module.exports.getSettings = async (req, res) => {
 
 module.exports.updateSettings = async (req, res) => {
   if (req.body.Password === req.body.CPassword) {
-    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
+    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
     const [queryResult] = await mysql.connection.query(queryPassword);
     const [data] = queryResult;
 
     if (data.Password === req.body.Password) {
       const updateQuery = `UPDATE TERRABUZZ.UserInformation 
                     SET Email = '${req.body.Email}', Username = '${req.body.Username}'
-                    WHERE Handler='${req.body.Handler}';`;
-      // note: req.body.Handler should be replace with --> req.handle
+                    WHERE Handle='${req.userHandle}';`;
       await mysql.connection.query(updateQuery);
       return res.status(200).json({ msg: 'Updated' });
     }
@@ -139,7 +136,7 @@ module.exports.updateSettings = async (req, res) => {
 
 module.exports.changePassword = async (req, res) => {
   if (req.body.newPassword === req.body.confirmPassword) {
-    const queryPassword = 'select Password from TERRABUZZ.UserInformation where Handler=\'Johndoe\';';
+    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
     let queryResult;
     try {
       [queryResult] = await mysql.connection.query(queryPassword);
@@ -166,8 +163,7 @@ module.exports.changePassword = async (req, res) => {
       }
       const updateQuery = `UPDATE TERRABUZZ.UserInformation 
                     SET Password = '${hashedPassword}'
-                    WHERE Handler='Johndoe';`;
-      // note: Handler should be replace with --> req.handle
+                    WHERE Handle='${req.userHandle}';`;
       try {
         await mysql.connection.query(updateQuery);
       } catch (err) {
