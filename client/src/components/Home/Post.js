@@ -1,7 +1,6 @@
 import React from 'react';
 import ComponentStyling from '../../style/Home/Post.module.css';
 import { CenterAlign } from '../FlexAlignment';
-import ContentHead from './ContentHead';
 
 const Post = ({ handle, date, content, likeCount, commentCount, interest }) => (
   <div className={ComponentStyling.entry}>
@@ -26,10 +25,10 @@ const Post = ({ handle, date, content, likeCount, commentCount, interest }) => (
     </div>
     <div className={ComponentStyling.stats}>
       <CenterAlign>
-        <h1>{likeCount} Likes</h1>
+        <h1>{likeCount}</h1>
       </CenterAlign>
       <CenterAlign>
-        <h1>{commentCount} Comments</h1>
+        <h1>{commentCount}</h1>
       </CenterAlign>
     </div>
   </div>

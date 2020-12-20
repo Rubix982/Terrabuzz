@@ -3,13 +3,13 @@ import ComponentStyling from '../../style/Search/MainHeader.module.css';
 
 import { searchContext } from './SearchTypeContext';
 
-const MainHeader = () => {
+const MainHeader = ({ query }) => {
   const { buttonActive } = useContext(searchContext);
 
   return (
     <div className={ComponentStyling.header}>
       <div className={ComponentStyling.title}>
-        <h1>Results found for #philosphy</h1>
+        <h1>Results found for #{query}</h1>
       </div>
       <div className={ComponentStyling.buttons}>
         <div

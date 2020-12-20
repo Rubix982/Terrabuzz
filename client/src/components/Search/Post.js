@@ -1,34 +1,35 @@
 import React from 'react';
 import ComponentStyling from '../../style/Search/Post.module.css';
 import { CenterAlign } from '../FlexAlignment';
+import { countAndFormatTotalLikes, formatTotalComments , reducePostContent } from '../../services/post';
 
-const Post = () => (
+const Post = ({ postData, profilePicture }) => (
   <div className={ComponentStyling.entry}>
     <div className={ComponentStyling.header}>
-      <h1>#philosophy</h1>
+      <h1>#{postData.interest}</h1>
     </div>
     <div className={ComponentStyling.main}>
       <CenterAlign>
         <div className={ComponentStyling.profilePicture}>
-          <img src="/assets/img/profile_pictures/boy(3).svg" alt="" />
+          <img src={`/assets/img/profile_pictures/${profilePicture}`} alt="" />
         </div>
       </CenterAlign>
       <div className={ComponentStyling.postBody}>
         <div className={ComponentStyling.postTitle}>
-          <h1>Richard Miles</h1>
-          <h2>1st January, 2020</h2>
+          <h1>@{postData.handle}</h1>
+          <h2>{postData.datePublished}</h2>
         </div>
         <div className={ComponentStyling.postText}>
-          <p>Yesterday is history, and tomorrow is a mystery ....</p>
+          <p>{reducePostContent(postData.content,50)}</p>
         </div>
       </div>
     </div>
     <div className={ComponentStyling.stats}>
       <CenterAlign>
-        <h1>15 Likes</h1>
+        <h1>{countAndFormatTotalLikes(postData.likes)}</h1>
       </CenterAlign>
       <CenterAlign>
-        <h1>7 Comments</h1>
+        <h1>{formatTotalComments(postData.comments)}</h1>
       </CenterAlign>
     </div>
   </div>

@@ -21,7 +21,7 @@ const SearchBar = () => {
           <div className={ComponentStyling.searchBox}>
             <form onSubmit={async (event)=>{
                 event.preventDefault();
-                history.push(`/search/${active}?q=${inputData}`);  
+                history.push(`/search/${active}?q=${inputData.substr(1)}`);  
             }} >
               <input
                 onChange={(event) => {

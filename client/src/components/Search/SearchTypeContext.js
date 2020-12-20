@@ -4,7 +4,6 @@ export const searchContext = createContext();
 
 const SearchProvider = ({ children }) => {
   const buttonActiveState = useState('Interested in');
-  const loadingState = useState(true);
   
   return (
     <searchContext.Provider value={{
