@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-// const { generateAccessToken } = require('../services/auth.js');
+const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
@@ -64,7 +64,6 @@ module.exports.getPost = async (req, res) => {
 module.exports.newComment = async (req, res) => {
   try {
     const postID = req.params.id;
-    console.log('here');
     console.log(postID, req.userHandle, req.body.Comment);
     const status = await addComment(postID, req.userHandle, req.body.Comment);
     res.json({ msg: `Comment status of postID ${postID}`, status });
@@ -113,6 +112,96 @@ module.exports.getSettings = async (req, res) => {
   } catch (error) {
     throw new Error(error.message);
   }
+};
+
+module.exports.updateSettings = async (req, res) => {
+  if (req.body.Password === req.body.CPassword) {
+    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    const [queryResult] = await mysql.connection.query(queryPassword);
+    const [data] = queryResult;
+
+    if (data.Password === req.body.Password) {
+      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
+                    SET Email = '${req.body.Email}', Username = '${req.body.Username}'
+                    WHERE Handle='${req.userHandle}';`;
+      await mysql.connection.query(updateQuery);
+      return res.status(200).json({ msg: 'Updated' });
+    }
+
+    return res.status(401).json({ msg: 'Bad Request' });
+  }
+
+  return res.status(401).json({ msg: 'Bad Request' });
+};
+
+module.exports.changePassword = async (req, res) => {
+  if (req.body.newPassword === req.body.confirmPassword) {
+    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    let queryResult;
+    try {
+      [queryResult] = await mysql.connection.query(queryPassword);
+    } catch (err) {
+      throw new Error(err.message);
+    }
+
+    const [data] = queryResult;
+
+    // should be compared with hashed password
+    if (data.Password === req.body.oldPassword) {
+      let salt;
+      let hashedPassword;
+      try {
+        salt = await bcrypt.genSalt(10);
+      } catch (err) {
+        throw new Error(err.message);
+      }
+
+      try {
+        hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
+      } catch (err) {
+        throw new Error(err.message);
+      }
+      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
+                    SET Password = '${hashedPassword}'
+                    WHERE Handle='${req.userHandle}';`;
+      try {
+        await mysql.connection.query(updateQuery);
+      } catch (err) {
+        throw new Error(err.message);
+      }
+      return res.status(200).json({ msg: 'Updated' });
+    }
+
+    return res.status(401).json({ msg: 'Bad Request' });
+  }
+
+  return res.status(401).json({ msg: 'Bad Request' });
+};
+
+module.exports.loginUser = async (req, res) => {
+  try {
+    const token = await generateAccessToken(req.body);
+    res.cookie('access-token', token, { httpOnly: true, sameSite: true });
+    return res.status(200).json({ msg: 'User logged in!!' });
+  } catch (error) {
+    return res.status(401).json({ msg: error.message });
+  }
+};
+
+module.exports.registerUser = async (req, res) => {
+  if (req.body.password === req.body.cpassword) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handle, Username, Email, Password ) 
+    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
+    try {
+      await mysql.connection.query(_query);
+      return res.status(200).json({ msg: 'User Registered' });
+    } catch (error) {
+      return res.status(401).json({ msg: error.message });
+    }
+  }
+  return res.status(401).json({ msg: 'Password not matched' });
 };
 
 module.exports.newPassword = async (req, res) => {
