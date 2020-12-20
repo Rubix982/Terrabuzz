@@ -107,31 +107,21 @@ module.exports.searchUser = async (req, res) => {
 module.exports.getSettings = async (req, res) => {
   try {
     const _query = `select Username, Email,
-  Handler from TERRABUZZ.UserInformation where Handler='${req.query.Handle}';`;
-    let output;
-    try {
-      output = await mysql.connection.query(_query);
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    Handler from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
+    const output = await mysql.connection.query(_query);
     res.send(output);
     return res.status(200).json({ msg: 'Fetched User Information' });
   } catch (error) {
-    // Uncommenting this give Error
-    // [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    // return res.status(401).json({ msg: error.message });
     throw new Error(error.message);
   }
 };
 
-// Note: to test this, remove authorizeUser attribute inside setting routes from routes>index.js
 module.exports.updateSettings = async (req, res) => {
   if (req.body.Password === req.body.CPassword) {
-    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handler='${req.body.Handler}';`;
+    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handler='${req.userHandle}';`;
     const [queryResult] = await mysql.connection.query(queryPassword);
     const [data] = queryResult;
 
-    // should be compared with hashed password
     if (data.Password === req.body.Password) {
       const updateQuery = `UPDATE TERRABUZZ.UserInformation 
                     SET Email = '${req.body.Email}', Username = '${req.body.Username}'
