@@ -13,7 +13,6 @@ const MainContent = () => {
   useEffect( async () => {
     const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`);
     const [data] = response[0];
-    console.log(data);
     setEmail(data.Email) ;
     setUsername(data.Username) ;
     setHandler(data.Handler) ;
