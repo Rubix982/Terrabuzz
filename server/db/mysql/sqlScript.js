@@ -9,7 +9,7 @@ const createAndInsert = async () => {
     console.log('DDL Created Successfully for MySQL');
     console.log(result);
   } catch (error) {
-    console.log(`DDL Creation query Not Executed Successfully For MySQL Because --> ${error.message}`);
+    console.log(`DDL Creation query not executed successfully for MySQL because --> ${error.message}`);
   }
 
   script = fs.readFileSync(path.join(__dirname, './insertSql.sql')).toString();

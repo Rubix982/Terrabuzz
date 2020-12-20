@@ -41,10 +41,10 @@ CREATE TABLE `Organization` (
   PRIMARY KEY (`Name`, `Handle`),
   CONSTRAINT `HandleOrganization` FOREIGN KEY (`Handle`) REFERENCES `UserInformation` (`Handle`) ON DELETE CASCADE ON UPDATE CASCADE
 );
-CREATE TABLE `Interest` (
-  `Topic` VARCHAR(40) NOT NULL,
-  `Handle` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`Topic`, `Handle`),
-  INDEX `Handleidx` (`Handle` ASC),
-  CONSTRAINT `HandleInterest` FOREIGN KEY (`Handle`) REFERENCES `UserInformation` (`Handle`) ON DELETE CASCADE ON UPDATE CASCADE
-);
+-- CREATE TABLE `Interest` (
+--   `Topic` VARCHAR(40) NOT NULL,
+--   `Handle` VARCHAR(40) NOT NULL,
+--   PRIMARY KEY (`Topic`, `Handle`),
+--   INDEX `Handleidx` (`Handle` ASC),
+--   CONSTRAINT `HandleInterest` FOREIGN KEY (`Handle`) REFERENCES `UserInformation` (`Handle`) ON DELETE CASCADE ON UPDATE CASCADE
+-- );
