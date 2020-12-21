@@ -171,3 +171,25 @@ INSERT INTO `Organization` (`Name`, `Handle`, `Type`)
 VALUES ('Google', 'Saif', 'Founder');
 INSERT INTO `Organization` (`Name`, `Handle`, `Type`)
 VALUES ('Microsoft', 'Johndoe', 'Manager');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('C#', 'TashikMoin');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('.NET', 'TashikMoin');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('Azure', 'TashikMoin');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('AWS', 'TashikMoin');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('Tensorflow', 'Saif');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('JavaScript', 'hassanzhd');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('Node', 'hassanzhd');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('AWS', 'hassanzhd');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('AWS', 'Saif');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('Tensorflow', 'TashikMoin');
+INSERT INTO `Interest` (`Topic`, `Handle`)
+VALUES ('Azure', 'hassanzhd');
