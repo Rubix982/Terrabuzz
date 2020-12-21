@@ -8,6 +8,6 @@ export const firstLoginCheck = async () => {
         result = await API.getRequest(`${process.env.REACT_APP_API_URL}/feed`);
         return (result);
     } catch(error) {
-        throw new Error('Unable to check for confirmation for the first login page.')
+        throw new Error(`Unable to check for confirmation for the first login page, ${error.message}`)
     }
 };

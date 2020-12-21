@@ -6,7 +6,7 @@ CREATE TABLE `UserInformation` (
   `Email` VARCHAR(45) NOT NULL,
   `Password` VARCHAR(100) NOT NULL,
   `Activities` VARCHAR(45) NULL,
-  `Location` VARCHAR(45) NULL,
+  `Location` VARCHAR(60) NULL,
   `Instagram` VARCHAR(150) NULL,
   `Facebook` VARCHAR(150) NULL,
   `LinkedIn` VARCHAR(150) NULL,
