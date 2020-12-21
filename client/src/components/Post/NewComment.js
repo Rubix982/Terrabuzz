@@ -37,7 +37,7 @@ const NewComment = () =>
       <input 
       type="text" 
       name="_Comment" 
-      placeholder="Add a new _Comment ..."
+      placeholder="Add a comment ..."
       value={_Comment}
       onChange={event => setComment(event.target.value)}/>
 
