@@ -1,57 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import ComponentStyling from '../../style/Search/Content.module.css';
-import Post from './Post';
-import Profile from './InterestProfile';
+import SearchInterestedInEntries from './InterestedInEntries';
+import SearchPostedOnEntries from './PostedOnEntries';
+import { searchContext } from './SearchTypeContext';
 
-import { searchTypeContext } from './SearchTypeContext';
-
-const InterestContent = () => {
-  const [buttonActive] = useContext(searchTypeContext);
-
-  if (buttonActive === 'Posted on') {
-    return (
-      <div className={ComponentStyling.content}>
-        <div className={ComponentStyling.postRow}>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+const InterestContent = ({ query, postedOn, interestedIn }) => {
+  const { buttonActive } = useContext(searchContext);
+  
+  if (buttonActive.state === 'Posted on') {
+      return (
+        <div className={ComponentStyling.content}>
+          <SearchPostedOnEntries postedOnEntries={postedOn} />
         </div>
-        <div className={ComponentStyling.postRow}>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </div>
-        <div className={ComponentStyling.postRow}>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </div>
-      </div>
-    );
+      );
   }
   return (
     <div className={ComponentStyling.content}>
-      <div className={ComponentStyling.postRow}>
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-      </div>
-      <div className={ComponentStyling.postRow}>
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-      </div>
-      <div className={ComponentStyling.postRow}>
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-      </div>
+      <SearchInterestedInEntries interestedInEntries={interestedIn} query={query} />
     </div>
   );
 };

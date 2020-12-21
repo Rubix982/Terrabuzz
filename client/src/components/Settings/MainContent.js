@@ -6,22 +6,17 @@ import { getSettings } from '../../services/settings';
 const MainContent = () => {
   const [_Email, setEmail] = useState('');
   const [_Username, setUsername] = useState('');
-  const [_Handler, setHandler] = useState('');
+  const [_Handler, setHandler] = useState(''); 
   const [_Password, setPassword] = useState('');
   const [_CPassword, setCPassword] = useState('');
 
-  useEffect(async () => {
-    let response;
-    try {
-      response = getSettings(req.Handler);
-    } catch (error) {
-      throw new Error(error.message);
-    }
-    let data = response[0][0];
-    setEmail(data.Email);
-    setUsername(data.Username);
-    setHandler(data.Handler);
-  });
+  useEffect( async () => {
+    const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`);
+    const [data] = response[0];
+    setEmail(data.Email) ;
+    setUsername(data.Username) ;
+    setHandler(data.Handler) ;
+  },[]); 
 
   const saveChanges = async event => {
 
