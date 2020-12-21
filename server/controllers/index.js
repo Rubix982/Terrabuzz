@@ -116,9 +116,9 @@ module.exports.getSettings = async (req, res) => {
 
 module.exports.updateSettings = async (req, res) => {
   if (req.body.Password === req.body.CPassword) {
-    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const [queryResult] = await mysql.connection.query(queryPassword);
-    const [data] = queryResult;
+    const passwordQuery = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    const [queryPassword] = await mysql.connection.query(passwordQuery);
+    const [data] = queryPassword;
 
     if (data.Password === req.body.Password) {
       const updateQuery = `UPDATE TERRABUZZ.UserInformation 
@@ -136,46 +136,25 @@ module.exports.updateSettings = async (req, res) => {
 
 module.exports.changePassword = async (req, res) => {
   if (req.body.newPassword === req.body.confirmPassword) {
-    const queryPassword = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    let queryResult;
-    try {
-      [queryResult] = await mysql.connection.query(queryPassword);
-    } catch (err) {
-      throw new Error(err.message);
-    }
-
-    const [data] = queryResult;
-
-    // should be compared with hashed password
-    if (data.Password === req.body.oldPassword) {
-      let salt;
-      let hashedPassword;
-      try {
-        salt = await bcrypt.genSalt(10);
-      } catch (err) {
-        throw new Error(err.message);
+    const passwordQuery = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    const [queryPassword] = await mysql.connection.query(passwordQuery);
+    const [databaseHashedPassword] = queryPassword;
+    bcrypt.compare(req.body.oldPassword, databaseHashedPassword.Password, async (error, result) => {
+      if (error) {
+        // throw error here
+        return res.status(401).json({ msg: 'Bad Request In Comparing' });
       }
 
-      try {
-        hashedPassword = await bcrypt.hash(req.body.newPassword, salt);
-      } catch (err) {
-        throw new Error(err.message);
-      }
-      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
-                    SET Password = '${hashedPassword}'
-                    WHERE Handle='${req.userHandle}';`;
-      try {
-        await mysql.connection.query(updateQuery);
-      } catch (err) {
-        throw new Error(err.message);
-      }
-      return res.status(200).json({ msg: 'Updated' });
-    }
-
-    return res.status(401).json({ msg: 'Bad Request' });
+      const salt = await bcrypt.genSalt(10);
+      const newhashedPassword = await bcrypt.hash(req.body.newPassword, salt);
+      const updateQuery = `UPDATE TERRABUZZ.UserInformation SET Password = '${newhashedPassword}'
+        WHERE Handle='${req.userHandle}';`;
+      await mysql.connection.query(updateQuery);
+      return res.status(200).json({ msg: result });
+    });
+    return res.status(401).json({ msg: 'Bad Request After Result Message' });
   }
-
-  return res.status(401).json({ msg: 'Bad Request' });
+  return res.status(401).json({ msg: 'Bad Request Because Passwords Does Not Matches' });
 };
 
 module.exports.loginUser = async (req, res) => {
@@ -191,9 +170,9 @@ module.exports.loginUser = async (req, res) => {
 module.exports.registerUser = async (req, res) => {
   if (req.body.password === req.body.cpassword) {
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const newhashedPassword = await bcrypt.hash(req.body.password, salt);
     const _query = `INSERT INTO TERRABUZZ.UserInformation (Handle, Username, Email, Password ) 
-    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${hashedPassword}' );`;
+    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${newhashedPassword}' );`;
     try {
       await mysql.connection.query(_query);
       return res.status(200).json({ msg: 'User Registered' });
@@ -218,9 +197,9 @@ module.exports.newPassword = async (req, res) => {
 
 module.exports.resetPassword = async (req, res) => {
   const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  const newhashedPassword = await bcrypt.hash(req.body.password, salt);
   try {
-    await changePasswordForUser(hashedPassword, req.body.handle);
+    await changePasswordForUser(newhashedPassword, req.body.handle);
     console.log('Hello, from resetPassword!');
     return res.status(200).json({ msg: 'Password reset!' });
   } catch (error) {
