@@ -12,7 +12,6 @@ const validationSet = new Schema({
   verificationHash: {
     type: String,
     maxlength: 100,
-    unique: true,
   },
   isVerified: {
     type: Boolean,
@@ -21,11 +20,10 @@ const validationSet = new Schema({
   resetHash: {
     type: String,
     maxlength: 100,
-    unique: true,
   },
   isFirstLogin: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 });
 

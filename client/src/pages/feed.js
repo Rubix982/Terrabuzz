@@ -1,45 +1,35 @@
 import React, { useEffect, useState } from 'react';
-// import { Redirect, Route } from 'react-router-dom';
 import Container from '../components/FullViewContainer';
 import MainContent from '../components/NewsFeed/MainContent';
+import FirstLogin from './FirstLogin.js';
 
 // the div is for navbar
 import Navbar from '../components/Navbar';
 
-// The API servicea
-// import { firstLoginCheck } from '../service/checkForFirstLogin.js';
+// The service
+import { firstLoginCheck } from '../services/checkForFirstLogin.js';
 
 const Feed = () => {
 
   let [isFirstLogin, setIsFirstLogin] = useState(false);
 
-  // useEffect(async () => {
-  //   try {
-  //     const { status } = await firstLoginCheck();
+  useEffect(async () => {
+    try {
+      const status = await firstLoginCheck();
 
-  //     // The page to be rendered should not be the first login page
-  //     if (status === false) {
-  //       setIsFirstLogin(false);
-  //     } // the first login page should be rendered
-  //     else {
-  //       setIsFirstLogin(true);
-  //     }
-  //   } catch (error) {
-  //     alert(`Unable to check for first login, because of error ${error.message}`);
-  //   }
-  // });
+      // The page to be rendered should not be the first login page
+      if (status === false) {
+        setIsFirstLogin(false);
+      } else if (status === true) {
+        // the first login page should be rendered
+        setIsFirstLogin(true);
+      }
+    } catch (error) {
+      alert(`Unable to check for first login, because of error ${error.message}`);
+    }
+  });
 
-  // <Router>
-  //   {isFirstLogin ? <Redirect to='/firstLogin' /> : 
-  //   }
-  // </Router>
-
-  if (isFirstLogin) {
-    return (
-      <>
-      </>
-    )
-  } else {
+  const FeedComponent = () => {
     return (
       <Container
         style={{
@@ -53,6 +43,13 @@ const Feed = () => {
       </Container>
     )
   }
+
+  if (isFirstLogin) {
+    return (<FirstLogin />)
+  } else {
+    return (<FeedComponent />)
+  }
+
 };
 
 export default Feed;

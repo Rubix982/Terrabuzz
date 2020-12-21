@@ -192,4 +192,4 @@ VALUES ('AWS', 'Saif');
 INSERT INTO `Interest` (`Topic`, `Handle`)
 VALUES ('Tensorflow', 'TashikMoin');
 INSERT INTO `Interest` (`Topic`, `Handle`)
-VALUES ('.NET', 'hassanzhd');
+VALUES ('Azure', 'hassanzhd');
