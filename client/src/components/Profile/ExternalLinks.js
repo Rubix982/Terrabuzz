@@ -15,7 +15,7 @@ import EditInfoComponent from './EditInfoComponent';
 import { profileContext } from './ProfileContext';
  
 const ExternalLinks = () => {
-  const { profile: { state: { userInformation } } } = useContext(profileContext);
+  const { profile: { state: { isSessionUser ,userInformation } } } = useContext(profileContext);
 
   return (
     <div className={ExternalLinksStyling.GridSystem}>
@@ -27,7 +27,7 @@ const ExternalLinks = () => {
         <SocialMediaFeedLink logo={TwitterLogo} link={userInformation.Twitter} />
         <SocialMediaFeedLink logo={YoutubeLogo} link={userInformation.Youtube} />
       </div>
-      <EditInfoComponent />
+      { isSessionUser ? (<EditInfoComponent />) : '' }
     </div>
   );
 };
