@@ -1,3 +1,6 @@
+// Creating the database
+CREATE DATABASE TERRABUZZ IF NOT EXISTS;
+
 // Inserting the interests
 CREATE (CSharp:Interest {topic: 'C#'});
 CREATE (DotNET:Interest {topic: '.NET'});
@@ -25,75 +28,64 @@ CREATE (hassanzhd:Handle {handle: 'hassanzhd'});
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('C#', 'TashikMoin');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'TashikMoin' AND Topic.topic = 'C#'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MYSQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('.NET', 'TashikMoin');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'TashikMoin' AND Topic.topic = '.NET'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('Azure', 'TashikMoin');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'TashikMoin' AND Topic.topic = 'Azure'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('AWS', 'TashikMoin');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'TashikMoin' AND Topic.topic = 'AWS'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`)VALUES ('Tensorflow', 'Saif');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'Saif' AND Topic.topic = 'Tensorflow'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('JavaScript', 'hassanzhd');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'hassanzhd' AND Topic.topic = 'JavaScript'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('Node', 'hassanzhd');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'hassanzhd' AND Topic.topic = 'Node'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`)VALUES ('AWS', 'hassanzhd');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'hassanzhd' AND Topic.topic = 'AWS'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('AWS', 'Saif');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'Saif' AND Topic.topic = 'AWS'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('Tensorflow', 'TashikMoin');
 MATCH (Handle:Handle), (Topic:Interest)
 WHERE Handle.handle = 'TashikMoin' AND Topic.topic = 'Tensorflow'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+CREATE (Handle)-[:LIKES]->(Topic);
 
 // MySQL equivalent
 // INSERT INTO `Interest` (`Topic`, `Handle`) VALUES ('Azure', 'hassanzhd');
 MATCH (Handle:Handle), (Topic:Interest)
-WHERE Handle.handle = 'TashikMoin' AND Topic.topic = 'Azure'
-CREATE (Handle)-[:LIKES]->(Topic)
-RETURN Handle, Topic;
+WHERE Handle.handle = 'hassanzhd' AND Topic.topic = 'Azure'
+CREATE (Handle)-[:LIKES]->(Topic);
