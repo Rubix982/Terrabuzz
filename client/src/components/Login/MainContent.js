@@ -35,13 +35,13 @@ const MainContent = () => {
         <input onClick={async () => {
           try {
             await loginUser(email, password);
+            localStorage.setItem('loggedIn', true);
+            setTimeout(() => {
+              history.push('/feed');
+            }, 3000);
           } catch (error) {
             alert(error.message);
           }
-          localStorage.setItem('loggedIn', true);
-          setTimeout(() => {
-            history.push('/feed');
-          }, 3000);
         }} className={ComponentStyling.login} type="button" value="Login" />
         <Link to='/register'>
           <input
