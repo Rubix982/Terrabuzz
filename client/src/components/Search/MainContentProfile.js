@@ -16,13 +16,18 @@ const MainContentProfile = () => {
   });
 
   useEffect(async () => {
-    const search = window.location.search;
-    const params = new URLSearchParams(search);
-    const q = params.get('q');
-    setLoading(true);
-    const users  = await getProfileSearchEntries(q.substr(1));
-    setEntries(users);
-    setLoading(false);
+    try {
+      const search = window.location.search;
+      const params = new URLSearchParams(search);
+      const q = params.get('q');
+      setLoading(true);
+      const users  = await getProfileSearchEntries(q);
+      console.log(users);
+      setEntries(users);
+      setLoading(false);
+    } catch (error) {
+      alert(error.message);
+    }
   }, [path]);
 
   if (loading) {

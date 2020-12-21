@@ -2,16 +2,16 @@ import React from 'react';
 import InterestProfile from './InterestProfile';
 import ComponentStyling from '../../style/Search/Content.module.css';
 
-const InterestedInEntries = () => {
-  const entries = new Array(3);
+const SearchInterestedInEntries = ({ interestedInEntries, query }) => {
+  const entries = new Array(interestedInEntries.length);
   const factor = 4;
-  const numberOfRows = Math.ceil(entries.length / factor);
+  const numberOfRows = Math.ceil(parseFloat(entries.length / factor));
 
   for (let i = 0; i < numberOfRows; i++) {
     const children = [];
 
     for (let j = i * factor; j < (i + 1) * factor && j < entries.length ; j++) {
-      children.push(<InterestProfile/>);
+      children.push(<InterestProfile query={query} entryData={interestedInEntries[j]} />);
     }
 
     entries.push(
@@ -24,4 +24,4 @@ const InterestedInEntries = () => {
   return(entries);
 };
 
-export default InterestedInEntries;
+export default SearchInterestedInEntries;

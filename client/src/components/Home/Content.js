@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../API/API';
-import { countTotalLikes, reducePostContent } from '../../services/post';
+import { countAndFormatTotalLikes, formatTotalComments , reducePostContent } from '../../services/post';
 import { Link } from 'react-router-dom';
 import ComponentStyling from '../../style/Home/Content.module.css';
 import Post from './Post';
@@ -31,7 +31,7 @@ const Content = () => {
         {postData.map((element) => {
           return (
             <Link key={element._id} to={'/post/' + element._id}>
-            <Post key={element._id} handle={element.handle} date={element.datePublished} content={reducePostContent(element.content)} likeCount={countTotalLikes(element.likes)} commentCount={element.comments.length} interest={element.interest} />
+            <Post key={element._id} handle={element.handle} date={element.datePublished} content={reducePostContent(element.content, 200)} likeCount={countAndFormatTotalLikes(element.likes)} commentCount={formatTotalComments(element.comments)} interest={element.interest} />
             </Link>
            );
         })}

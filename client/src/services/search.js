@@ -11,6 +11,9 @@ export const getProfileSearchEntries = async (__content) => {
 
 export const getInterestSearchEntries = async (__content) => {
   try {
+    const { entries } = await API.getRequest(`${process.env.REACT_APP_API_URL}/search-interest?topic=${__content}`);
+    return (entries);
   } catch (error) {
+    throw new Error(error.message);
   }
-}
+};

@@ -6,7 +6,7 @@ const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
-const { searchUserProfiles } = require('../services/search.js');
+const { searchUserProfiles, searchInterestEntries } = require('../services/search.js');
 const { GmailMailer } = require('../services/gmailAuth.js');
 const { HTMLResetPasswordForm } = require('../services/template.js');
 const { InsertValidationDocument } = require('../services/resetHash.js');
@@ -93,9 +93,10 @@ module.exports.addLike = async (req, res) => {
   }
 };
 
-module.exports.searchPost = (req, res) => {
+module.exports.searchInterest = async (req, res) => {
   const { topic } = req.query;
-  res.json({ msg: `Post topic to be queried: ${topic}` });
+  const entries = await searchInterestEntries(topic);
+  res.json({ msg: `Post topic to be queried: ${topic}`, entries });
 };
 
 module.exports.searchUser = async (req, res) => {
