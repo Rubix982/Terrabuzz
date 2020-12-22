@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
-import { getSettings } from '../../services/settings';
+import { getSettings, postSettings } from '../../services/settings';
 
 const MainContent = () => {
   const [_Email, setEmail] = useState('');
@@ -14,12 +14,12 @@ const MainContent = () => {
     let data;
     try {
       data = await getSettings();
-    } catch(error) {
-      throw new Error(`Unable to fetch data, due to error ${error.message}`)
+      setEmail(data.Email);
+      setUsername(data.Username);
+      setHandler(data.Handle);
+    } catch (error) {
+      alert(`Unable to fetch data, due to error ${error.message}`)
     }
-    setEmail(data.Email);
-    setUsername(data.Username);
-    setHandler(data.Handle);
   }, []);
 
   const saveChanges = async event => {
@@ -40,9 +40,9 @@ const MainContent = () => {
       };
 
       try {
-        await API.postRequest(`${process.env.REACT_APP_API_URL}/settings`, formData);
+        await postSettings(formData);
       } catch (error) {
-        throw new Error(error.message);
+        alert(error.message);
       }
     }
   }
