@@ -96,15 +96,23 @@ module.exports.addLike = async (req, res) => {
 };
 
 module.exports.searchInterest = async (req, res) => {
-  const { topic } = req.query;
-  const entries = await searchInterestEntries(topic);
-  res.json({ msg: `Post topic to be queried: ${topic}`, entries });
+  try {
+    const { topic } = req.query;
+    const entries = await searchInterestEntries(topic);
+    return res.status(200).json({ msg: `Post topic to be queried: ${topic}`, entries });
+  } catch (error) {
+    return res.status(500).json({ msg: `Error occurred while searching for interests, ${error.message}` });
+  }
 };
 
 module.exports.searchUser = async (req, res) => {
-  const { handle } = req.query;
-  const users = await searchUserProfiles(handle);
-  res.json({ msg: `Handle to be queried: ${handle}`, users });
+  try {
+    const { handle } = req.query;
+    const users = await searchUserProfiles(handle);
+    return res.status(200).json({ msg: `Handle to be queried: ${handle}`, users });
+  } catch (error) {
+    return res.status(500).json({ msg: `Error occurred while searching for users, ${error.message}` });
+  }
 };
 
 module.exports.getSettings = async (req, res) => {
@@ -175,8 +183,8 @@ module.exports.registerUser = async (req, res) => {
 };
 
 module.exports.newPassword = async (req, res) => {
-  const receivedQueryVerificationHash = req.url.split('/')[2];
   try {
+    const receivedQueryVerificationHash = req.url.split('/')[2];
     const handle = await VerifyResetPasswordHash(receivedQueryVerificationHash);
     return res.status(200).json(handle);
   } catch (error) {
@@ -185,9 +193,9 @@ module.exports.newPassword = async (req, res) => {
 };
 
 module.exports.resetPassword = async (req, res) => {
-  const salt = await bcrypt.genSalt(10);
-  const newhashedPassword = await bcrypt.hash(req.body.password, salt);
   try {
+    const salt = await bcrypt.genSalt(10);
+    const newhashedPassword = await bcrypt.hash(req.body.password, salt);
     await changePasswordForUser(newhashedPassword, req.body.handle);
     return res.status(200).json({ msg: 'Password reset!' });
   } catch (error) {
