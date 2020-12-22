@@ -1,4 +1,5 @@
 /* eslint-disable no-await-in-loop */
+const lodash = require('lodash');
 const MYSQL_CONNECTOR = require('../db/mysql/connection.js');
 const { Post } = require('../models/post.js');
 const InterestedInEntry = require('../models/InterestedInEntry.js');
@@ -19,7 +20,8 @@ const convertObjectArrayToArray = (__array, __key) => {
 
 const searchInterestEntries = async (__interest) => {
   try {
-    const regexExpression = new RegExp(__interest, 'g');
+    const safeInterest = lodash.escapeRegExp(__interest);
+    const regexExpression = new RegExp(safeInterest, 'g');
     const postData = await Post.find({ interest: { $regex: regexExpression } }).populate('likes').populate('comments').exec();
 
     const profilePictures = [];

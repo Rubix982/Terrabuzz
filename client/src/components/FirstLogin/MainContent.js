@@ -62,7 +62,6 @@ const MainContent = () => {
       alert(`Unable to submit form due to error "${error.message}"`)
     }
 
-    console.log('heeeeeereee');
     history.push('/feed');
   };
 

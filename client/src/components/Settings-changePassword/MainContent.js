@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import API from '../../API/API.js'
 import '../../style/Settings-changePassword/Settings-changePassword.css';
+import { makeRequestToChangePassword } from '../../services/changePassword.js';
 
 const MainContent = () => {
   const [_oldPassword, setoldPassword] = useState('');
@@ -19,10 +19,10 @@ const MainContent = () => {
     };
 
     try {
-      await API.postRequest(`${process.env.REACT_APP_API_URL}/changepassword`, formData);
+      await makeRequestToChangePassword(formData);
     }
     catch (err) {
-      throw new Error(err.message);
+      alert(err.message)
     }
   }
 
@@ -48,6 +48,16 @@ const MainContent = () => {
                 type="button"
                 className="current options-button change-password"
                 value="Change Password"
+              />
+            </a>
+          </div>
+
+          <div>
+            <a href="/forgetPassword" >
+              <input
+                type="button"
+                className="options-button change-password"
+                value="Forget Password"
               />
             </a>
           </div>

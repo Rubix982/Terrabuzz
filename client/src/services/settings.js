@@ -11,3 +11,11 @@ export const getSettings = async() => {
         throw new Error(error.message);
     }
 }
+
+export const postSettings = async(__formData) => {
+    try {
+        await API.postRequest(`${process.env.REACT_APP_API_URL}/settings`, __formData);
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}

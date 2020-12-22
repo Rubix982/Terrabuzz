@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import ComponentStyling from '../../style/Register/register.module.css';
 import { registerUserDetails } from '../../services/register';
 require('dotenv').config();
@@ -11,6 +11,7 @@ const MainContent = () => {
   const _cpassword = useRef('');
   const _username = useRef('');
   const _userhandler = useRef('');
+  const history = useHistory();
 
   const registerUser = async (event) => {
     event.preventDefault();
@@ -24,6 +25,7 @@ const MainContent = () => {
         _userhandler.current.value
       );
       alert(`You've successfully registered!`)
+      history.push('/login');
     } catch (error) {
       alert(`Register wasn't able to be completed because of the erro ${error.message}`);
     }

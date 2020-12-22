@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
-import { getSettings } from '../../services/settings';
+import { getSettings, postSettings } from '../../services/settings';
 
 const MainContent = () => {
   const [_Email, setEmail] = useState('');
   const [_Username, setUsername] = useState('');
-  const [_Handler, setHandler] = useState(''); 
+  const [_Handler, setHandler] = useState('');
   const [_Password, setPassword] = useState('');
   const [_CPassword, setCPassword] = useState('');
 
-  useEffect( async () => {
-    const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/settings`);
-    const [data] = response[0];
-    setEmail(data.Email) ;
-    setUsername(data.Username) ;
-    setHandler(data.Handler) ;
-  },[]); 
+  useEffect(async () => {
+    let data;
+    try {
+      data = await getSettings();
+      setEmail(data.Email);
+      setUsername(data.Username);
+      setHandler(data.Handle);
+    } catch (error) {
+      alert(`Unable to fetch data, due to error ${error.message}`)
+    }
+  }, []);
 
   const saveChanges = async event => {
 
@@ -36,9 +40,9 @@ const MainContent = () => {
       };
 
       try {
-        await API.postRequest(`${process.env.REACT_APP_API_URL}/settings`, formData);
+        await postSettings(formData);
       } catch (error) {
-        throw new Error(error.message);
+        alert(error.message);
       }
     }
   }
@@ -66,6 +70,16 @@ const MainContent = () => {
                 type="button"
                 className="options-button change-password"
                 value="Change Password"
+              />
+            </a>
+          </div>
+
+          <div>
+            <a href="/forgetPassword" >
+              <input
+                type="button"
+                className="options-button change-password"
+                value="Forget Password"
               />
             </a>
           </div>

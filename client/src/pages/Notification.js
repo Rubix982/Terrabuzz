@@ -2,7 +2,7 @@ import React from 'react';
 
 // React components
 import Container from '../components/FullViewContainer';
-import NavbarLoggedOut from '../components/NavbarLoggedOut';
+import Navbar from '../components/Navbar';
 import MainContent from '../components/Notification/MainContent';
 
 const Notification = () => (
@@ -13,7 +13,7 @@ const Notification = () => (
       gridTemplateRows: '10% 90%',
     }}
   >
-    <NavbarLoggedOut title="Terrabuzz" />
+    <Navbar title="Terrabuzz" />
     <MainContent />
   </Container>
 );

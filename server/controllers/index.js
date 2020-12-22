@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const { generateAccessToken } = require('../services/auth.js');
 const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
@@ -7,14 +6,15 @@ const { getLikeStatus, updateLike } = require('../services/like.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
 const { searchUserProfiles, searchInterestEntries } = require('../services/search.js');
-const { GmailMailer } = require('../services/gmailAuth.js');
-const { HTMLResetPasswordForm } = require('../services/template.js');
-const { InsertValidationDocument } = require('../services/resetHash.js');
+const { forgetPasswordUpdation } = require('../services/forgetPassword.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
 const { checkForFirstLogin } = require('../services/firstLogin.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
-const mysql = (require('../db/mysql/connection.js'));
+const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
+const { postUserCredentialsInDatabase } = require('../services/register.js');
+const { getSettingsFromDatabase } = require('../services/getSettings.js');
+const { updateSettingsInDatabase } = require('../services/updateSettings.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -38,7 +38,6 @@ module.exports.getUserProfile = async (req, res) => {
   try {
     const userID = req.params.handle;
     const data = await getProfileData(userID, req.userHandle);
-    console.log(data);
     res.json({ msg: `UserID to be queried: ${userID}`, data });
   } catch (error) {
     res.status(404).json({ msg: error.message });
@@ -47,7 +46,7 @@ module.exports.getUserProfile = async (req, res) => {
 
 module.exports.publishPost = async (req, res) => {
   try {
-    createAndPushPost(req.body, req.userHandle);
+    await createAndPushPost(req.body, req.userHandle);
     return res.json({ msg: 'Post posted successfully!' });
   } catch (error) {
     return res.status(400).json({ msg: error.message });
@@ -67,7 +66,6 @@ module.exports.getPost = async (req, res) => {
 module.exports.newComment = async (req, res) => {
   try {
     const postID = req.params.id;
-    console.log(postID, req.userHandle, req.body.Comment);
     const status = await addComment(postID, req.userHandle, req.body.Comment);
     res.json({ msg: `Comment status of postID ${postID}`, status });
   } catch (error) {
@@ -96,69 +94,58 @@ module.exports.addLike = async (req, res) => {
 };
 
 module.exports.searchInterest = async (req, res) => {
-  const { topic } = req.query;
-  const entries = await searchInterestEntries(topic);
-  res.json({ msg: `Post topic to be queried: ${topic}`, entries });
+  try {
+    const { topic } = req.query;
+    const entries = await searchInterestEntries(topic);
+    return res.status(200).json({ msg: `Post topic to be queried: ${topic}`, entries });
+  } catch (error) {
+    return res.status(500).json({ msg: `Error occurred while searching for interests, ${error.message}` });
+  }
 };
 
 module.exports.searchUser = async (req, res) => {
-  const { handle } = req.query;
-  const users = await searchUserProfiles(handle);
-  res.json({ msg: `Handle to be queried: ${handle}`, users });
+  try {
+    const { handle } = req.query;
+    const users = await searchUserProfiles(handle);
+    return res.status(200).json({ msg: `Handle to be queried: ${handle}`, users });
+  } catch (error) {
+    return res.status(500).json({ msg: `Error occurred while searching for users, ${error.message}` });
+  }
 };
 
 module.exports.getSettings = async (req, res) => {
   try {
-    const _query = `select Username, Email,
-    Handle from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const output = await mysql.connection.query(_query);
-    res.send(output);
+    const output = await getSettingsFromDatabase(req.userHandle);
+    return res.status(200).send(output);
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ msg: error.message });
   }
 };
 
 module.exports.updateSettings = async (req, res) => {
-  if (req.body.Password === req.body.CPassword) {
-    const passwordQuery = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const [queryPassword] = await mysql.connection.query(passwordQuery);
-    const [data] = queryPassword;
-
-    if (data.Password === req.body.Password) {
-      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
-                    SET Email = '${req.body.Email}', Username = '${req.body.Username}'
-                    WHERE Handle='${req.userHandle}';`;
-      await mysql.connection.query(updateQuery);
-      return res.status(200).json({ msg: 'Updated' });
-    }
-
-    return res.status(401).json({ msg: 'Bad Request' });
+  try {
+    const updateForm = {
+      Password: req.body.Password,
+      CPassword: req.body.CPassword,
+      userHandle: req.userHandle,
+      Email: req.body.Email,
+      Username: req.body.Username,
+    };
+    await updateSettingsInDatabase(updateForm);
+    return res.status(200).json({ msg: 'Update settings performed successfully' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Error while updating settings, ${error.message}` });
   }
-
-  return res.status(401).json({ msg: 'Bad Request' });
 };
 
 module.exports.changePassword = async (req, res) => {
-  if (req.body.newPassword === req.body.confirmPassword) {
-    const passwordQuery = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const [queryPassword] = await mysql.connection.query(passwordQuery);
-    const [databaseHashedPassword] = queryPassword;
-    bcrypt.compare(req.body.oldPassword, databaseHashedPassword.Password, async (error, result) => {
-      if (error) {
-        // throw error here
-        return res.status(401).json({ msg: 'Bad Request In Comparing' });
-      }
-
-      const salt = await bcrypt.genSalt(10);
-      const newhashedPassword = await bcrypt.hash(req.body.newPassword, salt);
-      const updateQuery = `UPDATE TERRABUZZ.UserInformation SET Password = '${newhashedPassword}'
-        WHERE Handle='${req.userHandle}';`;
-      await mysql.connection.query(updateQuery);
-      return res.status(200).json({ msg: result });
-    });
-    return res.status(401).json({ msg: 'Bad Request After Result Message' });
+  try {
+    await changePasswordInSettings(req.userHandle, req.body.oldPassword,
+      req.body.newPassword, req.body.confirmPassword);
+    return res.status(200).json({ msg: 'Password changed succesfully!' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to update password, due to ${error.message}` });
   }
-  return res.status(401).json({ msg: 'Bad Request Because Passwords Does Not Matches' });
 };
 
 module.exports.loginUser = async (req, res) => {
@@ -172,82 +159,59 @@ module.exports.loginUser = async (req, res) => {
 };
 
 module.exports.registerUser = async (req, res) => {
-  if (req.body.password === req.body.cpassword) {
-    const salt = await bcrypt.genSalt(10);
-    const newhashedPassword = await bcrypt.hash(req.body.password, salt);
-    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handle, Username, Email, Password ) 
-    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${newhashedPassword}' );`;
-    try {
-      await mysql.connection.query(_query);
-      return res.status(200).json({ msg: 'User Registered' });
-    } catch (error) {
-      return res.status(401).json({ msg: error.message });
-    }
+  try {
+    const registerForm = {
+      password: req.body.password,
+      cpassword: req.body.cpassword,
+      userhandler: req.body.userhandler,
+      username: req.body.username,
+      email: req.body.email,
+    };
+    await postUserCredentialsInDatabase(registerForm);
+    return res.status(200).json({ msg: 'Successfully registered user' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to register user, due to error ${error.message}` });
   }
-  return res.status(401).json({ msg: 'Password not matched' });
 };
 
 module.exports.newPassword = async (req, res) => {
-  const receivedQueryVerificationHash = req.url.split('/')[2];
   try {
-    const handle = await VerifyResetPasswordHash(receivedQueryVerificationHash);
+    const handle = await VerifyResetPasswordHash(req.url.split('/')[2]);
     return res.status(200).json(handle);
   } catch (error) {
-    console.log(`Verification for reset hash not approved, see error, ${error.message}`);
-    return res.status(404).json({ msg: 'Reset hash verification not approved' });
+    return res.status(404).json({ msg: `Verification for reset hash not approved, see error, ${error.message}` });
   }
 };
 
 module.exports.resetPassword = async (req, res) => {
-  const salt = await bcrypt.genSalt(10);
-  const newhashedPassword = await bcrypt.hash(req.body.password, salt);
   try {
-    await changePasswordForUser(newhashedPassword, req.body.handle);
-    console.log('Hello, from resetPassword!');
+    await changePasswordForUser(req.body.password, req.body.handle);
     return res.status(200).json({ msg: 'Password reset!' });
   } catch (error) {
-    console.log(`Error while running changePasswordForUser, with error ${error.message} `);
-    return res.status(500).json({ msg: 'Some error occured?' });
+    return res.status(500).json({ msg: `Error while running changePasswordForUser, with error ${error.message}` });
   }
 };
 
 module.exports.forgetPassword = async (req, res) => {
-  const __query = `SELECT Handle FROM TERRABUZZ.UserInformation WHERE Email='${req.body.email}'`;
-
-  // If the user exists in the database
   try {
-    const [result] = await mysql.connection.query(__query);
-    if ([result[0]][0] === undefined) throw new Error('Invalid email!');
+    await forgetPasswordUpdation(req.body.email);
+    return res.status(200).json({ msg: 'Successfully sent request to change password' });
   } catch (error) {
-    return res.status(404).json({ msg: 'Request email to send reset password cannot be found' });
-  }
-
-  try {
-    const salt = await bcrypt.genSalt(10);
-    let hashedResetLink = await bcrypt.hash(req.body.email, salt);
-    hashedResetLink = hashedResetLink.replaceAll('/', '');
-    hashedResetLink = hashedResetLink.replaceAll('.', '');
-    try {
-      await InsertValidationDocument(req.body.email, hashedResetLink);
-    } catch (error) {
-      console.error('InsertValidationDocument failed');
-    }
-    const mail = new GmailMailer(req.body.email, HTMLResetPasswordForm(hashedResetLink));
-    mail.send();
-    return res.status(200).json({ msg: 'Recovery email sent!' });
-  } catch (error) {
-    console.log(error.message);
-    return res.status(500).json({ msg: 'Unable to send a reset email!' });
+    return res.status(500).json({ msg: `Unable to send request for forgetPassword, due to error "${error.message}"` });
   }
 };
 
 module.exports.controllerLogOut = async (req, res) => {
-  try {
-    req.cookie['access-token'] = '';
-    return res.status(200).json({ msg: 'Access Token Removed' });
-  } catch (error) {
-    return res.status(403).json({ msg: 'Unable to remove access token' });
-  }
+  // Does not work - I don't understand at the moment
+  res.status(200).json({ msg: 'Testing' });
+
+  // try {
+  //   console.log(`Cookie is`);
+  //   return res.status(200).json({ msg: 'Access Token Removed' });
+  // } catch (error) {
+  //   return res.status(403).json({ msg: `Unable to remove access token,
+  //   with error ${error.message}` });
+  // }
 };
 
 module.exports.postFirstLoginInformation = async (req, res) => {
