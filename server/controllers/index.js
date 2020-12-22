@@ -17,6 +17,7 @@ const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
 const { postUserCredentialsInDatabase } = require('../services/register.js');
 const { getSettingsFromDatabase } = require('../services/getSettings.js');
+const { updateSettingsInDatabase } = require('../services/updateSettings.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -126,23 +127,19 @@ module.exports.getSettings = async (req, res) => {
 };
 
 module.exports.updateSettings = async (req, res) => {
-  if (req.body.Password === req.body.CPassword) {
-    const passwordQuery = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const [queryPassword] = await mysql.connection.query(passwordQuery);
-    const [data] = queryPassword;
-
-    if (data.Password === req.body.Password) {
-      const updateQuery = `UPDATE TERRABUZZ.UserInformation 
-                    SET Email = '${req.body.Email}', Username = '${req.body.Username}'
-                    WHERE Handle='${req.userHandle}';`;
-      await mysql.connection.query(updateQuery);
-      return res.status(200).json({ msg: 'Updated' });
-    }
-
-    return res.status(401).json({ msg: 'Bad Request' });
+  try {
+    const updateForm = {
+      Password: req.body.Password,
+      CPassword: req.body.CPassword,
+      userHandle: req.userHandle,
+      Email: req.body.Email,
+      Username: req.body.Username,
+    };
+    await updateSettingsInDatabase(updateForm);
+    return res.status(200).json({ msg: 'Update settings performed successfully' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Error while updating settings, ${error.message}` });
   }
-
-  return res.status(401).json({ msg: 'Bad Request' });
 };
 
 module.exports.changePassword = async (req, res) => {
