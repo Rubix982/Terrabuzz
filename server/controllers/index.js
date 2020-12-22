@@ -39,7 +39,6 @@ module.exports.getUserProfile = async (req, res) => {
   try {
     const userID = req.params.handle;
     const data = await getProfileData(userID, req.userHandle);
-    console.log(data);
     res.json({ msg: `UserID to be queried: ${userID}`, data });
   } catch (error) {
     res.status(404).json({ msg: error.message });
@@ -48,7 +47,7 @@ module.exports.getUserProfile = async (req, res) => {
 
 module.exports.publishPost = async (req, res) => {
   try {
-    createAndPushPost(req.body, req.userHandle);
+    await createAndPushPost(req.body, req.userHandle);
     return res.json({ msg: 'Post posted successfully!' });
   } catch (error) {
     return res.status(400).json({ msg: error.message });
