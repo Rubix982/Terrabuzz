@@ -1,11 +1,12 @@
 const bcrypt = require('bcrypt');
 const mysql = require('../db/mysql/connection.js');
 const { PostList } = require('../models/post.js');
+const { NotificationList } = require('../models/notification.js');
 
 const postUserCredentialsInDatabase = async (__registerForm) => {
   if (!__registerForm.password || !__registerForm.cpassword
-        || !__registerForm.userhandler || !__registerForm.username
-        || !__registerForm.email) {
+    || !__registerForm.userhandler || !__registerForm.username
+    || !__registerForm.email) {
     throw new Error('Required fields cannot be empty');
   }
 
@@ -22,6 +23,11 @@ const postUserCredentialsInDatabase = async (__registerForm) => {
         payload: [],
       });
       await userPostList.save();
+      const notificationList = new NotificationList({
+        _id: __registerForm.userhandler,
+        payload: [],
+      });
+      await notificationList.save();
     } catch (error) {
       throw new Error(error.message);
     }
