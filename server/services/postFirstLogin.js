@@ -13,7 +13,6 @@ const postUserInformationForBio = async (__handler, __userInformationBlob) => {
     try {
       result.save();
     } catch (errorValidtion) {
-      console.log('hereerererere - 1.1');
       throw new Error(`Unable to save fetched Validation Set, due to error ${errorValidtion.message}`);
     }
   } catch (error) {
