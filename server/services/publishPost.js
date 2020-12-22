@@ -38,14 +38,7 @@ const formattedDate = () => {
 
 const createAndPushPost = async ({ title, content, interest }, __handle) => {
   try {
-    let userPostList = await PostList.findOne({ _id: __handle }).populate('payload');
-    if (userPostList === null) {
-      userPostList = new PostList({
-        _id: __handle,
-        payload: [],
-      });
-      await userPostList.save();
-    }
+    const userPostList = await PostList.findOne({ _id: __handle }).populate('payload');
     const date = formattedDate();
     const newPost = new Post({
       handle: __handle,
