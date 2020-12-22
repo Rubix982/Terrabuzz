@@ -21,8 +21,6 @@ import Contact from './pages/Contact';
 import FirstLogin from './pages/FirstLogin';
 import PrivacyPolicy from './pages/privacyPolicy';
 import Notification from './pages/Notification';
-
-import SearchTypeProvider from './components/Search/SearchTypeContext';
 import LoginUserProvider from './components/LoginUserContext'
 
 function App() {
@@ -33,7 +31,9 @@ function App() {
       <LoginUserProvider>
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/">
+              {loggedIn ? <Feed /> : <Home />}
+            </Route>
             <Route exact path="/feed" component={Feed} />
             <Route exact path="/profile/:handle" component={Profile} />
             <Route exact path='/notification' component={Notification} />
