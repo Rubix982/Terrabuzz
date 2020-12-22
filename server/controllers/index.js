@@ -15,6 +15,7 @@ const { changePasswordForUser } = require('../services/changePassword.js');
 const { checkForFirstLogin } = require('../services/firstLogin.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
+const { postUserCredentialsInDatabase } = require('../services/register.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -159,19 +160,19 @@ module.exports.loginUser = async (req, res) => {
 };
 
 module.exports.registerUser = async (req, res) => {
-  if (req.body.password === req.body.cpassword) {
-    const salt = await bcrypt.genSalt(10);
-    const newhashedPassword = await bcrypt.hash(req.body.password, salt);
-    const _query = `INSERT INTO TERRABUZZ.UserInformation (Handle, Username, Email, Password ) 
-    VALUES ('${req.body.userhandler}', '${req.body.username}', '${req.body.email}', '${newhashedPassword}' );`;
-    try {
-      await mysql.connection.query(_query);
-      return res.status(200).json({ msg: 'User Registered' });
-    } catch (error) {
-      return res.status(401).json({ msg: error.message });
-    }
+  try {
+    const registerForm = {
+      password: req.body.password,
+      cpassword: req.body.cpassword,
+      userhandler: req.body.userhandler,
+      username: req.body.username,
+      email: req.body.email,
+    };
+    await postUserCredentialsInDatabase(registerForm);
+    return res.status(200).json({ msg: 'Successfully registered user' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to register user, due to error ${error.message}` });
   }
-  return res.status(401).json({ msg: 'Password not matched' });
 };
 
 module.exports.newPassword = async (req, res) => {
