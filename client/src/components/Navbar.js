@@ -22,7 +22,7 @@ const Navbar = () => {
           </div>
         </RightAlign>
         <div className={ComponentStyling.title}>
-          <Link to="/">
+          <Link to="/feed">
             <h1>Terrabuzz</h1>
           </Link>
         </div>
