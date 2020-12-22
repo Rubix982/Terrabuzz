@@ -75,6 +75,16 @@ const MainContent = () => {
           </div>
 
           <div>
+            <a href="/forgetPassword" >
+              <input
+                type="button"
+                className="options-button change-password"
+                value="Forget Password"
+              />
+            </a>
+          </div>
+
+          <div>
             <input
               type="button"
               className="options-button security"
