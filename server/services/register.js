@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const mysql = require('../db/mysql/connection.js');
+const { PostList } = require('../models/post.js');
 
 const postUserCredentialsInDatabase = async (__registerForm) => {
   if (!__registerForm.password || !__registerForm.cpassword
@@ -16,7 +17,11 @@ const postUserCredentialsInDatabase = async (__registerForm) => {
         '${__registerForm.email}', '${newhashedPassword}' );`;
     try {
       await mysql.connection.query(_query);
-      throw new Error('User Registered');
+      const userPostList = new PostList({
+        _id: __registerForm.userhandler,
+        payload: [],
+      });
+      await userPostList.save();
     } catch (error) {
       throw new Error(error.message);
     }
