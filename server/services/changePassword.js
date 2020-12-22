@@ -1,11 +1,15 @@
+const bcrypt = require('bcrypt');
 const mysql = require('../db/mysql/connection.js');
 
-const changePasswordForUser = async (__hashedPassword, __handle) => {
-  if (!__hashedPassword || !__handle) {
+const changePasswordForUser = async (__password, __handle) => {
+  const salt = await bcrypt.genSalt(10);
+  const newhashedPassword = await bcrypt.hash(__password, salt);
+
+  if (!__handle) {
     throw new Error('Required fields cannot be empty!');
   }
 
-  const __query = `UPDATE TERRABUZZ.UserInformation SET Password='${__hashedPassword}' WHERE Handle='${__handle}';`;
+  const __query = `UPDATE TERRABUZZ.UserInformation SET Password='${newhashedPassword}' WHERE Handle='${__handle}';`;
 
   try {
     await mysql.connection.query(__query);

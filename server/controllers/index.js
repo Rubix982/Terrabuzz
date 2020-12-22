@@ -190,9 +190,7 @@ module.exports.newPassword = async (req, res) => {
 
 module.exports.resetPassword = async (req, res) => {
   try {
-    const salt = await bcrypt.genSalt(10);
-    const newhashedPassword = await bcrypt.hash(req.body.password, salt);
-    await changePasswordForUser(newhashedPassword, req.body.handle);
+    await changePasswordForUser(req.body.password, req.body.handle);
     return res.status(200).json({ msg: 'Password reset!' });
   } catch (error) {
     return res.status(500).json({ msg: `Error while running changePasswordForUser, with error ${error.message}` });
