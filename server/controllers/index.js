@@ -14,6 +14,7 @@ const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
 const { checkForFirstLogin } = require('../services/firstLogin.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
+const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -139,26 +140,13 @@ module.exports.updateSettings = async (req, res) => {
 };
 
 module.exports.changePassword = async (req, res) => {
-  if (req.body.newPassword === req.body.confirmPassword) {
-    const passwordQuery = `select Password from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const [queryPassword] = await mysql.connection.query(passwordQuery);
-    const [databaseHashedPassword] = queryPassword;
-    bcrypt.compare(req.body.oldPassword, databaseHashedPassword.Password, async (error, result) => {
-      if (error) {
-        // throw error here
-        return res.status(401).json({ msg: 'Bad Request In Comparing' });
-      }
-
-      const salt = await bcrypt.genSalt(10);
-      const newhashedPassword = await bcrypt.hash(req.body.newPassword, salt);
-      const updateQuery = `UPDATE TERRABUZZ.UserInformation SET Password = '${newhashedPassword}'
-        WHERE Handle='${req.userHandle}';`;
-      await mysql.connection.query(updateQuery);
-      return res.status(200).json({ msg: result });
-    });
-    return res.status(401).json({ msg: 'Bad Request After Result Message' });
+  try {
+    await changePasswordInSettings(req.userHandle, req.body.oldPassword,
+      req.body.newPassword, req.body.confirmPassword);
+    return res.status(200).json({ msg: 'Password changed succesfully!' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to update password, due to ${error.message}` });
   }
-  return res.status(401).json({ msg: 'Bad Request Because Passwords Does Not Matches' });
 };
 
 module.exports.loginUser = async (req, res) => {
