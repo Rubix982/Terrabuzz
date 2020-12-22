@@ -9,12 +9,13 @@ import { concatInterests } from '../../services/profile';
 import ProfileSectionStyling from '../../style/Profile/ProfileSection.module.css';
 
 const ProfileSection = () => {
-  const { profile: { state: { userInformation, connections, interests, posts } } } = useContext(profileContext);
-  console.log(userInformation);
+  const { profile: { state: { isSessionUser , userInformation, connections, interests, posts } } } = useContext(profileContext);
+
   return (
     <div className={ProfileSectionStyling.layoutClass}>
       <div className={ProfileSectionStyling.top}>
         <div className={ProfileSectionStyling.topRow}>
+        { isSessionUser ? (
           <div className={ProfileSectionStyling.userNameStyling}>
             <div>
               <h1>{userInformation.Username}</h1>
@@ -23,6 +24,12 @@ const ProfileSection = () => {
               <EditProfileInformation />
             </div>
           </div>
+        ) : (
+          <div>
+            <h1>{userInformation.Username}</h1>
+          </div>
+        ) }
+        
         </div>
         <div className={ProfileSectionStyling.topRow}>
           <h1>@{userInformation.Handle}</h1>
