@@ -16,6 +16,7 @@ const { checkForFirstLogin } = require('../services/firstLogin.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
 const { postUserCredentialsInDatabase } = require('../services/register.js');
+const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const mysql = (require('../db/mysql/connection.js'));
 
 module.exports.getHomePage = async (req, res) => {
@@ -117,12 +118,10 @@ module.exports.searchUser = async (req, res) => {
 
 module.exports.getSettings = async (req, res) => {
   try {
-    const _query = `select Username, Email,
-    Handle from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const output = await mysql.connection.query(_query);
-    res.send(output);
+    const output = getSettingsFromDatabase(req.userHandle);
+    return res.status(200).send(output);
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ msg: error.message });
   }
 };
 
