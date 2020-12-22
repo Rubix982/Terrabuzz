@@ -202,12 +202,16 @@ module.exports.forgetPassword = async (req, res) => {
 };
 
 module.exports.controllerLogOut = async (req, res) => {
-  try {
-    req.cookie['access-token'] = '';
-    return res.status(200).json({ msg: 'Access Token Removed' });
-  } catch (error) {
-    return res.status(403).json({ msg: 'Unable to remove access token' });
-  }
+  // Does not work - I don't understand at the moment
+  res.status(200).json({ msg: 'Testing' });
+
+  // try {
+  //   console.log(`Cookie is`);
+  //   return res.status(200).json({ msg: 'Access Token Removed' });
+  // } catch (error) {
+  //   return res.status(403).json({ msg: `Unable to remove access token,
+  //   with error ${error.message}` });
+  // }
 };
 
 module.exports.postFirstLoginInformation = async (req, res) => {

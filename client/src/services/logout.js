@@ -1,14 +1,9 @@
 import API from '../API/API';
 
-const logMeOutService = async () => {
-    // No arguments needed
-
+export const logMeOutService = async () => {
     try {
-        const status = await API.postRequest(`${REACT_APP_API_URL}/logout`, {})
-        console.log(`Logged out user with status, ${status}`)
+        await API.postRequest(`${process.env.REACT_APP_API_URL}/logout`)
     } catch (error) {
-        console.log(`Logging user out service`)
+        throw new Error(`Unable to log user out, with error "${error.message}"`)
     }
 };
-
-module.exports.logMeOutService = logMeOutService;

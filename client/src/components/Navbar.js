@@ -1,18 +1,33 @@
 // React itself
-import React, { useState , useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 // Components
 import Menu from '../assets/img/icon/HamburgerMenu.svg';
 import Notifications from '../assets/img/icon/Notifications.svg';
 import Logo from '../assets/img/icon/Logo.svg';
-import { RightAlign, CenterAlign } from './FlexAlignment';
+import { RightAlign } from './FlexAlignment';
 import SearchBar from './SearchBar';
+
+// Service
+import { logMeOutService } from '../services/logout.js';
 
 // Styling
 import ComponentStyling from '../style/Navbar.module.css';
 
 const Navbar = () => {
+
+  const history = useHistory();
+
+  const logMeOutIsClicked = async () => {
+    try {
+      await logMeOutService();
+      history.push('/login');
+    } catch (error) {
+      alert(`Unable to log out, due to error "${error.message}"`)
+    }
+  }
+
   return (
     <div className={ComponentStyling.navbarGrid}>
       <div className={ComponentStyling.leftContent}>
@@ -124,7 +139,7 @@ const Navbar = () => {
 
                   {/* Logout */}
                   <div className={ComponentStyling.tilingStyleForGrid}>
-                    <a href='/login' className={ComponentStyling.gridStylingForDropdown}>
+                    <a onClick={logMeOutIsClicked} href='/login' className={ComponentStyling.gridStylingForDropdown}>
                       <div className={ComponentStyling.gridStylingForDropdownIcons}>
                         <img
                           alt='logOut'
@@ -147,6 +162,6 @@ const Navbar = () => {
       </RightAlign>
     </div>
   );
-};  
+};
 
 export default Navbar;
