@@ -119,7 +119,7 @@ module.exports.searchUser = async (req, res) => {
 
 module.exports.getSettings = async (req, res) => {
   try {
-    const output = getSettingsFromDatabase(req.userHandle);
+    const output = await getSettingsFromDatabase(req.userHandle);
     return res.status(200).send(output);
   } catch (error) {
     return res.status(500).json({ msg: error.message });
