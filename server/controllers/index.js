@@ -68,7 +68,6 @@ module.exports.getPost = async (req, res) => {
 module.exports.newComment = async (req, res) => {
   try {
     const postID = req.params.id;
-    console.log(postID, req.userHandle, req.body.Comment);
     const status = await addComment(postID, req.userHandle, req.body.Comment);
     res.json({ msg: `Comment status of postID ${postID}`, status });
   } catch (error) {
@@ -181,8 +180,7 @@ module.exports.newPassword = async (req, res) => {
     const handle = await VerifyResetPasswordHash(receivedQueryVerificationHash);
     return res.status(200).json(handle);
   } catch (error) {
-    console.log(`Verification for reset hash not approved, see error, ${error.message}`);
-    return res.status(404).json({ msg: 'Reset hash verification not approved' });
+    return res.status(404).json({ msg: `Verification for reset hash not approved, see error, ${error.message}` });
   }
 };
 
@@ -191,11 +189,9 @@ module.exports.resetPassword = async (req, res) => {
   const newhashedPassword = await bcrypt.hash(req.body.password, salt);
   try {
     await changePasswordForUser(newhashedPassword, req.body.handle);
-    console.log('Hello, from resetPassword!');
     return res.status(200).json({ msg: 'Password reset!' });
   } catch (error) {
-    console.log(`Error while running changePasswordForUser, with error ${error.message} `);
-    return res.status(500).json({ msg: 'Some error occured?' });
+    return res.status(500).json({ msg: `Error while running changePasswordForUser, with error ${error.message}` });
   }
 };
 
@@ -207,7 +203,7 @@ module.exports.forgetPassword = async (req, res) => {
     const [result] = await mysql.connection.query(__query);
     if ([result[0]][0] === undefined) throw new Error('Invalid email!');
   } catch (error) {
-    return res.status(404).json({ msg: 'Request email to send reset password cannot be found' });
+    return res.status(404).json({ msg: `equest email to send reset password cannot be found. Error is "${error.message}"` });
   }
 
   try {
@@ -218,14 +214,13 @@ module.exports.forgetPassword = async (req, res) => {
     try {
       await InsertValidationDocument(req.body.email, hashedResetLink);
     } catch (error) {
-      console.error('InsertValidationDocument failed');
+      return res.status(500).json({ msg: `InsertValidationDocument failed due to error ${error.message}` });
     }
     const mail = new GmailMailer(req.body.email, HTMLResetPasswordForm(hashedResetLink));
     mail.send();
     return res.status(200).json({ msg: 'Recovery email sent!' });
   } catch (error) {
-    console.log(error.message);
-    return res.status(500).json({ msg: 'Unable to send a reset email!' });
+    return res.status(500).json({ msg: `Unable to send a reset email. Encountered error "${error.message}"` });
   }
 };
 
