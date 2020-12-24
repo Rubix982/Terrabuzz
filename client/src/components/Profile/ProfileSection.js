@@ -41,7 +41,7 @@ const ProfileSection = () => {
           <p>
             {connections.totalConnections}
             {' '}
-            Connections |
+            Following |
             {' '}
             {posts.length}
             {' '}

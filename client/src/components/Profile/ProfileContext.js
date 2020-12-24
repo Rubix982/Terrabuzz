@@ -6,6 +6,7 @@ export const profileContext = createContext();
 
 const ProfileProvider = ({ children }) => {
   const profileData = useState({});
+  const followState = useState(false);
   const loadingState = useState(true);
   const { handle } = useParams();
 
@@ -15,7 +16,9 @@ const ProfileProvider = ({ children }) => {
     // is null, that is, no user exists with a given userhandle
     try {
       const { data } = await API.getRequest(`${process.env.REACT_APP_API_URL}/profile/${handle}`);
+      const { status } = await API.getRequest(`${process.env.REACT_APP_API_URL}/follow/${handle}`);
       (profileData[1])(data);
+      (followState[1])(status);
       (loadingState[1])(false);
     } catch (error) {
       alert('No user exists with the given handle')
@@ -27,6 +30,10 @@ const ProfileProvider = ({ children }) => {
       profile: {
         state: profileData[0],
         setter: profileData[1],
+      },
+      follow: {
+        state: followState[0],
+        setter: followState[1],
       },
       loading: {
         state: loadingState[0],
