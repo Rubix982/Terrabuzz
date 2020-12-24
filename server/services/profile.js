@@ -1,5 +1,6 @@
 const MYSQL = require('../db/mysql/connection.js');
 const { Post, PostList } = require('../models/post.js');
+const { Follow } = require('../models/follow.js');
 const { convertObjectArrayToArray } = require('./search.js');
 
 const getProfileData = async (__searchHandle, __currentUserHandle) => {
@@ -8,7 +9,9 @@ const getProfileData = async (__searchHandle, __currentUserHandle) => {
 
     delete userInformation.Password;
 
-    const [[connections]] = await MYSQL.connection.query(`SELECT COUNT(*) AS totalConnections FROM TERRABUZZ.Connection WHERE Connection.Followers='${__searchHandle}'`);
+    const connections = (await Follow.find({
+      follower: __searchHandle, isFollowing: true,
+    })).length;
 
     let [interests] = await MYSQL.connection.query(`SELECT Topic FROM TERRABUZZ.Interest WHERE Handle='${__searchHandle}'`);
 
