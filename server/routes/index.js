@@ -1,12 +1,12 @@
 const express = require('express');
-const { authorizeUser } = require('../middleware/index.js');
+const { authorizeUser, forwardUnAuthorizedUser } = require('../middleware/index.js');
 
 const Router = express.Router();
 const indexContoller = require('../controllers/index.js');
 
 Router.get('/', indexContoller.getHomePage);
 Router.get('/feed', authorizeUser, indexContoller.getUserFeed);
-Router.get('/profile/:handle', indexContoller.getUserProfile);
+Router.get('/profile/:handle', forwardUnAuthorizedUser, indexContoller.getUserProfile);
 Router.get('/post/:id', indexContoller.getPost);
 Router.get('/like/:id', authorizeUser, indexContoller.getLike);
 Router.get('/follow/:handle', authorizeUser, indexContoller.getFollow);
