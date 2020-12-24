@@ -3,6 +3,7 @@ const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
+const { getFollowStatus, alterFollowStatus } = require('../services/follow.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
 const { searchUserProfiles, searchInterestEntries } = require('../services/search.js');
@@ -88,6 +89,26 @@ module.exports.addLike = async (req, res) => {
     const postID = req.params.id;
     const status = await updateLike(postID, req.userHandle);
     res.json({ msg: 'Like updated successfully', status });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports.getFollow = async (req, res) => {
+  try {
+    const profileHandle = req.params.handle;
+    const status = await getFollowStatus(profileHandle, req.userHandle);
+    res.json({ msg: `Connection status of profileHandle ${profileHandle}`, status });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports.alterFollow = async (req, res) => {
+  try {
+    const profileHandle = req.params.handle;
+    const status = await alterFollowStatus(profileHandle, req.userHandle);
+    res.json({ msg: `New connection of user ${req.userHandle} with profileHandle ${profileHandle}`, status });
   } catch (error) {
     res.status(404).json({ msg: error.message });
   }
