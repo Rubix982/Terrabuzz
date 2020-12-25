@@ -20,6 +20,10 @@ const MainContent = () => {
 
     try {
       await makeRequestToChangePassword(formData);
+      setconfirmPassword('');
+      setnewPassword('');
+      setoldPassword('');
+      alert(`Your Password Is Updated !`);
     }
     catch (err) {
       alert(err.message)
@@ -48,16 +52,6 @@ const MainContent = () => {
                 type="button"
                 className="current options-button change-password"
                 value="Change Password"
-              />
-            </a>
-          </div>
-
-          <div>
-            <a href="/forgetPassword" >
-              <input
-                type="button"
-                className="options-button change-password"
-                value="Forget Password"
               />
             </a>
           </div>
