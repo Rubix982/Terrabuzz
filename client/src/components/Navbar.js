@@ -22,7 +22,10 @@ const Navbar = () => {
   const logMeOutIsClicked = async () => {
     try {
       await logMeOutService();
-      history.push('/login');
+      setTimeout(() => {    
+        localStorage.removeItem('loggedIn');
+        history.push('/login');
+      }, 2000);
     } catch (error) {
       alert(`Unable to log out, due to error "${error.message}"`)
     }
@@ -139,7 +142,7 @@ const Navbar = () => {
 
                   {/* Logout */}
                   <div className={ComponentStyling.tilingStyleForGrid}>
-                    <a onClick={logMeOutIsClicked} href='/login' className={ComponentStyling.gridStylingForDropdown}>
+                    <div onClick={logMeOutIsClicked} className={ComponentStyling.gridStylingForDropdown}>
                       <div className={ComponentStyling.gridStylingForDropdownIcons}>
                         <img
                           alt='logOut'
@@ -150,7 +153,7 @@ const Navbar = () => {
                       <div className={ComponentStyling.navbarTextStyling}>
                         <h1>Logout</h1>
                       </div>
-                    </a>
+                    </div>
                   </div>
 
                   {/* Dropdown content ends here */}

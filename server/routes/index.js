@@ -14,7 +14,7 @@ Router.get('/search-interest', authorizeUser, indexContoller.searchInterest);
 Router.get('/search-user', authorizeUser, indexContoller.searchUser);
 Router.get('/settings', authorizeUser, indexContoller.getSettings);
 Router.get('/newPassword/:hashed', indexContoller.newPassword);
-Router.post('/logout', authorizeUser, indexContoller.controllerLogOut);
+Router.post('/logout', authorizeUser, indexContoller.logoutUser);
 Router.post('/newPassword/:hashed', indexContoller.resetPassword);
 Router.post('/forget-password', indexContoller.forgetPassword);
 Router.post('/post/:id', authorizeUser, indexContoller.newComment);
