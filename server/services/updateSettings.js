@@ -1,6 +1,7 @@
+const bcrypt = require('bcrypt');
 const mysql = require('../db/mysql/connection.js');
 
-const updateSettingsInDatabase = async (__updateForm) => {
+const updateSettingsInDatabase = async (__updateForm, __handle) => {
   if (!__updateForm.Password || !__updateForm.CPassword
         || !__updateForm.userHandle || !__updateForm.Username
         || !__updateForm.Email) {
@@ -8,31 +9,23 @@ const updateSettingsInDatabase = async (__updateForm) => {
   }
 
   try {
-    // Checking if the userhandle-to-be-changed-to isnt' already assigned
-    // to some other user
-    const userHandleQuery = `SELECT Email FROM TERRABUZZ.UserInformation WHERE Handle='${__updateForm.userHandle}';`;
-    const [[userHandleQueryResult]] = await mysql.connection.query(userHandleQuery);
-
-    if (userHandleQueryResult !== null) {
-      throw new Error('Requested userhandler to be changed to is already allocated to some user');
-    }
-
-    // Checking if the two passwords entered are the same
     if (__updateForm.Password === __updateForm.CPassword) {
-      const passwordQuery = `SELECT Password FROM TERRABUZZ.UserInformation WHERE Handle='${__updateForm.userHandle}';`;
+      const passwordQuery = `SELECT Password FROM TERRABUZZ.UserInformation WHERE Handle='${__handle}';`;
       const [queryPassword] = await mysql.connection.query(passwordQuery);
       const [data] = queryPassword;
-
-      if (data.Password === __updateForm.Password) {
+      const isMatched = bcrypt.compare(data.Password, __updateForm.Password);
+      if (isMatched) {
         const updateQuery = `UPDATE TERRABUZZ.UserInformation 
-                            SET Email = '${__updateForm.Email}', Username = '${__updateForm.Username}'
-                            WHERE Handle='${__updateForm.userHandle}';`;
+        SET Email = '${__updateForm.Email}', 
+        Username = '${__updateForm.Username}'
+        WHERE Handle='${__handle}';`;
         await mysql.connection.query(updateQuery);
-        throw new Error('Updated');
+      } else {
+        throw new Error('Password Does Not Matches');
       }
-      throw new Error('Bad Request');
+    } else {
+      throw new Error('Password And Confirm Password Does Not Matches');
     }
-    throw new Error('Bad Request');
   } catch (error) {
     throw new Error(error.message);
   }

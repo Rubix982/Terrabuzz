@@ -127,11 +127,11 @@ module.exports.updateSettings = async (req, res) => {
     const updateForm = {
       Password: req.body.Password,
       CPassword: req.body.CPassword,
-      userHandle: req.userHandle,
+      userHandle: req.body.Handler,
       Email: req.body.Email,
       Username: req.body.Username,
     };
-    await updateSettingsInDatabase(updateForm);
+    await updateSettingsInDatabase(updateForm, req.userHandle);
     return res.status(200).json({ msg: 'Update settings performed successfully' });
   } catch (error) {
     return res.status(500).json({ msg: `Error while updating settings, ${error.message}` });

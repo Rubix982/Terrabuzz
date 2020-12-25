@@ -41,6 +41,7 @@ const MainContent = () => {
 
       try {
         await postSettings(formData);
+        alert('Settings Updated');
       } catch (error) {
         alert(error.message);
       }
@@ -138,7 +139,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={_Handler} onChange={event => setHandler(event.target.value)} />
+              <input className="search-box" type="text" value={_Handler} readOnly={true} />
             </div>
           </div>
 
