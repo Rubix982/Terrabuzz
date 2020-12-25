@@ -39,9 +39,9 @@ const ProfileSection = () => {
         </div>
         <div className={ProfileSectionStyling.topRow}>
           <p>
-            {connections.totalConnections}
+            {connections}
             {' '}
-            Connections |
+            Following |
             {' '}
             {posts.length}
             {' '}
