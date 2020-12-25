@@ -11,7 +11,7 @@ const SearchPostedOnEntries = ({ postedOnEntries: { postData, authorData } }) =>
     const children = [];
 
     for(let j = i * factor; j < (i + 1) * factor && j < entries.length ; j++ ) {
-      children.push(<Post postData={postData[j]} profilePicture={authorData[j]} />);
+      children.push(<Post key={postData[j].handle} postData={postData[j]} profilePicture={authorData[j]} />);
     }
 
     entries.push(

@@ -1,9 +1,10 @@
 .entry {
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 70% 30%;
   background-color: #242526;
   border-radius: 25px;
-  margin: 10px;
 }
 
 .profilePicture {

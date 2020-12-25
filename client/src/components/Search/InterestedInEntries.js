@@ -11,7 +11,7 @@ const SearchInterestedInEntries = ({ interestedInEntries, query }) => {
     const children = [];
 
     for (let j = i * factor; j < (i + 1) * factor && j < entries.length ; j++) {
-      children.push(<InterestProfile query={query} entryData={interestedInEntries[j]} />);
+      children.push(<InterestProfile key={interestedInEntries[j].Handle} query={query} entryData={interestedInEntries[j]} />);
     }
 
     entries.push(
