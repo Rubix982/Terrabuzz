@@ -400,7 +400,7 @@ const MainContent = () => {
                     )
                   })}
                 >
-                  #.NET
+                  #.net
                 </label>
               </div>
               <div className={ComponentStyling.OuterToggleInterest}>
@@ -419,7 +419,7 @@ const MainContent = () => {
                     )
                   })}
                 >
-                  #Azure
+                  #azure
                 </label>
               </div>
               <div className={ComponentStyling.OuterToggleInterest}>
@@ -438,7 +438,7 @@ const MainContent = () => {
                     )
                   })}
                 >
-                  #AWS
+                  #aws
                 </label>
               </div>
               <div className={ComponentStyling.OuterToggleInterest}>
@@ -457,7 +457,7 @@ const MainContent = () => {
                     )
                   })}
                 >
-                  #Tensorflow
+                  #tensorflow
                 </label>
               </div>
               <div className={ComponentStyling.OuterToggleInterest}>
@@ -476,7 +476,7 @@ const MainContent = () => {
                     )
                   })}
                 >
-                  #JavaScript
+                  #javascript
                 </label>
               </div>
               <div className={ComponentStyling.OuterToggleInterest}>
@@ -495,7 +495,7 @@ const MainContent = () => {
                     )
                   })}
                 >
-                  #Node
+                  #node
                 </label>
               </div>
               <div className={ComponentStyling.OuterToggleInterest}>

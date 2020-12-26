@@ -193,7 +193,7 @@ module.exports.registerUser = async (req, res) => {
     await postUserCredentialsInDatabase(registerForm);
     return res.status(200).json({ msg: 'Successfully registered user' });
   } catch (error) {
-    return res.status(500).json({ msg: `Unable to register user, due to error ${error.message}` });
+    return res.status(500).json({ msg: `Unable to register user, due to error "${error.message}"` });
   }
 };
 

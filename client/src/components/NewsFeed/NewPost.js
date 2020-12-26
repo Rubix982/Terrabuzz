@@ -12,7 +12,7 @@ const NewPost = () => (
     </CenterAlign>
     <CenterAlign>
       <Link to="/publish">
-        <h1>What’s on your mind, John?</h1>
+        <h1>What’s on your mind?</h1>
       </Link>
     </CenterAlign>
   </div>
