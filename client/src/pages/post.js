@@ -18,7 +18,7 @@ const Post = () => {
         gridTemplateRows: '10% 90%',
       }}
     >
-      { loggedIn ? <Navbar first_name="Tashik" title="Terrabuzz" /> : <NavBarLoggedOut/> }
+      { loggedIn ? <Navbar /> : <NavBarLoggedOut/> }
       <PostProvider>
         <MainContent />    
       </PostProvider>
