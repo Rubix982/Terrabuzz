@@ -11,6 +11,7 @@ CREATE TABLE `UserInformation` (
   `Facebook` VARCHAR(150) NULL,
   `LinkedIn` VARCHAR(150) NULL,
   `Twitter` VARCHAR(150) NULL,
+  `Youtube` VARCHAR(150) NULL,
   `Website` VARCHAR(150) NULL,
   `Biography` VARCHAR(45) NULL,
   `ProfilePicture` VARCHAR(15) DEFAULT 'boy(3).svg',

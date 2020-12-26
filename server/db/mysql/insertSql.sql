@@ -10,6 +10,7 @@ INSERT INTO `UserInformation` (
         `Facebook`,
         `LinkedIn`,
         `Twitter`,
+        `Youtube`,
         `Website`,
         `Biography`,
         `JoinedWebsite`
@@ -25,6 +26,7 @@ VALUES (
         'https://www.facebook.com/TashikMoinSheikh/',
         'https://www.linkedin.com/in/tashik',
         'https://twitter.com/TashikMSheikh',
+        'https://youtube.com',
         'Tashik.com',
         'Student, MLSA, MCT',
         '1000-01-01 00:00:00'
@@ -40,6 +42,7 @@ INSERT INTO `UserInformation` (
         `Facebook`,
         `LinkedIn`,
         `Twitter`,
+        `Youtube`,
         `Website`,
         `Biography`,
         `JoinedWebsite`
@@ -55,6 +58,7 @@ VALUES (
         'https://www.facebook.com/TashikMoinSheikh/',
         'https://www.linkedin.com/in/tashik',
         'https://twitter.com/TashikMSheikh',
+        'https://youtube.com',
         'Hassan.com',
         'Lord, JS, Node, Fastian',
         '1000-02-01 00:00:00'
@@ -70,6 +74,7 @@ INSERT INTO `UserInformation` (
         `Facebook`,
         `LinkedIn`,
         `Twitter`,
+        `Youtube`,
         `Website`,
         `Biography`,
         `JoinedWebsite`
@@ -85,6 +90,7 @@ VALUES (
         'https://www.facebook.com/TashikMoinSheikh/',
         'https://www.linkedin.com/in/tashik',
         'https://twitter.com/TashikMSheikh',
+        'https://youtube.com',
         'Saif.com',
         'Student, Fastian, AI, DL',
         '1000-01-03 00:00:00'
@@ -100,6 +106,7 @@ INSERT INTO `UserInformation` (
         `Facebook`,
         `LinkedIn`,
         `Twitter`,
+        `Youtube`,
         `Website`,
         `Biography`,
         `JoinedWebsite`
@@ -115,6 +122,7 @@ VALUES (
         'https://www.facebook.com/TashikMoinSheikh/',
         'https://www.linkedin.com/in/tashik',
         'https://twitter.com/TashikMSheikh',
+        'https://youtube.com',
         'john.com',
         'Student, MLSA, MCT',
         '1000-04-01 00:00:00'
