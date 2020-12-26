@@ -15,7 +15,7 @@ const Profile = () => {
     <Container style={{ display: 'grid', gridTemplateRows: '10% 30% 60%' }}>
       {loggedIn ? <Navbar /> : <NavbarLoggedOut />}
       <ProfileProvider>
-        <ImageHeader />
+        <Header />
         <MainContent />
       </ProfileProvider>
     </Container>
