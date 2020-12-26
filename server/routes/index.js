@@ -6,7 +6,7 @@ const indexContoller = require('../controllers/index.js');
 
 Router.get('/', indexContoller.getHomePage);
 Router.get('/feed', authorizeUser, indexContoller.getUserFeed);
-Router.get('/profile/:handle', forwardUnAuthorizedUser, indexContoller.getUserProfile);
+Router.get('/profile/:handle', indexContoller.getUserProfile);
 Router.get('/post/:id', indexContoller.getPost);
 Router.get('/like/:id', authorizeUser, indexContoller.getLike);
 Router.get('/follow/:handle', authorizeUser, indexContoller.getFollow);
@@ -27,4 +27,5 @@ Router.post('/register', indexContoller.registerUser);
 Router.post('/firstLogin', authorizeUser, indexContoller.postFirstLoginInformation);
 Router.post('/changepassword', authorizeUser, indexContoller.changePassword);
 Router.post('/externalLinks', authorizeUser, indexContoller.postExternalInformationDetails);
+Router.post('/externalProfile', authorizeUser, indexContoller.postExternalProfileDetails);
 module.exports = Router;
