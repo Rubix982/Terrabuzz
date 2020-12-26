@@ -16,7 +16,7 @@ const checkForFirstLogin = async (__handler) => {
       });
 
       try {
-        result.save();
+        await result.save();
       } catch (error) {
         throw new Error(`Unable to save the new validation model, error is "${error.message}"`);
       }

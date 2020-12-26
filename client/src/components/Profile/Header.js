@@ -7,7 +7,7 @@ import { loginUserContext } from '../LoginUserContext';
 
 const Header = () => {
   const { loading, profile } = useContext(profileContext);
-  const [loggedIn] = useContext(loginUserContext);
+  const { login } = useContext(loginUserContext);
   
   if (loading.state) {
     return (
@@ -21,7 +21,7 @@ const Header = () => {
         <div className={HeaderStyling.profilePicture}>
           <img src={`/assets/img/profile_pictures/${ProfilePicture}`} alt="" name="profile-picture" />
         </div>
-        { loggedIn ?  <ConnectButton/> : '' }
+        { login.state ?  <ConnectButton/> : '' }
       </div>
     );
   }

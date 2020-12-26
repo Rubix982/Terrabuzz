@@ -9,9 +9,13 @@ const Content = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(async () => {
-    const { data } = await API.getRequest(`${process.env.REACT_APP_API_URL}/feed`);
-    setFeedData(data);
-    setLoading(false);
+    try {
+      const { data } = await API.getRequest(`${process.env.REACT_APP_API_URL}/feed`);
+      setFeedData(data);
+      setLoading(false);
+    } catch (error) {
+      alert(error.message);
+    }
   }, [])
 
   if(loading) {
