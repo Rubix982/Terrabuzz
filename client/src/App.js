@@ -21,15 +21,15 @@ import Contact from './pages/Contact';
 import FirstLogin from './pages/FirstLogin';
 import PrivacyPolicy from './pages/privacyPolicy';
 import Notification from './pages/Notification';
+import {UserProvider} from './components/userDataContext'
 import LoginUserProvider from './components/LoginUserContext';
-import userContextProvider from './components/userContext';
 
 function App() {
   let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
   return (
     <>
       <LoginUserProvider>
-        <userContextProvider>
+        <UserProvider>
           <Router>
             <Switch>
               <Route exact path="/">
@@ -60,7 +60,7 @@ function App() {
               <Route component={Error404} />
             </Switch>
           </Router>
-        </userContextProvider>
+        </UserProvider>
       </LoginUserProvider>
     </>
   );
