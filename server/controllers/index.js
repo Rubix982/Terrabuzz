@@ -19,6 +19,7 @@ const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
 const { postExternDataToDB } = require('../services/postExternalLinks.js');
 const { postProfileDataToDB } = require('../services/postExternalProfile.js');
+const { postCommentNotificationToDatabase } = require('../services/postCommentNotification.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -268,5 +269,14 @@ module.exports.postExternalProfileDetails = async (req, res) => {
     return res.status(200).json({ msg: 'Saved information for the external profile information in the database' });
   } catch (error) {
     return res.status(500).json({ msg: 'Uanble to save profile information due to error' });
+  }
+};
+
+module.exports.postCommentNotification = async (req, res) => {
+  try {
+    await postCommentNotificationToDatabase(req.body.notificationSchemaForm, req.userHandle);
+    return res.status(200).json({ msg: 'Notification for comment posted successfully!' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to post comment to database due to error "${error.message}"` });
   }
 };

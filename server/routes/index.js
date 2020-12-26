@@ -28,4 +28,5 @@ Router.post('/firstLogin', authorizeUser, indexContoller.postFirstLoginInformati
 Router.post('/changepassword', authorizeUser, indexContoller.changePassword);
 Router.post('/externalLinks', authorizeUser, indexContoller.postExternalInformationDetails);
 Router.post('/externalProfile', authorizeUser, indexContoller.postExternalProfileDetails);
+Router.post('/post-comment-to-notifications', authorizeUser, indexContoller.postCommentNotification);
 module.exports = Router;
