@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
 import { getSettings, postSettings } from '../../services/settings';
 
