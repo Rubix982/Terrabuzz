@@ -5,8 +5,14 @@ import { sendFirstLoginToBackend } from '../../services/first.js';
 
 const MainContent = () => {
 
-  const booleanList = [false, false, false, false, false, false, false, false, false]
-  const interestSet = ['Philosophy', 'Food', 'FAST', 'Web', 'Cloud', 'Humor', 'Football', 'Karachi']
+  const booleanList = [false, false, false, false,
+    false, false, false, false,
+    false, false, false, false, false,
+    false, false]
+  const interestSet = ['Philosophy', 'Food', 'FAST', 'Web',
+    'Cloud', 'Humor', 'Football', 'Karachi',
+    'C#', '.NET', 'Azure', 'AWS', 'Tensorflow',
+    'JavaScript', 'Node'];
   const pictureSelection = [false, false, false, false]
   const [activationArray, setActivationArray] = useState(booleanList);
   const [selectPicture, setSelectPicture] = useState(pictureSelection);
@@ -24,7 +30,7 @@ const MainContent = () => {
     let interestString = '';
 
     // Interest set
-    for (let i = 0; i < 8; ++i) {
+    for (let i = 0; i < 15; ++i) {
       if (activationArray[i])
         interestString = `${interestString} ${interestSet[i]}`;
     }
@@ -235,7 +241,9 @@ const MainContent = () => {
                     return (
                       [!activationArray[0], activationArray[1], activationArray[2],
                       activationArray[3], activationArray[4], activationArray[5],
-                      activationArray[6], activationArray[7]]
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -252,7 +260,9 @@ const MainContent = () => {
                     return (
                       [activationArray[0], !activationArray[1], activationArray[2],
                       activationArray[3], activationArray[4], activationArray[5],
-                      activationArray[6], activationArray[7]]
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -269,7 +279,9 @@ const MainContent = () => {
                     return (
                       [activationArray[0], activationArray[1], !activationArray[2],
                       activationArray[3], activationArray[4], activationArray[5],
-                      activationArray[6], activationArray[7]]
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -286,7 +298,9 @@ const MainContent = () => {
                     return (
                       [activationArray[0], activationArray[1], activationArray[2],
                       !activationArray[3], activationArray[4], activationArray[5],
-                      activationArray[6], activationArray[7]]
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -303,7 +317,9 @@ const MainContent = () => {
                     return (
                       [activationArray[0], activationArray[1], activationArray[2],
                       activationArray[3], !activationArray[4], activationArray[5],
-                      activationArray[6], activationArray[7]]
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -321,7 +337,9 @@ const MainContent = () => {
                     return (
                       [activationArray[0], activationArray[1], activationArray[2],
                       activationArray[3], activationArray[4], !activationArray[5],
-                      activationArray[6], activationArray[7]]
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -338,7 +356,9 @@ const MainContent = () => {
                     return (
                       [activationArray[0], activationArray[1], activationArray[2],
                       activationArray[3], activationArray[4], activationArray[5],
-                      !activationArray[6], activationArray[7]]
+                      !activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
                     )
                   })}
                 >
@@ -355,7 +375,142 @@ const MainContent = () => {
                     return (
                       [activationArray[0], activationArray[1], activationArray[2],
                       activationArray[3], activationArray[4], activationArray[5],
-                      activationArray[6], !activationArray[7]]
+                      activationArray[6], !activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #c#
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[8] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], !activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #.net
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[9] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], activationArray[8],
+                      !activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #azure
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[10] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], !activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #aws
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[11] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], !activationArray[11],
+                      activationArray[12], activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #tensorflow
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[12] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      !activationArray[12], activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #javascript
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[13] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], !activationArray[13], activationArray[14]]
+                    )
+                  })}
+                >
+                  #node
+                </label>
+              </div>
+              <div className={ComponentStyling.OuterToggleInterest}>
+                <input name='checkbox' type='checkbox' className={ComponentStyling.inputCheckbox} />
+                <label type="button"
+                  className={activationArray[14] ? `${ComponentStyling.inputLabel} 
+                ${ComponentStyling.toggleButton}` : `${ComponentStyling.inputLabel}`}
+                  htmlFor='checkbox'
+                  onClick={() => setActivationArray(() => {
+                    return (
+                      [activationArray[0], activationArray[1], activationArray[2],
+                      activationArray[3], activationArray[4], activationArray[5],
+                      activationArray[6], activationArray[7], activationArray[8],
+                      activationArray[9], activationArray[10], activationArray[11],
+                      activationArray[12], activationArray[13], !activationArray[14]]
                     )
                   })}
                 >

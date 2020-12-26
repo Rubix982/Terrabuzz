@@ -27,7 +27,7 @@ const MainContent = () => {
       alert(`You've successfully registered!`)
       history.push('/login');
     } catch (error) {
-      alert(`Register wasn't able to be completed because of the erro ${error.message}`);
+      alert(`Register wasn't able to be completed because of the error "${error.message}"`);
     }
   }
 
@@ -64,7 +64,7 @@ const MainContent = () => {
           <input
             type="text"
             ref={_userhandler}
-            placeholder="Userhandle e.g @johndoe"
+            placeholder="Userhandle e.g johndoe"
           />
           <a href="/login"> Already have an account?</a>
           <br />

@@ -31,8 +31,9 @@ const postUserCredentialsInDatabase = async (__registerForm) => {
     } catch (error) {
       throw new Error(error.message);
     }
+  } else {
+    throw new Error('Password not matched');
   }
-  throw new Error('Password not matched');
 };
 
 module.exports.postUserCredentialsInDatabase = postUserCredentialsInDatabase;
