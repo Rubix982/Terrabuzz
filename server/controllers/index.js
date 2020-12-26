@@ -17,6 +17,7 @@ const { postUserCredentialsInDatabase } = require('../services/register.js');
 const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
 const { postExternDataToDB } = require('../services/postExternalLinks.js');
+const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -243,9 +244,18 @@ module.exports.postFirstLoginInformation = async (req, res) => {
 
 module.exports.postExternalInformationDetails = async (req, res) => {
   try {
-    await postExternDataToDB(req.body.__editInfoComponentForm, req.userHandle);
+    await postExternDataToDB(req.body.editInfoComponentForm, req.userHandle);
     return res.status(200).json({ msg: 'Saved information for the external links in the database' });
   } catch (error) {
     return res.status(500).json({ msg: `Unable to save external link information due to error "${error.message}" ` });
+  }
+};
+
+module.exports.postExternalProfileDetails = async (req, res) => {
+  try {
+    await postProfileDataToDB(req.body.editInfoComponentForm, req.userHandle);
+    return res.status(200).json({ msg: 'Saved information for the external profile information in the database' });
+  } catch (error) {
+    return res.status(500).json({ msg: 'Uanble to save profile information due to error' });
   }
 };
