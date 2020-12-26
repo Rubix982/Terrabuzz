@@ -11,6 +11,7 @@ const { forgetPasswordUpdation } = require('../services/forgetPassword.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
 const { checkForFirstLogin } = require('../services/firstLogin.js');
+const { getFeedData } = require('../services/feed.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
 const { postUserCredentialsInDatabase } = require('../services/register.js');
@@ -28,10 +29,10 @@ module.exports.getHomePage = async (req, res) => {
 
 module.exports.getUserFeed = async (req, res) => {
   try {
-    const status = await checkForFirstLogin(req.userHandle);
-    return res.json(status);
-  } catch {
-    return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
+    const data = await getFeedData(req.userHandle);
+    return res.json({ msg: `Fetched feed of ${req.userHandle}`, data });
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
   }
 };
 
@@ -171,9 +172,10 @@ module.exports.changePassword = async (req, res) => {
 
 module.exports.loginUser = async (req, res) => {
   try {
-    const token = await generateAccessToken(req.body);
+    const { token, handle } = await generateAccessToken(req.body);
     res.cookie('access-token', token, { httpOnly: true, sameSite: true });
-    return res.status(200).json({ msg: 'User logged in!!' });
+    const status = await checkForFirstLogin(handle);
+    return res.status(200).json({ msg: 'User logged in!!', status });
   } catch (error) {
     return res.status(401).json({ msg: error.message });
   }
