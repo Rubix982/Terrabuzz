@@ -60,7 +60,7 @@ VALUES (
         'https://twitter.com/TashikMSheikh',
         'https://youtube.com',
         'Hassan.com',
-        'Lord, JS, Node, Fastian',
+        'JS, Node, Fastian',
         '1000-02-01 00:00:00'
     );
 INSERT INTO `UserInformation` (
@@ -172,11 +172,11 @@ VALUES (
         'Undergraduate'
     );
 INSERT INTO `Organization` (`Name`, `Handle`, `Type`)
-VALUES ('Microsoft', 'TashikMoin', 'CEO');
+VALUES ('Microsoft', 'TashikMoin', 'Employee');
 INSERT INTO `Organization` (`Name`, `Handle`, `Type`)
-VALUES ('Amazon', 'hassanzhd', 'CEO');
+VALUES ('Amazon', 'hassanzhd', 'Employee');
 INSERT INTO `Organization` (`Name`, `Handle`, `Type`)
-VALUES ('Google', 'Saif', 'Founder');
+VALUES ('Google', 'Saif', 'Employee');
 INSERT INTO `Organization` (`Name`, `Handle`, `Type`)
 VALUES ('Microsoft', 'Johndoe', 'Manager');
 INSERT INTO `Interest` (`Topic`, `Handle`)
