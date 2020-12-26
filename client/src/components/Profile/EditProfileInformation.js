@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useReducer, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 // Styling
 import EditProfileInformationStyling from '../../style/Profile/EditProfileInformation.module.css';
 import EditLogo from '../../assets/profile/edit.svg';
 
+// Services
+import { postEditProfileComponent } from '../../services/editProfileInformation.js';
+
 const EditProfileInformation = () => {
 
     const [show, setShow] = useState(false);
+    const locationRef = useRef('');
+    const biographyRef = useRef('');
+    const activitiesRef = useRef('');
+    const interestsRef = useRef('');
 
     const handleClose = () => {
         setShow(false)
@@ -15,6 +22,25 @@ const EditProfileInformation = () => {
     const handleShow = () => {
         setShow(true)
     };
+
+    const saveNewProfileChanges = async (event) => {
+        event.preventDefault();
+
+        const editProfileInfoComponentForm = {
+            location: locationRef.current.value,
+            biography: biographyRef.current.value,
+            activities: activitiesRef.current.value,
+            interest: interestsRef.current.value,
+        };
+
+        try {
+            await postEditProfileComponent(editProfileInfoComponentForm);
+            alert('New information successfully saved!')
+        } catch (error) {
+            alert('Unable to save the information');
+        }
+    };
+
 
     let modalFinalStyling = `${EditProfileInformationStyling.modalCenter}`;
     show ? modalFinalStyling += ` ${EditProfileInformationStyling.showModal}` : modalFinalStyling += ` ${EditProfileInformationStyling.hideModal}`;
@@ -36,45 +62,35 @@ const EditProfileInformation = () => {
                         <form className={EditProfileInformationStyling.modalForm}>
                             <ul>
                                 <li>
-                                    <label htmlFor="username">Username</label>
-                                    <input type="url" name="usernameInput" maxLength="100" />
-                                    <span>Your Username</span>
-                                </li>
-                                <li>
-                                    <label htmlFor="userhandle">Userhandle</label>
-                                    <input type="url" name="userhandleInput" maxLength="100" />
-                                    <span>Your Userhandle</span>
-                                </li>
-                                <li>
                                     <label htmlFor="location">Location</label>
-                                    <input type="url" name="locationInput" maxLength="100" />
+                                    <input ref={locationRef} type="url" name="locationInput" maxLength="100" />
                                     <span>Your Location</span>
                                 </li>
                                 <li>
                                     <label htmlFor="biography">Biography</label>
-                                    <textarea type="url" name="BiographyInput" maxLength="200" />
+                                    <textarea ref={biographyRef} type="url" name="BiographyInput" maxLength="200" />
                                     <span>Your Biography</span>
                                 </li>
                                 <li>
                                     <label htmlFor="Activity">Activity</label>
-                                    <textarea type="url" name="ActivityInput" maxLength="100" />
+                                    <textarea ref={activitiesRef} type="url" name="ActivityInput" maxLength="100" />
                                     <span>Your Activity</span>
                                 </li>
                                 <li>
                                     <label htmlFor="Interest">Interest</label>
-                                    <textarea type="url" name="InterestInput" maxLength="100" />
+                                    <textarea ref={interestsRef} type="url" name="InterestInput" maxLength="100" />
                                     <span>Your Interest</span>
                                 </li>
                                 <li>
                                     <div className={EditProfileInformationStyling.modalFooter} >
                                         <div className={EditProfileInformationStyling.modalSubmitButtonSize}>
-                                            <button href='#' className={EditProfileInformationStyling.modalSubmitButton} onClick={handleClose} type="button" value="Send This" >
+                                            <button onClick={saveNewProfileChanges} href='#' className={EditProfileInformationStyling.modalSubmitButton} type="button" value="Send This" >
                                                 <span>Save Changes</span>
                                             </button>
                                         </div>
                                         <div className={EditProfileInformationStyling.modalExitButtonSize}>
                                             <button href='#' className={EditProfileInformationStyling.modalExitButton} onClick={handleClose} type="button" value="Send This" >
-                                                <span>Leave Without Saving</span>
+                                                <span>Exit</span>
                                             </button>
                                         </div>
                                     </div>

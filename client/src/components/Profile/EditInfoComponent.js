@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react';
 
+// Services
+import { postEditInformationComponent } from '../../services/externalLinkPost.js';
+
 // Styling
 import EditInfoComponentStyling from '../../style/Profile/EditInfoComponent.module.css';
 import EditLogo from '../../assets/profile/edit.svg';
@@ -30,13 +33,13 @@ const EditInformation = () => {
       website: websiteRef.current.value,
       instagram: instagramRef.current.value,
       linkedin: linkedinRef.current.value,
-      youtube: youtubeRef.current.value,      
+      youtube: youtubeRef.current.value,
     };
 
     try {
       await postEditInformationComponent(editInfoComponentForm);
       alert('New information successfully saved!')
-    } catch(error) {
+    } catch (error) {
       alert('Unable to save the information');
     }
   };
