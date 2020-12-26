@@ -1,6 +1,6 @@
 const mysql = require('../db/mysql/connection.js');
 
-const postExternDataToDB = async (__editInfoComponentForm, __userHandle) => {
+const postProfileDataToDB = async (__editInfoComponentForm, __userHandle) => {
   try {
     if (__editInfoComponentForm.location) {
       const query = `UPDATE TERRABUZZ.UserInformation SET Location='${__editInfoComponentForm.location}' 
@@ -45,4 +45,4 @@ const postExternDataToDB = async (__editInfoComponentForm, __userHandle) => {
   }
 };
 
-module.exports.postExternDataToDB = postExternDataToDB;
+module.exports.postProfileDataToDB = postProfileDataToDB;

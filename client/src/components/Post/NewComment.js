@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import ComponentStyling from '../../style/Post/NewComment.module.css';
 import { useParams } from 'react-router-dom'
 import { CenterAlign } from '../FlexAlignment';
-import API from '../../API/API.js';
+import postCommentNotify from '../../services/commentNotify.js';
 import { postContext } from './PostContext';
 
 const NewComment = () => {
@@ -13,13 +13,22 @@ const NewComment = () => {
   const newComment = async event => {
 
     event.preventDefault();
-    let Data = { Comment: _Comment };
+    const Data = { Comment: _Comment };
+
+    const notificationSchemaForm = {
+      action: 'comment',
+      timestamp: new Date(),
+      postID: id,
+      by: '',
+      profilePicture: '',
+      for: post.state.handle,
+    }
 
     if (!_Comment) {
       alert('Field cannot be empty!')
     } else {
       try {
-        await API.postRequest(`${process.env.REACT_APP_API_URL}/post/${id}`, Data);
+        await postCommentNotify(id, Data, notificationSchemaForm);
         alert('Comment successfully made!')
       } catch (error) {
         alert(`Unable to comment, sorry! Error is ${error.message}`)
