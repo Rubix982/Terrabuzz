@@ -9,12 +9,13 @@ const { searchUserProfiles, searchInterestEntries } = require('../services/searc
 const { forgetPasswordUpdation } = require('../services/forgetPassword.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
-const { checkForFirstLogin } = require('../services/firstLogin.js');
+// const { checkForFirstLogin } = require('../services/firstLogin.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
 const { postUserCredentialsInDatabase } = require('../services/register.js');
 const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
+const mysql = require('../db/mysql/connection.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -27,8 +28,12 @@ module.exports.getHomePage = async (req, res) => {
 
 module.exports.getUserFeed = async (req, res) => {
   try {
-    const status = await checkForFirstLogin(req.userHandle);
-    return res.json(status);
+    // const status = await checkForFirstLogin(req.userHandle);
+    // a little refactor required here + do not forget to uncomment include for checkForFirstLogin
+    const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    const output = await mysql.connection.query(_query);
+    return res.status(200).send(output);
+    // return res.json(status);
   } catch {
     return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
   }
