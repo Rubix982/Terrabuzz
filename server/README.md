@@ -1,6 +1,6 @@
 # File structure
 
-server
+Server
 │   app.js          # App entry point
 └───api             # Express route controllers for all the endpoints of the app
 └───config          # Environment variables and configuration related stuff 

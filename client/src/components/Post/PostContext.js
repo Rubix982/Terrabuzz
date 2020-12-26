@@ -25,7 +25,7 @@ const PostProvider = ({ children }) => {
 
       return (loadingState[1])(false);
     } catch (error) {
-      alert(error.message);
+      alert(`No post for this link can be found anymore. Sorry!`)
     }
   }, [likeState[0]]);
 

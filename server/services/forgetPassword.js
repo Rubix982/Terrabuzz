@@ -26,7 +26,6 @@ const forgetPasswordUpdation = async (__email) => {
     }
     const mail = new GmailMailer(__email, HTMLResetPasswordForm(hashedResetLink));
     mail.send();
-    throw new Error('Recovery email sent!');
   } catch (error) {
     throw new Error(`Unable to send a reset email. Encountered error "${error.message}"`);
   }

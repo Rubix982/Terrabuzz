@@ -17,6 +17,8 @@ const { changePasswordInSettings } = require('../services/settingsChangePassword
 const { postUserCredentialsInDatabase } = require('../services/register.js');
 const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
+const { postExternDataToDB } = require('../services/postExternalLinks.js');
+const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -193,7 +195,7 @@ module.exports.registerUser = async (req, res) => {
     await postUserCredentialsInDatabase(registerForm);
     return res.status(200).json({ msg: 'Successfully registered user' });
   } catch (error) {
-    return res.status(500).json({ msg: `Unable to register user, due to error ${error.message}` });
+    return res.status(500).json({ msg: `Unable to register user, due to error "${error.message}"` });
   }
 };
 
@@ -239,5 +241,23 @@ module.exports.postFirstLoginInformation = async (req, res) => {
     return res.status(200).json({ msg: 'Succesfully posted first login information' });
   } catch (error) {
     return res.status(500).json({ msg: `Unable to perform insertion, due to error "${error.message}"` });
+  }
+};
+
+module.exports.postExternalInformationDetails = async (req, res) => {
+  try {
+    await postExternDataToDB(req.body.editInfoComponentForm, req.userHandle);
+    return res.status(200).json({ msg: 'Saved information for the external links in the database' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to save external link information due to error "${error.message}" ` });
+  }
+};
+
+module.exports.postExternalProfileDetails = async (req, res) => {
+  try {
+    await postProfileDataToDB(req.body.editInfoComponentForm, req.userHandle);
+    return res.status(200).json({ msg: 'Saved information for the external profile information in the database' });
+  } catch (error) {
+    return res.status(500).json({ msg: 'Uanble to save profile information due to error' });
   }
 };

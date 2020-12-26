@@ -25,6 +25,8 @@ services:
       - backend
       - mysql
       - mongo
+      - neo4j
+      - cache-store
 
   mysql:
     container_name: primary
@@ -52,10 +54,19 @@ services:
   
   neo4j:
     container_name: graphdb
-    image: neo4j
+    hostname: neo4j
+    image: neo4j:4.2.1-enterprise
     restart: always
     environment:
       NEO4J_AUTH: neo4j/${PASSWORD}
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: 'yes' 
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+      NEO4J_apoc_import_file_enabled: 'true'
+      NEO4J_dbms_shell_enabled: 'true'
+      NEO4J_dbms.ssl.policy.bolt.client_auth: NONE
+      NEO4J_dbms.ssl.policy.https.client_auth: NONE
+      dbms.ssl.policy.https.client_auth: NONE
+      dbms.ssl.policy.bolt.client_auth: NONE     
     volumes:
       - "./data/neo4j/data:/data"
       - "./data/neo4j/logs:/logs"
@@ -72,3 +83,8 @@ services:
     restart: always
     ports: 
       - "6379"
+    volumes:
+      - "./data/redis/redis-data:/var/lib/redis"
+      - "./data/redis/redis.conf:/usr/local/etc/redis/redis.conf"
+    environment: 
+      REDIS_REPLICATION_MODE: master
