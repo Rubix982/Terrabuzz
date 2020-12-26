@@ -54,8 +54,7 @@ const generateAccessToken = async (__data) => {
   const { status, handle } = await verifyUserCredentials(__data);
   if (status) {
     const token = jwt.sign({ handle }, `${process.env.JWT_SECRET}`, { expiresIn: '3d' });
-    console.log(token);
-    return token;
+    return { token, handle };
   }
   throw new Error('Please login with valid credentials!');
 };
