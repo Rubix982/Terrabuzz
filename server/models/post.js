@@ -64,6 +64,11 @@ const postSchema = new Schema({
     maxlength: 20,
     required: true,
   },
+  profilePicture: {
+    type: String,
+    maxLength: 15,
+    required: true,
+  },
 });
 
 const postListSchema = new Schema({

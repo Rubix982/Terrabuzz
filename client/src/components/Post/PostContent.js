@@ -17,7 +17,7 @@ const PostContent = () => {
           <CenterAlign>
             <div className={ComponentStyling.profilePicture}>
               <img
-                src="/assets/img/profile_pictures/boy.svg"
+                src={`/assets/img/profile_pictures/${post.state.profilePicture}`}
                 alt="user profile"
               />
             </div>

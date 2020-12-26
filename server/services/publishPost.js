@@ -1,4 +1,5 @@
 const { PostList, Post } = require('../models/post.js');
+const mysql = require('../db/mysql/connection.js');
 
 const getDateInWords = (__date) => {
   let date = (__date.toString()).split('').reverse();
@@ -38,6 +39,8 @@ const formattedDate = () => {
 
 const createAndPushPost = async ({ title, content, interest }, __handle) => {
   try {
+    const query = `SELECT ProfilePicture FROM TERRABUZZ.UserInformation WHERE Handle='${__handle}'`;
+    const profilePictureResult = await mysql.connection.query(query);
     const userPostList = await PostList.findOne({ _id: __handle }).populate('payload');
     const date = formattedDate();
     const newPost = new Post({
@@ -46,6 +49,7 @@ const createAndPushPost = async ({ title, content, interest }, __handle) => {
       datePublished: date,
       content,
       interest,
+      profilePicture: profilePictureResult[0][0].ProfilePicture,
     });
     await newPost.save();
     userPostList.payload.push(newPost.id);
