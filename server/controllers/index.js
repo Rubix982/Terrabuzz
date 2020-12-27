@@ -21,6 +21,7 @@ const { postExternDataToDB } = require('../services/postExternalLinks.js');
 const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 const { postNotification } = require('../services/postNotification.js');
 const { getNavbarInformationFromDatabase } = require('../services/getNavbarInfo.js');
+const { getNotificationListFromDatabase } = require('../services/getNotifDatabase.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -279,11 +280,29 @@ module.exports.postExternalProfileDetails = async (req, res) => {
   }
 };
 
-module.exports.postNotificationController = async (req, res) => {
+module.exports.postCommentNotification = async (req, res) => {
   try {
-    await postNotification(req.body.__notificationSchemaForm, req.userHandle);
+    await postNotification('comment', req.body, req.userHandle);
     return res.status(200).json({ msg: 'Notification posted successfully!' });
   } catch (error) {
     return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
+  }
+};
+
+module.exports.postLikeNotification = async (req, res) => {
+  try {
+    await postNotification('like', req.body, req.userHandle);
+    return res.status(200).json({ msg: 'Notification posted successfully!' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
+  }
+};
+
+module.exports.getNotificationList = async (req, res) => {
+  try {
+    await getNotificationListFromDatabase(req.userHandle);
+    return res.status(200).json({ msg: '' });
+  } catch (error) {
+    return res.statues(500).json({ msg: '' });
   }
 };
