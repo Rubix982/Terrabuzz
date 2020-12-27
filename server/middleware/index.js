@@ -24,7 +24,7 @@ module.exports.authorizeUser = (req, res, next) => {
     req.userHandle = handle;
     return next();
   } catch (error) {
-    return res.status(403).json({ msg: 'Unauthorized! Please login again.' });
+    return res.status(401).json({ msg: 'Unauthorized! Please login again.' });
   }
 };
 
@@ -38,6 +38,6 @@ module.exports.forwardUnAuthorizedUser = (req, res, next) => {
     req.userHandle = handle;
     return next();
   } catch (error) {
-    return res.status(403).json({ msg: 'Unauthorized! Please login again.' });
+    return res.status(401).json({ msg: 'Unauthorized! Please login again.' });
   }
 };

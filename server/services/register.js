@@ -1,7 +1,19 @@
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const mysql = require('../db/mysql/connection.js');
 const { PostList } = require('../models/post.js');
 const { NotificationList } = require('../models/notification.js');
+const { ValidationSet } = require('../models/valdation.js');
+const { GmailMailer } = require('./gmailAuth.js');
+const { HTMLResetPasswordForm } = require('./template.js');
+
+const emailData = {
+  title: 'Verify your account',
+  content: 'You\'re receiving this e-mail because you are required to verify your Terrabuzz account.',
+  description: 'Please tap the button below to verify your account.',
+  route: 'verify',
+  buttonText: 'Verify account',
+};
 
 const postUserCredentialsInDatabase = async (__registerForm) => {
   if (!__registerForm.password || !__registerForm.cpassword
@@ -28,6 +40,24 @@ const postUserCredentialsInDatabase = async (__registerForm) => {
         payload: [],
       });
       await notificationList.save();
+      const verificationHash = crypto.randomBytes(50).toString('hex');
+      const validationSet = new ValidationSet({
+        _id: __registerForm.userhandler,
+        verificationHash,
+      });
+      await validationSet.save();
+      const mail = new GmailMailer(
+        __registerForm.email,
+        HTMLResetPasswordForm(
+          verificationHash,
+          emailData.title,
+          emailData.content,
+          emailData.description,
+          emailData.route,
+          emailData.buttonText,
+        ),
+      );
+      await mail.send();
     } catch (error) {
       throw new Error(error.message);
     }

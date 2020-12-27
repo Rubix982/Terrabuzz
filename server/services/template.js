@@ -1,4 +1,4 @@
-const HTMLResetPasswordForm = (__hashedLink) => (`
+const HTMLResetPasswordForm = (__hashedLink, __title, __content, __description, __route, __buttonText) => (`
 <head>
     <title>Rating Reminder</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -88,7 +88,7 @@ const HTMLResetPasswordForm = (__hashedLink) => (`
                                                     line-height: 52px;
                                                     mso-line-height-rule: exactly; 
                                                     text-decoration: none;">
-                                                    Reset your password</td>
+                                                    ${__title}</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-top: 48px; padding-bottom: 48px;">
@@ -126,8 +126,7 @@ const HTMLResetPasswordForm = (__hashedLink) => (`
                                                     vertical-align: top;
                                                     width: 100%;
                                                     ">
-                                                    You're receiving this e-mail because you requested a password reset
-                                                    for your Terrabuzz account.
+                                                    ${__content}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -150,12 +149,12 @@ const HTMLResetPasswordForm = (__hashedLink) => (`
                                                     vertical-align: top;
                                                     width: 100%;
                                                     ">
-                                                    Please tap the button below to choose a new password.
+                                                    ${__description}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a data-click-track-id="37" href="${process.env.CLIENT_URL}/newPassword/${__hashedLink}"
+                                                    <a data-click-track-id="37" href="${process.env.CLIENT_URL}/${__route}/${__hashedLink}"
                                                         style="margin-top: 36px; 
                                                         -ms-text-size-adjust: 100%; 
                                                         -ms-text-size-adjust: 100%; 
@@ -179,7 +178,7 @@ const HTMLResetPasswordForm = (__hashedLink) => (`
                                                         text-align: center; 
                                                         text-transform: uppercase"
                                                         target="_blank">
-                                                        Reset Password
+                                                        ${__buttonText}
                                                     </a>
                                                 </td>
                                             </tr>

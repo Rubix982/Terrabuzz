@@ -6,7 +6,7 @@ import API from '../../API/API';
 
 const Content = () => {
   const [feedData, setFeedData] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(async () => {
     try {
