@@ -26,6 +26,7 @@ import LoginUserProvider from './components/LoginUserContext';
 
 function App() {
   let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
+  let isFirstLogin = (localStorage.getItem('firstLogin') === ' true') ? true : false;
   return (
     <>
       <LoginUserProvider>
@@ -35,14 +36,18 @@ function App() {
               <Route exact path="/">
                 {loggedIn ? <Feed /> : <Home />}
               </Route>
-              <Route exact path="/feed" component={Feed} />
+              <Route exact path="/feed" >
+                {isFirstLogin ? <FirstLogin /> : <Feed />}
+              </Route>
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path='/notification' component={Notification} />
               <Route exact path="/privacy" component={PrivacyPolicy} />
               <Route exact path="/publish">
                 {loggedIn ? <Publish /> : <Home />}
               </Route>
-              <Route exact path="/first" component={FirstLogin} />
+              <Route exact path="/first" >
+                {isFirstLogin ? <FirstLogin /> : <Feed />}
+              </Route>
               <Route exact path="/about" component={AboutUs} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/search/:searchType">

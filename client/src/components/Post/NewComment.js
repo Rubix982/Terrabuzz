@@ -17,20 +17,19 @@ const NewComment = () => {
     event.preventDefault();
     const Data = { Comment: _Comment };
 
-    const notificationSchemaForm = {
-      action: 'comment',
+    const commentNotificationSchemaForm = {
+      for: post.state.handle,
       timestamp: new Date(),
-      postID: id,
+      post: id,
       by: '',
       profilePicture: '',
-      for: post.state.handle,
     }
 
     if (!_Comment) {
       alert('Field cannot be empty!')
     } else {
       try {
-        await postCommentNotify(id, Data, notificationSchemaForm);
+        await postCommentNotify(id, Data, commentNotificationSchemaForm);
         alert('Comment successfully made!')
       } catch (error) {
         alert(`Unable to comment, sorry! Error is ${error.message}`)

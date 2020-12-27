@@ -15,6 +15,8 @@ Router.get('/search-interest', authorizeUser, indexContoller.searchInterest);
 Router.get('/search-user', authorizeUser, indexContoller.searchUser);
 Router.get('/settings', authorizeUser, indexContoller.getSettings);
 Router.get('/newPassword/:hashed', indexContoller.newPassword);
+Router.get('/notification-comment', authorizeUser, indexContoller.getCommentNotification);
+Router.get('/notification-like', authorizeUser, indexContoller.getLikeNotification);
 Router.post('/logout', authorizeUser, indexContoller.logoutUser);
 Router.post('/newPassword/:hashed', indexContoller.resetPassword);
 Router.post('/forget-password', indexContoller.forgetPassword);
@@ -29,5 +31,6 @@ Router.post('/firstLogin', authorizeUser, indexContoller.postFirstLoginInformati
 Router.post('/changepassword', authorizeUser, indexContoller.changePassword);
 Router.post('/externalLinks', authorizeUser, indexContoller.postExternalInformationDetails);
 Router.post('/externalProfile', authorizeUser, indexContoller.postExternalProfileDetails);
-Router.post('/notification', authorizeUser, indexContoller.postNotificationController);
+Router.post('/notification-comment', authorizeUser, indexContoller.postCommentNotification);
+Router.post('/notification-like', authorizeUser, indexContoller.postLikeNotification);
 module.exports = Router;

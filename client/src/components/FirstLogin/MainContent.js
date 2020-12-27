@@ -63,7 +63,8 @@ const MainContent = () => {
         interests: interestString,
         location: locationState
       });
-
+      alert('Sucessfully filled the form!')
+      localStorage.setItem('firstLogin', 'false')
     } catch (error) {
       alert(`Unable to submit form due to error "${error.message}"`)
     }
