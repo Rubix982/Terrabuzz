@@ -11,7 +11,7 @@ const postUserInformationForBio = async (__handler, __userInformationBlob) => {
     result.isFirstLogin = false;
 
     try {
-      result.save();
+      await result.save();
     } catch (errorValidtion) {
       throw new Error(`Unable to save fetched Validation Set, due to error ${errorValidtion.message}`);
     }

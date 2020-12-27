@@ -10,14 +10,14 @@ const PostProvider = ({ children }) => {
   const likeState = useState(false);
   const loadingState = useState(true);
   const { id } = useParams();
-  const [loggedIn] = useContext(loginUserContext);
+  const { login } = useContext(loginUserContext);
 
   useEffect(async () => {
     try {
       const { data } = await API.getRequest(`${process.env.REACT_APP_API_URL}/post/${id}`);
       (postState[1])(data); 
       
-      if (loggedIn) {
+      if (login.state) {
         const { status } = await API.getRequest(`${process.env.REACT_APP_API_URL}/like/${id}`);
         (likeState[1])(status);
         return (loadingState[1])(false);

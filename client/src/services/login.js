@@ -10,7 +10,7 @@ export const loginUser = async (__email, __password) => {
     const data = await
       API.postRequest(`${process.env.REACT_APP_API_URL}/login`,
         { email: __email, password: __password });
-    console.log(data.msg);
+    return (data);
   } catch (error) {
     throw new Error(error.message);
   }

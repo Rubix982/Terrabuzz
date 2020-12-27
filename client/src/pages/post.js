@@ -9,7 +9,7 @@ import Navbar from '../components/Navbar';
 import NavBarLoggedOut from '../components/NavbarLoggedOut';
 
 const Post = () => {
-  const [ loggedIn ] = useContext(loginUserContext);
+  const { login } = useContext(loginUserContext);
   return (
     <Container
       style={{
@@ -18,7 +18,7 @@ const Post = () => {
         gridTemplateRows: '10% 90%',
       }}
     >
-      { loggedIn ? <Navbar /> : <NavBarLoggedOut/> }
+      { login.state ? <Navbar first_name="Tashik" title="Terrabuzz" /> : <NavBarLoggedOut/> }
       <PostProvider>
         <MainContent />    
       </PostProvider>
