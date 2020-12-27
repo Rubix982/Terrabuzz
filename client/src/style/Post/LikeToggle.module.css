@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-end-start-radius: 20px;
+  border-radius: 0px 0px 0px 20px;
 }
 
 .likeToggle h1 {
@@ -13,10 +13,14 @@
   font-weight: lighter;
 }
 
+.notActive {
+  background-color: #242526;
+  transition: background-color 0.5s;
+}
 
 .active {
-  transition: 0.5s;
   background-color: white;
+  transition: background-color 0.5s;
 }
 
 .active h1 {

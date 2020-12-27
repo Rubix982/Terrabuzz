@@ -9,11 +9,24 @@
 .postBody {
   display: grid;
   grid-template-rows: 25% 75%;
+  background: rgba(36, 37, 38, 0.01);
+  border: 1px solid #444444;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.commentStyling {
+  background: #242526;
+  border: 1px solid #454545;
+  box-sizing: border-box;
+  border-radius: 0px 0px 20px 0px;
 }
 
 .postDescription {
   display: grid;
   grid-template-columns: 10% 90%;
+  margin: 1em;
 }
 
 .profilePicture {
@@ -31,16 +44,27 @@
 }
 
 .postTitle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 20% auto 20%;
   align-items: flex-start;
 }
 
-.postTitle h1,
-.postTitle h2,
-.postText p {
+.floatLeft {
+  display: flex;
+  flex-direction: column;
+  float: left;
   color: white;
+}
+
+.floatRight {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.postTitle h1, .postTitle h2, .postText p {
   font-weight: lighter;
 }
 
@@ -66,8 +90,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: #242526;
-  border-end-start-radius: 20px;
-  border-end-end-radius: 20px;
+  border-radius: 0px 0px 20px 20px;
+  border: 1px solid #454545;
+  box-sizing: border-box;
 }
 
 .stats h1 {

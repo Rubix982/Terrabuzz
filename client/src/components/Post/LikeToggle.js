@@ -27,7 +27,7 @@ const LikeToggle = () => {
       } catch (error) {
         alert(error.message);
       }
-    }} className={ like.state ? `${ComponentStyling.likeToggle} ${ComponentStyling.active}` : ComponentStyling.likeToggle}>
+    }} className={ like.state ? `${ComponentStyling.likeToggle} ${ComponentStyling.active}` : `${ComponentStyling.notActive} ${ComponentStyling.likeToggle}`}>
      <h1>{countTotalLikes(post.state.likes)} Likes</h1>
     </div>
   );
