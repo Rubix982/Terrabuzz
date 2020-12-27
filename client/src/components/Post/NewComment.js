@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import ComponentStyling from '../../style/Post/NewComment.module.css';
 import { useParams } from 'react-router-dom'
 import { CenterAlign } from '../FlexAlignment';
-import postCommentNotify from '../../services/commentNotify.js';
+import { postCommentNotify } from '../../services/commentNotify.js';
 import { postContext } from './PostContext';
 
 const NewComment = () => {
