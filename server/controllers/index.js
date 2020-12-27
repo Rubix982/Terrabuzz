@@ -19,7 +19,7 @@ const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
 const { postExternDataToDB } = require('../services/postExternalLinks.js');
 const { postProfileDataToDB } = require('../services/postExternalProfile.js');
-const { postCommentNotificationToDatabase } = require('../services/postCommentNotification.js');
+const { postNotification } = require('../services/postNotification.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -272,11 +272,11 @@ module.exports.postExternalProfileDetails = async (req, res) => {
   }
 };
 
-module.exports.postCommentNotification = async (req, res) => {
+module.exports.postNotificationController = async (req, res) => {
   try {
-    await postCommentNotificationToDatabase(req.body.notificationSchemaForm, req.userHandle);
-    return res.status(200).json({ msg: 'Notification for comment posted successfully!' });
+    await postNotification(req.body.__notificationSchemaForm, req.userHandle);
+    return res.status(200).json({ msg: 'Notification posted successfully!' });
   } catch (error) {
-    return res.status(500).json({ msg: `Unable to post comment to database due to error "${error.message}"` });
+    return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
   }
 };
