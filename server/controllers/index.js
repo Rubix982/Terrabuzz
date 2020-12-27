@@ -32,15 +32,20 @@ module.exports.getHomePage = async (req, res) => {
 
 module.exports.getUserFeed = async (req, res) => {
   try {
-    /* Below commented are Tashik's changes. Need to figure out where this thing is used so I can refactor this. MySQL should not be at controller level logic */
+    /* Below commented are Tashik's changes. Need to figure out where this
+    thing is used so I can refactor this.
+    MySQL should not be at controller level logic */
     //     // const status = await checkForFirstLogin(req.userHandle);
-    //     // a little refactor required here + do not forget to uncomment include for checkForFirstLogin
-    //     const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    //     // a little refactor required here + do not forget to uncomment include
+    // for checkForFirstLogin
+    //     const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation
+    // where Handle='${req.userHandle}';`;
     //     const output = await mysql.connection.query(_query);
     //     return res.status(200).send(output);
     //     // return res.json(status);
     //   } catch {
-    //     return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
+    //     return res.status(500).json({ msg: `Unable to check first
+    // login for @${req.userHandle}dot!` });
     const data = await getFeedData(req.userHandle);
     return res.json({ msg: `Fetched feed of ${req.userHandle}`, data });
   } catch (error) {
