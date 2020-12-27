@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import API from '../../API/API.js'
 import '../../style/Settings/Settings.css';
 import { getSettings, postSettings } from '../../services/settings';
 
@@ -41,6 +40,7 @@ const MainContent = () => {
 
       try {
         await postSettings(formData);
+        alert('Settings Updated');
       } catch (error) {
         alert(error.message);
       }
@@ -70,16 +70,6 @@ const MainContent = () => {
                 type="button"
                 className="options-button change-password"
                 value="Change Password"
-              />
-            </a>
-          </div>
-
-          <div>
-            <a href="/forgetPassword" >
-              <input
-                type="button"
-                className="options-button change-password"
-                value="Forget Password"
               />
             </a>
           </div>
@@ -148,7 +138,7 @@ const MainContent = () => {
             </div>
 
             <div className="align-input-field-2">
-              <input className="search-box" type="text" value={_Handler} onChange={event => setHandler(event.target.value)} />
+              <input className="search-box" type="text" value={_Handler} readOnly={true} />
             </div>
           </div>
 

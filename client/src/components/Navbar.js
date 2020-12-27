@@ -1,5 +1,5 @@
 // React itself
-import React from 'react';
+import React , {useContext} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 // Components
@@ -8,6 +8,7 @@ import Notifications from '../assets/img/icon/Notifications.svg';
 import Logo from '../assets/img/icon/Logo.svg';
 import { RightAlign } from './FlexAlignment';
 import SearchBar from './SearchBar';
+import UserContext from './userDataContext';
 
 // Service
 import { logMeOutService } from '../services/logout.js';
@@ -18,6 +19,7 @@ import ComponentStyling from '../style/Navbar.module.css';
 const Navbar = () => {
 
   const history = useHistory();
+  const userData = useContext(UserContext);
 
   const logMeOutIsClicked = async () => {
     try {
@@ -54,11 +56,11 @@ const Navbar = () => {
               <div className={ComponentStyling.profilePicture}>
                 <img
                   alt="user icon"
-                  src={'/assets/img/profile_pictures/boy(3).svg'}
+                  src={userData.imageSource}
                 />
               </div>
               <div className={ComponentStyling.username}>
-                <h1>John Doe</h1>
+                <h1>{userData.userName}</h1>
               </div>
             </a>
           </div>

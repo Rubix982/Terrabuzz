@@ -36,7 +36,7 @@ Just a social media application idea by University students.
             <div>
                 <img alt='MySQL' src='docs/img/mysql.svg' width='150' height='100' />
                 <img alt='MongoDB' src='docs/img/mongodb.svg' width='150' height='100' />
-                <img alt='Neo4j' src='docs/img/neo4j1.png' style='margin-left: 10px' width='80' height='80' />
+                <img alt='Redis' src='docs/img/redis.png' style='margin-left: 10px' width='80' height='80' />
             </div>
         </td>
     </tr>

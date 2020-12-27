@@ -21,44 +21,46 @@ import Contact from './pages/Contact';
 import FirstLogin from './pages/FirstLogin';
 import PrivacyPolicy from './pages/privacyPolicy';
 import Notification from './pages/Notification';
-import LoginUserProvider from './components/LoginUserContext'
+import {UserProvider} from './components/userDataContext'
+import LoginUserProvider from './components/LoginUserContext';
 
 function App() {
   let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
-
   return (
     <>
       <LoginUserProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              {loggedIn ? <Feed /> : <Home />}
-            </Route>
-            <Route exact path="/feed" component={Feed} />
-            <Route exact path="/profile/:handle" component={Profile} />
-            <Route exact path='/notification' component={Notification} />
-            <Route exact path="/privacy" component={PrivacyPolicy} />
-            <Route exact path="/publish">
-              {loggedIn ? <Publish /> : <Home />}
-            </Route>
-            <Route exact path="/first" component={FirstLogin} />
-            <Route exact path="/about" component={AboutUs} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/search/:searchType">
-              <Search />
-            </Route>
-            <Route exact path="/settings" component={Settings} />
-            <Route exact path="/changepassword" component={SettingsCP} />
-            <Route exact path="/post/:id" component={Post} />
-            <Route exact path="/login">
-              {loggedIn ? <Feed /> : <Login />}
-            </Route>
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/forgetPassword" component={ForgetPassword} />
-            <Route exact path="/newPassword/:hashed" component={NewPassword} />
-            <Route component={Error404} />
-          </Switch>
-        </Router>
+        <UserProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                {loggedIn ? <Feed /> : <Home />}
+              </Route>
+              <Route exact path="/feed" component={Feed} />
+              <Route exact path="/profile/:handle" component={Profile} />
+              <Route exact path='/notification' component={Notification} />
+              <Route exact path="/privacy" component={PrivacyPolicy} />
+              <Route exact path="/publish">
+                {loggedIn ? <Publish /> : <Home />}
+              </Route>
+              <Route exact path="/first" component={FirstLogin} />
+              <Route exact path="/about" component={AboutUs} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/search/:searchType">
+                <Search />
+              </Route>
+              <Route exact path="/settings" component={Settings} />
+              <Route exact path="/changepassword" component={SettingsCP} />
+              <Route exact path="/post/:id" component={Post} />
+              <Route exact path="/login">
+                {loggedIn ? <Feed /> : <Login />}
+              </Route>
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/forgetPassword" component={ForgetPassword} />
+              <Route exact path="/newPassword/:hashed" component={NewPassword} />
+              <Route component={Error404} />
+            </Switch>
+          </Router>
+        </UserProvider>
       </LoginUserProvider>
     </>
   );

@@ -31,6 +31,15 @@ module.exports.getHomePage = async (req, res) => {
 
 module.exports.getUserFeed = async (req, res) => {
   try {
+    /* Below commented are Tashik's changes. Need to figure out where this thing is used so I can refactor this. MySQL should not be at controller level logic */
+    //     // const status = await checkForFirstLogin(req.userHandle);
+    //     // a little refactor required here + do not forget to uncomment include for checkForFirstLogin
+    //     const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    //     const output = await mysql.connection.query(_query);
+    //     return res.status(200).send(output);
+    //     // return res.json(status);
+    //   } catch {
+    //     return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
     const data = await getFeedData(req.userHandle);
     return res.json({ msg: `Fetched feed of ${req.userHandle}`, data });
   } catch (error) {
@@ -151,11 +160,11 @@ module.exports.updateSettings = async (req, res) => {
     const updateForm = {
       Password: req.body.Password,
       CPassword: req.body.CPassword,
-      userHandle: req.userHandle,
+      userHandle: req.body.Handler,
       Email: req.body.Email,
       Username: req.body.Username,
     };
-    await updateSettingsInDatabase(updateForm);
+    await updateSettingsInDatabase(updateForm, req.userHandle);
     return res.status(200).json({ msg: 'Update settings performed successfully' });
   } catch (error) {
     return res.status(500).json({ msg: `Error while updating settings, ${error.message}` });
