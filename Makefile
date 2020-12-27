@@ -1,3 +1,15 @@
+build-prod:
+	sudo docker-compose -f docker-compose.yaml up --build
+
+up-prod:
+	sudo docker-compose -f docker-compose.yaml up
+
+stop:
+	docker container stop $(docker ps -aq)
+
+delete:
+	docker container rm $(docker ps -aq)
+
 remove:
 	sudo docker-compose down --remove-orphans
 
