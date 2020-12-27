@@ -31,7 +31,7 @@ const Content = () => {
         {postData.map((element) => {
           return (
             <Link key={element._id} to={'/post/' + element._id}>
-            <Post key={element._id} handle={element.handle} date={element.datePublished} content={reducePostContent(element.content, 200)} likeCount={countAndFormatTotalLikes(element.likes)} commentCount={formatTotalComments(element.comments)} interest={element.interest} />
+            <Post key={element._id} handle={element.handle} date={element.datePublished} content={reducePostContent(element.content, 200)} likeCount={countAndFormatTotalLikes(element.likes)} commentCount={formatTotalComments(element.comments)} profilePicture={element.profilePicture} interest={element.interest} />
             </Link>
            );
         })}
