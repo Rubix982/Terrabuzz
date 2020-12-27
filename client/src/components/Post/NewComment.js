@@ -4,11 +4,13 @@ import { useParams } from 'react-router-dom'
 import { CenterAlign } from '../FlexAlignment';
 import { postCommentNotify } from '../../services/commentNotify.js';
 import { postContext } from './PostContext';
+import { userContext } from '../userDataContext';
 
 const NewComment = () => {
   const [_Comment, setComment] = useState('');
   const { id } = useParams();
   const { post } = useContext(postContext);
+  const userInformationHandle = useContext(userContext);
 
   const newComment = async event => {
 
@@ -40,7 +42,7 @@ const NewComment = () => {
     <div className={ComponentStyling.entry}>
       <CenterAlign>
         <div className={ComponentStyling.profilePicture}>
-          <img src="/assets/img/profile_pictures/boy(2).svg" alt="user profile" />
+          <img src={`${userInformationHandle.imageSource.state}`} alt="user profile" />
         </div>
       </CenterAlign>
       <div className={ComponentStyling.commentBody}>
