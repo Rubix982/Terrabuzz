@@ -5,14 +5,9 @@ import FirstLogin from './FirstLogin.js';
 
 // the div is for navbar
 import Navbar from '../components/Navbar';
-import { loginUserContext } from '../components/LoginUserContext';
 
 const Feed = () => {
-  const { firstLogin } = useContext(loginUserContext);
   
-  if (firstLogin.state) {
-    return (<FirstLogin />);
-  }
   return (
   <Container
     style={{

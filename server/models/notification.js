@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const notificationSchema = new Schema({
-  action: {
+const commentNotificationSchema = new Schema({
+  for: {
     type: String,
-    maxLength: 60,
+    maxlength: 40,
+    required: true,
   },
   timestamp: {
     type: Date,
     required: true,
   },
-  postID: {
+  post: {
     type: Schema.Types.ObjectId,
     required: true,
   },
@@ -27,18 +28,31 @@ const notificationSchema = new Schema({
   },
 });
 
-const notificationListSchema = new Schema({
-  _id: {
+const likeNotificationSchema = new Schema({
+  for: {
     type: String,
-    maxLength: 40,
+    maxlength: 40,
     required: true,
-    unique: true,
   },
-  payload: [{
+  timestamp: {
+    type: Date,
+    required: true,
+  },
+  post: {
     type: Schema.Types.ObjectId,
-    ref: 'Notification',
-  }],
+    required: true,
+  },
+  by: {
+    type: String,
+    maxlength: 40,
+    required: true,
+  },
+  profilePicture: {
+    type: String,
+    maxLength: 15,
+    required: true,
+  },
 });
 
-module.exports.Notification = mongoose.model('Notification', notificationSchema);
-module.exports.NotificationList = mongoose.model('NotificaionList', notificationListSchema);
+module.exports.CommentNotification = mongoose.model('CommentNotification', commentNotificationSchema);
+module.exports.LikeNotification = mongoose.model('LikeNotification', likeNotificationSchema);

@@ -2,6 +2,7 @@ const MONGOOSE = require('mongoose');
 // const { NotificationList } = require('../../models/notification.js');
 // const { PostList } = require('../../models/post.js');
 // const { ValidationSet } = require('../../models/valdation.js');
+
 require('dotenv').config();
 
 const connect = async () => {

@@ -22,6 +22,7 @@ const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 const { postNotification } = require('../services/postNotification.js');
 const { getNavbarInformationFromDatabase } = require('../services/getNavbarInfo.js');
 const { getUserVerificationStatus, verifyUser } = require('../services/verify.js');
+const { getNotificationList } = require('../services/getNotifDatabase.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -281,9 +282,9 @@ module.exports.postExternalProfileDetails = async (req, res) => {
   }
 };
 
-module.exports.postNotificationController = async (req, res) => {
+module.exports.postCommentNotification = async (req, res) => {
   try {
-    await postNotification(req.body.__notificationSchemaForm, req.userHandle);
+    await postNotification('comment', req.body, req.userHandle);
     return res.status(200).json({ msg: 'Notification posted successfully!' });
   } catch (error) {
     return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
@@ -297,5 +298,32 @@ module.exports.verifyUser = async (req, res) => {
     res.json({ msg: 'User successfully verified', status });
   } catch (error) {
     res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports.postLikeNotification = async (req, res) => {
+  try {
+    await postNotification('like', req.body, req.userHandle);
+    return res.status(200).json({ msg: 'Notification posted successfully!' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
+  }
+};
+
+module.exports.getLikeNotification = async (req, res) => {
+  try {
+    const result = await getNotificationList('like', req.userHandle);
+    return res.status(200).send(result);
+  } catch (error) {
+    return res.statues(500).json({ msg: `Unable to fetch notifications list from controller, due to error "${error.message}"` });
+  }
+};
+
+module.exports.getCommentNotification = async (req, res) => {
+  try {
+    const result = await getNotificationList('comment', req.userHandle);
+    return res.status(200).send(result);
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to fetch notifications list from controller, due to error "${error.message}"` });
   }
 };
