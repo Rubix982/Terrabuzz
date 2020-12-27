@@ -4,6 +4,14 @@ const { InsertValidationDocument } = require('./resetHash.js');
 const { GmailMailer } = require('./gmailAuth.js');
 const { HTMLResetPasswordForm } = require('./template.js');
 
+const emailData = {
+  title: 'Reset your password',
+  content: 'You\'re receiving this e-mail because you requested a password reset for your Terrabuzz account.',
+  description: 'Please tap the button below to choose a new password.',
+  route: 'newPassword',
+  buttonText: 'Reset password',
+};
+
 const forgetPasswordUpdation = async (__email) => {
   // If the user exists in the database
   try {
@@ -24,8 +32,18 @@ const forgetPasswordUpdation = async (__email) => {
     } catch (error) {
       throw new Error(`InsertValidationDocument failed due to error ${error.message}`);
     }
-    const mail = new GmailMailer(__email, HTMLResetPasswordForm(hashedResetLink));
-    mail.send();
+    const mail = new GmailMailer(
+      __email,
+      HTMLResetPasswordForm(
+        hashedResetLink,
+        emailData.title,
+        emailData.content,
+        emailData.description,
+        emailData.route,
+        emailData.buttonText,
+      ),
+    );
+    await mail.send();
   } catch (error) {
     throw new Error(`Unable to send a reset email. Encountered error "${error.message}"`);
   }

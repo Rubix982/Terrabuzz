@@ -34,9 +34,9 @@ const MainContent = () => {
         <br />
         <input onClick={async () => {
           try {
-            const { status } = await loginUser(email, password);
+            const { verificationStatus, firstLoginStatus } = await loginUser(email, password);
             localStorage.setItem('loggedIn', true);
-            localStorage.setItem('firstLogin', status);
+            localStorage.setItem('firstLogin', firstLoginStatus);
             setTimeout(() => {
               history.push('/feed');
             }, 3000);

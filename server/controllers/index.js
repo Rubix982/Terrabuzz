@@ -21,6 +21,7 @@ const { postExternDataToDB } = require('../services/postExternalLinks.js');
 const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 const { postNotification } = require('../services/postNotification.js');
 const { getNavbarInformationFromDatabase } = require('../services/getNavbarInfo.js');
+const { getUserVerificationStatus, verifyUser } = require('../services/verify.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -193,8 +194,9 @@ module.exports.loginUser = async (req, res) => {
   try {
     const { token, handle } = await generateAccessToken(req.body);
     res.cookie('access-token', token, { httpOnly: true, sameSite: true });
-    const status = await checkForFirstLogin(handle);
-    return res.status(200).json({ msg: 'User logged in!!', status });
+    const firstLoginStatus = await checkForFirstLogin(handle);
+    const verificationStatus = await getUserVerificationStatus(handle);
+    return res.status(200).json({ msg: 'User logged in!!', firstLoginStatus, verificationStatus });
   } catch (error) {
     return res.status(401).json({ msg: error.message });
   }
@@ -248,7 +250,7 @@ module.exports.logoutUser = async (req, res) => {
     res.clearCookie('access-token');
     return res.status(200).json({ msg: 'User succesfully logged out' });
   } catch (error) {
-    return res.status(403).json({ msg: error.message });
+    return res.status(401).json({ msg: error.message });
   }
 };
 
@@ -285,5 +287,15 @@ module.exports.postNotificationController = async (req, res) => {
     return res.status(200).json({ msg: 'Notification posted successfully!' });
   } catch (error) {
     return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
+  }
+};
+
+module.exports.verifyUser = async (req, res) => {
+  try {
+    const { hash } = req.body;
+    const status = await verifyUser(hash);
+    res.json({ msg: 'User successfully verified', status });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
   }
 };
