@@ -21,7 +21,7 @@ const { postExternDataToDB } = require('../services/postExternalLinks.js');
 const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 const { postNotification } = require('../services/postNotification.js');
 const { getNavbarInformationFromDatabase } = require('../services/getNavbarInfo.js');
-const { getNotificationListFromDatabase } = require('../services/getNotifDatabase.js');
+const { getNotificationList } = require('../services/getNotifDatabase.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -298,11 +298,20 @@ module.exports.postLikeNotification = async (req, res) => {
   }
 };
 
-module.exports.getNotificationList = async (req, res) => {
+module.exports.getLikeNotification = async (req, res) => {
   try {
-    await getNotificationListFromDatabase(req.userHandle);
-    return res.status(200).json({ msg: '' });
+    const result = await getNotificationList('like', req.userHandle);
+    return res.status(200).send(result);
   } catch (error) {
-    return res.statues(500).json({ msg: '' });
+    return res.statues(500).json({ msg: `Unable to fetch notifications list from controller, due to error "${error.message}"` });
+  }
+};
+
+module.exports.getCommentNotification = async (req, res) => {
+  try {
+    const result = await getNotificationList('comment', req.userHandle);
+    return res.status(200).send(result);
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to fetch notifications list from controller, due to error "${error.message}"` });
   }
 };
