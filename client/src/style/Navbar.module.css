@@ -172,6 +172,7 @@
   display: grid;
   grid-template-columns: 20% 80%;
   margin: 2px;
+  cursor: pointer;
 }
 
 .navbarTextStyling {

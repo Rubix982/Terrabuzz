@@ -26,6 +26,7 @@ const Navbar = () => {
       await logMeOutService();
       setTimeout(() => {    
         localStorage.removeItem('loggedIn');
+        localStorage.removeItem('firstLogin');
         history.push('/login');
       }, 2000);
     } catch (error) {

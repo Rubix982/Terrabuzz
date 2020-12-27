@@ -7,7 +7,7 @@ import { countTotalLikes } from '../../services/post';
 import { loginUserContext } from '../LoginUserContext';
 
 const PostContent = () => {
-  const [ loggedIn ] = useContext(loginUserContext);
+  const  { login } = useContext(loginUserContext);
   const { post } = useContext(postContext);
 
   return (
@@ -17,7 +17,7 @@ const PostContent = () => {
           <CenterAlign>
             <div className={ComponentStyling.profilePicture}>
               <img
-                src="/assets/img/profile_pictures/boy.svg"
+                src={`/assets/img/profile_pictures/${post.state.profilePicture}`}
                 alt="user profile"
               />
             </div>
@@ -41,7 +41,7 @@ const PostContent = () => {
         </div>
       </div>
       <div className={ComponentStyling.stats}>
-        { loggedIn ? (
+        { login.state ? (
           <LikeToggle/>
         ) : (
         <CenterAlign>

@@ -40,7 +40,7 @@ const MainContentInterest = () => {
       <div className={ComponentStyling.content}>
         <SearchProvider>
           <MainHeader query={entries.query} />
-          <InterestContent  query={entries.query} postedOn={entries.postedOn} interestedIn={entries.interestedIn} />
+          <InterestContent query={entries.query} postedOn={entries.postedOn} interestedIn={entries.interestedIn} />
         </SearchProvider>
       </div>
     );

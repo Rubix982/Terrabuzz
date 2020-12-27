@@ -7,11 +7,11 @@ import { postContext } from './PostContext';
 
 const CommentContent = () => {
   const { post } = useContext(postContext);
-  const [loggedIn]  = useContext(loginUserContext);
+  const { login }  = useContext(loginUserContext);
   
   return (
     <div className={ComponentStyling.content}>
-      {loggedIn ? <NewComment/> : ''}
+      {login.state ? <NewComment/> : ''}
       {post.state.comments.map((element) => {
         return (<Comment key={element._id} commentData={element} />)
       })}

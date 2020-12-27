@@ -9,6 +9,7 @@ class API {
       });
       if(response.status===403) {
         localStorage.removeItem('loggedIn');
+        localStorage.removeItem('firstLogin');
         const data = await response.json();
         throw new Error(data.msg);
       }

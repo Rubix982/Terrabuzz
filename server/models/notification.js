@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const notificationSchmea = new Schema({
+const notificationSchema = new Schema({
   action: {
     type: String,
     maxLength: 60,
@@ -30,5 +30,5 @@ const notificationListSchema = new Schema({
   }],
 });
 
-module.exports.Notification = mongoose.model('Notification', notificationSchmea);
+module.exports.Notification = mongoose.model('Notification', notificationSchema);
 module.exports.NotificationList = mongoose.model('NotificaionList', notificationListSchema);

@@ -3,19 +3,22 @@ const { createAndPushPost } = require('../services/publishPost.js');
 const { getHomePagePosts } = require('../services/homePage.js');
 const { getSinglePost } = require('../services/getSinglePost.js');
 const { getLikeStatus, updateLike } = require('../services/like.js');
+const { getFollowStatus, alterFollowStatus } = require('../services/follow.js');
 const { addComment } = require('../services/comment.js');
 const { getProfileData } = require('../services/profile.js');
 const { searchUserProfiles, searchInterestEntries } = require('../services/search.js');
 const { forgetPasswordUpdation } = require('../services/forgetPassword.js');
 const { VerifyResetPasswordHash } = require('../services/verifyResetHash.js');
 const { changePasswordForUser } = require('../services/changePassword.js');
-// const { checkForFirstLogin } = require('../services/firstLogin.js');
+const { checkForFirstLogin } = require('../services/firstLogin.js');
+const { getFeedData } = require('../services/feed.js');
 const { postUserInformationForBio } = require('../services/postFirstLogin.js');
 const { changePasswordInSettings } = require('../services/settingsChangePassword.js');
 const { postUserCredentialsInDatabase } = require('../services/register.js');
 const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
-const mysql = require('../db/mysql/connection.js');
+const { postExternDataToDB } = require('../services/postExternalLinks.js');
+const { postProfileDataToDB } = require('../services/postExternalProfile.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -28,14 +31,19 @@ module.exports.getHomePage = async (req, res) => {
 
 module.exports.getUserFeed = async (req, res) => {
   try {
-    // const status = await checkForFirstLogin(req.userHandle);
-    // a little refactor required here + do not forget to uncomment include for checkForFirstLogin
-    const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    const output = await mysql.connection.query(_query);
-    return res.status(200).send(output);
-    // return res.json(status);
-  } catch {
-    return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
+    /* Below commented are Tashik's changes. Need to figure out where this thing is used so I can refactor this. MySQL should not be at controller level logic */
+    //     // const status = await checkForFirstLogin(req.userHandle);
+    //     // a little refactor required here + do not forget to uncomment include for checkForFirstLogin
+    //     const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
+    //     const output = await mysql.connection.query(_query);
+    //     return res.status(200).send(output);
+    //     // return res.json(status);
+    //   } catch {
+    //     return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
+    const data = await getFeedData(req.userHandle);
+    return res.json({ msg: `Fetched feed of ${req.userHandle}`, data });
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
   }
 };
 
@@ -98,6 +106,26 @@ module.exports.addLike = async (req, res) => {
   }
 };
 
+module.exports.getFollow = async (req, res) => {
+  try {
+    const profileHandle = req.params.handle;
+    const status = await getFollowStatus(profileHandle, req.userHandle);
+    res.json({ msg: `Connection status of profileHandle ${profileHandle}`, status });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports.alterFollow = async (req, res) => {
+  try {
+    const profileHandle = req.params.handle;
+    const status = await alterFollowStatus(profileHandle, req.userHandle);
+    res.json({ msg: `New connection of user ${req.userHandle} with profileHandle ${profileHandle}`, status });
+  } catch (error) {
+    res.status(404).json({ msg: error.message });
+  }
+};
+
 module.exports.searchInterest = async (req, res) => {
   try {
     const { topic } = req.query;
@@ -155,9 +183,10 @@ module.exports.changePassword = async (req, res) => {
 
 module.exports.loginUser = async (req, res) => {
   try {
-    const token = await generateAccessToken(req.body);
+    const { token, handle } = await generateAccessToken(req.body);
     res.cookie('access-token', token, { httpOnly: true, sameSite: true });
-    return res.status(200).json({ msg: 'User logged in!!' });
+    const status = await checkForFirstLogin(handle);
+    return res.status(200).json({ msg: 'User logged in!!', status });
   } catch (error) {
     return res.status(401).json({ msg: error.message });
   }
@@ -175,7 +204,7 @@ module.exports.registerUser = async (req, res) => {
     await postUserCredentialsInDatabase(registerForm);
     return res.status(200).json({ msg: 'Successfully registered user' });
   } catch (error) {
-    return res.status(500).json({ msg: `Unable to register user, due to error ${error.message}` });
+    return res.status(500).json({ msg: `Unable to register user, due to error "${error.message}"` });
   }
 };
 
@@ -206,17 +235,13 @@ module.exports.forgetPassword = async (req, res) => {
   }
 };
 
-module.exports.controllerLogOut = async (req, res) => {
-  // Does not work - I don't understand at the moment
-  res.status(200).json({ msg: 'Testing' });
-
-  // try {
-  //   console.log(`Cookie is`);
-  //   return res.status(200).json({ msg: 'Access Token Removed' });
-  // } catch (error) {
-  //   return res.status(403).json({ msg: `Unable to remove access token,
-  //   with error ${error.message}` });
-  // }
+module.exports.logoutUser = async (req, res) => {
+  try {
+    res.clearCookie('access-token');
+    return res.status(200).json({ msg: 'User succesfully logged out' });
+  } catch (error) {
+    return res.status(403).json({ msg: error.message });
+  }
 };
 
 module.exports.postFirstLoginInformation = async (req, res) => {
@@ -225,5 +250,23 @@ module.exports.postFirstLoginInformation = async (req, res) => {
     return res.status(200).json({ msg: 'Succesfully posted first login information' });
   } catch (error) {
     return res.status(500).json({ msg: `Unable to perform insertion, due to error "${error.message}"` });
+  }
+};
+
+module.exports.postExternalInformationDetails = async (req, res) => {
+  try {
+    await postExternDataToDB(req.body.editInfoComponentForm, req.userHandle);
+    return res.status(200).json({ msg: 'Saved information for the external links in the database' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to save external link information due to error "${error.message}" ` });
+  }
+};
+
+module.exports.postExternalProfileDetails = async (req, res) => {
+  try {
+    await postProfileDataToDB(req.body.editInfoComponentForm, req.userHandle);
+    return res.status(200).json({ msg: 'Saved information for the external profile information in the database' });
+  } catch (error) {
+    return res.status(500).json({ msg: 'Uanble to save profile information due to error' });
   }
 };

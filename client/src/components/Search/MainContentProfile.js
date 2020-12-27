@@ -22,7 +22,6 @@ const MainContentProfile = () => {
       const q = params.get('q');
       setLoading(true);
       const users  = await getProfileSearchEntries(q);
-      console.log(users);
       setEntries(users);
       setLoading(false);
     } catch (error) {

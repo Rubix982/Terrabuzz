@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import ComponentStyling from '../../style/Search/Profile.module.css';
 import { CenterAlign } from '../FlexAlignment';
 
 const Profile = ({ username, handle }) => (
-  <div className={ComponentStyling.entry}>
+  <Link to={`/profile/${handle}`}>
+    <div className={ComponentStyling.entry}>
     <CenterAlign>
       <div className={ComponentStyling.profilePicture}>
         <img src="/assets/img/profile_pictures/boy(3).svg" alt="profilePic" />
@@ -13,7 +15,8 @@ const Profile = ({ username, handle }) => (
       <h1>{username}</h1>
       <h2>@{handle}</h2>
     </div>
-  </div>
+    </div>
+  </Link>
 );
 
 export default Profile;

@@ -27,3 +27,17 @@ module.exports.authorizeUser = (req, res, next) => {
     return res.status(403).json({ msg: 'Unauthorized! Please login again.' });
   }
 };
+
+module.exports.forwardUnAuthorizedUser = (req, res, next) => {
+  try {
+    const token = req.cookies['access-token'];
+    if (!token) {
+      return next();
+    }
+    const { handle } = verifyAccessToken(token);
+    req.userHandle = handle;
+    return next();
+  } catch (error) {
+    return res.status(403).json({ msg: 'Unauthorized! Please login again.' });
+  }
+};
