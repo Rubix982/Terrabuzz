@@ -6,7 +6,7 @@ const InterestedInEntry = require('../models/InterestedInEntry.js');
 
 const searchUserProfiles = async (__username) => {
   try {
-    const [data] = await MYSQL_CONNECTOR.connection.query(`SELECT Username, Handle FROM TERRABUZZ.UserInformation WHERE Handle LIKE BINARY '%${__username}%'`);
+    const [data] = await MYSQL_CONNECTOR.connection.query(`SELECT Username, Handle, ProfilePicture FROM TERRABUZZ.UserInformation WHERE Handle LIKE BINARY '%${__username}%'`);
     return (data);
   } catch (error) {
     throw new Error(error.message);

@@ -1,30 +1,39 @@
-import React, {useEffect, useState} from 'react';
-const UserContext = React.createContext();
+import React, { useContext, createContext, useEffect, useState } from 'react';
 import API from '../API/API';
-require('dotenv').config();
+import { loginUserContext } from './LoginUserContext';
 
-export const UserProvider = (props) => {
+export const userContext = createContext();
 
-    const [userName , setUserName ] = useState('Tashik Moin');
-    const [imageSource , setImageSource ] = useState('/assets/img/profile_pictures/boy(3).svg');
+const UserProvider = (props) => {
 
-    useEffect( async () => {
-        try {
-            const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/feed`);
-            const [data] = response[0];
-            setUserName(data.Username);
-            setImageSource('/assets/img/profile_pictures/'+data.ProfilePicture);
-        } catch (error) {
-            throw new Error(error.message);
+    const [userName, setUserName] = useState('');
+    const [imageSource, setImageSource] = useState('');
+    const [userHandle, setUserHandle] = useState('');
+    let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
+
+    useEffect(async () => {
+        if (loggedIn) {
+            try {
+                const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/navbar`);
+                setUserHandle(response.Handle);
+                setUserName(response.Username);
+                setImageSource('/assets/img/profile_pictures/' + response.ProfilePicture);
+                return setImageSource;
+            } catch (error) {
+                throw new Error(error.message);
+            }
         }
-    },[]);
+    }, []);
 
-    return(
-        <UserContext.Provider value={{userName, imageSource}}>
+    return (
+        <userContext.Provider value={{
+            userName: { state: userName, setter: setUserName },
+            imageSource: { state: imageSource, setter: setImageSource },
+            handle: { state: userHandle, setter: setUserHandle },
+        }}>
             {props.children}
-        </UserContext.Provider>
+        </userContext.Provider>
     );
 }
 
-
-export default UserContext;
+export default UserProvider;

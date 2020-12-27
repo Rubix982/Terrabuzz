@@ -11,7 +11,7 @@ const SearchProfileEntries = ({ profilesEntries }) => {
     const children = [];
 
     for (let j = i * factor; j < (i + 1) * factor && j < entries.length ; j++) {
-      children.push(<Profile key={profilesEntries[j].Handle} username={profilesEntries[j].Username} handle={profilesEntries[j].Handle} />);
+      children.push(<Profile key={profilesEntries[j].Handle} username={profilesEntries[j].Username} handle={profilesEntries[j].Handle} profilePicture={profilesEntries[j].ProfilePicture} />);
     }
 
     entries.push(

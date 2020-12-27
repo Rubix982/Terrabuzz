@@ -1,5 +1,5 @@
 // React itself
-import React , {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 // Components
@@ -8,7 +8,7 @@ import Notifications from '../assets/img/icon/Notifications.svg';
 import Logo from '../assets/img/icon/Logo.svg';
 import { RightAlign } from './FlexAlignment';
 import SearchBar from './SearchBar';
-import UserContext from './userDataContext';
+import { userContext } from './userDataContext';
 
 // Service
 import { logMeOutService } from '../services/logout.js';
@@ -19,12 +19,12 @@ import ComponentStyling from '../style/Navbar.module.css';
 const Navbar = () => {
 
   const history = useHistory();
-  const userData = useContext(UserContext);
+  const userData = useContext(userContext);
 
   const logMeOutIsClicked = async () => {
     try {
       await logMeOutService();
-      setTimeout(() => {    
+      setTimeout(() => {
         localStorage.removeItem('loggedIn');
         localStorage.removeItem('firstLogin');
         history.push('/login');
@@ -52,15 +52,15 @@ const Navbar = () => {
       <RightAlign>
         <div className={ComponentStyling.rightContent}>
           <div>
-            <a className={ComponentStyling.profileDetails} href='/profile'>
+            <a className={ComponentStyling.profileDetails} href={`/profile/${userData.handle.state}`}>
               <div className={ComponentStyling.profilePicture}>
                 <img
                   alt="user icon"
-                  src={userData.imageSource}
+                  src={`${userData.imageSource.state}`}
                 />
               </div>
               <div className={ComponentStyling.username}>
-                <h1>{userData.userName}</h1>
+                <h1>{userData.userName.state}</h1>
               </div>
             </a>
           </div>
@@ -79,16 +79,16 @@ const Navbar = () => {
 
                   {/* Profile Information */}
                   <div className={ComponentStyling.tilingStyleForGrid}>
-                    <a href='/profile' className={ComponentStyling.gridStylingForDropdown}>
+                    <a href={`/profile/${userData.handle.state}`} className={ComponentStyling.gridStylingForDropdown}>
                       <div className={ComponentStyling.profilePicture}>
                         <img
                           alt="userIcon"
-                          src={'/assets/img/profile_pictures/boy(3).svg'}
+                          src={`${userData.imageSource.state}`}
                           className={ComponentStyling.narbarImageStyling}
                         />
                       </div>
                       <div className={ComponentStyling.navbarTextStyling}>
-                        <h1>John Doe | @johndoe</h1>
+                        <h1>{userData.userName.state} | @{userData.handle.state}</h1>
                       </div>
                     </a>
                   </div>

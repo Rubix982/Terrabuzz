@@ -5,6 +5,7 @@ const Router = express.Router();
 const indexContoller = require('../controllers/index.js');
 
 Router.get('/', indexContoller.getHomePage);
+Router.get('/navbar', authorizeUser, indexContoller.getNavbarInformation);
 Router.get('/feed', authorizeUser, indexContoller.getUserFeed);
 Router.get('/profile/:handle', forwardUnAuthorizedUser, indexContoller.getUserProfile);
 Router.get('/post/:id', indexContoller.getPost);
@@ -28,4 +29,5 @@ Router.post('/firstLogin', authorizeUser, indexContoller.postFirstLoginInformati
 Router.post('/changepassword', authorizeUser, indexContoller.changePassword);
 Router.post('/externalLinks', authorizeUser, indexContoller.postExternalInformationDetails);
 Router.post('/externalProfile', authorizeUser, indexContoller.postExternalProfileDetails);
+Router.post('/notification', authorizeUser, indexContoller.postNotificationController);
 module.exports = Router;

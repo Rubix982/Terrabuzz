@@ -15,6 +15,16 @@ const notificationSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
+  by: {
+    type: String,
+    maxlength: 40,
+    required: true,
+  },
+  profilePicture: {
+    type: String,
+    maxLength: 15,
+    required: true,
+  },
 });
 
 const notificationListSchema = new Schema({

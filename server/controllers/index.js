@@ -19,6 +19,8 @@ const { getSettingsFromDatabase } = require('../services/getSettings.js');
 const { updateSettingsInDatabase } = require('../services/updateSettings.js');
 const { postExternDataToDB } = require('../services/postExternalLinks.js');
 const { postProfileDataToDB } = require('../services/postExternalProfile.js');
+const { postNotification } = require('../services/postNotification.js');
+const { getNavbarInformationFromDatabase } = require('../services/getNavbarInfo.js');
 
 module.exports.getHomePage = async (req, res) => {
   try {
@@ -29,17 +31,23 @@ module.exports.getHomePage = async (req, res) => {
   }
 };
 
+module.exports.getNavbarInformation = async (req, res) => {
+  try {
+    const output = await getNavbarInformationFromDatabase(req.userHandle);
+    const data = {
+      Username: output[0][0].Username,
+      ProfilePicture: output[0][0].ProfilePicture,
+      Handle: req.userHandle,
+    };
+    console.log(data);
+    return res.status(200).send(data);
+  } catch (error) {
+    return res.status(500).json({ msg: `Unable to fetch navbar information due to error "${error.message}"` });
+  }
+};
+
 module.exports.getUserFeed = async (req, res) => {
   try {
-    /* Below commented are Tashik's changes. Need to figure out where this thing is used so I can refactor this. MySQL should not be at controller level logic */
-    //     // const status = await checkForFirstLogin(req.userHandle);
-    //     // a little refactor required here + do not forget to uncomment include for checkForFirstLogin
-    //     const _query = `select Username, ProfilePicture from TERRABUZZ.UserInformation where Handle='${req.userHandle}';`;
-    //     const output = await mysql.connection.query(_query);
-    //     return res.status(200).send(output);
-    //     // return res.json(status);
-    //   } catch {
-    //     return res.status(500).json({ msg: `Unable to check first login for @${req.userHandle}dot!` });
     const data = await getFeedData(req.userHandle);
     return res.json({ msg: `Fetched feed of ${req.userHandle}`, data });
   } catch (error) {
@@ -268,5 +276,14 @@ module.exports.postExternalProfileDetails = async (req, res) => {
     return res.status(200).json({ msg: 'Saved information for the external profile information in the database' });
   } catch (error) {
     return res.status(500).json({ msg: 'Uanble to save profile information due to error' });
+  }
+};
+
+module.exports.postNotificationController = async (req, res) => {
+  try {
+    await postNotification(req.body.__notificationSchemaForm, req.userHandle);
+    return res.status(200).json({ msg: 'Notification posted successfully!' });
+  } catch (error) {
+    return res.status(500).json({ msg: `Failed to post notification to database due to error "${error.message}"` });
   }
 };

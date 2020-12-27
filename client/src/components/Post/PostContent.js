@@ -7,7 +7,7 @@ import { countTotalLikes } from '../../services/post';
 import { loginUserContext } from '../LoginUserContext';
 
 const PostContent = () => {
-  const  { login } = useContext(loginUserContext);
+  const { login } = useContext(loginUserContext);
   const { post } = useContext(postContext);
 
   return (
@@ -23,8 +23,14 @@ const PostContent = () => {
             </div>
           </CenterAlign>
           <div className={ComponentStyling.postTitle}>
-            <h1>@{post.state.handle}</h1>
-            <h1>{post.state.datePublished}</h1>
+            <div className={ComponentStyling.floatLeft}>
+              <h1>@{post.state.handle}</h1>
+              <h1>{post.state.datePublished}</h1>
+            </div>
+            <div></div>
+            <div className={ComponentStyling.floatRight}>
+              <h1>#{post.state.interest}</h1>
+            </div>
           </div>
         </div>
         <div className={ComponentStyling.postText}>
@@ -41,17 +47,19 @@ const PostContent = () => {
         </div>
       </div>
       <div className={ComponentStyling.stats}>
-        { login.state ? (
-          <LikeToggle/>
+        {login.state ? (
+          <LikeToggle />
         ) : (
-        <CenterAlign>
-          <h1>{countTotalLikes(post.state.likes)} Likes</h1>
-        </CenterAlign>
-        )}
+            <CenterAlign>
+              <h1>{countTotalLikes(post.state.likes)} Likes</h1>
+            </CenterAlign>
+          )}
 
-        <CenterAlign>
-          <h1>{post.state.comments.length} Comments</h1>
-        </CenterAlign>
+        {/* <div className={ComponentStyling.commentStyling}> */}
+          <CenterAlign>
+            <h1>{post.state.comments.length} Comments</h1>
+          </CenterAlign>
+        {/* </div> */}
       </div>
     </div>
   );

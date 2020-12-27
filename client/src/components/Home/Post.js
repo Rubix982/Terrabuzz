@@ -2,12 +2,12 @@ import React from 'react';
 import ComponentStyling from '../../style/Home/Post.module.css';
 import { CenterAlign } from '../FlexAlignment';
 
-const Post = ({ handle, date, content, likeCount, commentCount, interest }) => (
+const Post = ({ handle, date, content, likeCount, commentCount, interest, profilePicture }) => (
   <div className={ComponentStyling.entry}>
     <div className={ComponentStyling.main}>
       <CenterAlign>
         <div className={ComponentStyling.profilePicture}>
-          <img alt="user icon" src="/assets/img/profile_pictures/boy(3).svg" />
+          <img alt="user icon" src={`/assets/img/profile_pictures/${profilePicture}`} />
         </div>
       </CenterAlign>
       <div className={ComponentStyling.postBody}>

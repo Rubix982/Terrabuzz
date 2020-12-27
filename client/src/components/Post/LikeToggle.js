@@ -4,6 +4,7 @@ import { postContext } from './PostContext';
 import API from '../../API/API';
 import { countTotalLikes } from '../../services/post';
 import ComponentStyling from '../../style/Post/LikeToggle.module.css';
+import postLikeNotify from '../../services/likeNotify.js';
 
 const LikeToggle = () => {
   const { post, like } = useContext(postContext);
@@ -11,13 +12,22 @@ const LikeToggle = () => {
   
   return(
     <div onClick={async () => {
-      try {    
+      try {
+        const notificationSchemaForm = {
+          action: 'like',
+          timestamp: new Date(),
+          postID: id,
+          by: '',
+          profilePicture: '',
+          for: post.state.handle,
+        }
+        
         const { status } = await API.postRequest(`${process.env.REACT_APP_API_URL}/like/${id}`);
         like.setter(status); 
       } catch (error) {
         alert(error.message);
       }
-    }} className={ like.state ? `${ComponentStyling.likeToggle} ${ComponentStyling.active}` : ComponentStyling.likeToggle}>
+    }} className={ like.state ? `${ComponentStyling.likeToggle} ${ComponentStyling.active}` : `${ComponentStyling.notActive} ${ComponentStyling.likeToggle}`}>
      <h1>{countTotalLikes(post.state.likes)} Likes</h1>
     </div>
   );

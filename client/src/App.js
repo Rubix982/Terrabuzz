@@ -21,7 +21,7 @@ import Contact from './pages/Contact';
 import FirstLogin from './pages/FirstLogin';
 import PrivacyPolicy from './pages/privacyPolicy';
 import Notification from './pages/Notification';
-import {UserProvider} from './components/userDataContext'
+import UserProvider from './components/userDataContext'
 import LoginUserProvider from './components/LoginUserContext';
 
 function App() {
