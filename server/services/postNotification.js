@@ -1,7 +1,7 @@
 const { Notification, NotificationList } = require('../models/notification.js');
 const mysql = require('../db/mysql/connection.js');
 
-const postCommentNotificationToDatabase = async (__notificationSchemaForm, __userHandle) => {
+const postNotification = async (__notificationSchemaForm, __userHandle) => {
   try {
     const query = `SELECT ProfilePicture FROM TERRABUZZ.UserInformation WHERE Handle=${__userHandle}`;
     const result = await mysql.connection.query(query);
@@ -25,4 +25,4 @@ const postCommentNotificationToDatabase = async (__notificationSchemaForm, __use
   }
 };
 
-module.exports.postCommentNotificationToDatabase = postCommentNotificationToDatabase;
+module.exports.postNotification = postNotification;
