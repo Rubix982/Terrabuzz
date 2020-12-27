@@ -31,6 +31,7 @@
 .postBody {
   display: grid;
   grid-template-rows: 40% 60%;
+  grid-template-columns: 70% 30%;
 }
 
 .postTitle {
@@ -78,4 +79,17 @@
   color: #9f9f9f;
   font-size: 24px;
   font-weight: lighter;
+}
+
+.PostedIn {
+  font-family: Cairo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.5);
 }

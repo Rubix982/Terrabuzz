@@ -3,7 +3,7 @@ import ComponentStyling from '../../style/NewsFeed/Post.module.css';
 import { CenterAlign } from '../FlexAlignment';
 
 const Post = ({
-  handle, username, profilePicture, date, content, likeCount, commentCount
+  handle, username, profilePicture, date, content, likeCount, commentCount, interest
 }) => (
   <div className={ComponentStyling.entry}>
     <div className={ComponentStyling.main}>
@@ -17,6 +17,7 @@ const Post = ({
           <h1>{username} | @{handle}</h1>
           <h2>{date}</h2>
         </div>
+        <div className={ComponentStyling.PostedIn}>in #{interest}</div>
         <div className={ComponentStyling.postText}>
           <p>
             {content}
