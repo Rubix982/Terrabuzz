@@ -10,7 +10,7 @@ Router.get('/feed', authorizeUser, indexContoller.getUserFeed);
 Router.get('/profile/:handle', forwardUnAuthorizedUser, indexContoller.getUserProfile);
 Router.get('/post/:id', indexContoller.getPost);
 Router.get('/like/:id', authorizeUser, indexContoller.getLike);
-Router.get('/follow/:handle', authorizeUser, indexContoller.getFollow);
+Router.get('/follow/:handle', forwardUnAuthorizedUser, indexContoller.getFollow);
 Router.get('/search-interest', authorizeUser, indexContoller.searchInterest);
 Router.get('/search-user', authorizeUser, indexContoller.searchUser);
 Router.get('/settings', authorizeUser, indexContoller.getSettings);
