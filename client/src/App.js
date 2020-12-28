@@ -26,8 +26,6 @@ import UserProvider from './components/userDataContext'
 import LoginUserProvider from './components/LoginUserContext';
 
 function App() {
-  let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
-  let isFirstLogin = (localStorage.getItem('firstLogin') === ' true') ? true : false;
   return (
     <>
       <LoginUserProvider>
@@ -35,19 +33,19 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/">
-                {loggedIn ? <Feed /> : <Home />}
+                <Home />
               </Route>
               <Route exact path="/feed" >
-                {isFirstLogin ? <FirstLogin /> : <Feed />}
+                <Feed />
               </Route>
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path='/notification' component={Notification} />
               <Route exact path="/privacy" component={PrivacyPolicy} />
               <Route exact path="/publish">
-                {loggedIn ? <Publish /> : <Home />}
+                <Publish />
               </Route>
               <Route exact path="/first" >
-                {isFirstLogin ? <FirstLogin /> : <Feed />}
+                <FirstLogin />
               </Route>
               <Route exact path="/about" component={AboutUs} />
               <Route exact path="/contact" component={Contact} />
@@ -59,7 +57,7 @@ function App() {
               <Route exact path="/post/:id" component={Post} />
               <Route exact path="/verify/:hash" component={Verify}  />
               <Route exact path="/login">
-                {loggedIn ? <Feed /> : <Login />}
+                <Login />
               </Route>
               <Route exact path="/register" component={Register} />
               <Route exact path="/forgetPassword" component={ForgetPassword} />
