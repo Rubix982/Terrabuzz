@@ -33,7 +33,9 @@ const MainContent = () => {
   return (
     <div className="settings-page-grid">
       <div className="settings-sidebar">
-        <input type="button" className="previous-button" value="Previous" />
+        <a href="/feed">
+          <input type="button" className="previous-button" value="Previous" />
+        </a>
 
         <div className="settings-sidebar-controls-grid">
           <div>
