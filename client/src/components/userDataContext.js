@@ -5,25 +5,25 @@ import { loginUserContext } from './LoginUserContext';
 export const userContext = createContext();
 
 const UserProvider = (props) => {
-
+    const { login } = useContext(loginUserContext);
     const [userName, setUserName] = useState('');
     const [imageSource, setImageSource] = useState('');
     const [userHandle, setUserHandle] = useState('');
-    let loggedIn = (localStorage.getItem('loggedIn') === 'true') ? true : false;
+    const [loading, setLoading] = useState(false);
 
     useEffect(async () => {
-        if (loggedIn) {
-            try {
-                const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/navbar`);
-                setUserHandle(response.Handle);
-                setUserName(response.Username);
-                setImageSource('/assets/img/profile_pictures/' + response.ProfilePicture);
-                return setImageSource;
-            } catch (error) {
-                throw new Error(error.message);
-            }
+      if (login.state) {
+        try {
+          const response = await API.getRequest(`${process.env.REACT_APP_API_URL}/navbar`);
+          setUserHandle(response.Handle);
+          setUserName(response.Username);
+          setImageSource('/assets/img/profile_pictures/' + response.ProfilePicture);
+          return setImageSource;
+        } catch (error) {
+          alert(error.message);
         }
-    }, []);
+      }
+    }, [login.state]);
 
     return (
         <userContext.Provider value={{

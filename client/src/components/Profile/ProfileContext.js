@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import API from '../../API/API';
 
@@ -8,6 +9,7 @@ const ProfileProvider = ({ children }) => {
   const profileData = useState({});
   const followState = useState(false);
   const loadingState = useState(true);
+  const history = useHistory();
   const { handle } = useParams();
 
   useEffect(async () => {
@@ -21,7 +23,8 @@ const ProfileProvider = ({ children }) => {
       (followState[1])(status);
       (loadingState[1])(false);
     } catch (error) {
-      alert('No user exists with the given handle')
+      alert('No user exists with the given handle');
+      history.push('/feed');
     }
   }, [])
 

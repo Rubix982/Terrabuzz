@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import ComponentStyling from '../../style/FirstLogin/MainContent.module.css';
 import { sendFirstLoginToBackend } from '../../services/first.js';
+import { loginUserContext } from '../LoginUserContext';
 
 const MainContent = () => {
-
+  const { firstLogin } = useContext(loginUserContext);
   const booleanList = [false, false, false, false,
     false, false, false, false,
     false, false, false, false, false,
@@ -64,7 +65,7 @@ const MainContent = () => {
         location: locationState
       });
       alert('Sucessfully filled the form!')
-      localStorage.setItem('firstLogin', 'false')
+      firstLogin.setter(false);
     } catch (error) {
       alert(`Unable to submit form due to error "${error.message}"`)
     }

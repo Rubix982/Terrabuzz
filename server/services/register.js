@@ -2,7 +2,6 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mysql = require('../db/mysql/connection.js');
 const { PostList } = require('../models/post.js');
-const { NotificationList } = require('../models/notification.js');
 const { ValidationSet } = require('../models/valdation.js');
 const { GmailMailer } = require('./gmailAuth.js');
 const { HTMLResetPasswordForm } = require('./template.js');
@@ -35,11 +34,7 @@ const postUserCredentialsInDatabase = async (__registerForm) => {
         payload: [],
       });
       await userPostList.save();
-      const notificationList = new NotificationList({
-        _id: __registerForm.userhandler,
-        payload: [],
-      });
-      await notificationList.save();
+
       const verificationHash = crypto.randomBytes(50).toString('hex');
       const validationSet = new ValidationSet({
         _id: __registerForm.userhandler,

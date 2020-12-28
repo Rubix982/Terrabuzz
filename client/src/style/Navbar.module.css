@@ -48,7 +48,7 @@
 }
 
 .searchBox input {
-  height: 94%;
+  height: 92%;
   width: 100%;
   background-image: url("../../src/assets/img/icon/Search.svg");
   background-repeat: no-repeat;
@@ -87,6 +87,7 @@
 }
 
 .active {
+  background-color: black;
   transition: 0.3s;
 }
 
