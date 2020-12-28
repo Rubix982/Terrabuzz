@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { loginUser } from '../../services/login'
 import ComponentStyling from '../../style/Login/MainContent.module.css';
+import { loginUserContext } from '../LoginUserContext';
 
 const MainContent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+  const { login, firstLogin, verified } = useContext(loginUserContext);
 
   return (
     <div className={ComponentStyling.content}>
@@ -35,9 +37,10 @@ const MainContent = () => {
         <input onClick={async () => {
           try {
             const { verificationStatus, firstLoginStatus } = await loginUser(email, password);
-            localStorage.setItem('loggedIn', true);
-            localStorage.setItem('firstLogin', firstLoginStatus);
             setTimeout(() => {
+              login.setter(true);
+              firstLogin.setter(firstLoginStatus);
+              verified.setter(verificationStatus);
               history.push('/feed');
             }, 3000);
           } catch (error) {

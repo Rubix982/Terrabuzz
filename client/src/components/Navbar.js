@@ -9,6 +9,7 @@ import Logo from '../assets/img/icon/Logo.svg';
 import { RightAlign } from './FlexAlignment';
 import SearchBar from './SearchBar';
 import { userContext } from './userDataContext';
+import { loginUserContext } from './LoginUserContext';
 
 // Service
 import { logMeOutService } from '../services/logout.js';
@@ -17,6 +18,7 @@ import { logMeOutService } from '../services/logout.js';
 import ComponentStyling from '../style/Navbar.module.css';
 
 const Navbar = () => {
+  const { login, firstLogin, verified } = useContext(loginUserContext);
 
   const history = useHistory();
   const userData = useContext(userContext);
@@ -25,8 +27,7 @@ const Navbar = () => {
     try {
       await logMeOutService();
       setTimeout(() => {
-        localStorage.removeItem('loggedIn');
-        localStorage.removeItem('firstLogin');
+        login.setter(false);
         history.push('/login');
       }, 2000);
     } catch (error) {
