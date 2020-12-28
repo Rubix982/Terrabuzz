@@ -7,6 +7,7 @@ const postUserInformationForBio = async (__handler, __userInformationBlob) => {
   let result; let
     query;
   try {
+    console.log(`handler is ${__handler}`);
     result = await ValidationSet.findById(__handler);
     result.isFirstLogin = false;
 

@@ -21,7 +21,7 @@ const ContentLike = ({ content }) => {
     <div className={ComponentStyling.content}>
       {data.map((element) => {
         return (
-          <SingleNotifLike key={element._id} profilePicture={element.profilePicture} userHandle={element.for} post={element.post} />
+          <SingleNotifLike key={element._id} profilePicture={element.profilePicture} userHandle={element.by} post={element.post} />
         )
       })}
     </div>

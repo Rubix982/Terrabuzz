@@ -31,7 +31,7 @@ const Navbar = () => {
         history.push('/login');
       }, 2000);
     } catch (error) {
-      alert(`Unable to log out, due to error "${error.message}"`)
+      // alert(`Unable to log out, due to error "${error.message}"`)
     }
   }
 

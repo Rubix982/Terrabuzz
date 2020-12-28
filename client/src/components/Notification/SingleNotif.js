@@ -41,7 +41,7 @@ const SingleNotifLike = ({ profilePicture, userHandle, post }) => (
         <div className={SingleNotifStyling.postBody}>
           <div className={SingleNotifStyling.postText}>
             <p>
-              <span className={SingleNotifStyling.UserNameHandle}>{userHandle} </span>
+              <span className={SingleNotifStyling.UserNameHandle}>@{userHandle} </span>
             liked your post!
           </p>
           </div>

@@ -1,24 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { CenterAlign } from '../FlexAlignment';
 import Logo from '../../assets/img/icon/Logo.svg';
 import ComponentStyling from '../../style/Error/MainContent.module.css';
 import { verifyUser } from '../../services/verify';
+import { loginUserContext } from '../LoginUserContext';
 
 const MainContent = () => {
   const { hash } = useParams();
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const { verified } = useContext(loginUserContext)
+  const history = useHistory();
 
   useEffect(async () => {
     try {
       const status = await verifyUser(hash);
       setLoading(!status);
+      verified.setter(true);
+      history.push('/feed')
     } catch (error) {
       alert(error.message);
     }
   }, [])
 
-  if(loading) {
+  if (loading) {
     return (
       <>
       </>

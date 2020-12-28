@@ -4,7 +4,7 @@ export const loginUserContext = createContext();
 
 const LoginUserProvider = ({ children }) => {
   const loginState = useState((localStorage.getItem('loggedIn') === 'true') ? true : false);
-  const firstLoginState = useState((localStorage.getItem('loggedIn') === 'true') ? true : false);
+  const firstLoginState = useState((localStorage.getItem('firstLogin') === 'true') ? true : false);
   const verifiedState = useState((localStorage.getItem('verified') === 'true') ? true : false);
 
   useEffect(() => {

@@ -5,9 +5,15 @@ import { loginUserContext } from '../components/LoginUserContext';
 // the div is for navbar
 import Navbar from '../components/Navbar';
 import Home from './home';
+import FirstLogin from './FirstLogin';
+import Verify from './Verify';
 
 const Feed = () => {
-  const { login } = useContext(loginUserContext);
+  const { login, firstLogin, verified } = useContext(loginUserContext);
+  
+  if (firstLogin.state) {
+    return (<FirstLogin />);
+  }
   
   if (login.state) {
     return (
@@ -18,7 +24,7 @@ const Feed = () => {
           gridTemplateRows: '10% 90%',
         }}
       >
-        <Navbar first_name="Tashik" title="Terrabuzz" />
+        <Navbar/>
         <MainContent />
       </Container>
     )
