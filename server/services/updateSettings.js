@@ -11,9 +11,20 @@ const updateSettingsInDatabase = async (__updateForm, __handle) => {
   try {
     if (__updateForm.Password === __updateForm.CPassword) {
       const passwordQuery = `SELECT Password FROM TERRABUZZ.UserInformation WHERE Handle='${__handle}';`;
-      const [queryPassword] = await mysql.connection.query(passwordQuery);
-      const [data] = queryPassword;
-      const isMatched = await bcrypt.compare(data.Password, __updateForm.Password);
+      let queryPassword;
+      let isMatched;
+      try {
+        [[queryPassword]] = await mysql.connection.query(passwordQuery);
+      } catch (error) {
+        throw new Error(`MySQL unable to run to fetch password, due to "${error.message}"`);
+      }
+      const databaseHashedPassword = queryPassword;
+
+      try {
+        isMatched = await bcrypt.compare(__updateForm.Password, databaseHashedPassword.Password);
+      } catch (error) {
+        throw new Error('Password Is Incorrect');
+      }
       if (isMatched) {
         const updateQuery = `UPDATE TERRABUZZ.UserInformation 
         SET Email = '${__updateForm.Email}', 
