@@ -13,7 +13,7 @@ const updateSettingsInDatabase = async (__updateForm, __handle) => {
       const passwordQuery = `SELECT Password FROM TERRABUZZ.UserInformation WHERE Handle='${__handle}';`;
       const [queryPassword] = await mysql.connection.query(passwordQuery);
       const [data] = queryPassword;
-      const isMatched = bcrypt.compare(data.Password, __updateForm.Password);
+      const isMatched = await bcrypt.compare(data.Password, __updateForm.Password);
       if (isMatched) {
         const updateQuery = `UPDATE TERRABUZZ.UserInformation 
         SET Email = '${__updateForm.Email}', 
