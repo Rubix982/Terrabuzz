@@ -309,14 +309,14 @@ Email,
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Rubix982/ASP.NET-ReactJS-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/Rubix982/ASP.NET-ReactJS-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Rubix982/ASP.NET-ReactJS-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/Rubix982/ASP.NET-ReactJS-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/Rubix982/ASP.NET-ReactJS-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/Rubix982/ASP.NET-ReactJS-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Rubix982/ASP.NET-ReactJS-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/Rubix982/ASP.NET-ReactJS-Template/issues
+[contributors-shield]: https://img.shields.io/github/contributors/Rubix982/Terrabuzz.svg?style=for-the-badge
+[contributors-url]: https://github.com/Rubix982/Terrabuzz/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Rubix982/Terrabuzz.svg?style=for-the-badge
+[forks-url]: https://github.com/Rubix982/Terrabuzz/network/members
+[stars-shield]: https://img.shields.io/github/stars/Rubix982/Terrabuzz.svg?style=for-the-badge
+[stars-url]: https://github.com/Rubix982/Terrabuzz/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Rubix982/Terrabuzz.svg?style=for-the-badge
+[issues-url]: https://github.com/Rubix982/Terrabuzz/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url-rubix982]: https://www.linkedin.com/in/saif-ul-islam-93786b187/
 [linkedin-url-Hassanzhd]: https://www.linkedin.com/in/muhammad-hassan-zahid-b110971b6/
