@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(cookieParser());
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(cors({ origin: "http://20.216.2.218/", credentials: true }));
 app.use('/', indexRouter);
 app.use(middleware.notFound);
 app.use(middleware.onError);
