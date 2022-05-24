@@ -43,7 +43,6 @@ const forgetPasswordUpdation = async (__email) => {
         emailData.buttonText,
       ),
     );
-    await mail.send();
   } catch (error) {
     throw new Error(`Unable to send a reset email. Encountered error "${error.message}"`);
   }

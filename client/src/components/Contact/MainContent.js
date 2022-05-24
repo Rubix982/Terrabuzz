@@ -38,19 +38,19 @@ const MainContent = () => {
                   )
                 </li>
                 <li>
-                  Muhammad Hassan Zahid (
+                  Muhammad Ahmed (
                   {' '}
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hassanzhd2000@gmail.com">
-                    hassanzhd2000@gmail.com
+                    MuhammadAhmed3210@gmail.com
                   </a>
                   {' '}
                   )
                 </li>
                 <li>
-                  Saif Ul Islam (
+                  Sajjad (
                   {' '}
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=saifulislam84210@gmail.com">
-                    saifulislam84210@gmail.com
+                    sajjubaba@gmail.com
                   </a>
                   {' '}
                   )

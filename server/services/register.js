@@ -52,7 +52,7 @@ const postUserCredentialsInDatabase = async (__registerForm) => {
           emailData.buttonText,
         ),
       );
-      await mail.send();
+      // await mail.send();
     } catch (error) {
       throw new Error(error.message);
     }
